@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/login/login",
+
+
+    "pages/demand/category/category",
+    "pages/demand/subcategory/subcategory",
+    "pages/demand/applyForm/applyForm",
+
+    "pages/shop/list/list",
+    "pages/shop/detail/detail",
+
+    "pages/order/center/center",
+    "pages/order/compete/compete",
+    "pages/order/list/list",
+    "pages/order/detail/detail",
+    "pages/order/score/score",
+
+    "pages/personal/index/index", 
+    "pages/personal/user/index/index", 
+    "pages/personal/master/index/index",
+    "pages/personal/master/identity/identity",
+    "pages/personal/businessman/index/index",
+    "pages/personal/businessman/identity/identity",
+    "pages/personal/message/message",
+    "pages/personal/wallet/wallet"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "本应用需要获取你的位置信息，希望能更好地为你服务"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<view class="personal-header">
+	<!-- <image src="/image/banner.jpg" mode="scaleToFill" class="banner"></image> -->
+	<view class="personal-mes">
+		<image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+		<view>
+			<view class="personal-name">CiCi</view>
+			<view>欢迎你～</view>
+		</view>
+	</view>
+	<view class="identity-list">
+		<block wx:for="{{navList}}" wx:key="index">
+			<navigator wx:if="{{index != currentIdx}}" url="{{item.url}}" class="single" open-type="reLaunch">{{item.text}}</navigator>
+			<view wx:else class="single active">
+				<image src="{{item.icon}}" class="icon"/>
+				<text>{{item.text}}</text>
+			</view>
+		</block>
+	</view>
+</view>

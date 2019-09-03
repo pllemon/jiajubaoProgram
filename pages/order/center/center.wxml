@@ -1,0 +1,73 @@
+<view class="container">
+  <search></search>
+
+  <view class="filter-tab">
+    <view data-idx="0" bindtap="chooseTab">
+      <text>全部类目</text>
+      <image src="/image/icon/down.png"/>
+    </view>
+    <view data-idx="1" bindtap="chooseTab">
+      <text>水口镇网点</text>
+      <image src="/image/icon/down.png"/>
+    </view>
+    <view data-idx="2" bindtap="chooseTab">
+      <text>默认排序</text>
+      <image src="/image/icon/sort.png"/>
+    </view>
+  </view>
+  <view class="filter-content" hidden="{{tabIndex == -1}}">
+    <view class="filter-bg" catchtouchmove="return" bindtap="closeFilter"></view>
+    <view class="filter-list" hidden="{{tabIndex != 0}}">
+      <view class="category-list">
+        <view class="section">
+          <block wx:for="{{categoryList}}" wx:key="index">
+            <text wx:key="index" class="{{index == categoryIdx ?'active':''}}" data-idx="{{index}}" bindtap="chooseThis">{{item.text}}</text>
+          </block>
+        </view>
+        <view class="section">
+          <block wx:for="{{subcategory}}" wx:key="index">
+            <text>{{item}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="filter-list" hidden="{{tabIndex != 1}}">
+      <text>水口镇网点1</text>
+      <text>水口镇网点2</text>
+    </view>
+    <view class="filter-list" hidden="{{tabIndex != 2}}">
+      <text>最新发布</text>
+      <text>距离最近</text>
+    </view>
+  </view>
+
+  <view class="order-list" style="margin-top: 200rpx;">
+    <block wx:for="[1,2,3,4]" wx:key="index">
+      <navigator class="order-card" url="../compete/compete">
+        <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image>
+        <view class="order-message flex1">
+          <view class="title">安装工匠-家用电器</view>
+          <view>
+            <image class="icon" src="/image/icon/icon_GPS.png"/>
+            <text>广东江门开平镇江大厦隔壁小区7栋402</text>
+          </view>
+          <view>
+            <image class="icon" src="/image/icon/icon_calendar.png"/>
+            <text>2012-12-30 12:00</text>
+          </view>
+          <view>
+            <image class="icon" src="/image/icon/icon_community_line.png"/>
+            <text>无备注</text>
+          </view>
+          <view class="sign-info flex-center-between">
+            <view>
+              <image src="/image/example/peo.jpg"></image>
+              <text>等12人已报名</text>
+            </view>
+            <text>预计收入 <text class="money">¥100</text></text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

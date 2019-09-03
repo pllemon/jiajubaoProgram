@@ -1,0 +1,30 @@
+<view class="container">
+  <!-- 我的信息 -->
+  <personalHeader current-idx="0"></personalHeader>
+
+  <!-- 我的订单 -->
+  <view class="action-content">
+    <navigator url="" class="single flex-start-between">
+      <view class="flexBase flex1">
+        <image src="/image/icon_dispose.png" mode="aspectFit"></image>
+        <text>我的订单</text>
+      </view>
+      <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
+    </navigator>
+  </view>
+
+  <!-- 操作列表 -->
+  <view class="action-list">
+    <block wx:for="{{actionList}}" wx:key="index">
+      <navigator url="{{item.url}}" class="single flex-start-between">
+        <view class="flexBase flex1">
+          <image src="{{item.img}}" mode="aspectFit"></image>
+          <text>{{item.text}}</text>
+        </view>
+        <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
+      </navigator>
+    </block>
+  </view>
+
+  <navigation current-idx="1"></navigation>
+</view>

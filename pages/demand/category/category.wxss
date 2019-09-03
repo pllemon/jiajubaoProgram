@@ -1,0 +1,37 @@
+page{
+  background: #fff;
+}
+
+.category-list{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200rpx;
+  height: 100%;
+  background: #f2f2f2;
+}
+.category-list image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+}
+.category-list view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+}
+.category-list view.active{
+  background: #fff;
+  border-left: 4px solid #4c5ce3;
+}
+
+.subcategory-list{
+  padding-left: 200rpx;
+}
+.subcategory-list navigator{
+  padding: 30rpx;
+  border-bottom: 1px dotted #f2f2f2;
+  padding-left: 60rpx;
+}

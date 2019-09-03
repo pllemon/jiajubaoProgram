@@ -1,0 +1,38 @@
+<view class="container personal">
+  <!-- 我的信息 -->
+  <personalHeader current-idx="0"></personalHeader>
+
+  <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
+  <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
+
+  <!-- 我的订单 -->
+  <view class="order-content">
+    <navigator url="/pages/order/list/list" class="single flex-start-between">
+      <view class="flex-center-start flex1">
+        <image src="/image/icon/icon_affiliations_li.svg" mode="aspectFit"></image>
+        <text>我的订单</text>
+      </view>
+      <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
+    </navigator>
+    <view class="order-status">
+      <view><text class="num">5</text><text>待审核</text></view>
+      <view><text class="num">20</text><text>进行中</text></view>
+      <view><text class="num">7</text><text>已完成</text></view>
+    </view>
+  </view>
+
+  <!-- 操作列表 -->
+  <view class="action-list">
+    <block wx:for="{{actionList}}" wx:key="index">
+      <navigator url="{{item.url}}" class="single flex-start-between">
+        <view class="flex-center-start flex1">
+          <image src="{{item.img}}" mode="aspectFit"></image>
+          <text>{{item.text}}</text>
+        </view>
+        <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
+      </navigator>
+    </block>
+  </view>
+
+  <navigation current-idx="2"></navigation>
+</view>

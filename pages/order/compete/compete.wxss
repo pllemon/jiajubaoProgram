@@ -1,0 +1,14 @@
+.sign-single{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 30rpx;
+    border-bottom: 1px solid #f2f2f2;
+}
+.sign-single image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background: #ddd;
+    margin-right: 20rpx;
+}

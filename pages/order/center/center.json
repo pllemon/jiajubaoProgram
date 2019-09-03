@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "抢单中心",
+	"usingComponents": {
+	    "navigation": "/components/navigation/navigation",
+	    "search": "/components/search/search"
+	}
+}

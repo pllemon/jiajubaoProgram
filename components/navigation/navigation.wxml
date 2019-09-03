@@ -1,0 +1,20 @@
+<view class="place"></view>
+<view class="navigation">
+	<navigator url="/pages/index/index" open-type="reLaunch" class="nav-single {{currentIdx==0?'active':''}}">
+		<image src="/image/icon/icon_square.svg" mode="aspectFit"></image>
+		<image src="/image/icon/icon_square_active.svg" mode="aspectFit"></image>
+		<text>首页</text>
+	</navigator>
+	<view class="nav-single {{currentIdx==1?'active':''}}">
+		<navigator url="/pages/shop/list/list" open-type="reLaunch" class="nav-circle">
+			<image src="/image/icon/shop.svg" mode="aspectFit"></image>
+			<image src="/image/icon/shop.svg" mode="aspectFit"></image>
+			<text>商家</text>
+		</navigator>
+	</view>
+	<navigator url="/pages/personal/index/index" open-type="reLaunch" class="nav-single {{currentIdx==2?'active':''}}">
+		<image src="/image/icon/icon_patriarch.svg" mode="aspectFit"></image>
+		<image src="/image/icon/icon_patriarch_active.svg" mode="aspectFit"></image>
+		<text>我的</text>
+	</navigator>
+</view>

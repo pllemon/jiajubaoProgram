@@ -1,0 +1,6 @@
+<view class="container">
+  <!-- 我的信息 -->
+  <personalHeader current-idx="2"></personalHeader>
+
+  <navigation current-idx="4"></navigation>
+</view>

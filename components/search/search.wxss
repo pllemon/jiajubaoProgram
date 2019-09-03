@@ -1,0 +1,27 @@
+.search{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: -webkit-linear-gradient(left, #7889f1, #4d5ef4);
+	display: flex;
+	align-items: center;
+	padding: 20rpx;
+	box-sizing: border-box;
+	height: 100rpx;
+	z-index: 22;
+}
+input{
+	flex: 1;
+	background: #fff;
+	height: 70rpx;
+	line-height: 70rpx;
+	border-radius: 40rpx;
+	padding: 0 40rpx;
+}
+.icon{
+	width: 60rpx;
+	height: 60rpx;
+	flex-shrink: 0;
+	margin-left: 20rpx;
+}

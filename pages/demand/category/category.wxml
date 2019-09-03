@@ -1,0 +1,13 @@
+<view>
+  <view class="category-list">
+    <view wx:for="{{categoryList}}" wx:key="index" class="{{index == acitveIdx ?'active':''}}" data-idx="{{index}}" bindtap="chooseThis">
+      <image src="{{item.icon}}" />
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+  <view class="subcategory-list">
+    <navigator  wx:for="{{subcategory}}" wx:key="index" url="../applyForm/applyForm?type={{acitveIdx}}&type1={{index}}">
+      <text>{{item}}</text>
+    </navigator>
+  </view>
+</view>

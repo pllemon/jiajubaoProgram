@@ -1,0 +1,28 @@
+<view class="flex-column app-wrap">
+  <view class="flex-center-between">
+    <view>开平市</view>
+    <view>222</view>
+  </view>
+
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="id">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="nav-list flex1">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="nav-type">
+        <navigator url="{{item.url}}" class="flex-column-center">
+          <image src="{{item.icon}}"/>
+          <view>{{item.text}}</view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+
+  <navigation current-idx="0"></navigation>
+</view>

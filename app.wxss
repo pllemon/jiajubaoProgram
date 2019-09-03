@@ -1,0 +1,241 @@
+page{
+    background: #f2f2f2;
+    color: #434343;
+    font-size: 34rpx;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+image{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+view{
+    box-sizing: border-box;
+}
+
+.subtitle{
+    padding: 30rpx;
+}
+
+.icon{
+    width: 36rpx;
+    height: 36rpx;
+}
+
+/* label */
+.label{
+    display: inline-block;
+    font-size: 28rpx;
+    padding: 2rpx 10rpx;
+    border-radius: 4rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+.label-green{
+    background: #e3f8f1;
+    color: #5f9186;
+}
+.label-orange{
+    background: #fcf1d5;
+    color: #d4c199;
+}
+
+
+
+/* 按钮 */
+.btn{
+    border-radius: 10rpx;
+    display: inline-block;
+}
+.btn.mini{
+    padding: 4rpx 10rpx;
+}
+.btn-default{
+    border: 1px solid #4c5ce3;
+    color: #4c5ce3;
+}
+
+/* 表单 */
+.form-item{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0 30rpx;
+    background: #fff;
+}
+.form-item label{
+    line-height: 100rpx;
+}
+.form-item .form-content{
+    width: 480rpx;
+}
+.form-item input, .form-item textarea{
+    text-align: right;
+    padding: 10rpx 0;
+    width: 480rpx;
+}
+.form-item input{
+    height: 100rpx;
+    padding: 0;
+}
+.form-item textarea{
+    min-height: 300rpx;
+    padding-top: 20rpx;
+}
+
+
+/* flex布局 */
+.flex-center-start{
+    display: flex;
+    align-items: center;
+}
+.flex-start-between{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.flex-center-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flex1{
+    flex: 1;
+}
+
+/* 订单卡片 */
+.order-list .order-card{
+    margin-bottom: 20rpx;
+}
+.order-card{
+    background: #fff;
+    padding: 30rpx;
+    font-size: 34rpx;
+    position: relative;
+    line-height: 1.8;
+    color: #666;
+}
+.order-card .title{
+    font-size: 38rpx;
+    color: #191919;
+}
+.order-card .order-img{
+    background: #aaa;
+    width: 100%;
+    height: 300rpx;
+    margin-bottom: 20rpx;
+}
+.order-card .order-message view{
+    display: flex;
+    align-items: center;
+}
+.order-card .icon{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+.order-card .order-message view .text{
+    flex: 1;
+}
+.order-card .sign-info{
+    display: flex;
+    align-items: center;
+}
+.order-card .sign-info image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+.order-card .sign-info .money{
+    color: #4c5ce3;
+    font-size: 42rpx;
+}
+.order-card .main-btn{
+    width: 100%;
+    margin: 30rpx 0;
+}
+
+/* 头部筛选tab */
+.filter-tab{
+    position: fixed;
+    top: 100rpx;
+    left: 0;
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    z-index: 30;
+    display: flex;
+}
+.filter-tab view{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filter-tab view text{
+    margin-right: 6rpx;
+    font-size: 32rpx;
+}
+.filter-tab image{
+    width: 34rpx;
+    height: 34rpx;
+}
+
+
+.single{
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+}
+.pad30{
+    padding: 30rpx;
+}
+
+.main-btn{
+    margin: 60rpx 30rpx;
+    color: #fff;
+    background: -webkit-linear-gradient(45deg, #7889f1, #4d5ef4);
+    border-radius: 50rpx;
+}
+
+
+swiper{
+    height: 400rpx;
+}
+.slide-image{
+    width: 100%;
+    height: 400rpx;
+}
+
+
+/* 个人页 */
+.personal .order-status{
+    display: flex;
+    margin-bottom: 30rpx;
+    background: #fff;
+}
+.personal .order-status view{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26rpx;
+    padding: 20rpx 0;
+}
+.personal .order-status .num{
+    font-size: 45rpx;
+    margin-bottom: 10rpx;
+}
+/* _____ */

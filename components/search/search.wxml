@@ -1,0 +1,4 @@
+<view class="search">
+	<input></input>
+	<image src="/image/icon/icon_search.svg" mode="scaleToFill" class="icon"></image>
+</view>

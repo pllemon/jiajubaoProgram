@@ -1,0 +1,18 @@
+.shop-img{
+  display: flex;
+}
+.shop-img image{
+  width: 50%;
+  height: 240rpx;
+}
+
+.single{
+  line-height: 1.8;
+  margin-bottom: 20rpx;
+}
+.single .icon{
+  margin-right: 10rpx;
+}
+.single .shop-name{
+  font-size: 36rpx;
+}
