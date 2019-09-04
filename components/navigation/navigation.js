@@ -1,7 +1,11 @@
 var app = getApp();
 Component({
   properties: {
-  	currentIdx: Number, // 当前激活序号
+	  currentIdx: Number, // 当前激活序号
+	  place: {
+		type: Boolean,
+		value: true
+	  }
   },
   data: {
 	  navList: [

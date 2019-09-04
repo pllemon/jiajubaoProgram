@@ -8,36 +8,36 @@ Page({
     isLoadMore: false
   },
 
-  onRefresh(e) {
-    console.log(e)
-
-    this.setData({
-      list: [],
-      page: 1,
-      isRefresh: true
-    })
-
-    this.setData({
-      list: [1,2,3,4,5,6,7],
-      page: 1,
-      isRefresh: false
-    })
+  onRefresh() {
+    if (!this.data.isRefresh) {
+      this.setData({
+        isRefresh: true
+      })
+      setTimeout( () => {
+        this.setData({
+          list: [1,2,3,4,5,6,7],
+          page: 1,
+          isRefresh: false
+        })
+      }, 5000)
+    }
   },
 
-  onLoadMore(e) {
-    console.log(e)
-
-    let page = this.data.page ++;
-    this.setData({
-      page,
-      isLoadMore: true
-    })
-
-    let data = [3,2,1,2,3];
-    let list = this.data.list.concat(data);
-    this.setData({
-      list,
-      isLoadMore: false
-    })
+  onLoadMore() {
+    if (!this.data.isLoadMore) {
+      let page = this.data.page ++;
+      this.setData({
+        page,
+        isLoadMore: true
+      })
+      setTimeout( () => {
+        let data = [3,2,1,2,3];
+        let list = this.data.list.concat(data);
+        this.setData({
+          list,
+          isLoadMore: false
+        })
+      }, 5000)
+    }
   }
 })

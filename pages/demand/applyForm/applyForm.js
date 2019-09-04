@@ -4,7 +4,12 @@ Page({
     imgArr: [],
     addressInfo: null,
     date: '请选择',
-    time: '请选择'
+    time: '请选择',
+
+    showDate: false,
+    minDate: new Date().getTime(),
+    maxDate: new Date(2019, 10, 1).getTime(),
+    currentDate: new Date().getTime()
   },
 
   onLoad () {

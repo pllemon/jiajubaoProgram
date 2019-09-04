@@ -48,5 +48,19 @@
         </view>
     </view>
 
+    <van-popup
+        show="{{ showDate }}"
+        position="bottom"
+        bind:close="onClose"
+    >
+        <van-datetime-picker
+            type="datetime"
+            value="{{ currentDate }}"
+            min-date="{{ minDate }}"
+            max-date="{{ maxDate }}"
+            bind:input="onInput"
+        />
+    </van-popup>
+
     <button form-type="submit" class="main-btn">提交</button>
 </form>

@@ -4,7 +4,7 @@ Page({
   data: {
     type: '人员类型',
     message: {
-      1: {
+      0: {
         text: '我是用户',
         icon: '/image/icon/vip.svg',
         order: [],
@@ -46,13 +46,13 @@ Page({
           }
         ]
       },
-      2: {
+      1: {
         text: '我是师傅',
         icon: '/image/icon/master.svg',
         order: [],
         action: []
       },
-      3: {
+      2: {
         text: '我是商家',
         icon: '/image/icon/business.svg',
         order: [],
@@ -64,8 +64,10 @@ Page({
   },
 
   onLoad(params) {
+    let type = params.type || 0;
     this.setData({
-      type: params.type
+      currType: type,
+      currMessage: this.data.message[type]
     })
   },
 

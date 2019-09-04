@@ -1,28 +1,28 @@
 var app = getApp();
 Component({
   properties: {
-  	myProperty: { 
-      type: String,
-      value: ''
+  	isRefresh: { 
+      type: Boolean,
+      value: false
+    },
+    isLoadMore: { 
+      type: Boolean,
+      value: false
     }
   },
   data: {
-    isRefresh: false,
-    isLoadMore: false,
-    refreshText: '111',
-	  loadText: '222'
+    refreshText: '更新数据',
+	  loadText: '加载更多'
   },
   methods: {
     refresh() {
-      console.log(1111)
       this.triggerEvent('refresh')
     },
     loadMore() {
-      console.log(222)
       this.triggerEvent('loadMore')
     },
-    scroll() {
-      console.log(333)
+    scroll(e) {
+      
     }
   }
 })

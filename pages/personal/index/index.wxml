@@ -10,7 +10,7 @@
     </view>
     <view class="identity-list">
       <block wx:for="{{message}}" wx:key="index">
-        <view class="single {{index == currType ? 'active' : ''}}" data-idx="index" bindtap="changeType">
+        <view class="identity-single {{index == currType ? 'active' : ''}}" data-idx="{{index}}" bindtap="changeType">
           <image src="{{item.icon}}" class="icon"/>
           <text>{{item.text}}</text>
         </view>
@@ -34,6 +34,14 @@
     </view>
   </view>
 
+  <block wx:if="{{currType == 1}}">
+    <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
+  </block>
+
+  <block wx:if="{{currType == 2}}">
+    <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
+  </block>
+
   <!-- 操作列表 -->
   <view class="action-list">
     <block wx:for="{{currMessage.action}}" wx:key="index">
@@ -46,15 +54,6 @@
       </navigator>
     </block>
   </view>
-
-  <block wx:if="type == 2">
-    <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
-  </block>
-
-  <block wx:if="type == 3">
-    <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
-  </block>
-
 
   <navigation current-idx="2"></navigation>
 </view>

@@ -9,16 +9,19 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.2",
+	"libVersion": "2.0.4",
 	"appid": "wx0a0c40d66a267545",
 	"projectname": "jiajubao",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -37,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -78,6 +81,13 @@
 					"id": -1,
 					"name": "商家申请",
 					"pathName": "pages/personal/businessman/identity/identity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家列表",
+					"pathName": "pages/shop/list/list",
 					"scene": null
 				}
 			]

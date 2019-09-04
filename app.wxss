@@ -239,3 +239,15 @@ swiper{
     margin-bottom: 10rpx;
 }
 /* _____ */
+
+
+
+
+/* 布局 */
+.full-layout{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

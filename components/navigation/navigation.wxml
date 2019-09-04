@@ -1,4 +1,4 @@
-<view class="place"></view>
+<view class="place" wx:if="{{place}}"></view>
 <view class="navigation">
 	<navigator url="/pages/index/index" open-type="reLaunch" class="nav-single {{currentIdx==0?'active':''}}">
 		<image src="/image/icon/icon_square.svg" mode="aspectFit"></image>
