@@ -2,7 +2,6 @@
 	"navigationBarTitleText": "个人中心",
 	"navigationStyle": "custom",
 	"usingComponents": {
-	    "navigation": "/components/navigation/navigation",
-	    "personalHeader": "/components/personalHeader/personalHeader"
+	    "navigation": "/components/navigation/navigation"
 	}
 }

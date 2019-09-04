@@ -1,9 +1,22 @@
 <view class="container personal">
   <!-- 我的信息 -->
-  <personalHeader current-idx="0"></personalHeader>
-
-  <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
-  <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
+  <view class="personal-header">
+    <view class="personal-mes">
+      <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+      <view>
+        <view class="personal-name">CiCi</view>
+        <view>欢迎你～</view>
+      </view>
+    </view>
+    <view class="identity-list">
+      <block wx:for="{{message}}" wx:key="index">
+        <view class="single {{index == currType ? 'active' : ''}}" data-idx="index" bindtap="changeType">
+          <image src="{{item.icon}}" class="icon"/>
+          <text>{{item.text}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
 
   <!-- 我的订单 -->
   <view class="order-content">
@@ -23,7 +36,7 @@
 
   <!-- 操作列表 -->
   <view class="action-list">
-    <block wx:for="{{actionList}}" wx:key="index">
+    <block wx:for="{{currMessage.action}}" wx:key="index">
       <navigator url="{{item.url}}" class="single flex-start-between">
         <view class="flex-center-start flex1">
           <image src="{{item.img}}" mode="aspectFit"></image>
@@ -33,6 +46,15 @@
       </navigator>
     </block>
   </view>
+
+  <block wx:if="type == 2">
+    <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
+  </block>
+
+  <block wx:if="type == 3">
+    <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
+  </block>
+
 
   <navigation current-idx="2"></navigation>
 </view>

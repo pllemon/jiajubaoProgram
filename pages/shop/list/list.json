@@ -2,6 +2,6 @@
 	"navigationBarTitleText": "商家",
 	"usingComponents": {
 	    "navigation": "/components/navigation/navigation",
-	    "personalHeader": "/components/personalHeader/personalHeader"
+	    "scroll": "/components/scroll/scroll"
 	}
 }

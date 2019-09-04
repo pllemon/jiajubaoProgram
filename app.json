@@ -3,13 +3,10 @@
     "pages/index/index",
     "pages/login/login",
 
-
     "pages/demand/category/category",
-    "pages/demand/subcategory/subcategory",
     "pages/demand/applyForm/applyForm",
 
     "pages/shop/list/list",
-    "pages/shop/detail/detail",
 
     "pages/order/center/center",
     "pages/order/compete/compete",
@@ -18,10 +15,7 @@
     "pages/order/score/score",
 
     "pages/personal/index/index", 
-    "pages/personal/user/index/index", 
-    "pages/personal/master/index/index",
     "pages/personal/master/identity/identity",
-    "pages/personal/businessman/index/index",
     "pages/personal/businessman/identity/identity",
     "pages/personal/message/message",
     "pages/personal/wallet/wallet"

@@ -1,0 +1,7 @@
+<view class="search">
+	<view hidden="!isRefresh">{{refreshText}}</view>
+	<scroll-view scroll-y style="height: 200px;" bindscrolltoupper="refresh" bindscrolltolower="loadMore" bindscroll="scroll">
+		<slot></slot>
+	</scroll-view>
+	<view hidden="!isLoadMore">{{loadText}}</view>
+</view>

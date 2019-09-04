@@ -1,4 +1,9 @@
-<form bindsubmit="formSubmit">
+<view>
+  <view>登录</view>
+  <view>注册</view>
+</view>
+
+<form bindsubmit="formSubmit" wx:if="{{formType == 0}}">
   <view class="section">
     <view class="section__title">账号：</view>
     <input placeholder="请输入" name="username"/>
@@ -8,4 +13,20 @@
     <input placeholder="请输入" name="password"/>
   </view>
   <button class="main-btn" form-type="submit">登录</button>
+</form>
+
+<form bindsubmit="formSubmit" wx:if="{{formType == 1}}">
+  <view class="section">
+    <view class="section__title">账号：</view>
+    <input placeholder="请输入" name="username"/>
+  </view>
+  <view class="section">
+    <view class="section__title">密码：</view>
+    <input placeholder="请输入" name="password"/>
+  </view>
+  <view class="section">
+    <view class="section__title">确认密码：</view>
+    <input placeholder="请输入" name="password"/>
+  </view>
+  <button class="main-btn" form-type="submit">注册</button>
 </form>
