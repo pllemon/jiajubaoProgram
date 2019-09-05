@@ -12,26 +12,6 @@ Page({
     currentDate: new Date().getTime()
   },
 
-  onLoad () {
-    this.setData({
-      addressInfo: app.globalData.addressInfo
-    })
-  },
-
-  addImg: function () {
-    let that = this;
-    wx.chooseImage({
-      count: 9,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success (res) {
-        that.setData({
-          imgArr: that.data.imgArr.concat(res.tempFilePaths)
-        })
-      }
-    })
-  },
-
   bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
@@ -43,11 +23,56 @@ Page({
     })
   },
 
+  addImg() {
+    let that = this;
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        let imgArr = that.data.imgArr.concat(res.tempFilePaths)
+        that.setData({
+          imgArr
+        })
+      }
+    })
+  },
+
+  uploadFile(i = 0) {
+    let that = this;
+    let fileList = that.data.imgArr;
+    wx.uploadFile({
+      url: 'http://192.168.1.104/uploadordersimg',
+      filePath: fileList[i],
+      name: 'image',
+      success: function (res) {
+        console.log(res)
+        var data = res.data;
+        if (!((i + 1) == fileList.length)) {
+          that.uploadFile(i + 1);
+        }else{
+          console.log("已经全部上传完毕");
+          wx.hideLoading();
+        }
+      },
+      fail:function(){
+        app.tips("失败，请重试")
+      },
+      complete:function(){
+      
+      }
+    })
+  },
+
   formSubmit: function(e) {
     let formData = e.detail.value;
     formData.appo_time = this.data.date + ' ' + this.data.time;
-    formData.address = this.data.addressInfo.address + formData.address;
+    // formData.address = this.data.addressInfo.address + formData.address;
     console.log(formData)
+
+    this.uploadFile();
+    return false;
+
     app.request({
       url: '/markorder',
       data: formData,
@@ -59,13 +84,10 @@ Page({
         })
         setTimeout(function () {
           wx.reLaunch({
-            url: '/pages/personal/user/index/index'
+            url: '/pages/personal/index/index'
           })
         }, 2000)
       }
     })
-
-    
   }
-
 })

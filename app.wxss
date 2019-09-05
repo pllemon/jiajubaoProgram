@@ -81,7 +81,7 @@ view{
 }
 .form-item textarea{
     min-height: 300rpx;
-    padding-top: 20rpx;
+    padding-top: 26rpx;
 }
 
 
