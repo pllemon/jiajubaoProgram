@@ -2,14 +2,18 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
+
     "pages/demand/category/category",
     "pages/demand/applyForm/applyForm",
+
     "pages/shop/list/list",
+
     "pages/order/center/center",
     "pages/order/compete/compete",
     "pages/order/list/list",
     "pages/order/detail/detail",
     "pages/order/score/score",
+    
     "pages/personal/index/index",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",

@@ -21,6 +21,16 @@ const categoryList = [
   }
 ]
 
+
+const orderLabel = {
+  0: {
+    1: ''
+  },
+  1: {
+    1: ''
+  }
+}
+
 module.exports = {
   categoryList: categoryList
 }
