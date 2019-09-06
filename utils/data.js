@@ -21,16 +21,38 @@ const categoryList = [
   }
 ]
 
-
-const orderLabel = {
-  0: {
-    1: ''
-  },
+const userOrderStatus = {
   1: {
-    1: ''
+    label: '待审核'
+  },
+  2: {
+    label: '待支付'
+  },
+  3: {
+    label: '报名中'
+  },
+  4: {
+    label: '施工中'
+  },
+  5: {
+    label: '已完成'
+  }
+}
+
+const masterOrderStatus = {
+  1: {
+    label: '已报名'
+  },
+  2: {
+    label: '已接单'
+  },
+  3: {
+    label: '已完成'
   }
 }
 
 module.exports = {
-  categoryList: categoryList
+  categoryList,
+  userOrderStatus,
+  masterOrderStatus
 }

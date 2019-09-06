@@ -9,7 +9,6 @@
     "pages/shop/list/list",
 
     "pages/order/center/center",
-    "pages/order/compete/compete",
     "pages/order/list/list",
     "pages/order/detail/detail",
     "pages/order/score/score",

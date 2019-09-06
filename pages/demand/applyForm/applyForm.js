@@ -1,4 +1,5 @@
 const app = getApp()
+const common = require('../../utils/common.js')
 Page({
   data: {
     imgArr: [],
@@ -25,42 +26,19 @@ Page({
 
   addImg() {
     let that = this;
-    wx.chooseImage({
-      count: 3,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success (res) {
-        let imgArr = that.data.imgArr.concat(res.tempFilePaths)
-        that.setData({
-          imgArr
-        })
-      }
+    common.chooseImgs(3, that.data.imgArr, function(res) {
+      console.log(res);
+      that.setData({
+        imgArr: res
+      })
     })
   },
 
-  uploadFile(i = 0) {
-    let that = this;
-    let fileList = that.data.imgArr;
-    wx.uploadFile({
-      url: 'http://192.168.1.104/uploadordersimg',
-      filePath: fileList[i],
-      name: 'image',
-      success: function (res) {
-        console.log(res)
-        var data = res.data;
-        if (!((i + 1) == fileList.length)) {
-          that.uploadFile(i + 1);
-        }else{
-          console.log("已经全部上传完毕");
-          wx.hideLoading();
-        }
-      },
-      fail:function(){
-        app.tips("失败，请重试")
-      },
-      complete:function(){
-      
-      }
+  deleteImg(i) {
+    common.deleteImg(this.data.imgArr, i, function(res) {
+      this.setData({
+        imgArr: res
+      })
     })
   },
 
@@ -70,24 +48,26 @@ Page({
     // formData.address = this.data.addressInfo.address + formData.address;
     console.log(formData)
 
-    this.uploadFile();
-    return false;
+    common.uploadImgs('http://192.168.1.104/uploadordersimg', this.data.imgArr, 0, function (res) {
+      console.log(res)
+      return false;
 
-    app.request({
-      url: '/markorder',
-      data: formData,
-      success: function(data) {
-        wx.showToast({
-          title: '创建订单成功',
-          icon: 'success',
-          duration: 2000
-        })
-        setTimeout(function () {
-          wx.reLaunch({
-            url: '/pages/personal/index/index'
+      app.request({
+        url: '/markorder',
+        data: formData,
+        success: function(data) {
+          wx.showToast({
+            title: '创建订单成功',
+            icon: 'success',
+            duration: 2000
           })
-        }, 2000)
-      }
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '/pages/personal/index/index'
+            })
+          }, 2000)
+        }
+      })
     })
   }
 })

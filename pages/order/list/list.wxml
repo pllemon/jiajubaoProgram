@@ -3,7 +3,7 @@
 
   <view class="order-list" style="margin-top: 100rpx;">
     <block wx:for="[1,2,3,4]" wx:key="index">
-      <navigator class="order-card" url="../compete/compete">
+      <navigator class="order-card" url="../detail/detail">
         <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image>
         <view class="order-message flex1">
           <view class="title">安装工匠-家用电器</view>

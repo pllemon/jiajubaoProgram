@@ -95,6 +95,8 @@ App({
     session: 'PHPSESSID=27vic6cl4qkvedimq6j9spg6g0',
     userInfo: null,
     addressInfo: null, // 地理位置信息
-    categoryList: util.categoryList
+    categoryList: util.categoryList,
+    userOrderStatus: util.userOrderStatus,
+    masterOrderStatus: util.masterOrderStatus
   }
 })
