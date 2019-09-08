@@ -1,0 +1,7 @@
+.gd-tab{
+  font-size: 17px !important;
+}
+
+.gd-tab-active{
+  color: #4c5ce3 !important;
+}

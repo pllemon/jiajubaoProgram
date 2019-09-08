@@ -1,26 +1,47 @@
-<view class="container">
-  <search></search>
+<view class="full-layout">
+  <van-search
+    value="{{ searchValue }}"
+    placeholder="请输入关键词"
+    use-action-slot
+    bind:search="onSearch"
+  />
 
-  <view class="order-list" style="margin-top: 100rpx;">
-    <block wx:for="[1,2,3,4]" wx:key="index">
-      <navigator class="order-card" url="../detail/detail">
-        <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image>
-        <view class="order-message flex1">
-          <view class="title">安装工匠-家用电器</view>
-          <view>
-            <image class="icon" src="/image/icon/icon_GPS.png"/>
-            <text>广东江门开平镇江大厦隔壁小区7栋402</text>
+  <van-tabs 
+    color="#4c5ce3"
+    active="{{currType}}"
+    custom-class="gd-tabs"
+    tab-class="gd-tab"
+    tab-active-class="gd-tab-active"
+    bind:change="changeType"
+  >
+    <van-tab title="{{item.label}}" wx:for="{{orderStatus}}" wx:key="index"></van-tab>
+  </van-tabs>
+
+
+  <scroll-view scroll-y class="flex1 order-list">
+    <block wx:for="{{list}}" wx:key="index">
+      <navigator class="order-card" url="../detail/detail?id={{item.order_id}}">
+        <!-- <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image> -->
+        <view class="common-section">
+          <view class="order-header">
+            <text>No:{{item.order_sn}}</text>
+            <text class="status">{{orderStatus[item.status].label}}</text>
           </view>
-          <view>
-            <image class="icon" src="/image/icon/icon_calendar.png"/>
-            <text>2012-12-30 12:00</text>
+          <view class="title">{{item.service_demand}}</view>
+          <view class="mes">
+            <icon class="iconfont iconicon_GPS"></icon>
+            <text class="content">{{item.address}}</text>
           </view>
-          <view>
-            <image class="icon" src="/image/icon/icon_community_line.png"/>
-            <text>无备注</text>
+          <view class="mes">
+            <icon class="iconfont iconicon_calendar"></icon>
+            <text class="content">{{item.appo_time}}</text>
           </view>
-          <view class="sign-info flex-center-between">
-            <view>
+          <view class="mes">
+            <icon class="iconfont iconicon_community_line"></icon>
+            <text class="content">{{item.remark}}</text>
+          </view>
+          <view class="sign-info">
+            <view class="flex-center-start">
               <image src="/image/example/peo.jpg"></image>
               <text>等12人已报名</text>
             </view>
@@ -29,7 +50,6 @@
         </view>
       </navigator>
     </block>
-  </view>
+  </scroll-view>
 
-  <navigation current-idx="1"></navigation>
 </view>

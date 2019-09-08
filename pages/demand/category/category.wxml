@@ -1,13 +1,26 @@
 <view>
   <view class="category-list">
-    <view wx:for="{{categoryList}}" wx:key="index" class="{{index == acitveIdx ?'active':''}}" data-idx="{{index}}" bindtap="chooseThis">
+    <view 
+      wx:for="{{categoryList}}" 
+      wx:key="index" 
+      class="{{item.id == acitveIdx ?'active':''}}" 
+      data-id="{{item.id}}" 
+      data-text="{{item.type_name}}"
+      bindtap="chooseCategory"
+    >
       <image src="{{item.icon}}" />
-      <text>{{item.text}}</text>
+      <text>{{item.type_name}}</text>
     </view>
   </view>
   <view class="subcategory-list">
-    <navigator  wx:for="{{subcategory}}" wx:key="index" url="../applyForm/applyForm?type={{acitveIdx}}&type1={{index}}">
-      <text>{{item}}</text>
-    </navigator>
+    <view 
+      wx:for="{{subcategoryList}}" 
+      wx:key="index" 
+      data-id="{{item.id}}" 
+      data-text="{{item.type_name}}"
+      bindtap="chooseSubcategory"
+    >
+      <text>{{item.type_name}}</text>
+    </view>
   </view>
 </view>

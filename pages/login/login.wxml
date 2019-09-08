@@ -1,32 +1,38 @@
-<view>
-  <view>登录</view>
-  <view>注册</view>
+<view class="tab flex-center">
+  <view class="{{formType == 0? 'active': ''}}" data-idx="0" bindtap="changeTab">登 录</view>
+  <view class="{{formType == 1? 'active': ''}}" data-idx="1" bindtap="changeTab">注 册</view>
 </view>
 
-<form bindsubmit="formSubmit" wx:if="{{formType == 0}}">
+<form bindsubmit="formSubmit">
   <view class="section">
-    <view class="section__title">账号：</view>
-    <input placeholder="请输入" name="username"/>
+    <icon class="iconfont iconicon_boss"></icon>
+    <input placeholder="请输入手机号" type="number" name="username"/>
+  </view>
+  <view class="section"  wx:if="{{formType != 1}}">
+    <icon class="iconfont iconicon_im_keyboard"></icon>
+    <input placeholder="请输入手机验证码" type="number" name="password"/>
+    <button size="mini" class="button-plain">获取</button>
   </view>
   <view class="section">
-    <view class="section__title">密码：</view>
-    <input placeholder="请输入" name="password"/>
+    <icon class="iconfont iconicon_shield"></icon>
+    <input placeholder="请输入密码" type="text" name="password"/>
   </view>
-  <button class="main-btn" form-type="submit">登录</button>
-</form>
-
-<form bindsubmit="formSubmit" wx:if="{{formType == 1}}">
-  <view class="section">
-    <view class="section__title">账号：</view>
-    <input placeholder="请输入" name="username"/>
+  <view class="section" wx:if="{{formType != 1}}">
+    <icon class="iconfont iconicon_shield"></icon>
+    <input placeholder="请再次输入密码" type="text" name="password"/>
   </view>
-  <view class="section">
-    <view class="section__title">密码：</view>
-    <input placeholder="请输入" name="password"/>
+  <view class="section" wx:if="{{formType == 0}}">
+    <icon class="iconfont iconicon_shakehands"></icon>
+    <input placeholder="推荐人" type="text" name="password"/>
   </view>
-  <view class="section">
-    <view class="section__title">确认密码：</view>
-    <input placeholder="请输入" name="password"/>
+  <button class="main-btn" form-type="submit">{{type[formType]}}</button>
+  <view class="form-tips flex-center" wx:if="{{formType==0}}" data-idx="1" bindtap="changeTab">已有账号？点击立即登陆</view>
+  <view class="form-tips flex-center-between"  wx:if="{{formType==1}}">
+    <text data-idx="0" bindtap="changeTab">立即注册</text>
+    <text data-idx="2" bindtap="changeTab">忘记密码？</text>
   </view>
-  <button class="main-btn" form-type="submit">注册</button>
+  <view class="form-tips flex-center-between"  wx:if="{{formType==2}}">
+    <text data-idx="0" bindtap="changeTab">立即注册</text>
+    <text data-idx="1" bindtap="changeTab">立即登录</text>
+  </view>
 </form>

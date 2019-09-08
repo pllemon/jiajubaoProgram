@@ -1,32 +1,32 @@
-<view class="full-layout flex-column">
-  <view class="flex1">
-    <scroll 
-      isRefresh="{{isRefresh}}" 
-      isLoadMore="{{isLoadMore}}" 
-      bind:refresh="onRefresh" 
-      bind:loadMore="onLoadMore"
-    >
-      <block wx:for="{{list}}" wx:key="{{index}}">
-        <view class="single">
-          <view class="shop-img">
-            <image src="/image/example/bg1.jpg"/>
-            <image src="/image/example/bg1.jpg"/>
+<view class="full-layout">
+  <van-search
+    value="{{ searchValue }}"
+    placeholder="请输入关键词"
+    use-action-slot
+    bind:search="onSearch"
+  />
+
+  <scroll-view scroll-y class="flex1 shop-list">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="shop-single m20">
+        <view class="shop-img">
+          <image src="/image/example/bg1.jpg"/>
+          <image src="/image/example/bg1.jpg"/>
+        </view>
+        <view class="common-section">
+          <view class="title">转角装修五金店</view>
+          <view class="mes">
+            <icon class="iconfont iconicon_GPS"></icon>
+            <text class="content">广东江门开平镇江大厦隔壁小区7栋402</text>
           </view>
-          <view class="pad30">
-            <p class="shop-name">转角装修五金店</p>
-            <view class="flex-center-start">
-              <image class="icon" src="/image/icon/icon_GPS.png"/>
-              <text class="flex1">广东江门开平镇江大厦隔壁小区7栋402</text>
-            </view>
-            <view class="flex-center-start">
-              <image class="icon" src="/image/icon/icon_GPS.png"/>
-              <text class="flex1">13432565434</text>
-            </view>
+          <view class="mes">
+            <icon class="iconfont iconicon_phone"></icon>
+            <text class="content">13432565434</text>
           </view>
         </view>
-      </block>
-    </scroll>
-  </view>
+      </view>
+    </block>
+  </scroll-view>
 
   <navigation current-idx="1"></navigation>
 </view>

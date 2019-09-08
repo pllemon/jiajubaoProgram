@@ -1,3 +1,6 @@
+const app = getApp()
+const common = require('../../utils/common.js');
+
 Page({
   data: {
     imgUrls: [
@@ -25,7 +28,12 @@ Page({
       url: '/pages/order/center/center',
       icon: '/image/icon/order_list.svg',
       text: '批单中心'
-    }]
+    }],
+    address: ""
   },
 
+  onLoad() {
+    let that = this;
+    common.addressCallBack(app, that);
+  }
 })

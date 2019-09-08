@@ -1,8 +1,12 @@
 <view class="container">
-    <view class="order-desc"></view>
+    <!-- 订单状态 -->
+    <view class="order-desc">
+      <icon class="iconfont iconicon_warn"></icon>
+      <text>{{orderMes.desc}}</text>
+    </view>
     
-    <swiper indicator-dots="{{indicatorDots}}"
-      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <!-- 订单信息 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}" wx:key="id">
         <swiper-item>
           <image src="{{item}}" class="slide-image"/>
@@ -12,30 +16,34 @@
 
     <view class="order-card">
       <view class="order-message flex1">
-        <view class="title">安装工匠-家用电器</view>
+        <view class="title">{{orderMes.service_demand}}</view>
         <view>
           <image class="icon" src="/image/icon/icon_GPS.png"/>
-          <text>广东江门开平镇江大厦隔壁小区7栋402</text>
+          <text>{{orderMes.address}}</text>
         </view>
         <view>
           <image class="icon" src="/image/icon/icon_calendar.png"/>
-          <text>2012-12-30 12:00</text>
+          <text>{{orderMes.appo_time}}</text>
         </view>
         <view>
           <image class="icon" src="/image/icon/icon_community_line.png"/>
-          <text>无备注</text>
+          <text>{{orderMes.remark}}</text>
         </view>
       </view>
       <button bindtap="signUp" class="main-btn">预计收入¥100，立即报名</button>
     </view>
 
+    <!-- 报名情况 -->
     <view>
       <view class="subtitle">报名记录（12）</view>
       <view class="sign-list">
-        <block wx:for="[1,2,3,4]" wx:key="index">
-          <view class="sign-single">
-            <image></image>
-            <text>李弘基</text>
+        <block wx:for="{{[1,2,3,4]}}" wx:key="index">
+          <view class="sign-single flex-center-between">
+            <view class="flex-center-start">
+              <image></image>
+              <text>李弘基</text>
+            </view>
+            <button size="mini" class="button-plain">选择</button>
           </view>
         </block>
       </view>

@@ -13,7 +13,7 @@ const chooseImgs = (total, fileList, callback) => {
 }
 
 // 上传图片
-let uploadRes = {};
+let uploadRes = [];
 const uploadImgs = ( url, fileList, idx, callback)  => {
   if (idx == 0) {
     uploadRes = [];
@@ -24,20 +24,20 @@ const uploadImgs = ( url, fileList, idx, callback)  => {
     name: 'image',
     success: function (res) {
       console.log(res)
-      uploadRes[idx] = res.data;
+      uploadRes.push(JSON.parse(res.data).data);
       if (!((idx + 1) == fileList.length)) {
         idx ++;
-        uploadFile(url, fileList, idx, callback);
+        uploadImgs(url, fileList, idx, callback);
       }else{
         callback(uploadRes);
         console.log("已经全部上传完毕");
       }
     },
     fail:function(){
-      console.log("失败")
+      //console.log("失败")
     },
     complete:function(){
-      console.log("结束")
+      //console.log("结束")
     }
   })
 }
@@ -56,9 +56,25 @@ const deleteImg = (fileList, idx, callback) => {
   callback(fileList)
 }
 
+// 地址回调
+const addressCallBack = (app, target) => {
+  if (app.globalData.addressInfo) {
+    target.setData({
+      address: app.globalData.addressInfo.address
+    })
+  } else {
+    app.readyLocation = function(res) {
+      target.setData({
+        address: app.globalData.addressInfo.address
+      })
+    }
+  }
+}
+
 module.exports = {
   chooseImgs,
   uploadImgs,
   previewImgs,
-  deleteImg
+  deleteImg,
+  addressCallBack
 }

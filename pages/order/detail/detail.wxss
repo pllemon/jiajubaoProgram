@@ -1,9 +1,7 @@
 .sign-single{
-    display: flex;
-    align-items: center;
     background: #fff;
-    padding: 30rpx;
-    border-bottom: 1px solid #f2f2f2;
+    padding: 24rpx 30rpx;
+    border-bottom: 1px solid #f8f8f8;
 }
 .sign-single image{
     width: 100rpx;
@@ -14,5 +12,15 @@
 }
 
 .order-desc{
-    
+    background: #fdf6ec;
+    color: #e6a23c;
+    padding: 20rpx 30rpx;
+    display: flex;
+    align-items: center;
+}
+.order-desc icon{
+    margin-right: 6rpx;
+    font-size: 40rpx;
+    position: relative;
+    top: -2rpx;
 }

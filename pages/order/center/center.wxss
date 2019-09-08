@@ -40,7 +40,7 @@
     box-sizing: border-box;
 }
 .category-list .section:nth-of-type(1){
-    background: #f2f2f2;
+    background: #f8f8f8;
 }
 .category-list .section:nth-of-type(2){
     height: 600rpx;

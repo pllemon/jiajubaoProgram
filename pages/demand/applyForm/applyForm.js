@@ -1,5 +1,6 @@
-const app = getApp()
-const common = require('../../utils/common.js')
+const app = getApp();
+const common = require('../../../utils/common.js');
+
 Page({
   data: {
     imgArr: [],
@@ -10,7 +11,17 @@ Page({
     showDate: false,
     minDate: new Date().getTime(),
     maxDate: new Date(2019, 10, 1).getTime(),
-    currentDate: new Date().getTime()
+    currentDate: new Date().getTime(),
+
+    service_demand: ''
+  },
+
+  onLoad(params) {
+    this.setData({
+      service_id: params.service_id,
+      service_demand: app.globalData.service_demand,
+      addressInfo: app.globalData.addressInfo
+    })
   },
 
   bindDateChange: function(e) {
@@ -42,32 +53,44 @@ Page({
     })
   },
 
-  formSubmit: function(e) {
+  formSubmit(e) {
+    let that = this;
     let formData = e.detail.value;
+    let imgArr = this.data.imgArr;
+    formData.service_demand = this.data.service_demand;
+    formData.service_id = this.data.service_id;
     formData.appo_time = this.data.date + ' ' + this.data.time;
-    // formData.address = this.data.addressInfo.address + formData.address;
-    console.log(formData)
-
-    common.uploadImgs('http://192.168.1.104/uploadordersimg', this.data.imgArr, 0, function (res) {
-      console.log(res)
-      return false;
-
-      app.request({
-        url: '/markorder',
-        data: formData,
-        success: function(data) {
-          wx.showToast({
-            title: '创建订单成功',
-            icon: 'success',
-            duration: 2000
-          })
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '/pages/personal/index/index'
-            })
-          }, 2000)
-        }
+    formData.address = this.data.addressInfo.address + formData.address;
+    
+    if (imgArr.length > 0) {
+      common.uploadImgs('http://192.168.1.104/uploadordersimg', this.data.imgArr, 0, function (res) {
+        console.log(res)
+        formData.imglist = res.join(',');
+        that.submitFn(formData);
       })
+    } else {
+      formData.imglist = '';
+      that.submitFn(formData);
+    } 
+  },
+
+  submitFn(formData) {  
+    console.log(formData)
+    app.request({
+      url: '/markorder',
+      data: formData,
+      success: function(data) {
+        wx.showToast({
+          title: '创建订单成功',
+          icon: 'success',
+          duration: 2000
+        })
+        setTimeout(function () {
+          wx.reLaunch({
+            url: '/pages/personal/index/index'
+          })
+        }, 2000)
+      }
     })
   }
 })

@@ -1,7 +1,12 @@
+@import 'styles/iconfont.wxss';
+@import 'styles/flex.wxss';
+@import 'styles/common.wxss';
+@import 'styles/vant.wxss';
+
 page{
-    background: #f2f2f2;
-    color: #434343;
-    font-size: 34rpx;
+    background: #f8f8f8;
+    color: #333;
+    font-size: 17px;
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 image{
@@ -60,7 +65,7 @@ view{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f8f8f8;
     padding: 0 30rpx;
     background: #fff;
 }
@@ -85,72 +90,14 @@ view{
 }
 
 
-/* flex布局 */
-.flex-center-start{
-    display: flex;
-    align-items: center;
-}
-.flex-start-between{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-.flex-center-between{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
-.flex-column-center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.flex1{
-    flex: 1;
-}
-
 /* 订单卡片 */
-.order-list .order-card{
-    margin-bottom: 20rpx;
-}
-.order-card{
-    background: #fff;
-    padding: 30rpx;
-    font-size: 34rpx;
-    position: relative;
-    line-height: 1.8;
-    color: #666;
-}
-.order-card .title{
-    font-size: 38rpx;
-    color: #191919;
-}
-.order-card .order-img{
-    background: #aaa;
-    width: 100%;
-    height: 300rpx;
-    margin-bottom: 20rpx;
-}
-.order-card .order-message view{
-    display: flex;
-    align-items: center;
-}
-.order-card .icon{
-    width: 36rpx;
-    height: 36rpx;
-    margin-right: 10rpx;
-}
-.order-card .order-message view .text{
-    flex: 1;
-}
 .order-card .sign-info{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    color: #888;
+    font-size: 16px;
 }
 .order-card .sign-info image{
     width: 60rpx;
@@ -160,7 +107,6 @@ view{
 }
 .order-card .sign-info .money{
     color: #4c5ce3;
-    font-size: 42rpx;
 }
 .order-card .main-btn{
     width: 100%;
@@ -199,9 +145,6 @@ view{
     background: #fff;
     border-bottom: 1px solid #eaeaea;
 }
-.pad30{
-    padding: 30rpx;
-}
 
 .main-btn{
     margin: 60rpx 30rpx;
@@ -219,35 +162,3 @@ swiper{
     height: 400rpx;
 }
 
-
-/* 个人页 */
-.personal .order-status{
-    display: flex;
-    margin-bottom: 30rpx;
-    background: #fff;
-}
-.personal .order-status view{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 26rpx;
-    padding: 20rpx 0;
-}
-.personal .order-status .num{
-    font-size: 45rpx;
-    margin-bottom: 10rpx;
-}
-/* _____ */
-
-
-
-
-/* 布局 */
-.full-layout{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}

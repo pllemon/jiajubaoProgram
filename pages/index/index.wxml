@@ -1,7 +1,7 @@
-<view class="flex-column app-wrap">
-  <view class="flex-center-between">
-    <view>开平市</view>
-    <view>222</view>
+<view class="full-layout">
+  <view class="flex-center-start address">
+    <icon class="iconfont iconicon_GPS"></icon>
+    <view class="flex1">{{address}}</view>
   </view>
 
   <swiper indicator-dots="{{indicatorDots}}"
@@ -23,6 +23,8 @@
       </view>
     </block>
   </view>
+
+  <view style="height: 50rpx"></view>
 
   <navigation current-idx="0"></navigation>
 </view>

@@ -1,5 +1,5 @@
 //app.js
-const util = require('utils/data.js')
+const systemData = require('utils/data.js')
 var QQMapWX = require('utils/qqmap-wx-jssdk.js');
 var qqmapsdk;
 
@@ -35,13 +35,16 @@ App({
     })
 
     this.getLocation();
+  },
 
+  getLocation: function () {
+    let that = this;
     qqmapsdk = new QQMapWX({
       key: '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5'
     });
     wx.getLocation({
       type: 'wgs84',
-      success (res) {
+      success(res) {
         qqmapsdk.reverseGeocoder({
           location: {
             latitude: res.latitude,
@@ -50,15 +53,13 @@ App({
           success: function(res) {
             console.log(res)
             that.globalData.addressInfo = res.result
+            if (that.readyLocation) {
+              that.readyLocation(res.result)
+            }
           }
         })
       }
     })
-     
-  },
-
-  getLocation: function () {
-
   },
 
   request: function (obj) {
@@ -73,7 +74,7 @@ App({
         'content-type': 'application/x-www-form-urlencoded',
         'cookie': this.globalData.session
       },
-      data: obj.data,
+      data: obj.data || {},
       success(res) {
         if (res.data.success) {
           obj.success(res.data.data)
@@ -95,8 +96,7 @@ App({
     session: 'PHPSESSID=27vic6cl4qkvedimq6j9spg6g0',
     userInfo: null,
     addressInfo: null, // 地理位置信息
-    categoryList: util.categoryList,
-    userOrderStatus: util.userOrderStatus,
-    masterOrderStatus: util.masterOrderStatus
+    personMessage: systemData.personMessage,
+    service_demand: '' // 已选的项目名
   }
 })

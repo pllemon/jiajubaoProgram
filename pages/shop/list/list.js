@@ -5,7 +5,13 @@ Page({
     list: [1,2,3,4],
     page: 1,
     isRefresh: false,
-    isLoadMore: false
+    isLoadMore: false,
+
+    searchValue: ''
+  },
+
+  onSearch() {
+    console.log(33333)
   },
 
   onRefresh() {

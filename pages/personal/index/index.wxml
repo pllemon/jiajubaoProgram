@@ -8,29 +8,40 @@
         <view>欢迎你～</view>
       </view>
     </view>
-    <view class="identity-list">
-      <block wx:for="{{message}}" wx:key="index">
-        <view class="identity-single {{index == currType ? 'active' : ''}}" data-idx="{{index}}" bindtap="changeType">
-          <image src="{{item.icon}}" class="icon"/>
-          <text>{{item.text}}</text>
-        </view>
+
+    <van-tabs 
+      color="#4c5ce3"
+      active="{{currType}}"
+      custom-class="gd-tabs"
+      tab-class="gd-tab"
+      tab-active-class="gd-tab-active"
+      bind:change="changeType"
+    >
+      <block wx:for="{{personMessage}}" wx:key="index">
+        <van-tab title="{{item.text}}" />
       </block>
-    </view>
+    </van-tabs>
   </view>
 
   <!-- 我的订单 -->
   <view class="order-content">
-    <navigator url="/pages/order/list/list" class="single flex-start-between">
-      <view class="flex-center-start flex1">
-        <image src="/image/icon/icon_affiliations_li.svg" mode="aspectFit"></image>
-        <text>我的订单</text>
+    <van-cell 
+      is-link
+      link-type="navigateTo"
+      url="/pages/order/list/list?type={{currType}}"
+    >
+      <view slot="title" class="action-item">
+        <icon class="iconfont iconicon_affiliations_li"></icon>
+        <view class="van-cell-text">我的订单</view>
       </view>
-      <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
-    </navigator>
+    </van-cell>
     <view class="order-status">
-      <view><text class="num">5</text><text>待审核</text></view>
-      <view><text class="num">20</text><text>进行中</text></view>
-      <view><text class="num">7</text><text>已完成</text></view>
+      <block wx:for="{{currMessage.orderStatus}}" wx:key="index">
+        <view wx:if="{{item.show}}">
+          <text class="num">{{index}}</text>
+          <text>{{item.label}}</text>
+        </view>
+      </block>
     </view>
   </view>
 
@@ -45,13 +56,16 @@
   <!-- 操作列表 -->
   <view class="action-list">
     <block wx:for="{{currMessage.action}}" wx:key="index">
-      <navigator url="{{item.url}}" class="single flex-start-between">
-        <view class="flex-center-start flex1">
-          <image src="{{item.img}}" mode="aspectFit"></image>
-          <text>{{item.text}}</text>
+      <van-cell 
+        is-link
+        link-type="navigateTo"
+        url="{{item.url}}"
+      >
+        <view slot="title" class="action-item">
+          <icon class="iconfont iconicon_{{item.img}}"></icon>
+          <view class="van-cell-text">{{item.text}}</view>
         </view>
-        <image src="/image/icon/icon_right.png" mode="aspectFit" class="icon-right"></image>
-      </navigator>
+      </van-cell>
     </block>
   </view>
 

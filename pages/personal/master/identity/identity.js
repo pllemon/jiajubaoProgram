@@ -14,9 +14,9 @@ Page({
     let formData = e.detail.value;
     formData.address = this.data.addressInfo.address + formData.address;
     console.log(formData)
-    return false;
+    // return false;
     app.request({
-      url: '/markorder',
+      url: '/applycraftsman',
       data: formData,
       success: function(data) {
         wx.showToast({

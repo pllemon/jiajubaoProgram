@@ -12,13 +12,30 @@ Page({
     interval: 5000,
     duration: 1000,
 
-    personType: 0
+    personType: 0,
+    status: 2,
+    orderMes: {}
   },
 
   onLoad(params) {
-    let personType = params.personType || 0
-    this.setData({
-      personType
+    let that = this;
+    let personType = params.personType || 0;
+    let orderStatus = app.globalData.orderStatus;
+    let order_id = params.id || 6;
+    // that.setData({
+    //   personType,
+    //   orderMes: orderStatus[personType][that.data.status]
+    // })
+    app.request({
+      url: '/orderinfo',
+      data: {
+        order_id,
+      },
+      success: function(data) {
+        that.setData({
+          orderMes: data.info[0]
+        })
+      }
     })
   },
 

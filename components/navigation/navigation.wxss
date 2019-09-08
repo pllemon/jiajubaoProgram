@@ -1,5 +1,5 @@
 .place{
-	height: 180rpx;
+	height: 110rpx;
 }
 
 .navigation{
@@ -9,7 +9,7 @@
 	width:100%;
 	background:#fff;
 	border-top:1px solid #dcdcdc;
-	box-shadow:-2rpx 0rpx 60rpx #f2f2f2;
+	box-shadow:-2rpx 0rpx 60rpx #f8f8f8;
 	display: flex;
 }
 .navigation .nav-single{
@@ -21,7 +21,7 @@
 	height: 120rpx;
 	text-align: center;
 	box-sizing: border-box;
-	font-size: 26rpx;
+	font-size: 13px;
 	color: #6a6a6a;
 	position: relative;
 }
@@ -55,7 +55,7 @@
 	left: 50%;
 	margin-left: -70rpx;
 	bottom: 20rpx;
-	font-size: 32rpx;
+	font-size: 16px;
 	display: flex;
     flex-direction: column;
     align-items: center;

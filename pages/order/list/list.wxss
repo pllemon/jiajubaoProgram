@@ -1,0 +1,19 @@
+.order-header{
+    margin-bottom: 10rpx;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+.order-header .status{
+    color: #4c5ce3;
+}
+
+
+.order-card{
+    margin: 20rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    font-size: 18px;
+}

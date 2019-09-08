@@ -2,8 +2,7 @@
     <view class="form-item">
         <label>服务需求</label>
         <view class="form-content">
-            <input name="service_demand" placeholder="请输入" value="洗空调"/>
-            <input name="service_id" placeholder="请输入" value="8"/>
+            <input name="service_demand" disabled value="{{service_demand}}"/>
         </view>
     </view>
     <view class="form-item">
@@ -15,7 +14,7 @@
     </view>
     <view class="form-item">
         <label>预约日期</label>
-        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
             <view class="picker">
             {{date}}
             </view>
@@ -23,7 +22,7 @@
     </view>
     <view class="form-item">
         <label>预约时间</label>
-        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
             <view class="picker">
             {{time}}
             </view>

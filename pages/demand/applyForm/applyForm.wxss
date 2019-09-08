@@ -10,7 +10,7 @@
   margin-left: 20rpx;
 }
 .add{
-  background: #f2f2f2;
+  background: #f8f8f8;
   width: 140rpx;
   height: 140rpx;
   font-size: 28rpx;
