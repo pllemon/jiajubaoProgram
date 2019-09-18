@@ -7,6 +7,12 @@ App({
   onLaunch: function () {
    let that = this;
 
+   let session = wx.getStorageSync('session');
+   console.log('session=' + session)
+   if (session) {
+    that.globalData.session = session;
+   }
+
     // 登录
     wx.login({
       success: res => {
@@ -68,7 +74,8 @@ App({
       mask: true
     })
     wx.request({
-      url: 'http://192.168.1.104' + obj.url,
+      // url: 'http://192.168.1.104' + obj.url,
+      url: 'http://47.106.100.144' + obj.url,
       method: obj.method || 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -93,7 +100,7 @@ App({
   },
 
   globalData: {
-    session: 'PHPSESSID=27vic6cl4qkvedimq6j9spg6g0',
+    session: '',
     userInfo: null,
     addressInfo: null, // 地理位置信息
     personMessage: systemData.personMessage,

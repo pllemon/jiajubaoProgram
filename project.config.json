@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -109,6 +109,55 @@
 					"id": -1,
 					"name": "申请成为商家",
 					"pathName": "pages/personal/businessman/identity/identity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "批单列表",
+					"pathName": "pages/order/center/center",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请成为师傅",
+					"pathName": "pages/personal/master/identity/identity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请商家",
+					"pathName": "pages/personal/businessman/identity/identity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工程秀",
+					"pathName": "pages/engineering/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择类目",
+					"pathName": "pages/demand/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/personal/setting/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抢单中心",
+					"pathName": "pages/order/center/center",
 					"scene": null
 				}
 			]

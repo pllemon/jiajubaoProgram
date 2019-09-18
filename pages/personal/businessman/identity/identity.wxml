@@ -14,8 +14,10 @@
     <view class="form-item">
         <label>店铺地址</label>
         <view class="form-content">
-            <text class="address-text">{{addressInfo.address}}</text>
-            <input name="address" placeholder="请补充具体门牌号"/>
+            <view class="flex">
+                <textarea name="address" value="{{addressInfo.address}}" auto-height placeholder="请输入" class="flex1"/>
+                <icon class="address-icon iconfont iconicon_next_arrow" bindtap="chooseAddress"></icon>
+            </view>
         </view>
     </view>
     <view class="form-item">

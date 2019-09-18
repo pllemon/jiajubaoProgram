@@ -28,7 +28,8 @@ Page({
 
   formSubmit(e) {
     let formData = e.detail.value;
-    if (!formData.username) {
+    console.log(formData)
+    if (!formData.phone) {
       this.showModel('请输入手机号');
       return false;
     } else if (!formData.password) {
@@ -46,6 +47,10 @@ Page({
       data: formData,
       success: function(data) {
         app.globalData.session = data
+        wx.setStorage({
+          key: 'session',
+          data: data
+        })
         wx.reLaunch({
           url: '/pages/personal/index/index'
         })

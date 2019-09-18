@@ -16,6 +16,7 @@
     background: #fff;
     z-index: 11;
     overflow: auto;
+    border: 1px solid red;
 }
 .filter-list.active{
     display: block;

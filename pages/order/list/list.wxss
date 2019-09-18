@@ -9,11 +9,3 @@
 .order-header .status{
     color: #4c5ce3;
 }
-
-
-.order-card{
-    margin: 20rpx;
-    border-radius: 10rpx;
-    overflow: hidden;
-    font-size: 18px;
-}

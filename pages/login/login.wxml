@@ -4,13 +4,17 @@
 </view>
 
 <form bindsubmit="formSubmit">
+  <!-- <view class="section">
+    <icon class="iconfont iconicon_boss"></icon>
+    <input placeholder="请输入用户名" type="text" name="username"/>
+  </view> -->
   <view class="section">
     <icon class="iconfont iconicon_boss"></icon>
-    <input placeholder="请输入手机号" type="number" name="username"/>
+    <input placeholder="请输入手机号" type="number" name="phone"/>
   </view>
   <view class="section"  wx:if="{{formType != 1}}">
     <icon class="iconfont iconicon_im_keyboard"></icon>
-    <input placeholder="请输入手机验证码" type="number" name="password"/>
+    <input placeholder="请输入手机验证码" type="number" name="code"/>
     <button size="mini" class="button-plain">获取</button>
   </view>
   <view class="section">
@@ -19,11 +23,11 @@
   </view>
   <view class="section" wx:if="{{formType != 1}}">
     <icon class="iconfont iconicon_shield"></icon>
-    <input placeholder="请再次输入密码" type="text" name="password"/>
+    <input placeholder="请再次输入密码" type="text" name="password2"/>
   </view>
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_shakehands"></icon>
-    <input placeholder="推荐人" type="text" name="password"/>
+    <input placeholder="推荐人" type="text" name="personal"/>
   </view>
   <button class="main-btn" form-type="submit">{{type[formType]}}</button>
   <view class="form-tips flex-center" wx:if="{{formType==0}}" data-idx="1" bindtap="changeTab">已有账号？点击立即登陆</view>

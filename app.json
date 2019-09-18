@@ -8,6 +8,8 @@
 
     "pages/shop/list/list",
 
+    "pages/engineering/list/list",
+
     "pages/order/center/center",
     "pages/order/list/list",
     "pages/order/detail/detail",
@@ -16,6 +18,10 @@
     "pages/personal/index/index",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
+    "pages/personal/setting/setting",
+    "pages/personal/concat/concat",
+    "pages/personal/about/about",
+    "pages/personal/agree/agree",
     "pages/personal/message/message",
     "pages/personal/wallet/wallet"
   ],

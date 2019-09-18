@@ -1,15 +1,32 @@
 const app = getApp()
+const common = require('../../../../utils/common.js');
+
 Page({
   data: {
     imgArr: [],
     addressInfo: null,
     date: '请选择',
-    time: '请选择'
+    time: '请选择',
+    addressInfo: null
   },
 
   onLoad () {
-    this.setData({
-      addressInfo: app.globalData.addressInfo
+    let that = this;
+    common.addressCallBack(app, that);
+  },
+
+  chooseAddress() {
+    let that = this
+    wx.chooseLocation({
+      success(res) {
+        console.log(res)
+        let addressInfo = {
+          address: res.address + res.name
+        }        
+        that.setData({
+          addressInfo: addressInfo
+        })
+      }
     })
   },
 

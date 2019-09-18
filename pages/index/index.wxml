@@ -1,7 +1,7 @@
 <view class="full-layout">
   <view class="flex-center-start address">
     <icon class="iconfont iconicon_GPS"></icon>
-    <view class="flex1">{{address}}</view>
+    <view class="flex1">{{addressInfo.address}}</view>
   </view>
 
   <swiper indicator-dots="{{indicatorDots}}"

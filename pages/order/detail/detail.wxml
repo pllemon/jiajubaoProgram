@@ -1,40 +1,41 @@
 <view class="container">
     <!-- 订单状态 -->
     <view class="order-desc">
-      <icon class="iconfont iconicon_warn"></icon>
-      <text>{{orderMes.desc}}</text>
+      <icon class="iconfont iconicon_warn" style="top:-4rpx"></icon>
+      <text>{{orderStatus.desc}}</text>
     </view>
     
     <!-- 订单信息 -->
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}" wx:key="id">
         <swiper-item>
+          <label>订单图片</label>
           <image src="{{item}}" class="slide-image"/>
         </swiper-item>
       </block>
     </swiper>
-
-    <view class="order-card">
-      <view class="order-message flex1">
+    
+    <view class="section">
+      <view class="common-section">
         <view class="title">{{orderMes.service_demand}}</view>
-        <view>
-          <image class="icon" src="/image/icon/icon_GPS.png"/>
-          <text>{{orderMes.address}}</text>
+        <view class="mes">
+          <icon class="iconfont iconicon_GPS"></icon>
+          <text class="content">{{orderMes.address}}</text>
         </view>
-        <view>
-          <image class="icon" src="/image/icon/icon_calendar.png"/>
-          <text>{{orderMes.appo_time}}</text>
+        <view class="mes">
+          <icon class="iconfont iconicon_calendar"></icon>
+          <text class="content">{{orderMes.appo_time}}</text>
         </view>
-        <view>
-          <image class="icon" src="/image/icon/icon_community_line.png"/>
-          <text>{{orderMes.remark}}</text>
+        <view class="mes">
+          <icon class="iconfont iconicon_community_line"></icon>
+          <text class="content">{{orderMes.remark}}</text>
         </view>
+        <button bindtap="masterSignUp" class="main-btn">预计收入¥100，立即报名</button>
       </view>
-      <button bindtap="signUp" class="main-btn">预计收入¥100，立即报名</button>
     </view>
 
     <!-- 报名情况 -->
-    <view>
+    <view class="section">
       <view class="subtitle">报名记录（12）</view>
       <view class="sign-list">
         <block wx:for="{{[1,2,3,4]}}" wx:key="index">

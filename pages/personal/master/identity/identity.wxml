@@ -8,26 +8,28 @@
     <view class="form-item">
         <label>身份证号</label>
         <view class="form-content">
-            <input name="sfz" placeholder="请输入" value=""/>
+            <input type="idcard" name="sfz" placeholder="请输入" value=""/>
         </view>
     </view>
     <view class="form-item">
         <label>手机号</label>
         <view class="form-content">
-            <input name="phone" placeholder="请输入" value=""/>
+            <input type="number" name="phone" placeholder="请输入" value=""/>
         </view>
     </view>
     <view class="form-item">
         <label>入行年份</label>
         <view class="form-content">
-            <input name="enter_time" placeholder="请输入" value=""/>
+            <input type="number" name="enter_time" placeholder="请输入" value=""/>
         </view>
     </view>
     <view class="form-item">
         <label>联系地址</label>
         <view class="form-content">
-            <text class="address-text">{{addressInfo.address}}</text>
-            <input name="address" placeholder="请补充具体门牌号"/>
+            <view class="flex">
+                <textarea name="address" value="{{addressInfo.address}}" auto-height placeholder="请输入" class="flex1"/>
+                <icon class="iconfont iconicon_next_arrow" bindtap="chooseAddress"></icon>
+            </view>
         </view>
     </view>
     <view class="form-item">

@@ -46,11 +46,27 @@
   </view>
 
   <block wx:if="{{currType == 1}}">
-    <navigator url="/pages/personal/master/identity/identity">师傅申请</navigator>
+    <view class="apply-view" wx:if="{{userInfo.is_criaftsman == 0 || userInfo.is_criaftsman == 2 || userInfo.is_criaftsman == 3}}">
+      <view class="flex-center">
+        <icon class="iconfont iconmaster"></icon>
+        <view>{{status[userInfo.is_criaftsman].text}}</view>
+      </view>
+      <button class="main-btn plain" wx:if="{{status[userInfo.is_criaftsman].active}}" bindtap="applyMaster">
+        <text>{{status[userInfo.is_criaftsman].btn}}</text>
+      </button>
+    </view>
   </block>
 
   <block wx:if="{{currType == 2}}">
-    <navigator url="/pages/personal/businessman/identity/identity">商家申请</navigator>
+    <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3}}">
+      <view class="flex-center">
+        <icon class="iconfont iconbusiness"></icon>
+        <view>{{status[userInfo.is_business].text2}}</view>
+      </view>
+      <button class="main-btn plain" wx:if="{{status[userInfo.is_business].active}}" bindtap="applyBusiness">
+        <text>{{status[userInfo.is_business].btn}}</text>
+      </button>
+    </view>
   </block>
 
   <!-- 操作列表 -->

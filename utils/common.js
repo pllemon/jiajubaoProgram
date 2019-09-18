@@ -60,12 +60,12 @@ const deleteImg = (fileList, idx, callback) => {
 const addressCallBack = (app, target) => {
   if (app.globalData.addressInfo) {
     target.setData({
-      address: app.globalData.addressInfo.address
+      addressInfo: app.globalData.addressInfo
     })
   } else {
     app.readyLocation = function(res) {
       target.setData({
-        address: app.globalData.addressInfo.address
+        addressInfo: app.globalData.addressInfo
       })
     }
   }

@@ -14,7 +14,8 @@
     tab-active-class="gd-tab-active"
     bind:change="changeType"
   >
-    <van-tab title="{{item.label}}" wx:for="{{orderStatus}}" wx:key="index"></van-tab>
+    <van-tab title="{{item.label}}" wx:for="{{statusArr}}" wx:key="index">
+    </van-tab>
   </van-tabs>
 
 

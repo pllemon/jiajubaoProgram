@@ -1,5 +1,10 @@
-<view class="container">
-  <search></search>
+<view  class="full-layout">
+  <van-search
+    value="{{ searchValue }}"
+    placeholder="请输入关键词"
+    use-action-slot
+    bind:search="onSearch"
+  />
 
   <view class="filter-tab">
     <view data-idx="0" bindtap="chooseTab">
@@ -41,26 +46,25 @@
     </view>
   </view>
 
-  <view class="order-list" style="margin-top: 200rpx;">
-    <block wx:for="[1,2,3,4]" wx:key="index">
-      <navigator class="order-card" url="../detail/detail">
-        <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image>
-        <view class="order-message flex1">
-          <view class="title">安装工匠-家用电器</view>
-          <view>
-            <image class="icon" src="/image/icon/icon_GPS.png"/>
-            <text>广东江门开平镇江大厦隔壁小区7栋402</text>
+  <scroll-view scroll-y class="flex1 order-list">
+    <block wx:for="{{list}}" wx:key="index">
+      <navigator class="order-card" url="../detail/detail?id={{item.order_id}}&personType=1">
+        <view class="common-section">
+          <view class="title">{{item.service_demand}}</view>
+          <view class="mes">
+            <icon class="iconfont iconicon_GPS"></icon>
+            <text class="content">{{item.address}}</text>
           </view>
-          <view>
-            <image class="icon" src="/image/icon/icon_calendar.png"/>
-            <text>2012-12-30 12:00</text>
+          <view class="mes">
+            <icon class="iconfont iconicon_calendar"></icon>
+            <text class="content">{{item.appo_time}}</text>
           </view>
-          <view>
-            <image class="icon" src="/image/icon/icon_community_line.png"/>
-            <text>无备注</text>
+          <view class="mes">
+            <icon class="iconfont iconicon_community_line"></icon>
+            <text class="content">{{item.remark}}</text>
           </view>
-          <view class="sign-info flex-center-between">
-            <view>
+          <view class="sign-info">
+            <view class="flex-center-start">
               <image src="/image/example/peo.jpg"></image>
               <text>等12人已报名</text>
             </view>
@@ -69,5 +73,5 @@
         </view>
       </navigator>
     </block>
-  </view>
+  </scroll-view>
 </view>

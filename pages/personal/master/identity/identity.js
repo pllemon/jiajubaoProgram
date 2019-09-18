@@ -1,12 +1,28 @@
 const app = getApp()
+const common = require('../../../../utils/common.js');
+
 Page({
   data: {
     addressInfo: null
   },
 
   onLoad () {
-    this.setData({
-      addressInfo: app.globalData.addressInfo
+    let that = this;
+    common.addressCallBack(app, that);
+  },
+
+  chooseAddress() {
+    let that = this
+    wx.chooseLocation({
+      success(res) {
+        console.log(res)
+        let addressInfo = {
+          address: res.address + res.name
+        }        
+        that.setData({
+          addressInfo: addressInfo
+        })
+      }
     })
   },
 
@@ -14,7 +30,6 @@ Page({
     let formData = e.detail.value;
     formData.address = this.data.addressInfo.address + formData.address;
     console.log(formData)
-    // return false;
     app.request({
       url: '/applycraftsman',
       data: formData,

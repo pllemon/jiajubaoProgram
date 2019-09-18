@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="action-list">
+    <block wx:for="{{action}}" wx:key="index">
+      <van-cell 
+        is-link
+        link-type="navigateTo"
+        url="{{item.url}}"
+      >
+        <view slot="title" class="action-item">
+          <icon class="iconfont iconicon_{{item.img}}"></icon>
+          <view class="van-cell-text">{{item.text}}</view>
+        </view>
+      </van-cell>
+    </block>
+  </view>
+
+  <button class="main-btn danger" bindtap="loginOut">退出登录</button>
+</view>

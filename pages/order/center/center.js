@@ -2,6 +2,7 @@ const app = getApp();
 
 Page({
   data: {
+    list: [],
     tabIndex: -1,
     categoryIdx: 0,
     categoryList: [],
@@ -9,9 +10,19 @@ Page({
   },
 
   onLoad() {
-    this.setData({
-      categoryList: app.globalData.categoryList,
-      subcategory: app.globalData.categoryList[this.data.categoryIdx].child
+    let that = this;
+    // this.setData({
+    //   categoryList: app.globalData.categoryList,
+    //   subcategory: app.globalData.categoryList[this.data.categoryIdx].child
+    // })
+    app.request({
+      url: '/graborderlist',
+      data: {},
+      success: function(data) {
+        that.setData({
+          list: data
+        })
+      }
     })
   },
 

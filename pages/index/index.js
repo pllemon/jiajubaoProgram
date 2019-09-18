@@ -13,7 +13,7 @@ Page({
     interval: 5000,
     duration: 1000,
     list: [{
-      url: '/pages/demand/category/category',
+      url: '/pages/engineering/list/list',
       icon: '/image/icon/project.svg',
       text: '工程秀'
     },{
@@ -29,7 +29,7 @@ Page({
       icon: '/image/icon/order_list.svg',
       text: '批单中心'
     }],
-    address: ""
+    addressInfo: ""
   },
 
   onLoad() {

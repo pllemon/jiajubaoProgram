@@ -8,7 +8,6 @@
       data-text="{{item.type_name}}"
       bindtap="chooseCategory"
     >
-      <image src="{{item.icon}}" />
       <text>{{item.type_name}}</text>
     </view>
   </view>

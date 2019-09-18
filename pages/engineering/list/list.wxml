@@ -1,0 +1,31 @@
+<view class="full-layout">
+  <van-search
+    value="{{ searchValue }}"
+    placeholder="请输入关键词"
+    use-action-slot
+    bind:search="onSearch"
+  />
+
+  <scroll-view scroll-y class="common-list">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="common-card">
+        <view class="mes">
+          <view class="title">安装工匠-灯具灯饰</view>
+          <view class="flex-center-between" style="font-size:14px">
+            <view>2019-12-12 10:12</view>
+            <view class="flex-center-start">
+              <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+              <text>梁尼梓</text>
+            </view>
+          </view>
+          <view>装修现场前后对比图～</view>
+        </view>
+        <view class="img-list">
+          <image src="/image/example/bg1.jpg"/>
+          <image src="/image/example/bg1.jpg"/>
+          <image src="/image/example/bg1.jpg"/>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

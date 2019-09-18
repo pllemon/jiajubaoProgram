@@ -1,3 +1,4 @@
+
 .button-plain{
   background: none;
   border: 1px solid #4d5ef4;
@@ -28,6 +29,9 @@
 }
 .f17{
   font-size: 17px;
+}
+.fc8{
+  color: #888;
 }
 
 /* 满页布局 */
@@ -63,4 +67,34 @@
 }
 .common-section .mes .content{
   flex: 1;
+}
+
+
+.common-list{
+  padding: 20rpx 0;
+  flex: 1;
+}
+.common-card{
+  background: #fff;
+  margin: 20rpx;
+  padding: 20rpx;
+  margin-top: 0;
+  border-radius: 20rpx;
+  overflow: hidden;
+  font-size: 16px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+.action-list{
+	margin-bottom: 30rpx;
+}
+.action-item{
+	display: flex;
+	font-size: 17px;
+}
+.action-item icon{
+	margin-right: 20rpx;
+	font-size: 20px;
+	top: -4px;
 }
