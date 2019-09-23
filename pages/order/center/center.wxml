@@ -26,12 +26,12 @@
       <view class="category-list">
         <view class="section">
           <block wx:for="{{categoryList}}" wx:key="index">
-            <text wx:key="index" class="{{index == categoryIdx ?'active':''}}" data-idx="{{index}}" bindtap="chooseThis">{{item.text}}</text>
+            <text wx:key="index" class="{{item.id == categoryPid ?'active':''}}" data-pid="{{item.id}}" bindtap="chooseCategory">{{item.type_name}}</text>
           </block>
         </view>
         <view class="section">
-          <block wx:for="{{subcategory}}" wx:key="index">
-            <text>{{item}}</text>
+          <block wx:for="{{subcategoryList}}" wx:key="index">
+            <text>{{item.type_name}}</text>
           </block>
         </view>
       </view>

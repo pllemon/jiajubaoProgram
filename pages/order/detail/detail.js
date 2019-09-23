@@ -68,8 +68,9 @@ Page({
 
   // 选择师傅
   chooseMaster(e) {
+    console.log(e)
     let that = this;
-    let craftsman_id = '';
+    let craftsman_id = e.currentTarget.dataset.id;
     app.request({
       url: '/choosecraftsman',
       data: {

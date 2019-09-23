@@ -1,7 +1,6 @@
 {
-	"navigationBarTitleText": "抢单中心",
+	"navigationBarTitleText": "订单评价",
 	"usingComponents": {
-	    "navigation": "/components/navigation/navigation",
-	    "personalHeader": "/components/personalHeader/personalHeader"
+		"van-rate": "../../miniprogram_npm/vant-weapp/rate"
 	}
 }

@@ -33,6 +33,9 @@
 .fc8{
   color: #888;
 }
+.fcBlue{
+  color: #4d5ef4;
+}
 
 /* 满页布局 */
 .full-layout{
@@ -51,16 +54,31 @@
   padding: 30rpx;
   background: #fff; 
 }
+.common-section .common-title{
+  color: #4d5ef4;
+  padding-left: 30rpx;
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.common-section .common-title:after{
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 36rpx;
+  left: 0;
+  top: 5rpx;
+  border-radius: 2px;
+  background: #4d5ef4;
+}
 .common-section .title{
   font-size: 18px;
   margin-bottom: 10rpx;
+  color: #353535;
 }
 .common-section .mes{
-  font-size: 16px;
   color: #888;
   display: flex;
   align-items: center;
-  margin-bottom: 6rpx;
 }
 .common-section .mes .iconfont{
   margin-right: 10rpx;

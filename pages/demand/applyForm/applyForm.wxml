@@ -34,7 +34,7 @@
             <view class="img-list">
                 <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
                 <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 3}}">
-                    <image src="/image/icon/icon_roundadd.svg"></image>
+                    <icon class="iconfont iconicon_roundadd"></icon>
                     <text>添加图片</text>
                 </view>
             </view>

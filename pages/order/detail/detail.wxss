@@ -1,11 +1,10 @@
 .sign-single{
     background: #fff;
-    padding: 20rpx 30rpx;
-    border-bottom: 1px solid #f8f8f8;
+    padding: 20rpx 0rpx;
 }
 .sign-single image{
-    width: 100rpx;
-    height: 100rpx;
+    width: 80rpx;
+    height: 80rpx;
     border-radius: 50%;
     background: #ddd;
     margin-right: 20rpx;
@@ -46,4 +45,39 @@ label{
     padding: 10rpx 20rpx;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 4rpx;
+}
+
+.common-section{
+    border-top: 1px dashed #E4E7ED;
+    color: #888;
+}
+.common-section .title{
+    font-size: 20px;
+}
+.message view{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 10rpx;
+    color: #888;
+}
+
+.main-action{
+    padding: 20rpx 30rpx;
+    background: #f8f8f8;
+}
+.main-action .main-btn{
+    margin: 0;
+}
+
+.concat{
+    margin-top: 30rpx;
+    color: #888;
+}
+.concat image{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background: #ddd;
+    margin-right: 10rpx;
 }

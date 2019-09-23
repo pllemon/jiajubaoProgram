@@ -36,7 +36,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '订单已提交',
+        desc: '订单已提交，等待后台审核，请耐心等待',
         show: true
       },
       2: {
@@ -116,14 +116,17 @@ const personMessage = {
         label: '全部'
       },
       1: {
+        status: 1,
         label: '已报名',
         show: true
       },
       2: {
+        status: 2,
         label: '已接单',
         show: true
       },
       3: {
+        status: 3,
         label: '已完成',
         show: true
       },

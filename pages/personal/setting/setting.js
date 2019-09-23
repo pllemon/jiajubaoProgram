@@ -26,6 +26,7 @@ Page({
       content: '确定退出该账号？',
       success (res) {
         if (res.confirm) {
+          wx.removeStorageSync('session');
           wx.reLaunch({
             url: '/pages/login/login'
           })

@@ -16,7 +16,6 @@
     background: #fff;
     z-index: 11;
     overflow: auto;
-    border: 1px solid red;
 }
 .filter-list.active{
     display: block;
@@ -37,13 +36,14 @@
     display: flex;
 }
 .category-list .section{
-    flex: 1;
     box-sizing: border-box;
 }
 .category-list .section:nth-of-type(1){
+    width: 40%;
     background: #f8f8f8;
 }
 .category-list .section:nth-of-type(2){
+    width: 60%;
     height: 600rpx;
     overflow: auto;
 }

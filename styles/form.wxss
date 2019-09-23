@@ -1,0 +1,79 @@
+/* 表单相关样式 */
+.form-section{
+  padding: 30rpx;
+  padding-bottom: 0;
+  background: #fff;
+}
+.form-section .form-title{
+  color: #4d5ef4;
+  padding-left: 30rpx;
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.form-section .form-title:after{
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 36rpx;
+  left: 0;
+  top: 5rpx;
+  border-radius: 2px;
+  background: #4d5ef4;
+}
+.form-item{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #f8f8f8;
+  background: #fff;
+}
+.form-item label{
+  line-height: 100rpx;
+}
+.form-item .form-content{
+  width: 480rpx;
+}
+.form-item input, .form-item textarea{
+  text-align: right;
+  padding: 10rpx 0;
+  width: 480rpx;
+}
+.form-item input{
+  height: 100rpx;
+  padding: 0;
+}
+.form-item textarea{
+  min-height: 140rpx;
+  padding-top: 22rpx;
+}
+
+
+.form-item.upload{
+  align-items: center;
+}
+.form-item.upload .form-content{
+  width: 520rpx;
+}
+
+.picker{
+  line-height: 100rpx;
+}
+
+/* 地址 */
+.address-content{
+  padding-top: 32rpx;
+}
+.address-content text{
+  text-align: right;
+}
+.address-content .iconicon_next_arrow{
+  position: relative;
+  top: -5px;
+}
+
+
+/* 同意 */
+.agree{
+  padding: 30rpx;
+  color: #666;
+}

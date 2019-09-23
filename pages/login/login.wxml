@@ -2,32 +2,32 @@
   <view class="{{formType == 0? 'active': ''}}" data-idx="0" bindtap="changeTab">登 录</view>
   <view class="{{formType == 1? 'active': ''}}" data-idx="1" bindtap="changeTab">注 册</view>
 </view>
-
 <form bindsubmit="formSubmit">
-  <!-- <view class="section">
+  <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_boss"></icon>
-    <input placeholder="请输入用户名" type="text" name="username"/>
-  </view> -->
+    <input placeholder="请输入用户名或授权" name="username" value="{{formData.username}}"/>
+    <button size="mini" open-type="getUserInfo" class="button-plain" bindgetuserinfo="onGotUserInfo">授权</button>
+  </view>
   <view class="section">
-    <icon class="iconfont iconicon_boss"></icon>
-    <input placeholder="请输入手机号" type="number" name="phone"/>
+    <icon class="iconfont iconicon_phone"></icon>
+    <input placeholder="请输入手机号" type="number" name="phone" value="{{formData.phone}}" bindinput="bindInput" data-key="phone"/>
   </view>
   <view class="section"  wx:if="{{formType != 1}}">
     <icon class="iconfont iconicon_im_keyboard"></icon>
-    <input placeholder="请输入手机验证码" type="number" name="code"/>
-    <button size="mini" class="button-plain">获取</button>
+    <input placeholder="请输入手机验证码" type="number" name="code" value="{{formData.code}}"/>
+    <button size="mini" class="button-plain" bindtap="getCode">获取</button>
   </view>
   <view class="section">
     <icon class="iconfont iconicon_shield"></icon>
-    <input placeholder="请输入密码" type="text" name="password"/>
+    <input placeholder="请输入密码" type="text" name="password" value="{{formData.password}}" bindinput="bindInput" data-key="password"/>
   </view>
   <view class="section" wx:if="{{formType != 1}}">
     <icon class="iconfont iconicon_shield"></icon>
-    <input placeholder="请再次输入密码" type="text" name="password2"/>
+    <input placeholder="请再次输入密码" type="text" name="confirmPassword" value="{{formData.confirmPassword}}" bindinput="bindInput" data-key="confirmPassword"/>
   </view>
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_shakehands"></icon>
-    <input placeholder="推荐人" type="text" name="personal"/>
+    <input placeholder="推荐人" type="text" name="personal" value="{{formData.personal}}"/>
   </view>
   <button class="main-btn" form-type="submit">{{type[formType]}}</button>
   <view class="form-tips flex-center" wx:if="{{formType==0}}" data-idx="1" bindtap="changeTab">已有账号？点击立即登陆</view>

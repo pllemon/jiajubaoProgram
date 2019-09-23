@@ -22,7 +22,6 @@
   <scroll-view scroll-y class="flex1 order-list">
     <block wx:for="{{list}}" wx:key="index">
       <navigator class="order-card" url="../detail/detail?id={{item.order_id}}">
-        <!-- <image class="order-img" mode="aspectFill" src="/image/example/kt.jpg"></image> -->
         <view class="common-section">
           <view class="order-header">
             <text>No:{{item.order_sn}}</text>
@@ -41,16 +40,17 @@
             <icon class="iconfont iconicon_community_line"></icon>
             <text class="content">{{item.remark}}</text>
           </view>
-          <view class="sign-info">
-            <view class="flex-center-start">
-              <image src="/image/example/peo.jpg"></image>
-              <text>等12人已报名</text>
+          <block wx:if="{{item.status == 4}}">
+            <view class="sign-info">
+              <view class="flex-center-start">
+                <image src="/image/example/peo.jpg"></image>
+                <text>等12人已报名</text>
+              </view>
+              <text wx:if="{{personType == 1}}">预计收入 <text class="money">¥100</text></text>
             </view>
-            <text>预计收入 <text class="money">¥100</text></text>
-          </view>
+          </block>
         </view>
       </navigator>
     </block>
   </scroll-view>
-
 </view>

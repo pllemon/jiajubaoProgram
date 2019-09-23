@@ -4,9 +4,9 @@ Page({
   data: {
     list: [],
     tabIndex: -1,
-    categoryIdx: 0,
+    categoryPid: '',
     categoryList: [],
-    subcategory: []
+    subcategoryList: []
   },
 
   onLoad() {
@@ -24,14 +24,43 @@ Page({
         })
       }
     })
+
+    that.getCategory();
   },
 
-  chooseThis(e) {
-    let idx = e.currentTarget.dataset.idx;
-    this.setData({
-      categoryIdx: idx,
-      subcategory: this.data.categoryList[idx].child
+
+  // 获取类目筛选
+  getCategory(pid) {
+    let that = this
+    app.request({
+      url: '/getconfig',
+      method: 'GET',
+      data: {
+        pid: pid || ''
+      },
+      success: function(data) {
+        if (pid) {
+          that.setData({
+            subcategoryList: data
+          })
+        } else {
+          that.setData({
+            categoryList: data,
+            categoryPid: data[0].id
+          })
+          that.getCategory(data[0].id)
+        }
+      }
     })
+  },
+
+  chooseCategory(e) {
+    let that = this;
+    let pid = e.currentTarget.dataset.pid;
+    this.setData({
+      categoryPid: pid
+    })
+    that.getCategory(pid)
   },
 
   chooseTab(e) {

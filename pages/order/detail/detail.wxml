@@ -1,22 +1,22 @@
-<view class="container">
+<view class="full-layout">
     <!-- 订单状态 -->
     <view class="order-desc">
       <icon class="iconfont iconicon_warn" style="top:-4rpx"></icon>
       <text>{{orderStatus.desc}}</text>
     </view>
     
-    <!-- 订单信息 -->
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}" wx:key="id">
-        <swiper-item>
-          <label>订单图片</label>
-          <image src="{{item}}" class="slide-image"/>
-        </swiper-item>
-      </block>
-    </swiper>
-    
-    <view class="section">
-      <view class="common-section">
+    <scroll-view scroll-y class="flex1">
+      <!-- 订单信息 -->
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}" wx:key="id">
+          <swiper-item>
+            <label>订单图片</label>
+            <image src="{{item}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class="common-section" style="border-top:0">
         <view class="title">{{orderMes.service_demand}}</view>
         <view class="mes">
           <icon class="iconfont iconicon_GPS"></icon>
@@ -30,23 +30,74 @@
           <icon class="iconfont iconicon_community_line"></icon>
           <text class="content">{{orderMes.remark}}</text>
         </view>
-        <button bindtap="masterSignUp" class="main-btn">预计收入¥100，立即报名</button>
-      </view>
-    </view>
-
-    <!-- 报名情况 -->
-    <view class="section">
-      <view class="subtitle">报名记录（12）</view>
-      <view class="sign-list">
-        <block wx:for="{{[1,2,3,4]}}" wx:key="index">
-          <view class="sign-single flex-center-between">
-            <view class="flex-center-start">
-              <image></image>
-              <text>李弘基</text>
-            </view>
-            <button size="mini" class="button-plain">选择</button>
+        <view class="flex-center-between concat" wx:if="{{orderMes.status > 4}}">
+          <view class="flex-center-start">
+            <image></image>
+            <text>小明明</text>
           </view>
+          <view class="flex-center-start fcBlue">
+            <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+            <text>联系师傅</text>
+          </view>
+        </view>
+        
+        
+        <block  wx:if="{{personType == 1}}">
+          <button bindtap="masterSignUp" class="main-btn">预计收入¥100，立即报名</button>
+          <button class="main-btn disable">已报名</button>
         </block>
       </view>
+
+      <view class="common-section">
+        <view class="common-title">订单信息</view>
+        <view class="message">
+          <view>
+            <text>订单号</text>
+            <text>673635242343</text>
+          </view>
+          <view>
+            <text>下单时间</text>
+            <text>2013-12-04 23:23</text>
+          </view>
+          <view>
+            <text>订单总额</text>
+            <text>¥1000</text>
+          </view>
+          <view>
+            <text>定金金额</text>
+            <text>¥100</text>
+          </view>
+          <view>
+            <text>师傅工资</text>
+            <text>¥100</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="common-section">
+        <view class="common-title">报名情况({{masterList.length}})</view>
+        <view class="sign-list" wx:if="{{masterList.length>0}}">
+          <block wx:for="{{masterList}}" wx:key="index">
+            <view class="sign-single flex-center-between">
+              <view class="flex-center-start">
+                <image></image>
+                <text>{{item.name}}</text>
+              </view>
+              <button wx:if="{{personType == 0}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
+            </view>
+          </block>
+        </view>
+        <view class="flex-center" wx:if="{{masterList.length==0}}" style="height: 300rpx">
+          还没有师傅报名哦~
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 操作按钮 -->
+    <view class="main-action" wx:if="{{personType == 0}}">
+      <button wx:if="{{orderMes.status == 2}}" bindtap="masterSignUp" class="main-btn">支付定金</button>
+      <button wx:if="{{orderMes.status == 6}}" bindtap="masterSignUp" class="main-btn">支付尾款</button>
+      <button wx:if="{{orderMes.status == 8}}" bindtap="masterSignUp" class="main-btn">再次下单</button>
+      <button wx:if="{{orderMes.status == 7}}" bindtap="masterSignUp" class="main-btn">评价订单</button>
     </view>
 </view>

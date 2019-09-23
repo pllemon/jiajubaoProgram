@@ -1,0 +1,12 @@
+<view class="img-list" wx:key="index">
+	<view wx:for="{{imgArr}}" wx:key="index" class="single-image">
+		<image src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="preview"/>
+		<view class="delete" data-idx="{{index}}" bindtap="delete">
+			<icon class="iconfont iconicon_delete"></icon>
+		</view>
+	</view>
+	<view bindtap="addImg" class="add single-image" wx:if="{{imgArr.length < length}}">
+		<icon class="iconfont iconicon_roundadd"></icon>
+		<text>添加图片</text>
+	</view>
+</view>

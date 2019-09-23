@@ -4,7 +4,7 @@
     <view class="personal-mes">
       <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
       <view>
-        <view class="personal-name">CiCi</view>
+        <view class="personal-name">{{userInfo.username}}</view>
         <view>欢迎你～</view>
       </view>
     </view>
@@ -23,28 +23,46 @@
     </van-tabs>
   </view>
 
-  <!-- 我的订单 -->
-  <view class="order-content">
-    <van-cell 
-      is-link
-      link-type="navigateTo"
-      url="/pages/order/list/list?type={{currType}}"
-    >
-      <view slot="title" class="action-item">
-        <icon class="iconfont iconicon_affiliations_li"></icon>
-        <view class="van-cell-text">我的订单</view>
-      </view>
-    </van-cell>
-    <view class="order-status">
-      <block wx:for="{{currMessage.orderStatus}}" wx:key="index">
-        <view wx:if="{{item.show}}">
-          <text class="num">{{index}}</text>
-          <text>{{item.label}}</text>
+  <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1)}}">
+    <!-- 我的订单 -->
+    <view class="order-content">
+      <van-cell 
+        is-link
+        link-type="navigateTo"
+        url="/pages/order/list/list?type={{currType}}"
+      >
+        <view slot="title" class="action-item">
+          <icon class="iconfont iconicon_affiliations_li"></icon>
+          <view class="van-cell-text">我的订单</view>
         </view>
+      </van-cell>
+      <view class="order-status">
+        <block wx:for="{{currMessage.orderStatus}}" wx:key="index">
+          <view wx:if="{{item.show}}">
+            <text class="num">{{userInfo.statuscount[item.status] || 0}}</text>
+            <text>{{item.label}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- 操作列表 -->
+    <view class="action-list">
+      <block wx:for="{{currMessage.action}}" wx:key="index">
+        <van-cell 
+          is-link
+          link-type="navigateTo"
+          url="{{item.url}}"
+        >
+          <view slot="title" class="action-item">
+            <icon class="iconfont iconicon_{{item.img}}"></icon>
+            <view class="van-cell-text">{{item.text}}</view>
+          </view>
+        </van-cell>
       </block>
     </view>
-  </view>
+  </block>
 
+  <!-- 师傅验证 -->
   <block wx:if="{{currType == 1}}">
     <view class="apply-view" wx:if="{{userInfo.is_criaftsman == 0 || userInfo.is_criaftsman == 2 || userInfo.is_criaftsman == 3}}">
       <view class="flex-center">
@@ -57,6 +75,7 @@
     </view>
   </block>
 
+  <!-- 商家验证 -->
   <block wx:if="{{currType == 2}}">
     <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3}}">
       <view class="flex-center">
@@ -68,22 +87,6 @@
       </button>
     </view>
   </block>
-
-  <!-- 操作列表 -->
-  <view class="action-list">
-    <block wx:for="{{currMessage.action}}" wx:key="index">
-      <van-cell 
-        is-link
-        link-type="navigateTo"
-        url="{{item.url}}"
-      >
-        <view slot="title" class="action-item">
-          <icon class="iconfont iconicon_{{item.img}}"></icon>
-          <view class="van-cell-text">{{item.text}}</view>
-        </view>
-      </van-cell>
-    </block>
-  </view>
 
   <navigation current-idx="2"></navigation>
 </view>

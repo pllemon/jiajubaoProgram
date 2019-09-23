@@ -1,61 +1,89 @@
 <form bindsubmit="formSubmit" class="form">
-    <view class="form-item">
-        <label>店铺名</label>
-        <view class="form-content">
-            <input name="service_demand" placeholder="请输入" value=""/>
-        </view>
-    </view>
-    <view class="form-item">
-        <label>联系电话</label>
-        <view class="form-content">
-            <input name="service_demand" placeholder="请输入" value=""/>
-        </view>
-    </view>
-    <view class="form-item">
-        <label>店铺地址</label>
-        <view class="form-content">
-            <view class="flex">
-                <textarea name="address" value="{{addressInfo.address}}" auto-height placeholder="请输入" class="flex1"/>
-                <icon class="address-icon iconfont iconicon_next_arrow" bindtap="chooseAddress"></icon>
+    <view class="form-section">
+        <view class="form-title">基本资料</view>
+        <view class="form-item">
+            <label>店铺名</label>
+            <view class="form-content">
+                <input name="service_demand" placeholder="请输入" value=""/>
             </view>
         </view>
-    </view>
-    <view class="form-item">
-        <label>门面图片</label>
-        <view class="form-content" style="width:520rpx">
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <image src="/image/icon/icon_roundadd.svg"></image>
-                    <text>添加图片</text>
-                </view>
+        <view class="form-item">
+            <label>联系电话</label>
+            <view class="form-content">
+                <input name="service_demand" placeholder="请输入" value=""/>
             </view>
         </view>
-    </view>
-    <view class="form-item">
-        <label>产品图片</label>
-        <view class="form-content" style="width:520rpx">
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <image src="/image/icon/icon_roundadd.svg"></image>
-                    <text>添加图片</text>
+        <view class="form-item">
+            <label>店铺地址</label>
+            <view class="form-content address-content">
+                <view class="flex"  bindtap="chooseAddress">
+                    <text class="flex1">{{addressInfo.address}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                 </view>
-            </view>
-        </view>
-    </view>
-    <view class="form-item">
-        <label>营业执照</label>
-        <view class="form-content" style="width:520rpx">
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <image src="/image/icon/icon_roundadd.svg"></image>
-                    <text>添加图片</text>
-                </view>
+                <input name="address" placeholder="可补充具体的门牌号" value=""/>
             </view>
         </view>
     </view>
 
+    <!-- <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="3" binddelete="deleteImg" bindadd="addImg"></upload> -->
+
+    <view class="form-section">
+        <view class="form-title">图片资料</view>
+        <!-- <view class="flex-center-between">
+            <view class="img-list">
+                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
+                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
+                    <icon class="iconfont iconicon_roundadd"></icon>
+                    <text>添加门面图片</text>
+                </view>
+            </view>
+            <view class="img-list">
+                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
+                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
+                    <icon class="iconfont iconicon_roundadd"></icon>
+                    <text>添加产品图片</text>
+                </view>
+            </view>
+            <view class="img-list">
+                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
+                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
+                    <icon class="iconfont iconicon_roundadd"></icon>
+                    <text>添加营业执照</text>
+                </view>
+            </view>
+        </view> -->
+        <view class="form-item upload">
+            <label>门面图片</label>
+            <view class="form-content">
+                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+            </view>
+        </view>
+        <view class="form-item upload">
+            <label>产品图片</label>
+            <view class="form-content">
+                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+            </view>
+        </view>
+        <view class="form-item upload">
+            <label>营业执照</label>
+            <view class="form-content" style="width:520rpx">
+                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+            </view>
+        </view>
+    </view>
+
+    <view class="agree">
+        <checkbox value="{{agree}}" checked="{{agree}}" color="#4d5ef4"/>
+        <text>我已认真阅读并同意"商家入驻协议书"</text>
+    </view>
+
     <button form-type="submit" class="main-btn">提交</button>
+
+    <view class="form-tips">
+        <view>申请说明：</view>
+        <view>1. 提交申请前请认真阅读商家入驻协议书，同意请勾选，有疑问可联系客服</view>
+        <view>2. 提交申请前请点击页面右上方按钮先分享‘多师傅’小程序至您的朋友圈，分享后即可免费入驻</view>
+        <view>3. 提交申请后后台会进行资料审核，请耐心等待</view>
+        <view>4. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
+    </view>
 </form>
