@@ -8,8 +8,8 @@
 	color: #666;
 }
 .img-list .single-image{
-    width: 140rpx;
-    height: 140rpx;
+    width: 150rpx;
+    height: 150rpx;
 	margin-left: 20rpx;
 	position: relative;
 }
@@ -38,5 +38,5 @@
     margin-left: 20rpx;
 }
 .add .iconicon_roundadd{
-    font-size: 28px;
+    font-size: 22px;
 }

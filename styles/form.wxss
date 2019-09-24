@@ -77,3 +77,11 @@
   padding: 30rpx;
   color: #666;
 }
+
+
+.form-tips{
+    color: #666;
+    padding: 30rpx;
+    font-size: 14px;
+    line-height: 1.8;
+}

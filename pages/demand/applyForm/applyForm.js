@@ -17,11 +17,12 @@ Page({
   },
 
   onLoad(params) {
-    this.setData({
+    let that = this;
+    that.setData({
       service_id: params.service_id,
-      service_demand: app.globalData.service_demand,
-      addressInfo: app.globalData.addressInfo
+      service_demand: app.globalData.service_demand
     })
+    common.addressCallBack(app, that);
   },
 
   bindDateChange: function(e) {
@@ -35,21 +36,26 @@ Page({
     })
   },
 
-  addImg() {
-    let that = this;
-    common.chooseImgs(3, that.data.imgArr, function(res) {
-      console.log(res);
-      that.setData({
-        imgArr: res
-      })
+   // 添加图片
+   addImg(e) {
+    let name = e.detail.name;
+    let arr = e.detail.arr;
+    let imgArr = this.data[name];
+    imgArr = imgArr.concat(arr);
+    console.log(imgArr)
+    this.setData({
+      [name]: imgArr
     })
   },
 
-  deleteImg(i) {
-    common.deleteImg(this.data.imgArr, i, function(res) {
-      this.setData({
-        imgArr: res
-      })
+  // 删除图片
+  deleteImg(e) {
+    let idx = e.detail.idx;
+    let name = e.detail.name;
+    let imgArr = this.data[name];
+    imgArr.splice(idx, 1);
+    this.setData({
+      [name]: imgArr
     })
   },
 
@@ -75,6 +81,21 @@ Page({
       formData.imglist = '';
       that.submitFn(formData);
     } 
+  },
+
+  chooseAddress() {
+    let that = this
+    wx.chooseLocation({
+      success(res) {
+        console.log(res)
+        let addressInfo = {
+          address: res.address + res.name
+        }        
+        that.setData({
+          addressInfo: addressInfo
+        })
+      }
+    })
   },
 
   submitFn(formData) {  

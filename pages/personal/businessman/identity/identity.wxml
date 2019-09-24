@@ -25,33 +25,8 @@
         </view>
     </view>
 
-    <!-- <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="3" binddelete="deleteImg" bindadd="addImg"></upload> -->
-
     <view class="form-section">
         <view class="form-title">图片资料</view>
-        <!-- <view class="flex-center-between">
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <icon class="iconfont iconicon_roundadd"></icon>
-                    <text>添加门面图片</text>
-                </view>
-            </view>
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <icon class="iconfont iconicon_roundadd"></icon>
-                    <text>添加产品图片</text>
-                </view>
-            </view>
-            <view class="img-list">
-                <image class="single-image" wx:for="{{imgArr}}" src="{{item}}" wx:key="index" mode="aspectFill"/>
-                <view bindtap="addImg" class="add" wx:if="{{imgArr.length < 1}}">
-                    <icon class="iconfont iconicon_roundadd"></icon>
-                    <text>添加营业执照</text>
-                </view>
-            </view>
-        </view> -->
         <view class="form-item upload">
             <label>门面图片</label>
             <view class="form-content">
