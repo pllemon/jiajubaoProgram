@@ -45,6 +45,12 @@ const personMessage = {
         desc: '订单已审核通过，请支付定金',
         show: true
       },
+      3: {
+        status: 3,
+        label: '待派单',
+        desc: '已支付定金，订单等待后台派单',
+        show: true
+      },
       4: {
         status: 4,
         label: '报名中',

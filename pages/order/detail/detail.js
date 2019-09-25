@@ -113,7 +113,8 @@ Page({
     app.request({
       url: '/payearnestprice',
       data: {
-        order_id: this.data.order_id
+        order_id: this.data.order_id,
+        order_sn: this.data.orderMes.order_sn
       },
       success: function(data) {
         wx.showToast({
