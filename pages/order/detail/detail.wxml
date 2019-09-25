@@ -95,7 +95,7 @@
 
     <!-- 操作按钮 -->
     <view class="main-action" wx:if="{{personType == 0}}">
-      <button wx:if="{{orderMes.status == 2}}" bindtap="masterSignUp" class="main-btn">支付定金</button>
+      <button wx:if="{{orderMes.status == 2}}" bindtap="payearnestprice" class="main-btn">支付定金</button>
       <button wx:if="{{orderMes.status == 6}}" bindtap="masterSignUp" class="main-btn">支付尾款</button>
       <button wx:if="{{orderMes.status == 8}}" bindtap="masterSignUp" class="main-btn">再次下单</button>
       <button wx:if="{{orderMes.status == 7}}" bindtap="masterSignUp" class="main-btn">评价订单</button>

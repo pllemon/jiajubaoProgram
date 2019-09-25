@@ -93,8 +93,8 @@ const personMessage = {
       },
       {
         img: 'service',
-        text: '我要投诉',
-        url: '/pages/system/releaseDemand/step1/step1'
+        text: '意见反馈',
+        url: '/pages/personal/feedback/feedback'
       },
       {
         img: 'namecard',

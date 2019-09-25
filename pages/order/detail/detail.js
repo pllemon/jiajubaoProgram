@@ -108,7 +108,7 @@ Page({
   },
 
   // 支付尾款
-  payTailMoney() {
+  payearnestprice() {
     let that = this;
     app.request({
       url: '/payearnestprice',

@@ -2,6 +2,6 @@
     <view class="flex-center" style="padding: 50rpx 0">
         <van-rate value="{{ star }}" size="{{ 42 }}" bind:change="changeStar"/>
     </view>
-    <textarea placeholder="请输入评论" name="textarea"/>
+    <textarea placeholder="请输入评论" name="comment"/>
     <button form-type="submit" class="main-btn"> 提交 </button>
 </form>

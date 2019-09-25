@@ -4,13 +4,13 @@
         <view class="form-item">
             <label>店铺名</label>
             <view class="form-content">
-                <input name="service_demand" placeholder="请输入" value=""/>
+                <input name="name" placeholder="请输入" value=""/>
             </view>
         </view>
         <view class="form-item">
             <label>联系电话</label>
             <view class="form-content">
-                <input name="service_demand" placeholder="请输入" value=""/>
+                <input name="phone" placeholder="请输入" value=""/>
             </view>
         </view>
         <view class="form-item">
@@ -30,19 +30,25 @@
         <view class="form-item upload">
             <label>门面图片</label>
             <view class="form-content">
-                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="shopimg" imgArr="{{shopimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
             <label>产品图片</label>
             <view class="form-content">
-                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
             <label>营业执照</label>
             <view class="form-content" style="width:520rpx">
-                <upload name="imgArr" text="添加门面图片" imgArr="{{imgArr}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="businessimg" imgArr="{{businessimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+            </view>
+        </view>
+        <view class="form-item upload">
+            <label>分享图片</label>
+            <view class="form-content" style="width:520rpx">
+                <upload name="sharewximg" imgArr="{{sharewximg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
             </view>
         </view>
     </view>
@@ -57,7 +63,7 @@
     <view class="form-tips">
         <view>申请说明：</view>
         <view>1. 提交申请前请认真阅读商家入驻协议书，同意请勾选，有疑问可联系客服</view>
-        <view>2. 提交申请前请点击页面右上方按钮先分享‘多师傅’小程序至您的朋友圈，分享后即可免费入驻</view>
+        <view>2. 提交申请前请点击页面右上方按钮先分享‘多师傅’小程序至您的朋友圈，分享后上传图片即可免费入驻</view>
         <view>3. 提交申请后后台会进行资料审核，请耐心等待</view>
         <view>4. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
     </view>

@@ -25,8 +25,8 @@ Page({
       },
       {
         img: '/image/icon_dispose.png',
-        text: '我要投诉',
-        url: '/pages/system/releaseDemand/step1/step1'
+        text: '意见反馈',
+        url: '/pages/personal/feedback/feedback'
       },
       {
         img: '/image/icon_dispose.png',

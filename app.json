@@ -22,6 +22,7 @@
     "pages/personal/concat/concat",
     "pages/personal/about/about",
     "pages/personal/agree/agree",
+    "pages/personal/feedback/feedback",
     "pages/personal/message/message",
     "pages/personal/wallet/wallet"
   ],

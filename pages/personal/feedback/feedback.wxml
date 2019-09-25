@@ -1,0 +1,19 @@
+<form bindsubmit="formSubmit" class="form">
+    <view class="form-section">
+        <!-- <view class="form-title">基本资料</view> -->
+        <view class="form-item">
+            <label>反馈标题</label>
+            <view class="form-content">
+                <input type="text" name="title" placeholder="请输入"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>反馈内容</label>
+            <view class="form-content">
+                <textarea name="feedback" auto-height placeholder="请输入"/>
+            </view>
+        </view>
+    </view>
+
+    <button form-type="submit" class="main-btn">提交</button>
+</form>

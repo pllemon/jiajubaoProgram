@@ -3,6 +3,7 @@
   <view class="{{formType == 1? 'active': ''}}" data-idx="1" bindtap="changeTab">注 册</view>
 </view>
 <form bindsubmit="formSubmit">
+  <!-- <image src="/image/logo.jpeg" mode="aspectFit" style="width: 100px;height: 50px;margin:auto;margin-bottom:60rpx"></image> -->
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_boss"></icon>
     <input placeholder="请输入用户名或授权" name="username" value="{{formData.username}}"/>
