@@ -9,8 +9,9 @@ Page({
     statusArr: []
   },
   onLoad(params) {
-    let personType = params.type || 0;
+    let personType = params.type;
     this.setData({
+      personType: personType,
       orderStatus: app.globalData.personMessage[personType].orderStatus
     })
 
@@ -27,9 +28,15 @@ Page({
   // 获取订单列表
   getOrderList(data = {}) {
     let that = this;
+    let personType = that.data.personType;
+    let url = '/userorderlist';
+    console.log(personType)
+    if (personType == 1) {
+      url = '/craftsmanorderlist';
+    }
     app.request({
-      url: '/userorderlist',
-      data: data,
+      url,
+      data,
       success: function(data) {
         that.setData({
           list: data

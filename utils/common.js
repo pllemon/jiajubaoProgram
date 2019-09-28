@@ -12,32 +12,31 @@ const chooseImgs = (total, fileList, callback) => {
   })
 }
 
-// 上传图片
-let uploadRes = [];
-const uploadImgs = ( url, fileList, idx, callback)  => {
-  if (idx == 0) {
-    uploadRes = [];
-  }
+// 上传同类型多张图片
+const uploadImgs = ( url, fileList, callback)  => {
+  let resArr = [];
+  fileList.forEach(item => {
+    uploadImg(url, item, function(res){
+      resArr.push(res);
+      if (resArr.length == fileList.length) {
+        callback(resArr);
+      }
+    })
+  })
+}
+
+// 上传单张图片
+const uploadImg = ( url, file, callback)  => {
   wx.uploadFile({
-    url,
-    filePath: fileList[idx],
+    url: 'http://47.106.100.144/' + url,
+    filePath: file,
     name: 'image',
     success: function (res) {
       console.log(res)
-      uploadRes.push(JSON.parse(res.data).data);
-      if (!((idx + 1) == fileList.length)) {
-        idx ++;
-        uploadImgs(url, fileList, idx, callback);
-      }else{
-        callback(uploadRes);
-        console.log("已经全部上传完毕");
+      let data = JSON.parse(res.data);
+      if (data.success && callback) {
+        callback(data.data)
       }
-    },
-    fail:function(){
-      //console.log("失败")
-    },
-    complete:function(){
-      //console.log("结束")
     }
   })
 }
@@ -74,6 +73,7 @@ const addressCallBack = (app, target) => {
 module.exports = {
   chooseImgs,
   uploadImgs,
+  uploadImg,
   previewImgs,
   deleteImg,
   addressCallBack

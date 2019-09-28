@@ -74,7 +74,7 @@
         </view>
       </view>
 
-      <view class="common-section">
+      <view class="common-section" wx:if="{{orderMes.status > 3}}">
         <view class="common-title">报名情况({{masterList.length}})</view>
         <view class="sign-list" wx:if="{{masterList.length>0}}">
           <block wx:for="{{masterList}}" wx:key="index">

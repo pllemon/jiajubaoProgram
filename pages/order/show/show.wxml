@@ -1,0 +1,24 @@
+<form bindsubmit="formSubmit" class="form">
+    <view class="form-section">
+        <view class="form-title">工程秀资料</view>
+        <view class="form-item">
+            <label>标题</label>
+            <view class="form-content">
+                <input name="title" placeholder="请输入" value="{{title}}"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>描述</label>
+            <view class="form-content">
+                <textarea name="dec" auto-height placeholder="请输入"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>添加图片</label>
+            <view class="form-content" style="width:520rpx">
+                <upload name="imgArr" imgArr="{{imgArr}}" length="3" binddelete="deleteImg" bindadd="addImg"></upload>
+            </view>
+        </view>
+    </view>
+    <button form-type="submit" class="main-btn">提交</button>
+</form>

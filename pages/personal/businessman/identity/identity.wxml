@@ -30,25 +30,25 @@
         <view class="form-item upload">
             <label>门面图片</label>
             <view class="form-content">
-                <upload name="shopimg" imgArr="{{shopimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="shopimg" imgArr="{{shopimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
             <label>产品图片</label>
             <view class="form-content">
-                <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
             <label>营业执照</label>
             <view class="form-content" style="width:520rpx">
-                <upload name="businessimg" imgArr="{{businessimg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="businessimg" imgArr="{{businessimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
             <label>分享图片</label>
             <view class="form-content" style="width:520rpx">
-                <upload name="sharewximg" imgArr="{{sharewximg}}" length="1" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="sharewximg" imgArr="{{sharewximg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
     </view>

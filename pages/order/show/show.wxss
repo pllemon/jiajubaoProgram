@@ -1,0 +1,6 @@
+textarea{
+    background: #fff;
+    padding: 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "上传工程秀",
+	"usingComponents": {
+		"upload": "/components/upload/upload"
+	}
+}

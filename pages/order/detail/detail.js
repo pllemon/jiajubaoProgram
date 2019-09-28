@@ -107,11 +107,31 @@ Page({
     })
   },
 
-  // 支付尾款
+  // 支付定金
   payearnestprice() {
     let that = this;
     app.request({
       url: '/payearnestprice',
+      data: {
+        order_id: this.data.order_id,
+        order_sn: this.data.orderMes.order_sn
+      },
+      success: function(data) {
+        wx.showToast({
+          title: '支付成功',
+          icon: 'success',
+          duration: 2000
+        });
+        that.getInfo();
+      }
+    })
+  },
+
+  // 支付尾款
+  paytailprice() {
+    let that = this;
+    app.request({
+      url: '/paytailprice',
       data: {
         order_id: this.data.order_id,
         order_sn: this.data.orderMes.order_sn

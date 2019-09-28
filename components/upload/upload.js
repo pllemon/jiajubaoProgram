@@ -24,9 +24,11 @@ Component({
   methods: {
     delete(e) {
       let idx = e.currentTarget.dataset.idx;
-      this.triggerEvent('delete', {
+      let arr = this.properties.imgArr;
+      arr.splice(idx, 1);
+      this.triggerEvent('update', {
         name: this.properties.name,
-        idx
+        arr: arr
       });
     },
     addImg() {
@@ -39,9 +41,10 @@ Component({
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success (res) {
-          that.triggerEvent('add', {
+          let arr = that.properties.imgArr.concat(res.tempFilePaths);
+          that.triggerEvent('update', {
             name: that.properties.name,
-            arr: res.tempFilePaths
+            arr: arr
           })
         }
       })

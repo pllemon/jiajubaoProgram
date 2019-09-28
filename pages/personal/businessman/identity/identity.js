@@ -19,26 +19,11 @@ Page({
     common.addressCallBack(app, that);
   },
 
-  // 添加图片
-  addImg(e) {
-    let name = e.detail.name;
-    let arr = e.detail.arr;
-    let imgArr = this.data[name];
-    imgArr = imgArr.concat(arr);
-    console.log(imgArr)
+  // 更新图片
+  updateImg(e) {
+    let { name, arr } = e.detail;
     this.setData({
-      [name]: imgArr
-    })
-  },
-
-  // 删除图片
-  deleteImg(e) {
-    let idx = e.detail.idx;
-    let name = e.detail.name;
-    let imgArr = this.data[name];
-    imgArr.splice(idx, 1);
-    this.setData({
-      [name]: imgArr
+      [name]: arr
     })
   },
 
@@ -102,8 +87,8 @@ Page({
 
   upload(name, formData) {
     let that = this;
-    common.uploadImgs('http://47.106.100.144/uploadobusinessimg', this.data[name], 0, function (res) {
-      formData[name] = res[0];
+    common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
+      formData[name] = res;
       uploadNum++;
       if (uploadNum == 4) {
         wx.hideLoading();
