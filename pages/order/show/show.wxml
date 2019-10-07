@@ -16,7 +16,7 @@
         <view class="form-item">
             <label>添加图片</label>
             <view class="form-content" style="width:520rpx">
-                <upload name="imgArr" imgArr="{{imgArr}}" length="3" binddelete="deleteImg" bindadd="addImg"></upload>
+                <upload name="imgArr" imgArr="{{imgArr}}" length="3" bindupdate="updateImg"></upload>
             </view>
         </view>
     </view>

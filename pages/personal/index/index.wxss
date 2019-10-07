@@ -1,12 +1,7 @@
-.personal-mes{
-	height: 440rpx;
-	background: -webkit-linear-gradient(#7889f1, #4d5ef4);
-	/* background: -webkit-linear-gradient( #f85032, #e73827); */
-	padding: 200rpx 40rpx 0;
-	color: #fff;
-	display: flex;
-	align-items: center;
+.blue-header{
+	padding-top: 120rpx;
 }
+
 .personal-img{
 	width: 160rpx;
 	height: 160rpx;

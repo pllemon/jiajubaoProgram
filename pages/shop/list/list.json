@@ -4,6 +4,7 @@
 	    "filterTab": "/components/filterTab/filterTab",
 	    "navigation": "/components/navigation/navigation",
 		"scroll": "/components/scroll/scroll",
-		"van-search": "../../miniprogram_npm/vant-weapp/search"
+		"van-search": "../../miniprogram_npm/vant-weapp/search",
+		"gdImage": "/components/image/image"
 	}
 }

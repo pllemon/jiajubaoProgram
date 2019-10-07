@@ -2,16 +2,20 @@ const app = getApp()
 
 Page({
   data: {
-    info: {},
-    contents: '<p>eeeee</p><p style="font-size:40px;color:red">eeeee</p><p>eeeee</p><ul><li>11111</li><li>2222</li><li>33333</li></ul>'
+   info: {}
   },
 
-  onLoad() {
+  onLoad(params) {
+    let id = params.id
+    this.getDetails(id);
+  },
+
+  getDetails(id) {
     let that = this;
     app.request({
-      url: '/getdoc',
+      url: '/ordershowinfo',
       data: {
-        type: 'lxwm'
+        show_id: id
       },
       success: function(data) {
         that.setData({

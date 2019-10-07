@@ -1,0 +1,6 @@
+page{
+    background: #fff;
+}
+.container{
+    padding: 30rpx;
+}

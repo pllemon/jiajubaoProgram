@@ -3,6 +3,8 @@ const common = require('../../utils/common.js');
 
 Page({
   data: {
+    ip: common.ip,
+
     imgUrls: [
       '/image/example/bg1.jpg',
       '/image/example/bg1.jpg',
@@ -12,28 +14,45 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    list: [{
-      url: '/pages/engineering/list/list',
-      icon: '/image/icon/project.svg',
-      text: '工程秀'
-    },{
-      url: '/pages/demand/category/category',
-      icon: '/image/icon/repair.svg',
-      text: '我要维修'
-    },{
-      url: '/pages/order/center/center',
-      icon: '/image/icon/discount.svg',
-      text: '优惠全民'
-    },{
-      url: '/pages/order/center/center',
-      icon: '/image/icon/order_list.svg',
-      text: '批单中心'
-    }],
-    addressInfo: ""
+
+    addressInfo: "",
+    bannerList: []
   },
 
   onLoad() {
     let that = this;
     common.addressCallBack(app, that);
+
+    that.getBanner();
+  },
+
+  getBanner() {
+    let that = this;
+    app.request({
+      url: '/bannerlist',
+      data: {},
+      success: function(data) {
+        that.setData({
+          bannerList: data
+        })
+      }
+    })
+  },
+
+  goDiscount() {
+    app.showModel('该功能暂未开放，敬请期待')
+  },
+
+  goShow() {
+    let loginInfo = app.globalData.loginInfo
+    if (loginInfo.is_criaftsman != 1) {
+      wx.reLaunch({
+        url: '/pages/personal/index/index?type=1'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/order/center/center'
+      })
+    }
   }
 })

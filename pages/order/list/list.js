@@ -9,7 +9,7 @@ Page({
     statusArr: []
   },
   onLoad(params) {
-    let personType = params.type;
+    let personType = params.personType;
     this.setData({
       personType: personType,
       orderStatus: app.globalData.personMessage[personType].orderStatus
@@ -30,7 +30,6 @@ Page({
     let that = this;
     let personType = that.data.personType;
     let url = '/userorderlist';
-    console.log(personType)
     if (personType == 1) {
       url = '/craftsmanorderlist';
     }
@@ -47,8 +46,16 @@ Page({
 
   changeType(e) {
     let index = e.detail.index;
-    this.getOrderList({
-      status: this.data.statusArr[index].status
-    })
+    let personType = this.data.personType;
+    console.log(index);
+    if (personType == 0) {
+      this.getOrderList({
+        status: this.data.statusArr[index].status
+      })
+    } else {
+      this.getOrderList({
+        cmorderstatus: this.data.statusArr[index].status
+      })
+    }
   }
 })

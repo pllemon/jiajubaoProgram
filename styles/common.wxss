@@ -6,6 +6,12 @@
   margin: 0;
 }
 
+.no-res{
+  padding: 100rpx 0;
+  text-align: center;
+  color: #888;
+}
+
 
 .tab-list{
   display: flex;
@@ -115,4 +121,15 @@
 	margin-right: 20rpx;
 	font-size: 20px;
 	top: -4px;
+}
+
+
+.blue-header{
+	height: 380rpx;
+	background: -webkit-linear-gradient(#7889f1, #4d5ef4);
+	padding: 180rpx 40rpx 0;
+	color: #fff;
+	display: flex;
+  align-items: center;
+  color: #fff;
 }

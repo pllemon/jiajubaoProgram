@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -92,10 +92,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "",
+					"query": "id=26&personType=1",
 					"scene": null
 				},
 				{
@@ -165,7 +165,7 @@
 					"id": 17,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "id=1&personType=0",
+					"query": "id=26&personType=0",
 					"scene": null
 				},
 				{
@@ -190,9 +190,24 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 21,
 					"name": "上传师傅秀",
 					"pathName": "pages/order/show/show",
+					"query": "id=100",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系我们",
+					"pathName": "pages/personal/concat/concat",
+					"query": "id=23&personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工程秀详情",
+					"pathName": "pages/engineering/details/details",
+					"query": "id=24&personType=1",
 					"scene": null
 				}
 			]

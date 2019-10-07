@@ -36,7 +36,7 @@ Page({
     })
   },
 
-   // 更新图片
+  // 更新图片
   updateImg(e) {
     let { name, arr } = e.detail;
     this.setData({

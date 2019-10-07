@@ -1,3 +1,66 @@
+.blue-header .iconfont{
+    font-size: 50px;
+    top: 0px;
+}
+.blue-header .title{
+    font-size: 22px;
+}
+
+.concat-mes .concat-single{
+    padding: 24rpx 30rpx;
+    background: #fff;
+    color: #888;
+    font-size: 14px;
+}
+.concat-mes .concat-single .name{
+    font-size: 16px;
+    color: #333;
+}
+.concat-mes .concat-single .phone{
+    color: #4d5ef4;
+}
+
+.personal-img{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.main-action{
+    padding: 20rpx 30rpx;
+    background: #f8f8f8;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.main-action .main-btn{
+    margin: 0;
+}
+.main-action .service{
+    margin-right: 30rpx;
+    color: #4d5ef4;
+}
+.main-action .service .iconfont{
+    font-size: 26px;
+    position: relative;
+    top: 1rpx;
+    margin-right: 2px;
+}
+
+.common-section{
+    margin-top: 22rpx;
+    color: #888;
+}
+.common-section .title{
+    font-size: 20px;
+}
+
+
+
+
+/* 以下 */
 .sign-single{
     background: #fff;
     padding: 20rpx 0rpx;
@@ -47,13 +110,6 @@ label{
     border-radius: 4rpx;
 }
 
-.common-section{
-    border-top: 1px dashed #E4E7ED;
-    color: #888;
-}
-.common-section .title{
-    font-size: 20px;
-}
 .message view{
     display: flex;
     align-content: center;
@@ -62,13 +118,6 @@ label{
     color: #888;
 }
 
-.main-action{
-    padding: 20rpx 30rpx;
-    background: #f8f8f8;
-}
-.main-action .main-btn{
-    margin: 0;
-}
 
 .concat{
     margin-top: 30rpx;

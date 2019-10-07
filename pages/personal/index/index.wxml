@@ -1,7 +1,7 @@
 <view class="container personal">
   <!-- 我的信息 -->
   <view class="personal-header">
-    <view class="personal-mes">
+    <view class="personal-mes blue-header">
       <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
       <view>
         <view class="personal-name">{{userInfo.username}}</view>
@@ -23,13 +23,15 @@
     </van-tabs>
   </view>
 
+  
+
   <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1)}}">
     <!-- 我的订单 -->
     <view class="order-content">
       <van-cell 
         is-link
         link-type="navigateTo"
-        url="/pages/order/list/list?type={{currType}}"
+        url="/pages/order/list/list?personType={{currType}}"
       >
         <view slot="title" class="action-item">
           <icon class="iconfont iconicon_affiliations_li"></icon>
@@ -45,22 +47,10 @@
         </block>
       </view>
     </view>
-    <!-- 操作列表 -->
-    <view class="action-list">
-      <block wx:for="{{currMessage.action}}" wx:key="index">
-        <van-cell 
-          is-link
-          link-type="navigateTo"
-          url="{{item.url}}"
-        >
-          <view slot="title" class="action-item">
-            <icon class="iconfont iconicon_{{item.img}}"></icon>
-            <view class="van-cell-text">{{item.text}}</view>
-          </view>
-        </van-cell>
-      </block>
-    </view>
   </block>
+
+
+  <user wx:if="{{currType == 0}}"></user>
 
   <!-- 师傅验证 -->
   <block wx:if="{{currType == 1}}">

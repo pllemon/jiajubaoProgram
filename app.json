@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
+    "pages/login/login",
 
     "pages/demand/category/category",
     "pages/demand/applyForm/applyForm",
@@ -9,6 +9,7 @@
     "pages/shop/list/list",
 
     "pages/engineering/list/list",
+    "pages/engineering/details/details",
 
     "pages/order/center/center",
     "pages/order/list/list",

@@ -20,8 +20,8 @@
 
 
   <scroll-view scroll-y class="flex1 order-list">
-    <block wx:for="{{list}}" wx:key="index">
-      <navigator class="order-card" url="../detail/detail?id={{item.order_id}}">
+    <block wx:if="{{list.length}}">
+      <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
         <view class="common-section">
           <view class="order-header">
             <text>No:{{item.order_sn}}</text>
@@ -51,6 +51,9 @@
           </block>
         </view>
       </navigator>
+    </block>
+    <block wx:else>
+      <view class="no-res">暂无数据</view>
     </block>
   </scroll-view>
 </view>

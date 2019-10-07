@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    list: [1,2,3,4],
+    list: [],
     page: 1,
     isRefresh: false,
     isLoadMore: false,
@@ -10,8 +10,28 @@ Page({
     searchValue: ''
   },
 
-  onSearch() {
-    console.log(33333)
+  onLoad() {
+    this.getList();
+  },
+
+  getList() {
+    let that = this;
+    app.request({
+      url: '/ordershowlist',
+      data: {},
+      success: function(data) {
+        that.setData({
+          list: data
+        })
+      }
+    })
+  },
+
+  goDetails(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/engineering/details/details?id=' + id
+    })
   },
 
   onRefresh() {

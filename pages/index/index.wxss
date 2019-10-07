@@ -20,22 +20,23 @@ page{
   box-sizing: border-box;
   padding: 10rpx;
 }
-.nav-type navigator{
+.nav-type .nav-single{
   width: 100%;
   height: 100%;
   border-radius: 10rpx;
   color: #fff;
 }
-.nav-type:nth-of-type(1) navigator{
+
+.nav-type:nth-of-type(1) .nav-single{
 	background: -webkit-linear-gradient(45deg, #eb361e, #ee331b);
 }
-.nav-type:nth-of-type(4) navigator{
+.nav-type:nth-of-type(4) .nav-single{
 	background: -webkit-linear-gradient(135deg, #cc5daf, #c95bac);
 }
-.nav-type:nth-of-type(3) navigator{
+.nav-type:nth-of-type(3) .nav-single{
 	background: -webkit-linear-gradient(-135deg, #66abd8, #61a6d3);
 }
-.nav-type:nth-of-type(2) navigator{
+.nav-type:nth-of-type(2) .nav-single{
 	background: -webkit-linear-gradient(-45deg, #68bc62, #69bd62);
 }
 .nav-type image{

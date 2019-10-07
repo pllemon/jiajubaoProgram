@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "工程秀详情",
+	"usingComponents": {
+	    "gdImage": "/components/image/image"
+	}
+}

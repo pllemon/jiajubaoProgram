@@ -19,7 +19,7 @@ Page({
   },
 
   onLoad(params) {
-    let formType = params.type || 0;
+    let formType = params.type || 1;
     this.setData({
       formType
     })
@@ -131,6 +131,12 @@ Page({
           wx.setStorage({
             key: 'session',
             data: data
+          })
+          app.request({
+            url: '/userinfo',
+            success: function(data) {
+              app.globalData.loginInfo = data
+            }
           })
           wx.reLaunch({
             url: '/pages/personal/index/index'

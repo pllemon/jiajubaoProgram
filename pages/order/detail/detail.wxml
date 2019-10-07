@@ -1,103 +1,134 @@
-<view class="full-layout">
-    <!-- 订单状态 -->
-    <view class="order-desc">
-      <icon class="iconfont iconicon_warn" style="top:-4rpx"></icon>
-      <text>{{orderStatus.desc}}</text>
+<view>
+    <view class="blue-header flex-center-between">
+      <view>
+        <view class="title">{{orderStatus.label}}</view>
+        <view>{{orderStatus.desc}}</view>
+      </view>
+      <icon class="iconfont {{orderStatus.icon}}"></icon>
     </view>
-    
-    <scroll-view scroll-y class="flex1">
-      <!-- 订单信息 -->
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{imgUrls}}" wx:key="id">
+
+    <view class="concat-mes">
+      <view wx:if="{{orderStatus.showUser}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
+        <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+        <view class="flex1">
+          <view class="name">{{orderMes.info.username}}</view>
+          <view>{{orderMes.info.phone}}</view>
+        </view>
+        <view class="flex-center phone" wx:if="{{orderStatus.showUserPhone}}" data-phone="{{orderMes.info.phone}}" bindtap="makePhoneCall">
+          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+          <text>联系</text>
+        </view>
+      </view>
+      <view wx:if="{{orderStatus.showMaster}}" class="flex-center-between concat-single">
+        <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+        <view class="flex1">
+          <view class="name">{{orderMes.craftsmaninfo.name}}（{{orderMes.craftsmaninfo.sn}}）</view>
+          <view>{{orderMes.craftsmaninfo.phone}}</view>
+        </view>
+        <view class="flex-center phone" wx:if="{{orderStatus.showMasterPhone}}" data-phone="{{orderMes.craftsmaninfo.phone}}" bindtap="makePhoneCall">
+          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+          <text>联系</text>
+        </view>
+      </view>
+    </view>
+
+  
+    <!-- 订单信息 -->
+    <view class="common-section" style="border-top:0">
+      <view class="title">{{orderMes.info.service_demand}}</view>
+      <view class="mes">
+        <icon class="iconfont iconicon_GPS"></icon>
+        <text class="content">{{orderMes.info.address}}</text>
+      </view>
+      <view class="mes">
+        <icon class="iconfont iconicon_calendar"></icon>
+        <text class="content">{{orderMes.info.appo_time}}</text>
+      </view>
+      <view class="mes">
+        <icon class="iconfont iconicon_community_line"></icon>
+        <text class="content">{{orderMes.info.remark}}</text>
+      </view>
+
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="margin-top: 30rpx">
+        <block wx:for="{{orderMes.userimglist}}" wx:key="id">
           <swiper-item>
             <label>订单图片</label>
-            <image src="{{item}}" class="slide-image"/>
+            <gdImage  class="slide-image" preview="true" src="{{ item }}"></gdImage>
           </swiper-item>
         </block>
       </swiper>
+    </view>
 
-      <view class="common-section" style="border-top:0">
-        <view class="title">{{orderMes.service_demand}}</view>
-        <view class="mes">
-          <icon class="iconfont iconicon_GPS"></icon>
-          <text class="content">{{orderMes.address}}</text>
+    <view class="common-section">
+      <view class="common-title">订单信息</view>
+      <view class="message">
+        <view>
+          <text>订单编号</text>
+          <text>{{orderMes.info.order_sn}}</text>
         </view>
-        <view class="mes">
-          <icon class="iconfont iconicon_calendar"></icon>
-          <text class="content">{{orderMes.appo_time}}</text>
+        <view>
+          <text>下单时间</text>
+          <text>{{orderMes.info.create_time}}</text>
         </view>
-        <view class="mes">
-          <icon class="iconfont iconicon_community_line"></icon>
-          <text class="content">{{orderMes.remark}}</text>
-        </view>
-        <view class="flex-center-between concat" wx:if="{{orderMes.status > 4}}">
-          <view class="flex-center-start">
-            <image></image>
-            <text>小明明</text>
-          </view>
-          <view class="flex-center-start fcBlue">
-            <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-            <text>联系师傅</text>
-          </view>
-        </view>
-        
-        
-        <block  wx:if="{{personType == 1}}">
-          <button bindtap="masterSignUp" class="main-btn">预计收入¥100，立即报名</button>
-          <button class="main-btn disable">已报名</button>
-        </block>
-      </view>
-
-      <view class="common-section">
-        <view class="common-title">订单信息</view>
-        <view class="message">
-          <view>
-            <text>订单号</text>
-            <text>673635242343</text>
-          </view>
-          <view>
-            <text>下单时间</text>
-            <text>2013-12-04 23:23</text>
-          </view>
+        <block wx:if="{{orderMes.info.status > 1}}">
           <view>
             <text>订单总额</text>
-            <text>¥1000</text>
+            <text>{{orderMes.pay.total_price}} 元</text>
           </view>
           <view>
             <text>定金金额</text>
-            <text>¥100</text>
+            <text>{{orderMes.pay.earnest_price}} 元</text>
           </view>
           <view>
             <text>师傅工资</text>
-            <text>¥100</text>
+            <text>{{orderMes.pay.craftsman_price}} 元</text>
           </view>
-        </view>
+        </block>
       </view>
+    </view>
 
-      <view class="common-section" wx:if="{{orderMes.status > 3}}">
-        <view class="common-title">报名情况({{masterList.length}})</view>
-        <view class="sign-list" wx:if="{{masterList.length>0}}">
-          <block wx:for="{{masterList}}" wx:key="index">
-            <view class="sign-single flex-center-between">
-              <view class="flex-center-start">
-                <image></image>
-                <text>{{item.name}}</text>
-              </view>
-              <button wx:if="{{personType == 0}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
+    <view class="common-section" wx:if="{{orderStatus.showSignUp}}">
+      <view class="common-title">报名情况({{orderMes.craftsmanlist.length}})</view>
+      <view class="sign-list" wx:if="{{orderMes.craftsmanlist.length>0}}">
+        <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
+          <view class="sign-single flex-center-between">
+            <view class="flex-center-start">
+              <gdImage src="{{ item.imgurl }}"></gdImage>
+              <text>{{item.name}}</text>
             </view>
-          </block>
-        </view>
-        <view class="flex-center" wx:if="{{masterList.length==0}}" style="height: 300rpx">
-          还没有师傅报名哦~
-        </view>
+            <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
+          </view>
+        </block>
       </view>
-    </scroll-view>
+      <view class="flex-center" wx:if="{{orderMes.craftsmanlist.length==0}}" style="height: 300rpx">
+        还没有师傅报名哦~
+      </view>
+    </view>
+
+    <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
 
     <!-- 操作按钮 -->
-    <view class="main-action" wx:if="{{personType == 0}}">
-      <button wx:if="{{orderMes.status == 2}}" bindtap="payearnestprice" class="main-btn">支付定金</button>
-      <button wx:if="{{orderMes.status == 6}}" bindtap="masterSignUp" class="main-btn">支付尾款</button>
-      <button wx:if="{{orderMes.status == 8}}" bindtap="masterSignUp" class="main-btn">再次下单</button>
-      <button wx:if="{{orderMes.status == 7}}" bindtap="masterSignUp" class="main-btn">评价订单</button>
+    <view class="main-action flex-center-between" wx:if="{{personType == 0 && orderStatus.showAction}}">
+      <view class="flex-center service">
+        <icon class="iconfont iconkefu"></icon>
+        <text>客服</text>
+      </view>
+      <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn flex1">支付定金</button>
+      <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn flex1">支付尾款</button>
+      <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
+      <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn flex1">评价订单</button>
+      <button wx:if="{{orderMes.info.status == 10}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
+    </view>
+
+    <view class="main-action flex-center-between" wx:if="{{personType == 1 && orderStatus.showAction}}">
+      <view class="flex-center service">
+        <icon class="iconfont iconkefu"></icon>
+        <text>客服</text>
+      </view>
+      <button wx:if="{{orderMes.info.status == 5}}" bindtap="masterConfirm" class="main-btn flex1">确认完工</button>
+      <button wx:if="{{orderMes.info.status > 5 && orderMes.info.status < 8}}" class="main-btn flex1 disable">待客户确认完工</button>
+      <button wx:if="{{orderMes.info.status == 8 && !orderMes.ordersshow}}" bindtap="uploadShow" class="main-btn flex1">上传工程秀</button>
+      <button wx:if="{{orderMes.info.status == 8 && orderMes.ordersshow}}" bindtap="signUpOrder" class="main-btn flex1">再次抢单</button>
+      <button wx:if="{{orderMes.info.status == 4 && !orderMes.craftsmanorderinfo}}" bindtap="masterSignUp" class="main-btn flex1">立即报名</button>
     </view>
 </view>

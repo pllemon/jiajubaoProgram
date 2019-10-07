@@ -11,6 +11,14 @@ App({
    console.log('session=' + session)
    if (session) {
     that.globalData.session = session;
+
+    that.request({
+      url: '/userinfo',
+      data: {},
+      success: function(data) {
+        that.globalData.loginInfo = data
+      }
+    })
    }
 
     // 登录
@@ -84,18 +92,24 @@ App({
       },
       data: obj.data || {},
       success(res) {
-        if (res.data.success) {
-          obj.success(res.data.data)
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          if (res.data.success) {
+            obj.success(res.data.data)
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.message,
+              showCancel: false
+            })          
+          }
         } else {
           wx.showModal({
             title: '提示',
-            content: res.data.message,
+            content: '请求出错',
             showCancel: false
-          })          
+          })  
         }
-      },
-      complete() {
-        wx.hideLoading()
       }
     })
   },
@@ -110,6 +124,7 @@ App({
   globalData: {
     session: '',
     userInfo: null,
+    loginInfo: null, // 登录后账号信息
     addressInfo: null, // 地理位置信息
     personMessage: systemData.personMessage,
     service_demand: '' // 已选的项目名

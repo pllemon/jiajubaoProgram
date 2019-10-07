@@ -1,0 +1,19 @@
+<view class="details">
+  <view class="title">{{ info.title }}</view>
+  <view class="flex-center-between mes">
+    <view>{{ info.time }}</view>
+    <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
+      <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+      <text>梁尼梓</text>
+    </view>
+  </view>
+  <view class="content">
+    {{ info.dec }}
+  </view>
+  <view class="img-list">
+    <gdImage wx:if="{{ info.imgurl1 }}" preview="true" src="{{ info.imgurl1 }}"></gdImage>
+    <gdImage wx:if="{{ info.imgurl2 }}" preview="true" src="{{ info.imgurl2 }}"></gdImage>
+    <gdImage wx:if="{{ info.imgurl3 }}" preview="true" src="{{ info.imgurl3 }}"></gdImage>
+    <gdImage wx:if="{{ info.imgurl4 }}" preview="true" src="{{ info.imgurl4 }}"></gdImage>
+  </view>
+</view>

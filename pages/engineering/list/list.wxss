@@ -8,15 +8,23 @@
 .img-list{
   display: flex;
 }
-.img-list image{
-  flex: 1;
+.img-list gdImage{
+  width: 33.33%;
   height: 150rpx;
   margin-right: 20rpx;
   border-radius: 10rpx;
 }
+.img-list gdImage:last-child{
+  margin-right: 0;
+}
+.img-list image{
+  width: 100%;
+  height: 100%;
+}
 .img-list image:last-child{
   margin-right: 0;
 }
+
 
 .mes{
   color: #888;

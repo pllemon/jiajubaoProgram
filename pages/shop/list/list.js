@@ -10,8 +10,21 @@ Page({
     searchValue: ''
   },
 
-  onSearch() {
-    console.log(33333)
+  onLoad() {
+    this.getList();
+  },
+
+  getList() {
+    let that = this;
+    app.request({
+      url: '/businesslist',
+      data: {},
+      success: function(data) {
+        that.setData({
+          list: data
+        })
+      }
+    })
   },
 
   onRefresh() {

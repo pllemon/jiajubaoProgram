@@ -20,7 +20,7 @@ Page({
 
   formSubmit(e) {
     let formData = e.detail.value;
-    formData.star = this.data.star;
+    formData.stars = this.data.star;
     formData.order_id = this.data.order_id;
     app.request({
       url: '/usercomment',
@@ -29,13 +29,11 @@ Page({
         wx.showToast({
           title: '评价成功',
           icon: 'success',
-          duration: 2000
+          duration: 1000
         });
         setTimeout(function(){
-          wx.reLaunch({
-            url: '/pages/personal/index/index'
-          })
-        }, 2000)
+          wx.navigateBack()
+        }, 1000)
       }
     })
   }
