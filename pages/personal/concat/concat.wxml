@@ -1,3 +1,6 @@
+<import src="/components/wxParse/wxParse.wxml"/>   
+
 <view class="container">
   <rich-text nodes="{{info.dec}}"></rich-text>
+  <template is="wxParse" data="{{wxParseData:dec.nodes}}"/>
 </view>

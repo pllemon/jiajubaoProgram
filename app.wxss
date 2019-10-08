@@ -134,7 +134,7 @@ view{
     border-radius: 50rpx;
 }
 .main-btn.plain{
-    background: none;
+    background: #fff;
     border: 1px solid #4d5ef4;
     color: #4d5ef4;
 }

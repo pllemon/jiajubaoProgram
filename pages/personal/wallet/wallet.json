@@ -1,7 +1,8 @@
 {
-	"navigationBarTitleText": "个人中心",
+	"navigationBarTitleText": "我的积分",
 	"usingComponents": {
 	    "navigation": "/components/navigation/navigation",
-	    "personalHeader": "/components/personalHeader/personalHeader"
+	    "personalHeader": "/components/personalHeader/personalHeader",
+		"van-dialog": "../../miniprogram_npm/vant-weapp/dialog"
 	}
 }

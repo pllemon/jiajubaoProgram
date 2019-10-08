@@ -1,3 +1,5 @@
+@import "/components/wxParse/wxParse.wxss";
+
 page{
     background: #fff;
 }

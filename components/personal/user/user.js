@@ -10,8 +10,8 @@ Component({
     action: [
       {
         img: 'coinpurse_line',
-        text: '我的钱包',
-        url: '/pages/system/releaseDemand/step1/step1'
+        text: '我的积分',
+        url: '/pages/personal/wallet/wallet'
       },
       {
         img: 'addresslist',
@@ -21,12 +21,12 @@ Component({
       {
         img: 'group',
         text: '我的朋友',
-        url: '/pages/system/releaseDemand/step1/step1'
+        url: '/pages/personal/friend/friend'
       },
       {
         img: 'link',
         text: '我要推广',
-        url: '/pages/system/releaseDemand/step1/step1'
+        url: '/pages/personal/share/share'
       },
       {
         img: 'service',

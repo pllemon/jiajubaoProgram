@@ -1,4 +1,5 @@
 const app = getApp()
+var WxParse = require('/components/wxParse/wxParse.js');
 
 Page({
   data: {
@@ -17,6 +18,7 @@ Page({
         that.setData({
           info: data
         })
+        WxParse.wxParse('dec', 'html', data.dec, that, 0)
       }
     })
   }
