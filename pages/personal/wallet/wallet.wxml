@@ -1,14 +1,14 @@
 <view class="full-layout">
-  <view class="blue-header flex-center">
-    <view>您共拥有</view>
+  <view class="blue-header flex-column-center">
+    <view>您共拥有积分</view>
     <view class="total">200</view>
   </view>
 
-  <scroll-view scroll-y>
+  <scroll-view scroll-y class="flex1">
     <view class="record-list">
-      <view class="record-single flex-center-between" wx:for="{{ record }}" :key="index">
+      <view class="record-single flex-center-between" wx:for="{{ record }}" wx:key="index">
         <view>
-          <view>1111</view>
+          <view>注册赠送积分</view>
           <view class="time">2012-12-12 12:12</view>
         </view>
         <view class="points">+10</view>
@@ -23,10 +23,21 @@
 
   <van-dialog
     use-slot
-    title="说明"
+    title="积分说明"
     show="{{ isShow }}"
     bind:close="closeExplain"
   >
-    <image src="https://img.yzcdn.cn/1.jpg" />
+    <view class="explain-message">
+      <view class="title">积分获取途径：</view>
+      <view class="content">
+        <view>1. 注册即可获得10积分</view>
+        <view>2. 好友用户完成订单即可获得0.5%的积分奖励，如好友单笔下单1000元您即可得到5积分奖励</view>
+        <view>3. 线下在合作商家处消费即可获得3%的积分返还，如消费100元您即可得到3积分</view>
+      </view>
+      <view class="title">积分消费途径：</view>
+      <view class="content">
+        <view>1. 线下在合作商家处消费，每满100元即可使用5积分，直接抵扣5元</view>
+      </view>
+    </view>
   </van-dialog>
 </view>

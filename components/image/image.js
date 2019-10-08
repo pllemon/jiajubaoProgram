@@ -20,9 +20,10 @@ Component({
   methods: {
     preview() {
       if (this.properties.preview) {
+        let imgSrc = 'http://47.106.100.144' + this.properties.src
         wx.previewImage({
-          current: 'http://47.106.100.144' + this.properties.src,
-          urls: ['http://47.106.100.144' + this.properties.src]
+          current: imgSrc,
+          urls: [imgSrc]
         })
       }
     }

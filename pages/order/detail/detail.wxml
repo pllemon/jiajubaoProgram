@@ -48,15 +48,16 @@
         <icon class="iconfont iconicon_community_line"></icon>
         <text class="content">{{orderMes.info.remark}}</text>
       </view>
-
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="margin-top: 30rpx">
-        <block wx:for="{{orderMes.userimglist}}" wx:key="id">
-          <swiper-item>
-            <label>订单图片</label>
-            <gdImage  class="slide-image" preview="true" src="{{ item }}"></gdImage>
-          </swiper-item>
-        </block>
-      </swiper>
+      <block wx:if="{{orderMes.userimglist.length > 0}}">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="margin-top: 30rpx">
+          <block wx:for="{{orderMes.userimglist}}" wx:key="id">
+            <swiper-item>
+              <label>订单图片</label>
+              <gdImage  class="slide-image" preview="true" src="{{ item }}"></gdImage>
+            </swiper-item>
+          </block>
+        </swiper>
+      </block>
     </view>
 
     <view class="common-section">

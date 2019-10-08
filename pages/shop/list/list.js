@@ -18,7 +18,10 @@ Page({
     let that = this;
     app.request({
       url: '/businesslist',
-      data: {},
+      data: {
+        lng: '112.688716',
+        lat: '22.386958'
+      },
       success: function(data) {
         that.setData({
           list: data

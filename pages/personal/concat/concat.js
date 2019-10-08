@@ -1,5 +1,5 @@
 const app = getApp()
-var WxParse = require('/components/wxParse/wxParse.js');
+var WxParse = require('../../../components/wxParse/wxParse.js');
 
 Page({
   data: {
