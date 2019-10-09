@@ -1,0 +1,10 @@
+.order-header{
+    margin-bottom: 10rpx;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-header .status{
+    color: #4c5ce3;
+}

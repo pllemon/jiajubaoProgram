@@ -83,7 +83,6 @@ App({
       mask: true
     })
     wx.request({
-      // url: 'http://192.168.1.104' + obj.url,
       url: 'http://47.106.100.144' + obj.url,
       method: obj.method || 'POST',
       header: {

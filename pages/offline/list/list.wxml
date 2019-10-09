@@ -1,0 +1,59 @@
+<view class="full-layout">
+  <van-search
+    value="{{ searchValue }}"
+    placeholder="请输入关键词"
+    use-action-slot
+    bind:search="onSearch"
+  />
+
+  <van-tabs 
+    color="#4c5ce3"
+    active="{{currType}}"
+    custom-class="gd-tabs"
+    tab-class="gd-tab"
+    tab-active-class="gd-tab-active"
+    bind:change="changeType"
+  >
+    <van-tab title="{{item.label}}" wx:for="{{statusArr}}" wx:key="index">
+    </van-tab>
+  </van-tabs>
+
+
+  <scroll-view scroll-y class="flex1 order-list">
+    <block wx:if="{{list.length}}">
+      <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
+        <view class="common-section">
+          <view class="order-header">
+            <text>No:{{item.order_sn}}</text>
+            <text class="status">{{orderStatus[item.status].label}}</text>
+          </view>
+          <view class="title">{{item.service_demand}}</view>
+          <view class="mes">
+            <icon class="iconfont iconicon_GPS"></icon>
+            <text class="content">{{item.address}}</text>
+          </view>
+          <view class="mes">
+            <icon class="iconfont iconicon_calendar"></icon>
+            <text class="content">{{item.appo_time}}</text>
+          </view>
+          <view class="mes">
+            <icon class="iconfont iconicon_community_line"></icon>
+            <text class="content">{{item.remark}}</text>
+          </view>
+          <block wx:if="{{item.status == 4}}">
+            <view class="sign-info">
+              <view class="flex-center-start">
+                <image src="/image/example/peo.jpg"></image>
+                <text>等12人已报名</text>
+              </view>
+              <text wx:if="{{personType == 1}}">预计收入 <text class="money">¥100</text></text>
+            </view>
+          </block>
+        </view>
+      </navigator>
+    </block>
+    <block wx:else>
+      <view class="no-res">暂无数据</view>
+    </block>
+  </scroll-view>
+</view>

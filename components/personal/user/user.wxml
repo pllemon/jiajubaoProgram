@@ -1,12 +1,24 @@
 <view class="action-list">
 	<block wx:for="{{action}}" wx:key="index">
 		<van-cell 
+			wx:if="{{item.url}}"
 			is-link
 			link-type="{{item.type ? item.type : 'navigateTo'}}"
 			url="{{item.url}}"
 		>
 			<view slot="title" class="action-item">
-				<icon class="iconfont iconicon_{{item.img}}"></icon>
+				<icon class="iconfont iconicon_{{item.icon}}"></icon>
+				<view class="van-cell-text">{{item.text}}</view>
+			</view>
+		</van-cell>
+		<van-cell 
+			clickable
+			wx:if="{{!item.url}}"
+			data-action="{{item.action}}"
+			bind:click="bindAction"
+		>
+			<view slot="title" class="action-item">
+				<icon class="iconfont iconicon_{{item.icon}}"></icon>
 				<view class="van-cell-text">{{item.text}}</view>
 			</view>
 		</van-cell>

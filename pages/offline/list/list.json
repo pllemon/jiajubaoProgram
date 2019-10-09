@@ -1,0 +1,10 @@
+{
+	"navigationBarTitleText": "我的订单",
+	"usingComponents": {
+	    "navigation": "/components/navigation/navigation",
+		"search": "/components/search/search",
+		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
+		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
+		"van-search": "../../miniprogram_npm/vant-weapp/search"
+	}
+}

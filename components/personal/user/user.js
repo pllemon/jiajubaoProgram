@@ -9,37 +9,37 @@ Component({
   data: {
     action: [
       {
-        img: 'coinpurse_line',
+        icon: 'coinpurse_line',
         text: '我的积分',
         url: '/pages/personal/wallet/wallet'
       },
       {
-        img: 'addresslist',
+        icon: 'addresslist',
         text: '我要下单',
         url: '/pages/demand/category/category'
       },
       {
-        img: 'group',
+        icon: 'group',
         text: '我的朋友',
         url: '/pages/personal/friend/friend'
       },
       {
-        img: 'link',
+        icon: 'link',
         text: '我要推广',
         url: '/pages/personal/share/share'
       },
       {
-        img: 'service',
+        icon: 'service',
         text: '意见反馈',
         url: '/pages/personal/feedback/feedback'
       },
       {
-        img: 'namecard',
+        icon: 'namecard',
         text: '师傅加盟',
         url: '/pages/personal/index/index?type=1'
       },
       {
-        img: 'setting',
+        icon: 'setting',
         text: '设置',
         url: '/pages/personal/setting/setting'
       }
