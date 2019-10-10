@@ -114,49 +114,7 @@ const personMessage = {
         showSignUp: false,
         showAction: true
       }
-    },
-    action: [
-      {
-        icon: 'coinpurse_line',
-        text: '我的积分',
-        url: '/pages/personal/wallet/wallet'
-      },
-      {
-        icon: 'coinpurse_line',
-        text: '线下订单',
-        url: '/pages/offline/list/list'
-      },
-      {
-        icon: 'addresslist',
-        text: '我要下单',
-        url: '/pages/demand/category/category'
-      },
-      {
-        icon: 'group',
-        text: '我的朋友',
-        url: '/pages/personal/friend/friend'
-      },
-      {
-        icon: 'link',
-        text: '我要推广',
-        url: '/pages/personal/share/share'
-      },
-      {
-        icon: 'service',
-        text: '意见反馈',
-        url: '/pages/personal/feedback/feedback'
-      },
-      {
-        icon: 'namecard',
-        text: '师傅加盟',
-        url: '/pages/personal/index/index?type=1'
-      },
-      {
-        icon: 'setting',
-        text: '设置',
-        url: '/pages/personal/setting/setting'
-      }
-    ]
+    }
   },
   1: {
     text: '我是师傅',
@@ -242,28 +200,72 @@ const personMessage = {
     action: []
   }
 }
-
-const offlineStatus = {
+const personType = {
   0: {
-    1: {
-      1: {
-        status: 1,
-        label: '待确认',
-        desc: '',
-        show: true,
-        icon: 'iconshenhe',
-        showUser: true,
-        showUserPhone: false,
-        showMaster: false,
-        showMasterPhone: false,
-        showSignUp: false,
-        showAction: false
+    text: '我是用户',
+    icon: '/image/icon/vip.svg',
+    action: [
+      {
+        icon: 'coinpurse_line',
+        text: '我的积分',
+        url: '/pages/personal/wallet/wallet?person=1'
       },
-    }
+      {
+        icon: 'addresslist',
+        text: '我要下单',
+        url: '/pages/demand/category/category'
+      },
+      {
+        icon: 'group',
+        text: '我的朋友',
+        url: '/pages/personal/friend/friend'
+      },
+      {
+        icon: 'link',
+        text: '我要推广',
+        url: '/pages/personal/share/share'
+      },
+      {
+        icon: 'service',
+        text: '意见反馈',
+        url: '/pages/personal/feedback/feedback'
+      },
+      {
+        icon: 'namecard',
+        text: '师傅加盟',
+        action: 'goMaster'
+      },
+      {
+        icon: 'setting',
+        text: '设置',
+        url: '/pages/personal/setting/setting'
+      }
+    ]
+  },
+  1: {
+    text: '我是师傅',
+    icon: '/image/icon/master.svg',
+    action: []
+  },
+  2: {
+    text: '我是商家',
+    icon: '/image/icon/business.svg',
+    action: [
+      {
+        icon: 'coinpurse_line',
+        text: '我的积分',
+        url: '/pages/personal/wallet/wallet?person=2'
+      },
+      {
+        icon: 'QRcode',
+        text: '商家二维码',
+        url: '/pages/personal/wallet/wallet?person=2'
+      }
+    ]
   }
 }
 
 module.exports = {
   personMessage,
-  offlineConfig
+  personType
 }

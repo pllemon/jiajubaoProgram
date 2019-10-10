@@ -17,7 +17,7 @@
       tab-active-class="gd-tab-active"
       bind:change="changeType"
     >
-      <block wx:for="{{personMessage}}" wx:key="index">
+      <block wx:for="{{personType}}" wx:key="index">
         <van-tab title="{{item.text}}" />
       </block>
     </van-tabs>
@@ -44,13 +44,48 @@
         </block>
       </view>
     </view>
+
+    <!-- 操作列表 -->
+    <view class="action-list">
+      <block wx:for="{{personType[currType].action}}" wx:key="index">
+        <van-cell 
+          wx:if="{{item.url}}"
+          is-link
+          link-type="{{item.type ? item.type : 'navigateTo'}}"
+          url="{{item.url}}"
+        >
+          <view slot="title" class="action-item">
+            <icon class="iconfont iconicon_{{item.icon}}"></icon>
+            <view class="van-cell-text">{{item.text}}</view>
+          </view>
+        </van-cell>
+        <van-cell 
+          is-link
+          wx:if="{{!item.url}}"
+          data-action="{{item.action}}"
+          bind:click="bindAction"
+        >
+          <view slot="title" class="action-item">
+            <icon class="iconfont iconicon_{{item.icon}}"></icon>
+            <view class="van-cell-text">{{item.text}}</view>
+          </view>
+        </van-cell>
+      </block>
+    </view>
   </block>
 
-
-  <user wx:if="{{currType == 0}}" info="{{userInfo}}"></user>
-  <master wx:if="{{currType == 1}}" info="{{userInfo}}"></master>
-
-  
+  <!-- 师傅验证 -->
+  <block wx:if="{{currType == 1}}">
+    <view class="apply-view" wx:if="{{userInfo.is_criaftsman != 1}}">
+      <view class="flex-center">
+        <icon class="iconfont iconmaster"></icon>
+        <view>{{status[userInfo.is_criaftsman].text}}</view>
+      </view>
+      <button class="main-btn plain" wx:if="{{status[userInfo.is_criaftsman].active}}" bindtap="applyMaster">
+        <text>{{status[userInfo.is_criaftsman].btn}}</text>
+      </button>
+    </view>
+  </block>
 
   <!-- 商家验证 -->
   <block wx:if="{{currType == 2}}">

@@ -6,7 +6,7 @@ Page({
     money: '',
     point: 0,
     maxPoint: 0,
-    totalPoint: 12,
+    totalPoint: 120,
     shop_id: ''
   },
 
@@ -19,11 +19,11 @@ Page({
   changeMoney: function (e) {
     let money = e.detail.value;
     let point1 = parseInt(money / 100) * 5;
-    let point2 = parseInt(totalPoint / 5) * 5;
-    let maxPoint = Math.max(point1, point2);   
-    console.log(maxPoint)
+    let point2 = parseInt(this.data.totalPoint / 5) * 5;
+    let maxPoint = Math.min(point1, point2);
 
     this.setData({
+      point: maxPoint,
       money: money,
       maxPoint: maxPoint
     })

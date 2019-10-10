@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -214,6 +214,13 @@
 					"id": -1,
 					"name": "我的积分",
 					"pathName": "pages/personal/wallet/wallet",
+					"query": "id=26&personType=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建线下订单",
+					"pathName": "pages/offline/apply/apply",
 					"query": "id=26&personType=1",
 					"scene": null
 				}

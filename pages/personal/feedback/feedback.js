@@ -11,7 +11,7 @@ Page({
       data: formData,
       success: function(data) {
         wx.showToast({
-          title: '提交成功',
+          title: '反馈成功',
           icon: 'success',
           duration: 2000
         })

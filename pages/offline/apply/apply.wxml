@@ -7,12 +7,26 @@
                 <input name="name" placeholder="请输入" value="{{money}}" bindinput="changeMoney"/>
             </view>
         </view>
-        <view class="form-item" wx:hidden="{{money == ''}}">
+        <view class="form-item" hidden="{{!money}}">
             <label>使用积分</label>
             <view class="form-content">
-                <van-stepper value="{{ point }}" step="5" min="0" max="{{maxPoint}}" disable-input />
+                <view class="flex-center-end" style="height:100rpx">
+                    <van-stepper 
+                        input-class="stepper-input" 
+                        plus-class="stepper-plus"
+                        minus-class="stepper-minus"
+                        value="{{ point }}" 
+                        step="5" 
+                        min="0" 
+                        max="{{maxPoint}}"
+                        disable-input 
+                    />
+                </view>
             </view>
-            <view>当前您的积分余额为10积分，本次最多可使用{{maxPoint}}积分。</view>
+        </view>
+        <view style="padding: 30rpx 0;color:#E6A23C;font-size:14px" class="flex-center-start" hidden="{{!money}}">
+            <icon class="iconfont iconicon_warn" style="margin-right: 5rpx"></icon>
+            <text>积分余额为{{totalPoint}}积分，本次最多可使用{{maxPoint}}积分</text>
         </view>
     </view>
 

@@ -16,6 +16,10 @@
     "pages/order/detail/detail",
     "pages/order/score/score",
     "pages/order/show/show",
+
+    "pages/offline/apply/apply",
+    "pages/offline/list/list",
+    "pages/offline/details/details",
     
     "pages/personal/index/index",
     "pages/personal/master/identity/identity",

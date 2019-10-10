@@ -19,6 +19,10 @@ Page({
   },
 
   useExplain() {
+    wx.navigateTo({
+      url: '/pages/offline/apply/apply?id=33'
+    })
+    return false
     wx.scanCode({
       success (res) {
         console.log(res)

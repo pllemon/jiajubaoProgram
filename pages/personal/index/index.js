@@ -1,10 +1,10 @@
+const systemData = require('../../../utils/data.js')
 const app = getApp()
 
 Page({
   data: {
     type: '人员类型',
-    personMessage: {},
-    currType: 0,
+    currType: 1,
     currMessage: {},
 
     userInfo: {},
@@ -28,16 +28,16 @@ Page({
         btn: '重新提交',
         active: true
       }
-    }
+    },
+
+    personType: {}, // 用户类型
   },
 
   onLoad(params) {
     let type = params.type || 0;
-    let personMessage = app.globalData.personMessage;
     this.setData({
-      personMessage,
       currType: type,
-      currMessage: personMessage[type]
+      personType: systemData.personType
     })
 
     this.getInfo();
@@ -55,23 +55,27 @@ Page({
     })
   },
 
-  applyMaster() {
-    wx.navigateTo({
-      url: '/pages/personal/master/identity/identity'
-    })
-  },
-
   applyBusiness() {
     wx.navigateTo({
       url: '/pages/personal/businessman/identity/identity'
     })
   },
 
+  goMaster() {
+    this.setData({
+      currType: 1
+    })
+  },
+
   changeType(e) {
     let type = e.detail.index;
     this.setData({
-      currType: type,
-      currMessage: this.data.personMessage[type]
+      currType: type
     })
+  },
+
+  bindAction(e) {
+    let action = e.currentTarget.dataset.action;
+    this[action]();
   }
 })

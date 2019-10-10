@@ -5,8 +5,6 @@
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
 		"van-cell": "../../miniprogram_npm/vant-weapp/cell",
-	    "navigation": "/components/navigation/navigation",
-	    "user": "/pages/personal/user/index",
-	    "master": "/pages/personal/master/index"
+	    "navigation": "/components/navigation/navigation"
 	}
 }

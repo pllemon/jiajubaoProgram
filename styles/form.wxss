@@ -46,7 +46,22 @@
   min-height: 140rpx;
   padding-top: 22rpx;
 }
-
+.form-item .stepper-input{
+  text-align: center;
+  height: 36px;
+  width: 80px;
+  color: #353535;
+  background-color: #fff;
+  border: 1px solid #7889f1;
+  font-size: 16px;
+}
+.form-item .stepper-plus, .form-item .stepper-minus{
+  height: 36px;
+  width: 36px;
+  background-color: #fff;
+  color: #7889f1;
+  border: 1px solid #7889f1;
+}
 
 .form-item.upload{
   align-items: center;
