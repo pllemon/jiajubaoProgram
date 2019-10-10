@@ -1,26 +1,3 @@
-const categoryList = [
-  {
-    text: '装修工匠',
-    icon: '/image/roller.svg',
-    child: ['工长','监理','设计师','水电工','木工','防水','泥水工','油漆工']
-  },
-  {
-    text: '安装工匠',
-    icon: '/image/install.svg',
-    child: ['灯具灯饰','卫浴洁具','五金挂件','墙纸墙布','集成吊顶','广告招牌','木门窗','铝门窗']
-  },
-  {
-    text: '维修工匠',
-    icon: '/image/repair.svg',
-    child: ['灯具电路','水路管道','防水补漏','卫浴洁具','天花吊顶','晾衣架','家电','厨电']
-  },
-  {
-    text: '家政便民',
-    icon: '/image/clean.svg',
-    child: ['家庭保洁','开锁解锁','空调清洗','虫害防治','甲醛清除','油烟机清洗']
-  }
-]
-
 // 订单状态：1 待审核 2 待支付定金 ，3待派单 4 报名中 5施工中 6待付尾款 7待评价 8已完成 9支付定金但未施工，强行结束订单
 // 人员状态：0 未申请 1 正常使用 2 申请中 3 驳回 4 禁用
 const personMessage = {
@@ -137,7 +114,49 @@ const personMessage = {
         showSignUp: false,
         showAction: true
       }
-    }
+    },
+    action: [
+      {
+        icon: 'coinpurse_line',
+        text: '我的积分',
+        url: '/pages/personal/wallet/wallet'
+      },
+      {
+        icon: 'coinpurse_line',
+        text: '线下订单',
+        url: '/pages/offline/list/list'
+      },
+      {
+        icon: 'addresslist',
+        text: '我要下单',
+        url: '/pages/demand/category/category'
+      },
+      {
+        icon: 'group',
+        text: '我的朋友',
+        url: '/pages/personal/friend/friend'
+      },
+      {
+        icon: 'link',
+        text: '我要推广',
+        url: '/pages/personal/share/share'
+      },
+      {
+        icon: 'service',
+        text: '意见反馈',
+        url: '/pages/personal/feedback/feedback'
+      },
+      {
+        icon: 'namecard',
+        text: '师傅加盟',
+        url: '/pages/personal/index/index?type=1'
+      },
+      {
+        icon: 'setting',
+        text: '设置',
+        url: '/pages/personal/setting/setting'
+      }
+    ]
   },
   1: {
     text: '我是师傅',
@@ -224,7 +243,27 @@ const personMessage = {
   }
 }
 
+const offlineStatus = {
+  0: {
+    1: {
+      1: {
+        status: 1,
+        label: '待确认',
+        desc: '',
+        show: true,
+        icon: 'iconshenhe',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: false
+      },
+    }
+  }
+}
+
 module.exports = {
-  categoryList,
-  personMessage
+  personMessage,
+  offlineConfig
 }

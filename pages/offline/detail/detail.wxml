@@ -34,32 +34,6 @@
 
   
     <!-- 订单信息 -->
-    <view class="common-section" style="border-top:0">
-      <view class="title">{{orderMes.info.service_demand}}</view>
-      <view class="mes">
-        <icon class="iconfont iconicon_GPS"></icon>
-        <text class="content">{{orderMes.info.address}}</text>
-      </view>
-      <view class="mes">
-        <icon class="iconfont iconicon_calendar"></icon>
-        <text class="content">{{orderMes.info.appo_time}}</text>
-      </view>
-      <view class="mes">
-        <icon class="iconfont iconicon_community_line"></icon>
-        <text class="content">{{orderMes.info.remark}}</text>
-      </view>
-      <block wx:if="{{orderMes.userimglist.length > 0}}">
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="margin-top: 30rpx">
-          <block wx:for="{{orderMes.userimglist}}" wx:key="id">
-            <swiper-item>
-              <label>订单图片</label>
-              <gdImage  class="slide-image" preview="true" src="{{ item }}"></gdImage>
-            </swiper-item>
-          </block>
-        </swiper>
-      </block>
-    </view>
-
     <view class="common-section">
       <view class="common-title">订单信息</view>
       <view class="message">
@@ -88,23 +62,6 @@
       </view>
     </view>
 
-    <view class="common-section" wx:if="{{orderStatus.showSignUp}}">
-      <view class="common-title">报名情况({{orderMes.craftsmanlist.length}})</view>
-      <view class="sign-list" wx:if="{{orderMes.craftsmanlist.length>0}}">
-        <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
-          <view class="sign-single flex-center-between">
-            <view class="flex-center-start">
-              <gdImage src="{{ item.imgurl }}"></gdImage>
-              <text>{{item.name}}</text>
-            </view>
-            <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
-          </view>
-        </block>
-      </view>
-      <view class="flex-center" wx:if="{{orderMes.craftsmanlist.length==0}}" style="height: 300rpx">
-        还没有师傅报名哦~
-      </view>
-    </view>
 
     <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
 

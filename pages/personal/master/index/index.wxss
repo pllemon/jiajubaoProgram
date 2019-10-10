@@ -1,0 +1,3 @@
+@import '/styles/iconfont.wxss';
+@import '/pages/personal/index/index.wxss';
+

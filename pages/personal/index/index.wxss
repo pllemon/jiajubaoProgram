@@ -57,3 +57,16 @@
 .apply-view button{
 	margin: 50rpx 0;
 }
+
+.action-list{
+	margin-bottom: 30rpx;
+}
+.action-item{
+	display: flex;
+	font-size: 17px;
+}
+.action-item icon{
+	margin-right: 20rpx;
+	font-size: 20px;
+	top: -4px;
+}

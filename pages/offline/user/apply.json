@@ -1,6 +1,0 @@
-{
-	"navigationBarTitleText": "创建线下订单",
-  "usingComponents": {
-    "upload": "/components/upload/upload"
-  }
-}

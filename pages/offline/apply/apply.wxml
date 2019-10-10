@@ -1,33 +1,26 @@
 <form bindsubmit="formSubmit" class="form">
     <view class="form-section">
-        <view class="form-title">基本资料</view>
+        <view class="form-title">订单信息</view>
         <view class="form-item">
             <label>消费金额</label>
             <view class="form-content">
-                <input name="name" placeholder="请输入" value=""/>
+                <input name="name" placeholder="请输入" value="{{money}}" bindinput="changeMoney"/>
             </view>
         </view>
-        <view class="form-item upload">
-            <label>凭证图片</label>
+        <view class="form-item" wx:hidden="{{money == ''}}">
+            <label>使用积分</label>
             <view class="form-content">
-                <upload name="shopimg" imgArr="{{shopimg}}" length="1" bindupdate="updateImg"></upload>
+                <van-stepper value="{{ point }}" step="5" min="0" max="{{maxPoint}}" disable-input />
             </view>
+            <view>当前您的积分余额为10积分，本次最多可使用{{maxPoint}}积分。</view>
         </view>
-    </view>
-
-
-    <view class="agree">
-        <checkbox value="{{agree}}" checked="{{agree}}" color="#4d5ef4"/>
-        <text>我已认真阅读并同意"商家入驻协议书"</text>
     </view>
 
     <button form-type="submit" class="main-btn">提交</button>
 
     <view class="form-tips">
-        <view>申请说明：</view>
-        <view>1. 提交申请前请认真阅读商家入驻协议书，同意请勾选，有疑问可联系客服</view>
-        <view>2. 提交申请前请点击页面右上方按钮先分享‘多师傅’小程序至您的朋友圈，分享后上传图片即可免费入驻</view>
-        <view>3. 提交申请后后台会进行资料审核，请耐心等待</view>
-        <view>4. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
+        <view>说明：</view>
+        <view>1. 每100元可使用5积分抵扣5元，剩余金额请直接支付给商家。</view>
+        <view>2. 订单完成后，每消费100元可得到3积分返还，可用于下次线下消费。</view>
     </view>
 </form>

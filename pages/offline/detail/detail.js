@@ -2,18 +2,13 @@ const app = getApp()
 
 Page({
   data: {
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-
     personType: 0,
     order_id: '',
     orderMes: {},
     masterList: [],
     orderStatus: {},
 
-    craftsmannfo: {}, // 自身师傅信息
+    craftsmannfo: {}, 
   },
 
   onLoad(params) {

@@ -47,20 +47,10 @@
   </block>
 
 
-  <user wx:if="{{currType == 0}}"></user>
+  <user wx:if="{{currType == 0}}" info="{{userInfo}}"></user>
+  <master wx:if="{{currType == 1}}" info="{{userInfo}}"></master>
 
-  <!-- 师傅验证 -->
-  <block wx:if="{{currType == 1}}">
-    <view class="apply-view" wx:if="{{userInfo.is_criaftsman == 0 || userInfo.is_criaftsman == 2 || userInfo.is_criaftsman == 3}}">
-      <view class="flex-center">
-        <icon class="iconfont iconmaster"></icon>
-        <view>{{status[userInfo.is_criaftsman].text}}</view>
-      </view>
-      <button class="main-btn plain" wx:if="{{status[userInfo.is_criaftsman].active}}" bindtap="applyMaster">
-        <text>{{status[userInfo.is_criaftsman].btn}}</text>
-      </button>
-    </view>
-  </block>
+  
 
   <!-- 商家验证 -->
   <block wx:if="{{currType == 2}}">

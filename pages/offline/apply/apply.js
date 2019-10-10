@@ -1,43 +1,37 @@
 const app = getApp()
-const common = require('../../../../utils/common.js');
-const validate = require('../../../../utils/validate.js');
 
 
 Page({
   data: {
-    addressInfo: null,
-    agree: false,
-    goodsimg: [],
-    shopimg: [],
-    businessimg: [],
-    sharewximg: []
+    money: '',
+    point: 0,
+    maxPoint: 0,
+    totalPoint: 12,
+    shop_id: ''
   },
 
-  onLoad () {
-    let that = this;
-    common.addressCallBack(app, that);
-  },
-
-  // 更新图片
-  updateImg(e) {
-    let { name, arr } = e.detail;
+  onLoad (params) {
     this.setData({
-      [name]: arr
+      shop_id: params.id
     })
   },
-  formSubmit: function(e) {
-    let formData = e.detail.value;
-    formData.longitude = this.data.addressInfo.location.lng;
-    formData.latitude = this.data.addressInfo.location.lat;
-    formData.address = this.data.addressInfo.address + formData.address;
-    if (!formData.name) {
-      app.showModel('请输入店铺名');
-      return false;
-    }
-    that.submitFn(formData);
+
+  changeMoney: function (e) {
+    let money = e.detail.value;
+    let point1 = parseInt(money / 100) * 5;
+    let point2 = parseInt(totalPoint / 5) * 5;
+    let maxPoint = Math.max(point1, point2);   
+    console.log(maxPoint)
+
+    this.setData({
+      money: money,
+      maxPoint: maxPoint
+    })
   },
 
-  submitFn(formData) {
+  formSubmit(e) {
+    let formData = e.detail.value;
+    formData.shop_id = this.data.shop_id;
     console.log(formData)
     app.request({
       url: '/applybusiness',
@@ -49,8 +43,8 @@ Page({
           duration: 2000
         })
         setTimeout(function () {
-          wx.reLaunch({
-            url: '/pages/personal/index/index?type=2'
+          wx.navigateTo({
+            url: '/pages/offline/list/list?personType=0'
           })
         }, 2000)
       }
