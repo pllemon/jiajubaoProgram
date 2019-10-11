@@ -29,9 +29,9 @@ Page({
   getOrderList(data = {}) {
     let that = this;
     let personType = that.data.personType;
-    let url = '/userorderlist';
-    if (personType == 1) {
-      url = '/craftsmanorderlist';
+    let url = '';
+    if (personType == 2) {
+      url = '/useruseintegral';
     }
     app.request({
       url,

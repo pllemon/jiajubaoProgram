@@ -47,16 +47,16 @@
         </view>
         <block wx:if="{{orderMes.info.status > 1}}">
           <view>
-            <text>订单总额</text>
+            <text>消费金额</text>
             <text>{{orderMes.pay.total_price}} 元</text>
           </view>
           <view>
-            <text>定金金额</text>
+            <text>用户已用积分</text>
             <text>{{orderMes.pay.earnest_price}} 元</text>
           </view>
           <view>
-            <text>师傅工资</text>
-            <text>{{orderMes.pay.craftsman_price}} 元</text>
+            <text>线下支付金额</text>
+            <text>{{orderMes.pay.earnest_price}} 元</text>
           </view>
         </block>
       </view>

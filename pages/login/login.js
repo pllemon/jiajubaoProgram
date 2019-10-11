@@ -20,8 +20,12 @@ Page({
 
   onLoad(params) {
     let formType = params.type || 1;
+    let personal = params.personal || '';
+    let formData = this.formData;
+    formData.personal = personal;
     this.setData({
-      formType
+      formType,
+      formData
     })
 
     // 已登录则跳转 

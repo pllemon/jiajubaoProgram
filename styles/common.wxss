@@ -109,7 +109,7 @@
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
 }
 
-
+/* 操作列表 */
 .action-list{
 	margin-bottom: 30rpx;
 }
@@ -123,7 +123,7 @@
 	top: -4px;
 }
 
-
+/* 蓝色顶部 */
 .blue-header{
 	height: 380rpx;
 	background: -webkit-linear-gradient(#7889f1, #4d5ef4);
@@ -132,4 +132,19 @@
 	display: flex;
   align-items: center;
   color: #fff;
+}
+
+/* 说明弹窗 */
+.explain-message{
+  max-height: 60vh;
+  overflow: auto;
+  padding: 30rpx;
+  line-height: 1.8;
+}
+.explain-message .title{
+  font-size: 16px;
+  font-weight: bold;
+}
+.explain-message .content{
+  margin-bottom: 30rpx;
 }

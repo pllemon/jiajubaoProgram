@@ -7,12 +7,12 @@ Page({
     point: 0,
     maxPoint: 0,
     totalPoint: 120,
-    shop_id: ''
+    business_id: ''
   },
 
   onLoad (params) {
     this.setData({
-      shop_id: params.id
+      business_id: params.id
     })
   },
 
@@ -30,12 +30,18 @@ Page({
   },
 
   formSubmit(e) {
-    let formData = e.detail.value;
-    formData.shop_id = this.data.shop_id;
-    console.log(formData)
+    let that = this;
+    if(!that.data.money){
+      app.showModel('请输入消费金额');
+      return false;
+    }
     app.request({
-      url: '/applybusiness',
-      data: formData,
+      url: '/useruseintegral',
+      data: {
+        integral: that.data.point,
+        money: that.data.money,
+        business_id: that.data.business_id,
+      },
       success: function(data) {
         wx.showToast({
           title: '提交成功',
