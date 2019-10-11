@@ -22,6 +22,7 @@
     "pages/offline/details/details",
     
     "pages/personal/index/index",
+    "pages/personal/user/share/share",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
     "pages/personal/setting/setting",

@@ -1,5 +1,5 @@
 <view class="container">
-    <canvas hidden="{{ shareImg }}" style="width: 750px; height: 1000px;" canvas-id="sharePoster"></canvas>
+    <canvas style="border:1px solid red;width: 300px; height: 400px;" canvas-id="sharePoster"></canvas>
     <view hidden="{{ !shareImg }}">
         <image mode="aspectFit" style="width: 500rpx;height:700rpx;border:1px solid red"></image>
         <view bindtap="saveImg">保存</view>

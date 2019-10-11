@@ -9,11 +9,14 @@ Page({
 
   onLoad() {
     let that = this;
-    let bgImg = '../../../image/intro.png';
-    let ewmImg = '../../../image/intro.png';
+    let bgImg = 'http://47.106.100.144/uploads/business/20190929/c47c3169321b95b4f6706aff21eef5d6.jpg';
+    let ewmImg = 'http://47.106.100.144/uploads/business/20190929/19d9307f91fe29e03fbcd45f727feb4b.png';
     wx.downloadFile({
       url: bgImg,
       success: function (res) {
+        console.log(res)
+        console.log(res.tempFilePath)
+
         that.setData({
           bgImg: res.tempFilePath
         })
@@ -35,8 +38,9 @@ Page({
 
   drawImage() {
     const ctx = wx.createCanvasContext('sharePoster');
-    ctx.drawImage(this.data.bgImg, 0, 0, 600, 500);
-    ctx.drawImage(this.data.ewmImg, 0, 500, 750, 200);
+    ctx.drawImage(this.data.bgImg, 0, 0, 300, 200);
+    ctx.drawImage(this.data.ewmImg, 100, 100, 200, 200);
+    ctx.draw()
   },
   
   canvasToImage() {
@@ -47,11 +51,11 @@ Page({
       width: 750,
       height: 1000,
       destWidth: 750,
-      destHeight: 100,
+      destHeight: 1000,
       canvasId: 'sharePoster',
       fileType: 'jpg',
       success: function (res) {
-        console.log(res)
+        console.log('生成图片路径为=' + res)
         that.setData({
           shareImg: res.tempFilePath
         })

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -221,6 +221,13 @@
 					"id": -1,
 					"name": "创建线下订单",
 					"pathName": "pages/offline/apply/apply",
+					"query": "id=26&personType=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我要推广",
+					"pathName": "pages/personal/user/share/share",
 					"query": "id=26&personType=1",
 					"scene": null
 				}

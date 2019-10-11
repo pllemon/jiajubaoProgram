@@ -223,7 +223,7 @@ const personType = {
       {
         icon: 'link',
         text: '我要推广',
-        url: '/pages/personal/share/share'
+        url: '/pages/personal/user/share/share'
       },
       {
         icon: 'service',
