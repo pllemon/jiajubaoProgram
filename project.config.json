@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 32,
 			"list": [
 				{
 					"id": -1,
@@ -213,15 +213,15 @@
 				{
 					"id": -1,
 					"name": "我的积分",
-					"pathName": "pages/personal/wallet/wallet",
+					"pathName": "pages/personal/wallet/index/index",
 					"query": "id=26&personType=1",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 25,
 					"name": "创建线下订单",
 					"pathName": "pages/offline/apply/apply",
-					"query": "id=26&personType=1",
+					"query": "id=3",
 					"scene": null
 				},
 				{
@@ -229,6 +229,48 @@
 					"name": "我要推广",
 					"pathName": "pages/personal/user/share/share",
 					"query": "id=26&personType=1",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "线下订单列表",
+					"pathName": "pages/offline/list/list",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "积分记录",
+					"pathName": "pages/personal/wallet/index/index",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分记录",
+					"pathName": "pages/personal/wallet/record/record",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "线下订单详情",
+					"pathName": "pages/offline/details/details",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "平台费",
+					"pathName": "pages/offline/confirm/confirm",
+					"query": "id=1",
 					"scene": null
 				}
 			]

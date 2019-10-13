@@ -1,0 +1,58 @@
+<form bindsubmit="formSubmit" class="form">
+    <view class="form-section">
+        <view class="form-title">支付平台费</view>
+        <view class="form-item">
+            <label>消费金额</label>
+            <view class="form-content">
+                <input name="service_demand" disabled value="100.00元"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>用户积分抵扣</label>
+            <view class="form-content">
+                <input name="service_demand" disabled value="100.00元"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>线下应收金额</label>
+            <view class="form-content">
+                <input name="service_demand" disabled value="100.00元"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>平台费</label>
+            <view class="form-content">
+                <input name="service_demand" disabled value="100.00元"/>
+            </view>
+        </view>
+        <view class="form-item">
+            <label>积分抵扣</label>
+            <view class="form-content">
+                <view class="flex-center-end" style="height:100rpx">
+                    <van-stepper 
+                        input-class="stepper-input" 
+                        plus-class="stepper-plus"
+                        minus-class="stepper-minus"
+                        value="{{ point }}" 
+                        step="5" 
+                        min="0" 
+                        max="{{maxPoint}}"
+                        disable-input 
+                    />
+                </view>
+            </view>
+        </view>
+        <view style="padding: 30rpx 0;color:#E6A23C;font-size:14px" class="flex-center-start">
+            <icon class="iconfont iconicon_warn" style="margin-right: 5rpx"></icon>
+            <text>积分余额为{{totalPoint}}积分，本次最多可使用{{maxPoint}}积分</text>
+        </view>
+    </view>
+
+    <button form-type="submit" class="main-btn">确定并支付</button>
+
+    <view class="form-tips">
+        <view>说明：</view>
+        <view>1. 每收入100元需支付6元平台费，可使用积分抵扣。</view>
+        <view>2. 订单完成后，用户使用的积分将转到您账上，积分可进行提现。</view>
+    </view>
+</form>

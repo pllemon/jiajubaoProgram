@@ -96,11 +96,24 @@ App({
           if (res.data.success) {
             obj.success(res.data.data)
           } else {
-            wx.showModal({
-              title: '提示',
-              content: res.data.message,
-              showCancel: false
-            })          
+            if (res.data.code == 404) {
+              wx.showModal({
+                content: '登录失效，请重新登录',
+                showCancel: false,
+                success (res) {
+                  if (res.confirm) {
+                    wx.reLaunch({
+                      url: '/pages/login/login?type=1'
+                    })
+                  }
+                }
+              })  
+            } else {
+              wx.showModal({
+                content: res.data.message,
+                showCancel: false
+              })  
+            }        
           }
         } else {
           wx.showModal({

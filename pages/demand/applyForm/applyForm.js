@@ -23,6 +23,8 @@ Page({
       service_demand: app.globalData.service_demand
     })
     common.addressCallBack(app, that);
+
+    that.getNetwork();
   },
 
   bindDateChange: function(e) {
@@ -79,6 +81,16 @@ Page({
         that.setData({
           addressInfo: addressInfo
         })
+      }
+    })
+  },
+
+  getNetwork() {
+    app.request({
+      url: '/networklist',
+      data: {},
+      success: function(data) {
+        console.log(data)
       }
     })
   },

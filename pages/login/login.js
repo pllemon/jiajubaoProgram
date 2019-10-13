@@ -21,7 +21,7 @@ Page({
   onLoad(params) {
     let formType = params.type || 1;
     let personal = params.personal || '';
-    let formData = this.formData;
+    let formData = this.data.formData;
     formData.personal = personal;
     this.setData({
       formType,
@@ -32,7 +32,7 @@ Page({
     let session = wx.getStorageSync('session');
     if (session) {
       wx.reLaunch({
-        url: '/pages/personal/index/index'
+        url: '/pages/index/index'
       })
     }
   },
@@ -143,7 +143,7 @@ Page({
             }
           })
           wx.reLaunch({
-            url: '/pages/personal/index/index'
+            url: '/pages/index/index'
           })
         } else if (that.data.formType == 2) {
           wx.showToast({

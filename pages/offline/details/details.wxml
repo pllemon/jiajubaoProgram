@@ -1,11 +1,12 @@
-<view>
-    <view class="blue-header flex-center-between">
-      <view>
-        <view class="title">{{orderStatus.label}}</view>
-        <view>{{orderStatus.desc}}</view>
+<view wx:if="{{finish}}">
+    <view class="blue-header">
+      <view class="mes">
+        <image src="/image/example/peo.jpg" mode="scaleToFill" class="peo-img"></image>
+        <view style="font-size: 14px;margin-top:10rpx">{{orderMes.business_name}}</view>
+        <view style="font-size: 30px;margin-top: 16rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
       </view>
-      <icon class="iconfont {{orderStatus.icon}}"></icon>
     </view>
+   
 
     <view class="concat-mes">
       <view wx:if="{{orderStatus.showUser}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
@@ -39,54 +40,68 @@
       <view class="message">
         <view>
           <text>订单编号</text>
-          <text>{{orderMes.info.order_sn}}</text>
+          <text>{{orderMes.order_sn}}</text>
+        </view>
+        <view>
+          <text>订单状态</text>
+          <text wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</text>
+          <text wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</text>
+          <text wx:if="{{orderMes.status == 2 }}">已取消</text>
         </view>
         <view>
           <text>下单时间</text>
-          <text>{{orderMes.info.create_time}}</text>
+          <text>{{orderMes.creat_time}}</text>
         </view>
-        <block wx:if="{{orderMes.info.status > 1}}">
-          <view>
-            <text>消费金额</text>
-            <text>{{orderMes.pay.total_price}} 元</text>
-          </view>
-          <view>
-            <text>用户已用积分</text>
-            <text>{{orderMes.pay.earnest_price}} 元</text>
-          </view>
-          <view>
-            <text>线下支付金额</text>
-            <text>{{orderMes.pay.earnest_price}} 元</text>
-          </view>
-        </block>
+        <view>
+          <text>下单店铺</text>
+          <text>{{orderMes.business_name}}</text>
+        </view>
+        <view>
+          <text>店铺电话</text>
+          <text>{{orderMes.business_phone}}</text>
+        </view>
+        <view>
+          <text>店铺地址</text>
+          <text>{{orderMes.business_address}}</text>
+        </view>
+        <view>
+          <text>消费金额</text>
+          <text>{{orderMes.money}} 元</text>
+        </view>
+        <view>
+          <text>{{personType == 0 ? '积分抵扣':'用户积分抵扣'}}</text>
+          <text>-{{orderMes.integral}} 元</text>
+        </view>
+        <view>
+          <text>线下支付金额</text>
+          <text>{{orderMes.money - orderMes.integral}} 元</text>
+        </view>
+        <view wx:if="{{personType == 0}}">
+          <text>预计返回积分</text>
+          <text>{{orderMes.return_integral}} 积分</text>
+        </view>
       </view>
     </view>
-
 
     <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
 
     <!-- 操作按钮 -->
-    <view class="main-action flex-center-between" wx:if="{{personType == 0 && orderStatus.showAction}}">
+    <view class="main-action flex-center-between" wx:if="{{personType == 2}}">
       <view class="flex-center service">
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
       </view>
-      <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn flex1">支付定金</button>
-      <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn flex1">支付尾款</button>
-      <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
-      <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn flex1">评价订单</button>
-      <button wx:if="{{orderMes.info.status == 10}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
+      <button bindtap="cancelOrder" class="main-btn plain flex1">取消订单</button>
+      <button bindtap="confirmOrder" class="main-btn flex1" style="margin-left: 10rpx">确认订单</button>
     </view>
 
-    <view class="main-action flex-center-between" wx:if="{{personType == 1 && orderStatus.showAction}}">
-      <view class="flex-center service">
-        <icon class="iconfont iconkefu"></icon>
-        <text>客服</text>
-      </view>
-      <button wx:if="{{orderMes.info.status == 5}}" bindtap="masterConfirm" class="main-btn flex1">确认完工</button>
-      <button wx:if="{{orderMes.info.status > 5 && orderMes.info.status < 8}}" class="main-btn flex1 disable">待客户确认完工</button>
-      <button wx:if="{{orderMes.info.status == 8 && !orderMes.ordersshow}}" bindtap="uploadShow" class="main-btn flex1">上传工程秀</button>
-      <button wx:if="{{orderMes.info.status == 8 && orderMes.ordersshow}}" bindtap="signUpOrder" class="main-btn flex1">再次抢单</button>
-      <button wx:if="{{orderMes.info.status == 4 && !orderMes.craftsmanorderinfo}}" bindtap="masterSignUp" class="main-btn flex1">立即报名</button>
-    </view>
+    <van-dialog
+      use-slot
+      title="取消订单"
+      show-cancel-button
+      show="{{ showCancel }}"
+      bind:close="hideCancel"
+    >
+      <textarea placeholder="请输入取消理由"></textarea>
+    </van-dialog>
 </view>

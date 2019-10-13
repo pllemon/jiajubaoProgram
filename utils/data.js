@@ -206,9 +206,19 @@ const personType = {
     icon: '/image/icon/vip.svg',
     action: [
       {
+        icon: 'affiliations_li',
+        text: '我的订单',
+        url: '/pages/order/list/list?personType=0'
+      },
+      {
+        icon: 'cspace',
+        text: '线下账单',
+        url: '/pages/offline/list/list?personType=0'
+      },
+      {
         icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/wallet?person=1'
+        url: '/pages/personal/wallet/index/index?person=0'
       },
       {
         icon: 'addresslist',
@@ -245,21 +255,32 @@ const personType = {
   1: {
     text: '我是师傅',
     icon: '/image/icon/master.svg',
-    action: []
+    action: [
+      {
+        icon: 'affiliations_li',
+        text: '我的订单',
+        url: '/pages/order/list/list?personType=1'
+      }
+    ]
   },
   2: {
     text: '我是商家',
     icon: '/image/icon/business.svg',
     action: [
       {
+        icon: 'cspace',
+        text: '线下账单',
+        url: '/pages/offline/list/list?personType=2'
+      },
+      {
         icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/wallet?person=2'
+        url: '/pages/personal/wallet/index/index?person=2'
       },
       {
         icon: 'QRcode',
         text: '商家二维码',
-        url: '/pages/personal/wallet/wallet?person=2'
+        action: 'toggleEwm'
       }
     ]
   }

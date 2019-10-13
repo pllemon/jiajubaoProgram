@@ -1,26 +1,26 @@
-<view class="full-layout">
+<view>
   <view class="blue-header flex-column-center">
     <view>您共拥有积分</view>
-    <view class="total">200</view>
+    <view class="total">{{sumintegral}}</view>
   </view>
 
-  <scroll-view scroll-y class="flex1">
-    <view class="record-list">
-      <view class="record-single flex-center-between" wx:for="{{ record }}" wx:key="index">
-        <view>
-          <view>注册赠送积分</view>
-          <view class="time">2012-12-12 12:12</view>
-        </view>
-        <view class="points">+10</view>
+  <view class="action-list" style="margin-top: 30rpx">
+    <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/record/record" >
+      <view slot="title" class="action-item">
+        <icon class="iconfont iconicon_redpacket"></icon>
+        <view class="van-cell-text">积分记录</view>
       </view>
-    </view>
-  </scroll-view>
-
-  <view class="btn-list">
-    <button class="main-btn plain" style="margin-right: 30rpx;" bindtap="showExplain">说明</button>
-    <button class="main-btn" bindtap="useIntegral" wx:if="{{personType==0}}">使用</button>
-    <button class="main-btn" bindtap="changeIntegral" wx:if="{{personType==2}}">提现</button>
+    </van-cell>
+    <van-cell is-link bind:click="showExplain">
+      <view slot="title" class="action-item">
+        <icon class="iconfont iconicon_warn"></icon>
+        <view class="van-cell-text">积分说明</view>
+      </view>
+    </van-cell>
   </view>
+
+  <button class="main-btn" bindtap="useIntegral" wx:if="{{personType==0}}">使用</button>
+  <button class="main-btn" bindtap="changeIntegral" wx:if="{{personType==2}}">提现</button>
 
   <van-dialog
     use-slot
@@ -28,7 +28,7 @@
     show="{{ isShow }}"
     bind:close="closeExplain"
   >
-    <view class="explain-message" :hidden="{{personType!=0}}">
+    <view class="explain-message" hidden="{{personType!=0}}">
       <view class="title">积分获取途径：</view>
       <view class="content">
         <view>1. 注册即可获得10积分</view>
@@ -41,7 +41,7 @@
       </view>
     </view>
 
-    <view class="explain-message" :hidden="{{personType!=2}}">
+    <view class="explain-message" hidden="{{personType!=2}}">
       <view class="title">积分获取途径：</view>
       <view class="content">
         <view>1. 注册即可获得10积分</view>

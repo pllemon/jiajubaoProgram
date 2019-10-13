@@ -2,18 +2,14 @@ const app = getApp()
 
 Page({
   data: {
-    list: [],
     personType: 0,
-    finish: false,
-    query: {
-      page: 1,
-      limit: 10
-    }
+    list: [],
+    sumintegral: 0
   },
+
   onLoad(params) {
-    let personType = params.personType || 0;
     this.setData({
-      personType: personType
+      personType: params.type || 0
     })
     this.getList()
   },
@@ -21,17 +17,20 @@ Page({
   getList() {
     let that = this;
     let personType = that.data.personType;
-    let url = '/userunlinkorderlist';
+    let url = '/userintegrallist';
     if (personType == 2) {
-      url = '/businessorderlist';
+      url = '/busiintegrallist';
     }
     app.request({
       url,
-      data: that.data.query,
+      data: {
+        page: 0,
+        limit: 20
+      },
       success: function(data) {
         that.setData({
-          list: data.data,
-          finish: true
+          list: data.list.data,
+          sumintegral: data.sumintegral
         })
       }
     })

@@ -1,10 +1,21 @@
-.order-header{
-    margin-bottom: 10rpx;
-    color: #888;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.order-list{
+    padding-top: 0;
 }
-.order-header .status{
-    color: #4c5ce3;
+.order-single{
+    padding: 26rpx 30rpx;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+}
+.peo-img{
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+    border-radius: 50%;
+}
+.name, .money{
+    font-size: 18px;
+}
+.time, .status{
+    font-size: 13px;
+    color: #888;
 }

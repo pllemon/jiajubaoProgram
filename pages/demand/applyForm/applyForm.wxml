@@ -18,6 +18,14 @@
             </view>
         </view>
         <view class="form-item">
+            <label>服务网点</label>
+            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                <view class="picker">
+                {{date}}
+                </view>
+            </picker>
+        </view>
+        <view class="form-item">
             <label>预约日期</label>
             <picker mode="date" value="{{date}}" bindchange="bindDateChange">
                 <view class="picker">

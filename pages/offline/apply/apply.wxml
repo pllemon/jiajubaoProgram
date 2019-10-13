@@ -4,7 +4,7 @@
         <view class="form-item">
             <label>消费金额</label>
             <view class="form-content">
-                <input name="name" placeholder="请输入" value="{{money}}" bindinput="changeMoney"/>
+                <input name="name" placeholder="请输入" type="number" focus="{{isFocus}}" value="{{money}}" bindinput="changeMoney"/>
             </view>
         </view>
         <view class="form-item" hidden="{{!money}}">

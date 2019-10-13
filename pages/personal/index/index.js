@@ -9,6 +9,9 @@ Page({
 
     userInfo: {},
 
+    showEwm: false,
+    ewmURL: '',
+
     status: {
       0: {
         text: '你还不是师傅哦，马上点击申请加入我们吧，更多惊喜等着你',
@@ -65,6 +68,25 @@ Page({
     this.setData({
       currType: 1
     })
+  },
+
+  toggleEwm() {
+    let that = this;
+    if (!that.data.ewmURL) {
+      app.request({
+        url: '/businessorcode',
+        success: function(data) {
+          console.log(data)
+          that.setData({
+            showEwm: !that.data.showEwm
+          })
+        }
+      })
+    } else {
+      that.setData({
+        showEwm: !that.data.showEwm
+      })
+    }
   },
 
   changeType(e) {

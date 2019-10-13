@@ -18,6 +18,7 @@
     "pages/order/show/show",
 
     "pages/offline/apply/apply",
+    "pages/offline/confirm/confirm",
     "pages/offline/list/list",
     "pages/offline/details/details",
     
@@ -31,7 +32,9 @@
     "pages/personal/agree/agree",
     "pages/personal/feedback/feedback",
     "pages/personal/message/message",
-    "pages/personal/wallet/wallet"
+
+    "pages/personal/wallet/index/index",
+    "pages/personal/wallet/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",

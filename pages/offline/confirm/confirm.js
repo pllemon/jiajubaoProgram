@@ -14,13 +14,13 @@ Page({
   onLoad (params) {
     this.setData({
       business_id: params.id
-    })
+    });
     this.getSumintegral();
   },
 
   getSumintegral() {
     let that = this;
-    let url = '/userintegrallist';
+    let url = '/busiintegrallist';
     app.request({
       url,
       data: {

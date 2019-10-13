@@ -24,27 +24,6 @@
   </view>
 
   <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1)}}">
-    <view class="order-content">
-      <van-cell 
-        is-link
-        link-type="navigateTo"
-        url="/pages/order/list/list?personType={{currType}}"
-      >
-        <view slot="title" class="action-item">
-          <icon class="iconfont iconicon_affiliations_li"></icon>
-          <view class="van-cell-text">我的订单</view>
-        </view>
-      </van-cell>
-      <view class="order-status">
-        <block wx:for="{{currMessage.orderStatus}}" wx:key="index">
-          <view wx:if="{{item.show}}">
-            <text class="num">{{userInfo.statuscount[item.status] || 0}}</text>
-            <text>{{item.label}}</text>
-          </view>
-        </block>
-      </view>
-    </view>
-
     <!-- 操作列表 -->
     <view class="action-list">
       <block wx:for="{{personType[currType].action}}" wx:key="index">
@@ -99,6 +78,16 @@
       </button>
     </view>
   </block>
+
+
+  <van-dialog
+    use-slot
+    title="商家二维码"
+    show="{{ showEwm }}"
+    bind:close="toggleEwm"
+  >
+    
+  </van-dialog>
 
   <navigation current-idx="2"></navigation>
 </view>

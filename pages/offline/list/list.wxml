@@ -1,54 +1,20 @@
-<view class="full-layout">
-  <van-search
-    value="{{ searchValue }}"
-    placeholder="请输入关键词"
-    use-action-slot
-    bind:search="onSearch"
-  />
-
-  <van-tabs 
-    color="#4c5ce3"
-    active="{{currType}}"
-    custom-class="gd-tabs"
-    tab-class="gd-tab"
-    tab-active-class="gd-tab-active"
-    bind:change="changeType"
-  >
-    <van-tab title="{{item.label}}" wx:for="{{statusArr}}" wx:key="index">
-    </van-tab>
-  </van-tabs>
-
-
+<view class="full-layout" wx:if="{{finish}}">
   <scroll-view scroll-y class="flex1 order-list">
     <block wx:if="{{list.length}}">
-      <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
-        <view class="common-section">
-          <view class="order-header">
-            <text>No:{{item.order_sn}}</text>
-            <text class="status">{{orderStatus[item.status].label}}</text>
+      <navigator wx:for="{{list}}" wx:key="index" class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}">
+        <image src="/image/example/peo.jpg" mode="scaleToFill" class="peo-img"></image>
+        <view class="flex1">
+          <view class="flex-center-between">
+            <view class="name flex1">{{item.business_name}}</view>
+            <view class="money">-{{item.money}}</view>
           </view>
-          <view class="title">{{item.service_demand}}</view>
-          <view class="mes">
-            <icon class="iconfont iconicon_GPS"></icon>
-            <text class="content">{{item.address}}</text>
+          <view>
+            <text class="time">{{item.creat_time}}</text>
+            <text> · </text>
+            <text class="status" wx:if="{{item.status == 1 && item.pay_status == 0}}">待商家接单</text>
+            <text class="status" wx:if="{{item.status == 1 && item.pay_status == 1}}">已完成</text>
+            <text class="status" wx:if="{{item.status == 2 }}">已取消</text>
           </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_calendar"></icon>
-            <text class="content">{{item.appo_time}}</text>
-          </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_community_line"></icon>
-            <text class="content">{{item.remark}}</text>
-          </view>
-          <block wx:if="{{item.status == 4}}">
-            <view class="sign-info">
-              <view class="flex-center-start">
-                <image src="/image/example/peo.jpg"></image>
-                <text>等12人已报名</text>
-              </view>
-              <text wx:if="{{personType == 1}}">预计收入 <text class="money">¥100</text></text>
-            </view>
-          </block>
         </view>
       </navigator>
     </block>

@@ -5,6 +5,7 @@
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
 		"van-cell": "../../miniprogram_npm/vant-weapp/cell",
+		"van-dialog": "../../miniprogram_npm/vant-weapp/dialog",
 	    "navigation": "/components/navigation/navigation"
 	}
 }
