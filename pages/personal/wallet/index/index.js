@@ -9,7 +9,7 @@ Page({
 
   onLoad(params) {
     this.setData({
-      personType: params.type || 0
+      personType: params.personType || 0
     })
     this.getList();
   },

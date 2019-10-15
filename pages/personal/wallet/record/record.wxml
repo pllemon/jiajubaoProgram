@@ -5,7 +5,7 @@
   </view>
 
   <scroll-view scroll-y class="flex1">
-    <view class="record-list">
+    <view class="record-list" wx:if="{{ list.length }}">
       <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
         <view>
           <view>{{item.remark}}</view>
@@ -14,5 +14,6 @@
         <view class="points">{{item.integral > 0 ? '+' + item.integral : item.integral}}</view>
       </view>
     </view>
+    <view wx:else class="no-res">无相关数据</view>
   </scroll-view>
 </view>

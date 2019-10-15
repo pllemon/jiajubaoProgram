@@ -218,7 +218,7 @@ const personType = {
       {
         icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/index/index?person=0'
+        url: '/pages/personal/wallet/index/index?personType=0'
       },
       {
         icon: 'addresslist',
@@ -275,7 +275,7 @@ const personType = {
       {
         icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/index/index?person=2'
+        url: '/pages/personal/wallet/index/index?personType=2'
       },
       {
         icon: 'QRcode',

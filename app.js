@@ -102,6 +102,7 @@ App({
                 showCancel: false,
                 success (res) {
                   if (res.confirm) {
+                    wx.removeStorageSync('session');
                     wx.reLaunch({
                       url: '/pages/login/login?type=1'
                     })

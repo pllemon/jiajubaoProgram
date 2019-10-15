@@ -19,7 +19,7 @@
       </navigator>
     </block>
     <block wx:else>
-      <view class="no-res">暂无数据</view>
+      <view class="no-res">无相关数据</view>
     </block>
   </scroll-view>
 </view>
