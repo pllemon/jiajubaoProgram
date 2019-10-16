@@ -6,17 +6,27 @@ Page({
       {
         img: 'at',
         text: '联系我们',
-        url: '/pages/personal/concat/concat'
+        url: '/pages/personal/doc/doc?type=lxwm'
       },
       {
         img: 'wechat',
         text: '关于我们',
-        url: '/pages/personal/about/about'
+        url: '/pages/personal/doc/doc?type=about'
       },
       {
         img: 'invite',
         text: '用户协议',
-        url: '/pages/personal/agree/agree'
+        url: '/pages/personal/doc/doc?type=hhxy'
+      },
+      {
+        img: 'invite',
+        text: '师傅协议',
+        url: '/pages/personal/doc/doc?type=sfxy'
+      },
+      {
+        img: 'invite',
+        text: '商家协议',
+        url: '/pages/personal/doc/doc?type=sjxy'
       }
     ]
   },

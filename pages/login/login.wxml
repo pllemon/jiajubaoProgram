@@ -20,18 +20,23 @@
   </view>
   <view class="section">
     <icon class="iconfont iconicon_shield"></icon>
-    <input placeholder="请输入密码" type="text" name="password" value="{{formData.password}}" bindinput="bindInput" data-key="password"/>
+    <input placeholder="请输入密码" type="password" name="password" value="{{formData.password}}" bindinput="bindInput" data-key="password"/>
   </view>
   <view class="section" wx:if="{{formType != 1}}">
     <icon class="iconfont iconicon_shield"></icon>
-    <input placeholder="请再次输入密码" type="text" name="confirmPassword" value="{{formData.confirmPassword}}" bindinput="bindInput" data-key="confirmPassword"/>
+    <input placeholder="请再次输入密码" type="password" name="confirmPassword" value="{{formData.confirmPassword}}" bindinput="bindInput" data-key="confirmPassword"/>
   </view>
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_shakehands"></icon>
     <input placeholder="推荐人" type="text" name="personal" value="{{formData.personal}}"/>
   </view>
+  <checkbox-group class="agree flex-center-start" wx:if="{{formType==0}}" bindchange="checkboxChange">
+    <checkbox value="1" checked="{{false}}" color="#4d5ef4"/>
+    <view>我已认真阅读并同意<text class="text" bindtap="readDoc">用户协议</text></view>
+  </checkbox-group>
   <button class="main-btn" form-type="submit">{{type[formType]}}</button>
   <view class="form-tips flex-center" wx:if="{{formType==0}}" data-idx="1" bindtap="changeTab">已有账号？点击立即登陆</view>
+  
   <view class="form-tips flex-center-between"  wx:if="{{formType==1}}">
     <text data-idx="0" bindtap="changeTab">立即注册</text>
     <text data-idx="2" bindtap="changeTab">忘记密码？</text>

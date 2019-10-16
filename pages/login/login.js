@@ -5,6 +5,8 @@ Page({
   data: {
     formType: 1,
     type: ['注 册', '登 录', '重置密码'],
+    agree: [],
+    isShowAgree: false,
     phone: '',
     confirmPassword: '',
     password: '',
@@ -19,7 +21,15 @@ Page({
   },
 
   onLoad(params) {
-    let formType = params.type || 1;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          
+        }
+      }
+    })
+
+    let formType = params.type || 0;
     let personal = params.personal || '';
     let formData = this.data.formData;
     formData.personal = personal;
@@ -60,6 +70,13 @@ Page({
     let dataset = e.currentTarget.dataset;
     this.setData({
       formType: dataset.idx
+    });
+    this.formReset();
+  },
+
+  readDoc() {
+    wx.navigateTo({
+      url: '/pages/personal/doc/doc?type=hhxy'
     })
   },
 
@@ -75,6 +92,12 @@ Page({
   formReset() {
     this.setData({
       formData: {}
+    })
+  },
+
+  checkboxChange(e){
+    this.setData({
+      agree: e.detail.value
     })
   },
 
@@ -109,7 +132,11 @@ Page({
       }
     }
 
-    
+    if (this.data.formType == 0 && this.data.agree.length == 0) {
+      app.showModal('请认真阅读并勾选同意用户协议');
+      return false;
+    }
+   
     let url = ''
     if (this.data.formType == 0) {
       url = '/register'
@@ -122,11 +149,7 @@ Page({
       success: function(data) {
         that.formReset();
         if (that.data.formType == 0) {
-          wx.showToast({
-            title: '注册成功',
-            icon: 'success',
-            duration: 2000
-          })
+          app.showModal('注册成功，请登录');
           that.setData({
             formType: 1
           })
@@ -146,11 +169,7 @@ Page({
             url: '/pages/index/index'
           })
         } else if (that.data.formType == 2) {
-          wx.showToast({
-            title: '重置成功',
-            icon: 'success',
-            duration: 2000
-          })
+          app.showModal('重置成功，请登录');
           that.setData({
             formType: 1
           })

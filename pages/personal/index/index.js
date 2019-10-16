@@ -58,6 +58,12 @@ Page({
     })
   },
 
+  applyMaster() {
+    wx.navigateTo({
+      url: '/pages/personal/master/identity/identity'
+    })
+  },
+
   applyBusiness() {
     wx.navigateTo({
       url: '/pages/personal/businessman/identity/identity'

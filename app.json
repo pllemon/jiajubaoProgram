@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/login/login",
+    "pages/index/index",
 
     "pages/demand/category/category",
     "pages/demand/applyForm/applyForm",
@@ -27,9 +27,7 @@
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
     "pages/personal/setting/setting",
-    "pages/personal/concat/concat",
-    "pages/personal/about/about",
-    "pages/personal/agree/agree",
+    "pages/personal/doc/doc",
     "pages/personal/feedback/feedback",
     "pages/personal/message/message",
 

@@ -7,7 +7,7 @@ let uploadNum = 0;
 Page({
   data: {
     addressInfo: null,
-    agree: false,
+    agree: [],
     goodsimg: [],
     shopimg: [],
     businessimg: [],
@@ -24,6 +24,12 @@ Page({
     let { name, arr } = e.detail;
     this.setData({
       [name]: arr
+    })
+  },
+
+  readDoc() {
+    wx.navigateTo({
+      url: '/pages/personal/doc/doc?type=sjxy'
     })
   },
 
@@ -73,6 +79,10 @@ Page({
     }
     if (!this.data.sharewximg.length) {
       app.showModal('请上传分享图片');
+      return false;
+    }
+    if (this.data.agree.length == 0) {
+      app.showModal('请认真阅读并勾选同意商家入驻协议书');
       return false;
     }
     uploadNum = 0;

@@ -92,6 +92,9 @@
   padding: 30rpx;
   color: #666;
 }
+.agree .text{
+  color: #4c5ce3;
+}
 
 
 .form-tips{

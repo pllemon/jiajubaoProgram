@@ -43,10 +43,10 @@
         </view>
     </view>
 
-    <view class="agree">
-        <checkbox value="{{agree}}" checked="{{agree}}" color="#4d5ef4"/>
-        <text>我已认真阅读并同意"师傅入驻协议书"</text>
-    </view>
+    <checkbox-group class="agree flex-center-start">
+        <checkbox value="1" checked="{{false}}" color="#4d5ef4"/>
+        <view>我已认真阅读并同意<text class="text" bindtap="readDoc">师傅入驻协议书</text></view>
+    </checkbox-group>
 
     <button form-type="submit" class="main-btn">提交</button>
 
