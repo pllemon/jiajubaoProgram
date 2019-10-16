@@ -26,14 +26,9 @@ Page({
       url: '/usercomment',
       data: formData,
       success: function(data) {
-        wx.showToast({
-          title: '评价成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(function(){
+        app.successToast('评价成功', function(){
           wx.navigateBack()
-        }, 1000)
+        })
       }
     })
   }

@@ -34,16 +34,11 @@ Page({
       url: '/applycraftsman',
       data: formData,
       success: function(data) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 2000
-        })
-        setTimeout(function () {
+        app.successToast('提交成功', function(){
           wx.reLaunch({
             url: '/pages/personal/index/index?type=1'
           })
-        }, 2000)
+        })
       }
     })
   }

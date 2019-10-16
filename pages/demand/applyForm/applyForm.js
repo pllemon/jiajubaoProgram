@@ -101,16 +101,11 @@ Page({
       url: '/markorder',
       data: formData,
       success: function(data) {
-        wx.showToast({
-          title: '创建订单成功',
-          icon: 'success',
-          duration: 2000
-        })
-        setTimeout(function () {
+        app.successToast('创建订单成功', function(){
           wx.reLaunch({
             url: '/pages/personal/index/index'
           })
-        }, 2000)
+        })
       }
     })
   }

@@ -248,7 +248,7 @@
 				{
 					"id": -1,
 					"name": "积分记录",
-					"pathName": "pages/personal/wallet/record/record",
+					"pathName": "pages/personal/wallet/integralRecord/integralRecord",
 					"query": "id=3",
 					"scene": null
 				},

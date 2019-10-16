@@ -46,14 +46,9 @@ Page({
       url: '/craftsmanshow',
       data: formData,
       success: function(data) {
-        wx.showToast({
-          title: '上传成功',
-          icon: 'success',
-          duration: 1000
-        })
-        setTimeout(function () {
+        app.successToast('上传成功', function(){
           wx.navigateBack()
-        }, 1000)
+        })
       }
     })
   }

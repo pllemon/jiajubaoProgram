@@ -1,9 +1,4 @@
-<view>
-  <view class="blue-header flex-column-center">
-    <view>您共拥有积分</view>
-    <view class="total">{{sumintegral}}</view>
-  </view>
-
+<view class="full-layout">
   <scroll-view scroll-y class="flex1">
     <view class="record-list" wx:if="{{ list.length }}">
       <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">

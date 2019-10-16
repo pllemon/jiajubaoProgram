@@ -5,12 +5,20 @@
   </view>
 
   <view class="action-list" style="margin-top: 30rpx">
-    <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/record/record?personType={{personType}}" >
+    <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/integralRecord/integralRecord?personType={{personType}}" >
       <view slot="title" class="action-item">
         <icon class="iconfont iconicon_redpacket"></icon>
         <view class="van-cell-text">积分记录</view>
       </view>
     </van-cell>
+    <block wx:if="{{personType==2}}">
+      <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/settlementRecord/settlementRecord?personType={{personType}}" >
+        <view slot="title" class="action-item">
+          <icon class="iconfont iconicon_redpacket"></icon>
+          <view class="van-cell-text">提现记录</view>
+        </view>
+      </van-cell>
+    </block>
     <van-cell is-link bind:click="showExplain">
       <view slot="title" class="action-item">
         <icon class="iconfont iconicon_warn"></icon>

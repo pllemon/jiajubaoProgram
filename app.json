@@ -34,7 +34,9 @@
     "pages/personal/message/message",
 
     "pages/personal/wallet/index/index",
-    "pages/personal/wallet/record/record"
+    "pages/personal/wallet/integralRecord/integralRecord",
+    "pages/personal/wallet/settlement/settlement",
+    "pages/personal/wallet/settlementRecord/settlementRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",

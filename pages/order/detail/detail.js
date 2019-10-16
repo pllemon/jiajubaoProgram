@@ -94,14 +94,9 @@ Page({
         craftsman_id: craftsman_id
       },
       success: function(data) {
-        wx.showToast({
-          title: '选择成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(() => {
+        app.successToast('选择成功', function(){
           that.getInfo();
-        }, 1000)
+        })
       }
     })
   },
@@ -115,14 +110,9 @@ Page({
         order_id: this.data.order_id
       },
       success: function(data) {
-        wx.showToast({
-          title: '报名成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(() => {
+        app.successToast('报名成功', function(){
           that.getInfo();
-        }, 1000)
+        })
       }
     })
   },
@@ -137,14 +127,9 @@ Page({
         order_sn: this.data.orderMes.info.order_sn
       },
       success: function(data) {
-        wx.showToast({
-          title: '支付成功',
-          icon: 'success',
-          duration: 1000
-        });
-        setTimeout(() => {
+        app.successToast('支付成功', function(){
           that.getInfo();
-        }, 1000)
+        })
       }
     })
   },
@@ -163,14 +148,9 @@ Page({
               order_sn: that.data.orderMes.info.order_sn
             },
             success: function(data) {
-              wx.showToast({
-                title: '支付成功',
-                icon: 'success',
-                duration: 1000
-              });
-              setTimeout(() => {
+              app.successToast('支付成功', function(){
                 that.getInfo();
-              }, 1000)
+              })
             }
           })
         }
@@ -191,14 +171,9 @@ Page({
               order_id: that.data.order_id
             },
             success: function(data) {
-              wx.showToast({
-                title: '确认成功',
-                icon: 'success',
-                duration: 1000
-              });
-              setTimeout(() => {
+              app.successToast('确认成功', function(){
                 that.getInfo();
-              }, 1000)
+              })
             }
           })
         }

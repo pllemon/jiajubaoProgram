@@ -63,16 +63,11 @@ Page({
       url: '/useruseintegral',
       data: obj,
       success: function(data) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 1000
-        })
-        setTimeout(function () {
-          wx.navigateTo({
+        app.successToast('提交成功', function(){
+          wx.redirectTo({
             url: '/pages/offline/list/list?personType=0'
           })
-        }, 1000)
+        })
       }
     })
   }

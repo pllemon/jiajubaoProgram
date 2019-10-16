@@ -60,19 +60,14 @@ Page({
       business_id: that.data.business_id
     }
     app.request({
-      url: '/useruseintegral',
+      url: '/buscomorder',
       data: obj,
       success: function(data) {
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 1000
-        })
-        setTimeout(function () {
-          wx.navigateTo({
-            url: '/pages/offline/list/list?personType=0'
+        app.successToast('提交成功', function(){
+          wx.redirectTo({
+            url: '/pages/offline/list/list?personType=2'
           })
-        }, 1000)
+        })
       }
     })
   }

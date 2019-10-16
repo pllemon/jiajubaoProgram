@@ -10,14 +10,9 @@ Page({
       url: '/feedback',
       data: formData,
       success: function(data) {
-        wx.showToast({
-          title: '反馈成功',
-          icon: 'success',
-          duration: 2000
-        })
-        setTimeout(function () {
+        app.successToast('反馈成功', function(){
           wx.navigateBack()
-        }, 2000)
+        })
       }
     })
   }

@@ -134,6 +134,20 @@ App({
     })
   },
 
+  // 成功提示
+  successToast(text, callback) {
+    wx.showToast({
+      title: text,
+      icon: 'success',
+      duration: 1000
+    })
+    if (callback) {
+      setTimeout(function () {
+        callback()
+      }, 1000)
+    }
+  },
+
   globalData: {
     session: '',
     userInfo: null,
