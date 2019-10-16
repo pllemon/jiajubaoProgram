@@ -127,7 +127,7 @@ App({
     })
   },
 
-  showModel(text) {
+  showModal(text) {
     wx.showModal({
       showCancel: false,
       content: text

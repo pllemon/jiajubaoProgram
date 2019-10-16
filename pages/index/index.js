@@ -40,7 +40,7 @@ Page({
   },
 
   goDiscount() {
-    app.showModel('该功能暂未开放，敬请期待')
+    app.showModal('该功能暂未开放，敬请期待')
   },
 
   goShow() {

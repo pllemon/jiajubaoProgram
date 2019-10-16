@@ -33,7 +33,7 @@ Page({
   formSubmit(e) {
     let formData = e.detail.value
     if (!formData.cashinmoney) {
-      app.showModel('请输入提现积分数');
+      app.showModal('请输入提现积分数');
       return false;
     }
     app.request({

@@ -52,27 +52,27 @@ Page({
     formData.latitude = this.data.addressInfo.location.lat;
     formData.address = this.data.addressInfo.address + formData.address;
     if (!formData.name) {
-      app.showModel('请输入店铺名');
+      app.showModal('请输入店铺名');
       return false;
     }
     if (!validate.phone(formData.phone)) {
-      app.showModel('请输入正确的手机号');
+      app.showModal('请输入正确的手机号');
       return false;
     }
     if (!this.data.shopimg.length) {
-      app.showModel('请上传门面图片');
+      app.showModal('请上传门面图片');
       return false;
     }
     if (!this.data.goodsimg.length) {
-      app.showModel('请上传产品图片');
+      app.showModal('请上传产品图片');
       return false;
     }
     if (!this.data.businessimg.length) {
-      app.showModel('请上传营业执照');
+      app.showModal('请上传营业执照');
       return false;
     }
     if (!this.data.sharewximg.length) {
-      app.showModel('请上传分享图片');
+      app.showModal('请上传分享图片');
       return false;
     }
     uploadNum = 0;

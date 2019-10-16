@@ -67,7 +67,7 @@ Page({
   getCode() {
     let validateRes = validate.phone(this.data.phone);
     if (!validateRes) {
-      app.showModel('请输入正确的手机号');
+      app.showModal('请输入正确的手机号');
     }
   },
 
@@ -86,25 +86,25 @@ Page({
     console.log(formData)
     if (this.data.formType == 0) {
       if (!formData.username) {
-        app.showModel('请输入用户名或授权');
+        app.showModal('请输入用户名或授权');
         return false;
       }
     }
 
     if (!validate.phone(this.data.phone)) {
-      app.showModel('请输入正确的手机号');
+      app.showModal('请输入正确的手机号');
       return false;
     } else if (!formData.password) {
-      app.showModel('请输入密码');
+      app.showModal('请输入密码');
       return false;
     }
 
     if (this.data.formType != 1) {
       if (!formData.code) {
-        app.showModel('请输入手机验证码');
+        app.showModal('请输入手机验证码');
         return false;
       }else if (!validate.confirmPassword(this.data.password, this.data.confirmPassword)) {
-        app.showModel('两次密码不一致');
+        app.showModal('两次密码不一致');
         return false;
       }
     }

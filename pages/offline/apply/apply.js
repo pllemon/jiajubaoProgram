@@ -51,7 +51,7 @@ Page({
   formSubmit(e) {
     let that = this;
     if(!that.data.money){
-      app.showModel('请输入消费金额');
+      app.showModal('请输入消费金额');
       return false;
     }
     let obj = {
