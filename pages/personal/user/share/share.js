@@ -2,44 +2,36 @@ const app = getApp()
 
 Page({
   data: {
-    bgImg: '',
+    bgImg: '/image/example/share.jpg',
     ewmImg: '',
     shareImg: ''
   },
 
   onLoad() {
     let that = this;
-    let bgImg = 'http://47.106.100.144/uploads/business/20190929/c47c3169321b95b4f6706aff21eef5d6.jpg';
-    let ewmImg = 'http://47.106.100.144/uploads/business/20190929/19d9307f91fe29e03fbcd45f727feb4b.png';
+    let ewmImg = 'http://47.106.100.144/uploads/richtext/20191021/9b5689a30d38044eb31b7196a8d07ae1.jpg';
+   
     wx.downloadFile({
-      url: bgImg,
-      success: function (res) {
-        console.log(res)
-        console.log(res.tempFilePath)
-
+      url: ewmImg,
+      success: function (res2) {
+        console.log(res2)
         that.setData({
-          bgImg: res.tempFilePath
+          ewmImg: res2.tempFilePath
         })
-        wx.downloadFile({
-          url: ewmImg,
-          success: function (res2) {
-            that.setData({
-              ewmImg: res2.tempFilePath
-            })
-            that.drawImage()
-            setTimeout(function () {
-              that.canvasToImage()
-            }, 200)
-          }
-        })
+        setTimeout(function(){
+          that.drawImage()
+          setTimeout(function () {
+            that.canvasToImage()
+          }, 1000)
+        },1000)
       }
     })
   },
 
   drawImage() {
     const ctx = wx.createCanvasContext('sharePoster');
-    ctx.drawImage(this.data.bgImg, 0, 0, 300, 200);
-    ctx.drawImage(this.data.ewmImg, 100, 100, 200, 200);
+    ctx.drawImage(this.data.bgImg, 0, 0, 750, 1334);
+    ctx.drawImage(this.data.ewmImg, 260, 960, 250, 250);
     ctx.draw()
   },
   
@@ -49,19 +41,15 @@ Page({
       x: 0,
       y: 0,
       width: 750,
-      height: 1000,
+      height: 1334,
       destWidth: 750,
-      destHeight: 1000,
+      destHeight: 1334,
       canvasId: 'sharePoster',
       fileType: 'jpg',
       success: function (res) {
         console.log('生成图片路径为=' + res)
         that.setData({
           shareImg: res.tempFilePath
-        })
-        wx.previewImage({
-            current: res.tempFilePath,
-            urls: [res.tempFilePath]
         })
       },
       fail: function (err) {
@@ -76,8 +64,7 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath:that.data.shareImg,
       success(res) {
-        console.log(res)
-        console.log('保存成功嘻嘻嘻')
+        app.showModal('保存成功，马上去分享吧～')
       }
     })
   }

@@ -1,7 +1,9 @@
-<view class="container">
-    <canvas style="border:1px solid red;width: 300px; height: 400px;" canvas-id="sharePoster"></canvas>
-    <view hidden="{{ !shareImg }}">
-        <image mode="aspectFit" style="width: 500rpx;height:700rpx;border:1px solid red"></image>
-        <view bindtap="saveImg">保存</view>
+<view class="full-layout">
+    <canvas style="border:1px solid red;width: 750px; height: 1334px;position:absolute;right:2000px" canvas-id="sharePoster"></canvas>
+    <view class="share-view flex1">
+        <image mode="aspectFit" src="{{ shareImg }}"></image>
+    </view>
+    <view class="share-btn flex-center" bindtap="saveImg">
+        <icon class="iconfont iconicon_share"></icon>
     </view>
 </view>

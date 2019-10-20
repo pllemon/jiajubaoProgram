@@ -1,1 +1,1 @@
-<image src="http://47.106.100.144{{src}}" mode="{{mode}}" bindtap="preview"/>
+<image src="http://47.106.100.144/{{src}}" mode="{{mode}}" bindtap="preview"/>

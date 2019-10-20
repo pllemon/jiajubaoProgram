@@ -5,8 +5,10 @@ Page({
   data: {
     imgArr: [],
     addressInfo: null,
-    date: '请选择',
-    time: '请选择',
+    date: '',
+    time: '',
+    networkArr: [],
+    networkIdx: undefined,
 
     showDate: false,
     minDate: new Date().getTime(),
@@ -37,6 +39,11 @@ Page({
       time: e.detail.value
     })
   },
+  bindNetWorkChange: function(e) {
+    this.setData({
+      networkIdx: e.detail.value
+    })
+  },
 
   // 更新图片
   updateImg(e) {
@@ -50,10 +57,26 @@ Page({
     let that = this;
     let formData = e.detail.value;
     let imgArr = this.data.imgArr;
+
+    if (!that.data.networkIdx) {
+      app.showModal('请选择服务网点');
+      return false;
+    } 
+    if (!that.data.date) {
+      app.showModal('请选择预约日期');
+      return false;
+    }
+    if (!that.data.time) {
+      app.showModal('请选择预约时间');
+      return false;
+    }
+
     formData.service_demand = this.data.service_demand;
     formData.service_id = this.data.service_id;
     formData.appo_time = this.data.date + ' ' + this.data.time;
     formData.address = this.data.addressInfo.address + formData.address; 
+    formData.network_id = this.data.networkArr[that.data.networkIdx].id;
+
     if (imgArr.length > 0) {
       wx.showLoading({
         title: '上传中',
@@ -86,11 +109,21 @@ Page({
   },
 
   getNetwork() {
+    let that = this
     app.request({
       url: '/networklist',
       data: {},
       success: function(data) {
-        console.log(data)
+        let networkArr = [];
+        data.forEach(item => {
+          networkArr.push({
+            id: item.id,
+            name: item.name
+          })
+        })
+        that.setData({
+          networkArr: networkArr
+        })
       }
     })
   },

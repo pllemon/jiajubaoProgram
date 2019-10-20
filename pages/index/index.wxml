@@ -8,7 +8,7 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{bannerList}}" wx:key="id">
       <swiper-item>
-        <image src="{{ip}}{{item.imgurl}}" class="slide-image"/>
+        <gdImage src="{{ item.imgurl }}" class="slide-image"></gdImage>
       </swiper-item>
     </block>
   </swiper>

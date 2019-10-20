@@ -1,6 +1,7 @@
 {
 	"navigationBarTitleText": "多师傅",
 	"usingComponents": {
-	    "navigation": "/components/navigation/navigation"
+		"navigation": "/components/navigation/navigation",
+	    "gdImage": "/components/image/image"
 	}
 }

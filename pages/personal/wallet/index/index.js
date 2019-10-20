@@ -49,7 +49,7 @@ Page({
 
   useIntegral() {
     wx.navigateTo({
-      url: '/pages/offline/apply/apply?id=33'
+      url: '/pages/offline/apply/apply?id=3'
     })
     return false
     wx.scanCode({

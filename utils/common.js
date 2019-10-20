@@ -71,7 +71,7 @@ const addressCallBack = (app, target) => {
 }
 
 module.exports = {
-  ip: 'http://47.106.100.144',
+  ip: 'http://47.106.100.144/',
   chooseImgs,
   uploadImgs,
   uploadImg,

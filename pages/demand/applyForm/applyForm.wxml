@@ -19,9 +19,10 @@
         </view>
         <view class="form-item">
             <label>服务网点</label>
-            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <picker bindchange="bindNetWorkChange" value="{{networkIdx}}" range="{{networkArr}}" range-key="name">
                 <view class="picker">
-                {{date}}
+                    <text>{{networkIdx ? networkArr[networkIdx].name : '请选择'}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                 </view>
             </picker>
         </view>
@@ -29,7 +30,8 @@
             <label>预约日期</label>
             <picker mode="date" value="{{date}}" bindchange="bindDateChange">
                 <view class="picker">
-                {{date}}
+                    <text>{{date ? date : '请选择'}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                 </view>
             </picker>
         </view>
@@ -37,7 +39,8 @@
             <label>预约时间</label>
             <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
                 <view class="picker">
-                {{time}}
+                    <text>{{time ? time : '请选择'}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                 </view>
             </picker>
         </view>

@@ -1,0 +1,11 @@
+.picker{
+    display: flex;
+}
+.picker text{
+    min-width: 300rpx;
+    text-align: right;
+}
+.picker icon{
+    position: relative;
+    top: 1rpx;
+}
