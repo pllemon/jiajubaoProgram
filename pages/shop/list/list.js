@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    list: [1,2,3,4],
+    list: [],
     page: 1,
     isRefresh: false,
     isLoadMore: false,

@@ -29,7 +29,7 @@ Page({
       }
     })
 
-    let formType = params.type || 0;
+    let formType = params.type || 1;
     let personal = params.personal || '';
     let formData = this.data.formData;
     formData.personal = personal;

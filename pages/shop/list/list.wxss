@@ -1,7 +1,7 @@
 .shop-img{
   display: flex;
 }
-.shop-img image{
+.shop-img gdimage{
   width: 50%;
   height: 240rpx;
 }
