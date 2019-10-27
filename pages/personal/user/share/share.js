@@ -10,7 +10,10 @@ Page({
   onLoad() {
     let that = this;
     let ewmImg = 'http://47.106.100.144/uploads/richtext/20191021/9b5689a30d38044eb31b7196a8d07ae1.jpg';
-   
+    
+    wx.showLoading({
+      title: '加载中',
+    })    
     wx.downloadFile({
       url: ewmImg,
       success: function (res2) {
@@ -24,6 +27,9 @@ Page({
             that.canvasToImage()
           }, 1000)
         },1000)
+      },
+      complete: function(){
+        wx.hideLoading()
       }
     })
   },
@@ -32,11 +38,17 @@ Page({
     const ctx = wx.createCanvasContext('sharePoster');
     ctx.drawImage(this.data.bgImg, 0, 0, 750, 1334);
     ctx.drawImage(this.data.ewmImg, 260, 960, 250, 250);
+    ctx.setFontSize(120)
+    ctx.setFillStyle('red')
+    ctx.fillText('Hello', 260, 120)
     ctx.draw()
   },
   
   canvasToImage() {
     var that = this
+    wx.showLoading({
+      title: '加载中',
+    })   
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
@@ -55,6 +67,9 @@ Page({
       fail: function (err) {
           console.log('失败')
           console.log(err)
+      },
+      complete: function(){
+        wx.hideLoading()
       }
     })
   },
