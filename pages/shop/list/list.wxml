@@ -10,18 +10,18 @@
     <block wx:for="{{list}}" wx:key="{{index}}">
       <view class="shop-single m20">
         <view class="shop-img">
-          <image src="/image/example/bg1.jpg"/>
-          <image src="/image/example/bg1.jpg"/>
+          <gdImage src="{{ item.shopimg }}"/>
+          <gdImage src="{{ item.goodsimg }}"/>
         </view>
         <view class="common-section">
-          <view class="title">转角装修五金店</view>
+          <view class="title">{{item.name}}</view>
           <view class="mes">
             <icon class="iconfont iconicon_GPS"></icon>
-            <text class="content">广东江门开平镇江大厦隔壁小区7栋402</text>
+            <text class="content">{{item.address}}</text>
           </view>
           <view class="mes">
             <icon class="iconfont iconicon_phone"></icon>
-            <text class="content">13432565434</text>
+            <text class="content">{{item.phone}}</text>
           </view>
         </view>
       </view>

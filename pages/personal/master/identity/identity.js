@@ -28,6 +28,12 @@ Page({
     })
   },
 
+  checkboxChange(e){
+    this.setData({
+      agree: e.detail.value
+    })
+  },
+
   readDoc() {
     wx.navigateTo({
       url: '/pages/personal/doc/doc?type=sfxy'

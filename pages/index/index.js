@@ -32,6 +32,18 @@ Page({
     })
   },
 
+  bindAdvert(e) {
+    let idx = e.currentTarget.dataset.idx
+    let obj = this.data.bannerList[idx]
+    if (obj.type == 1) {
+      wx.navigateTo({
+        url: obj.url
+      })
+    } else if (obj.type == 2){
+
+    }
+  },
+
   goDiscount() {
     app.showModal('该功能暂未开放，敬请期待')
   },

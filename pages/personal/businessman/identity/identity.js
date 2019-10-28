@@ -27,6 +27,12 @@ Page({
     })
   },
 
+  checkboxChange(e) {
+    this.setData({
+      agree: e.detail.value
+    })
+  },
+
   readDoc() {
     wx.navigateTo({
       url: '/pages/personal/doc/doc?type=sjxy'
@@ -53,6 +59,7 @@ Page({
   },
 
   formSubmit: function(e) {
+    console.log(this.data.agree)
     let formData = e.detail.value;
     formData.longitude = this.data.addressInfo.location.lng;
     formData.latitude = this.data.addressInfo.location.lat;
