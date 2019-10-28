@@ -1,15 +1,8 @@
-const app = getApp()
+const app = getApp();
 const common = require('../../utils/common.js');
 
 Page({
   data: {
-    ip: common.ip,
-
-    imgUrls: [
-      '/image/example/bg1.jpg',
-      '/image/example/bg1.jpg',
-      '/image/example/bg1.jpg'
-    ],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -43,7 +36,15 @@ Page({
     app.showModal('该功能暂未开放，敬请期待')
   },
 
+  goDemand() {
+    common.checkLogin()
+    wx.navigateTo({
+      url: '/pages/demand/category/category'
+    })
+  },
+
   goShow() {
+    common.checkLogin()
     let loginInfo = app.globalData.loginInfo
     if (loginInfo.is_criaftsman != 1) {
       wx.reLaunch({

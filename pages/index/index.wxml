@@ -21,10 +21,10 @@
       </navigator>
     </view>
     <view class="nav-type">
-      <navigator url="/pages/demand/category/category" class="nav-single flex-column-center">
+      <view class="nav-single flex-column-center" bindTap="goDemand">
         <image src="/image/icon/repair.svg"/>
         <view>我要维修</view>
-      </navigator>
+      </view>
     </view>
     <view class="nav-type">
       <view class="nav-single flex-column-center" bindtap="goDiscount">

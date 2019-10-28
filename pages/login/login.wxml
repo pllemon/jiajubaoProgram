@@ -28,7 +28,7 @@
   </view>
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_shakehands"></icon>
-    <input placeholder="推荐人" type="text" name="personal" value="{{formData.personal}}"/>
+    <input placeholder="推荐人" type="text" name="invitation_code" value="{{formData.invitation_code}}"/>
   </view>
   <checkbox-group class="agree flex-center-start" wx:if="{{formType==0}}" bindchange="checkboxChange">
     <checkbox value="1" checked="{{false}}" color="#4d5ef4"/>

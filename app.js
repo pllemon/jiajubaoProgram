@@ -36,20 +36,23 @@ App({
             success: res => {
               console.log(res)
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              that.globalData.userInfo = res.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+              if (that.userInfoReadyCallback) {
+                that.userInfoReadyCallback(res)
               }
             }
           })
+        } else {
+          console.log('不允许获取个人信息！！！')
         }
       }
     })
 
-    this.getLocation();
+    // 获取用户地址
+    that.getLocation();
   },
 
   getLocation: function () {
@@ -78,6 +81,7 @@ App({
   },
 
   request: function (obj) {
+    let that = this
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -87,7 +91,7 @@ App({
       method: obj.method || 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'cookie': this.globalData.session
+        'cookie': that.globalData.session
       },
       data: obj.data || {},
       success(res) {

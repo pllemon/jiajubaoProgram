@@ -12,9 +12,9 @@
 			<text>商家</text>
 		</navigator>
 	</view>
-	<navigator url="/pages/personal/index/index" open-type="reLaunch" class="nav-single {{currentIdx==2?'active':''}}">
+	<view class="nav-single {{currentIdx==2?'active':''}}" bindtap="goPersonal">
 		<image src="/image/icon/icon_patriarch.svg" mode="aspectFit"></image>
 		<image src="/image/icon/icon_patriarch_active.svg" mode="aspectFit"></image>
 		<text>我的</text>
-	</navigator>
+	</view>
 </view>

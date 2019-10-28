@@ -1,3 +1,13 @@
+// 检测登录
+const checkLogin = () => {
+  if ( !app.globalData.session ) {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    })
+    return false;
+  }
+}
+
 // 选择图片
 const chooseImgs = (total, fileList, callback) => {
   let count = total - fileList.length
@@ -71,7 +81,7 @@ const addressCallBack = (app, target) => {
 }
 
 module.exports = {
-  ip: 'http://47.106.100.144/',
+  checkLogin,
   chooseImgs,
   uploadImgs,
   uploadImg,

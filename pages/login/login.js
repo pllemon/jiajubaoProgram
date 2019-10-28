@@ -16,7 +16,7 @@ Page({
       code: '',
       password: '',
       confirmPassword: '',
-      personal: ''
+      invitation_code: ''
     }
   },
 
@@ -30,21 +30,13 @@ Page({
     })
 
     let formType = params.type || 0;
-    let personal = params.personal || '';
+    let invitation_code = params.invitation_code || '';
     let formData = this.data.formData;
-    formData.personal = personal;
+    formData.invitation_code = invitation_code;
     this.setData({
       formType,
       formData
     })
-
-    // 已登录则跳转 
-    let session = wx.getStorageSync('session');
-    if (session) {
-      wx.reLaunch({
-        url: '/pages/index/index'
-      })
-    }
   },
 
 
