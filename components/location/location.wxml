@@ -1,0 +1,10 @@
+<van-dialog
+    use-slot
+    confirm-button-text	="开启定位"
+    show="{{ show }}"
+    async-close="{{ true }}"
+    confirm-button-open-type="openSetting"
+    bind:opensetting="opensetting"
+>
+	<image src="/image/example/location.png" mode="aspectFit"></image>
+</van-dialog>

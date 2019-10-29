@@ -10,6 +10,7 @@ Page({
     phone: '',
     confirmPassword: '',
     password: '',
+    countDown: 0,
     formData: {
       username: '',
       phone: '',
@@ -57,15 +58,6 @@ Page({
     app.globalData.userInfo = userInfo;
   },
 
-  // 切换模式
-  changeTab(e) {
-    let dataset = e.currentTarget.dataset;
-    this.setData({
-      formType: dataset.idx
-    });
-    this.formReset();
-  },
-
   readDoc() {
     wx.navigateTo({
       url: '/pages/personal/doc/doc?type=hhxy'
@@ -78,6 +70,18 @@ Page({
     if (!validateRes) {
       app.showModal('请输入正确的手机号');
     }
+
+    let countDown = 60;
+    let timer = setInterval(() => {
+      if (countDown == 0) {
+        clearInterval(timer);
+        return false;
+      }
+      countDown--;
+      this.setData({
+        countDown: countDown
+      })
+    }, 1000)
   },
 
   // 重置表单
@@ -109,8 +113,8 @@ Page({
     if (!validate.phone(this.data.phone)) {
       app.showModal('请输入正确的手机号');
       return false;
-    } else if (!formData.password) {
-      app.showModal('请输入密码');
+    } else if (!formData.password && formData.password.length < 5) {
+      app.showModal('请输入密码，密码长度至少为5位');
       return false;
     }
 
@@ -134,6 +138,8 @@ Page({
       url = '/register'
     } else if (this.data.formType == 1) {
       url = '/login'
+    } else if (this.data.formType == 2) {
+      url = '/resetpwd'
     }
     app.request({
       url,

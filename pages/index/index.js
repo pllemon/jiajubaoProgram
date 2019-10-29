@@ -9,12 +9,13 @@ Page({
     duration: 1000,
 
     addressInfo: "",
+    showLocationDialog: false,
     bannerList: []
   },
 
   onLoad() {
     let that = this;
-    common.addressCallBack(app, that);
+    common.getLocation(that);
 
     that.getBanner();
   },

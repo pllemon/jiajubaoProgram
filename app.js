@@ -50,12 +50,9 @@ App({
         }
       }
     })
-
-    // 获取用户地址
-    that.getLocation();
   },
 
-  getLocation: function () {
+  getLocation2: function () {
     let that = this;
     qqmapsdk = new QQMapWX({
       key: '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5'

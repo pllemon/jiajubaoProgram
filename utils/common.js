@@ -1,3 +1,7 @@
+const app = getApp();
+const QQMapWX = require('utils/qqmap-wx-jssdk.js');
+let qqmapsdk;
+
 // 检测登录
 const checkLogin = () => {
   if ( !app.globalData.session ) {
@@ -65,6 +69,62 @@ const deleteImg = (fileList, idx, callback) => {
   callback(fileList)
 }
 
+// 检查区域是否有网点
+const checkNetworkNum = () => {
+  let city = app.globalData.addressInfo.city;
+  app.request({
+    url: '/networklist',
+    data: {
+      city: city
+    },
+    success: function(data) {
+      console.log(data)
+      if (data.length == 0) {
+        app.showModal(city+'暂未开通网点，敬请期待')
+        return false
+      } else {
+        return true
+      }
+    }
+  })
+}
+
+// 获取用户地址
+const getLocation = (target) => {
+  if (app.globalData.addressInfo) {
+    target.setData({
+      addressInfo: app.globalData.addressInfo
+    })
+    return false
+  }
+  qqmapsdk = new QQMapWX({
+    key: '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5'
+  });
+  wx.getLocation({
+    type: 'wgs84',
+    success(res) {
+      qqmapsdk.reverseGeocoder({
+        location: {
+          latitude: res.latitude,
+          longitude: res.longitude
+        },
+        success: function(res) {
+          console.log(res)
+          app.globalData.addressInfo = res.result
+          target.setData({
+            addressInfo: res.result
+          })
+        }
+      })
+    },
+    fail(err) {
+      target.setData({
+        showLocationDialog = true
+      })
+    }
+  })
+},
+
 // 地址回调
 const addressCallBack = (app, target) => {
   if (app.globalData.addressInfo) {
@@ -87,5 +147,7 @@ module.exports = {
   uploadImg,
   previewImgs,
   deleteImg,
-  addressCallBack
+  getLocation,
+  addressCallBack,
+  checkNetworkNum
 }
