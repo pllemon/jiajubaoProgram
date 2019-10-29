@@ -67,4 +67,7 @@
         <view>3. 提交申请后后台会进行资料审核，请耐心等待</view>
         <view>4. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
     </view>
+
+
+    <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>
 </form>

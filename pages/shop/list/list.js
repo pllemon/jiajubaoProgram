@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+const common = require('../../../utils/common.js');
 
 Page({
   data: {
@@ -7,11 +8,31 @@ Page({
     isRefresh: false,
     isLoadMore: false,
 
-    searchValue: ''
+    searchValue: "",
+    addressInfo: "",
+    showLocationDialog: false,
   },
 
   onLoad() {
-    this.getList();
+    let that = this;
+    common.getLocation(that, function(){
+      that.getList();
+    });
+  },
+
+  changeDis(val) {
+    return val/1000
+  },
+
+
+  upDateLocation() {
+    let that = this;
+    that.setData({
+      showLocationDialog: false
+    })
+    common.getLocation(that, function(){
+      that.getList();
+    });
   },
 
   getList() {
@@ -23,6 +44,13 @@ Page({
         lat: '22.386958'
       },
       success: function(data) {
+        data.forEach(item => {
+          if (item.distance > 1000) {
+            item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
+          } else {
+            item.distance = item.distance + 'm'
+          }
+        })
         that.setData({
           list: data
         })

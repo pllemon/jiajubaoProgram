@@ -5,6 +5,7 @@
 	    "navigation": "/components/navigation/navigation",
 		"scroll": "/components/scroll/scroll",
 		"van-search": "../../miniprogram_npm/vant-weapp/search",
+		"location": "/components/location/location",
 		"gdImage": "/components/image/image"
 	}
 }

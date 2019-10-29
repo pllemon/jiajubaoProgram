@@ -1,14 +1,17 @@
 const app = getApp();
-const QQMapWX = require('utils/qqmap-wx-jssdk.js');
+const QQMapWX = require('qqmap-wx-jssdk.js');
 let qqmapsdk;
 
 // 检测登录
-const checkLogin = () => {
+const checkLogin = (callback) => {
   if ( !app.globalData.session ) {
     wx.navigateTo({
-      url: '/pages/login/login'
+      url: '/pages/login/login?type=1'
     })
-    return false;
+  } else {
+    if (callback) {
+      callback()
+    }
   }
 }
 
@@ -90,11 +93,14 @@ const checkNetworkNum = () => {
 }
 
 // 获取用户地址
-const getLocation = (target) => {
+const getLocation = (target, callback) => {
   if (app.globalData.addressInfo) {
     target.setData({
       addressInfo: app.globalData.addressInfo
     })
+    if (callback) {
+      callback()
+    }
     return false
   }
   qqmapsdk = new QQMapWX({
@@ -114,30 +120,18 @@ const getLocation = (target) => {
           target.setData({
             addressInfo: res.result
           })
+          if (callback) {
+            callback()
+          }
         }
       })
     },
     fail(err) {
       target.setData({
-        showLocationDialog = true
+        showLocationDialog: true
       })
     }
   })
-},
-
-// 地址回调
-const addressCallBack = (app, target) => {
-  if (app.globalData.addressInfo) {
-    target.setData({
-      addressInfo: app.globalData.addressInfo
-    })
-  } else {
-    app.readyLocation = function(res) {
-      target.setData({
-        addressInfo: app.globalData.addressInfo
-      })
-    }
-  }
 }
 
 module.exports = {
@@ -148,6 +142,5 @@ module.exports = {
   previewImgs,
   deleteImg,
   getLocation,
-  addressCallBack,
   checkNetworkNum
 }

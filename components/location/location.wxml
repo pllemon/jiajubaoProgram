@@ -6,5 +6,5 @@
     confirm-button-open-type="openSetting"
     bind:opensetting="opensetting"
 >
-	<image src="/image/example/location.png" mode="aspectFit"></image>
+	<image src="/image/example/location.png" class="location-img" mode="aspectFit"></image>
 </van-dialog>

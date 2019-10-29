@@ -6,17 +6,26 @@ let uploadNum = 0;
 
 Page({
   data: {
-    addressInfo: null,
     agree: [],
     goodsimg: [],
     shopimg: [],
     businessimg: [],
-    sharewximg: []
+    sharewximg: [],
+
+    addressInfo: "",
+    showLocationDialog: false,
   },
 
   onLoad () {
     let that = this;
-    common.addressCallBack(app, that);
+    common.getLocation(that);
+  },
+
+  upDateLocation() {
+    this.setData({
+      showLocationDialog: false
+    })
+    common.getLocation(this)
   },
 
   // 更新图片

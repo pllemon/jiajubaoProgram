@@ -4,7 +4,8 @@ const common = require('../../../utils/common.js');
 Page({
   data: {
     imgArr: [],
-    addressInfo: null,
+    addressInfo: "",
+    showLocationDialog: false,
     date: '',
     time: '',
     networkArr: [],
@@ -20,13 +21,21 @@ Page({
 
   onLoad(params) {
     let that = this;
+    common.getLocation(that);
+
     that.setData({
       service_id: params.service_id,
       service_demand: app.globalData.service_demand
     })
-    common.addressCallBack(app, that);
 
     that.getNetwork();
+  },
+
+  upDateLocation() {
+    this.setData({
+      showLocationDialog: false
+    })
+    common.getLocation(this)
   },
 
   bindDateChange: function(e) {

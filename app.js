@@ -1,7 +1,5 @@
 //app.js
 const systemData = require('utils/data.js')
-var QQMapWX = require('utils/qqmap-wx-jssdk.js');
-var qqmapsdk;
 
 App({
   onLaunch: function () {
@@ -48,31 +46,6 @@ App({
         } else {
           console.log('不允许获取个人信息！！！')
         }
-      }
-    })
-  },
-
-  getLocation2: function () {
-    let that = this;
-    qqmapsdk = new QQMapWX({
-      key: '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5'
-    });
-    wx.getLocation({
-      type: 'wgs84',
-      success(res) {
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: res.latitude,
-            longitude: res.longitude
-          },
-          success: function(res) {
-            console.log(res)
-            that.globalData.addressInfo = res.result
-            if (that.readyLocation) {
-              that.readyLocation(res.result)
-            }
-          }
-        })
       }
     })
   },

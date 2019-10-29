@@ -20,6 +20,13 @@ Page({
     that.getBanner();
   },
 
+  upDateLocation() {
+    this.setData({
+      showLocationDialog: false
+    })
+    common.getLocation(this)
+  },
+
   getBanner() {
     let that = this;
     app.request({
@@ -50,23 +57,25 @@ Page({
   },
 
   goDemand() {
-    common.checkLogin()
-    wx.navigateTo({
-      url: '/pages/demand/category/category'
+    common.checkLogin(function() {
+      wx.navigateTo({
+        url: '/pages/demand/category/category'
+      })
     })
   },
 
   goShow() {
-    common.checkLogin()
-    let loginInfo = app.globalData.loginInfo
-    if (loginInfo.is_criaftsman != 1) {
-      wx.reLaunch({
-        url: '/pages/personal/index/index?type=1'
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/order/center/center'
-      })
-    }
+    common.checkLogin(function(){
+      let loginInfo = app.globalData.loginInfo
+      if (loginInfo && loginInfo.is_criaftsman != 1) {
+        wx.reLaunch({
+          url: '/pages/personal/index/index?type=1'
+        })
+      } else {
+        wx.navigateTo({
+          url: '/pages/order/center/center'
+        })
+      }
+    })
   }
 })

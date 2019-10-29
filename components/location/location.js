@@ -6,7 +6,6 @@ Component({
   },
   methods: {
     opensetting(event) {
-      console.log(event)
       this.triggerEvent('upDateLocation')
     }
   }

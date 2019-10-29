@@ -37,6 +37,8 @@ Page({
       success (res) {
         if (res.confirm) {
           wx.removeStorageSync('session');
+          app.globalData.session = '';
+          app.globalData.loginInfo = null;
           wx.reLaunch({
             url: '/pages/login/login?type=1'
           })

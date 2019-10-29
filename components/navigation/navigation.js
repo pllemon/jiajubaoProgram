@@ -12,9 +12,10 @@ Component({
   },
   methods: {
     goPersonal() {
-      common.checkLogin()
-      wx.reLaunch({
-        url: '/pages/personal/index/index'
+      common.checkLogin(function() {
+        wx.reLaunch({
+          url: '/pages/personal/index/index'
+        })
       })
     }
   }

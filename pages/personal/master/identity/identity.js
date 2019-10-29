@@ -4,13 +4,22 @@ const validate = require('../../../../utils/validate.js');
 
 Page({
   data: {
-    addressInfo: null,
+    addressInfo: "",
+    showLocationDialog: false,
     agree: []
   },
 
   onLoad () {
     let that = this;
-    common.addressCallBack(app, that);
+    common.getLocation(that);
+  },
+
+
+  upDateLocation() {
+    this.setData({
+      showLocationDialog: false
+    })
+    common.getLocation(this)
   },
 
   chooseAddress() {

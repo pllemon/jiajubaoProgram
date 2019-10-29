@@ -74,3 +74,5 @@
 
     <button form-type="submit" class="main-btn">提交</button>
 </form>
+
+  <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>

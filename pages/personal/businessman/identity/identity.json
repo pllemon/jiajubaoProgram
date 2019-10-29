@@ -1,6 +1,7 @@
 {
 	"navigationBarTitleText": "商家申请",
   "usingComponents": {
+		"location": "/components/location/location",
     "upload": "/components/upload/upload"
   }
 }

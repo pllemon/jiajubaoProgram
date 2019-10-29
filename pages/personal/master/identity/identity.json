@@ -1,4 +1,6 @@
 {
 	"navigationBarTitleText": "师傅申请",
-  "usingComponents": {}
+	"usingComponents": {
+		"location": "/components/location/location"
+	}
 }
