@@ -1,0 +1,10 @@
+<van-dialog
+    use-slot
+    confirm-button-text	="微信授权"
+    show="{{ showEmpower }}"
+    async-close="{{ true }}"
+    confirm-button-open-type="openSetting"
+    bind:opensetting="opensetting"
+>
+	<image src="/image/example/person.png" class="location-img" mode="aspectFit"></image>
+</van-dialog>
