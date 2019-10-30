@@ -36,9 +36,13 @@
             <icon class="iconfont iconicon_calendar"></icon>
             <text class="content">{{item.appo_time}}</text>
           </view>
-          <view class="mes">
+          <view class="mes" wx:if="{{item.remark}}">
             <icon class="iconfont iconicon_community_line"></icon>
             <text class="content">{{item.remark}}</text>
+          </view>
+          <view>
+            <text class="label label-green">水口第一网点</text>
+            <text class="label label-orange">2张图片</text>
           </view>
           <block wx:if="{{item.status == 4}}">
             <view class="sign-info">

@@ -18,7 +18,16 @@ Page({
       password: '',
       confirmPassword: '',
       invitation_code: ''
-    }
+    },
+    showEmpowerDialog: true
+  },
+
+  changeTab(e) {
+    let idx = e.currentTarget.dataset.idx
+    this.setData({
+      formType: idx
+    })
+    this.formReset()
   },
 
   onLoad(params) {
@@ -38,6 +47,10 @@ Page({
       formType,
       formData
     })
+  },
+
+  upDateUserInfo() {
+
   },
 
 
@@ -105,7 +118,7 @@ Page({
     console.log(formData)
     if (this.data.formType == 0) {
       if (!formData.username) {
-        app.showModal('请输入用户名或授权');
+        app.showModal('请输入用户名');
         return false;
       }
     }

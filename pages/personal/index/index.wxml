@@ -2,7 +2,7 @@
   <!-- 我的信息 -->
   <view class="personal-header">
     <view class="personal-mes blue-header">
-      <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+      <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
       <view>
         <view class="personal-name">{{userInfo.username}}</view>
         <view>欢迎你～</view>
@@ -58,7 +58,11 @@
     <view class="apply-view" wx:if="{{userInfo.is_criaftsman != 1}}">
       <view class="flex-center">
         <icon class="iconfont iconmaster"></icon>
-        <view>{{status[userInfo.is_criaftsman].text}}</view>
+        <view class="flex1">
+          <text>{{status[userInfo.is_criaftsman].text}}</text>
+          <text wx:if="{{userInfo.craftsmannfo.reject_reason && userInfo.craftsmannfo.status == 3}}">，驳回原因是：{{userInfo.craftsmannfo.reject_reason}}</text>
+          <text wx:if="{{userInfo.craftsmannfo.status == 3}}">，可重新申请</text>
+        </view>
       </view>
       <button class="main-btn plain" wx:if="{{status[userInfo.is_criaftsman].active}}" bindtap="applyMaster">
         <text>{{status[userInfo.is_criaftsman].btn}}</text>
@@ -71,7 +75,11 @@
     <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3}}">
       <view class="flex-center">
         <icon class="iconfont iconbusiness"></icon>
-        <view>{{status[userInfo.is_business].text2}}</view>
+        <view class="flex1">
+          <text>{{status[userInfo.is_business].text2}}</text>
+          <text wx:if="{{userInfo.businessinfo.bhremark && userInfo.businessinfo.status == 3}}">，驳回原因是：{{userInfo.businessinfo.bhremark}}</text>
+          <text wx:if="{{userInfo.businessinfo.status == 3}}">，可重新申请</text>
+        </view>
       </view>
       <button class="main-btn plain" wx:if="{{status[userInfo.is_business].active}}" bindtap="applyBusiness">
         <text>{{status[userInfo.is_business].btn}}</text>

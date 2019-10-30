@@ -34,11 +34,12 @@ view{
 /* label */
 .label{
     display: inline-block;
-    font-size: 28rpx;
-    padding: 2rpx 10rpx;
+    font-size: 13px;
+    padding: 1px 5px;
     border-radius: 4rpx;
-    margin-right: 20rpx;
+    margin-top: 10rpx;
     margin-bottom: 20rpx;
+    margin-right: 10rpx;
 }
 .label-green{
     background: #e3f8f1;
@@ -46,7 +47,7 @@ view{
 }
 .label-orange{
     background: #fcf1d5;
-    color: #d4c199;
+    color: #ff9640;
 }
 
 

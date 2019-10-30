@@ -1,9 +1,8 @@
 <form bindsubmit="formSubmit">
-  <!-- <image src="/image/logo.jpeg" mode="aspectFit" style="width: 100px;height: 50px;margin:auto;margin-bottom:60rpx"></image> -->
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_boss"></icon>
-    <input placeholder="请输入用户名或授权" name="username" value="{{formData.username}}"/>
-    <button size="mini" open-type="getUserInfo" class="button-plain" bindgetuserinfo="onGotUserInfo">授权</button>
+    <input placeholder="请输入用户名" name="username" value="{{formData.username}}"/>
+    <!-- <button size="mini" open-type="getUserInfo" class="button-plain" bindgetuserinfo="onGotUserInfo">授权</button> -->
   </view>
   <view class="section">
     <icon class="iconfont iconicon_phone"></icon>
@@ -13,7 +12,7 @@
     <icon class="iconfont iconicon_im_keyboard"></icon>
     <input placeholder="请输入手机验证码" type="number" name="code" value="{{formData.code}}"/>
     <button size="mini" class="button-plain" bindtap="getCode" hidden="{{countDown != 0}}">获取</button>
-    <button size="mini" class="button-plain" hidden="{{countDown == 0}}">{{countDown}}秒</button>
+    <button size="mini" class="button-plain" hidden="{{countDown == 0}}">{{countDown}}s</button>
   </view>
   <view class="section">
     <icon class="iconfont iconicon_shield"></icon>
@@ -43,3 +42,5 @@
     <text data-idx="1" bindtap="changeTab">立即登录</text>
   </view>
 </form>
+
+<!-- <empower show="{{ showEmpowerDialog }}" bindupDate="upDateUserInfo"></empower> -->

@@ -8,6 +8,8 @@
 	border-radius: 50%;
 	overflow: hidden;
 	margin-right: 20rpx;
+	background: #fff;
+	box-sizing: border-box;
 }
 .personal-name{
 	font-size: 22px;

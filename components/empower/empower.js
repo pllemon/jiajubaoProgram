@@ -1,9 +1,10 @@
 Component({
   properties: {
-    showEmpower: Boolean
+    show: Boolean
   },
   methods: {
-    opensetting() {
+    getUserInfo(e) {
+      console.log(e)
       this.triggerEvent('upDate')
     }
   }

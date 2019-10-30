@@ -1,3 +1,6 @@
 {
-	"navigationBarTitleText": "多师傅"
+	"navigationBarTitleText": "多师傅",
+	"usingComponents": {
+		"empower": "/components/empower/empower"
+	}
 }
