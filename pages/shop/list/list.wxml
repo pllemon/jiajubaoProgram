@@ -1,11 +1,13 @@
 <view class="full-layout">
-  <van-search
-    value="{{ searchValue }}"
-    placeholder="请输入关键词"
-    use-action-slot
-    bind:search="onSearch"
-  />
-
+  <view>
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="请输入关键词"
+      use-action-slot
+      bind:search="onSearch"
+    />
+    
+  </view>
   <scroll-view scroll-y class="flex1 shop-list">
     <block wx:for="{{list}}" wx:key="{{index}}">
       <view class="shop-single m20">
