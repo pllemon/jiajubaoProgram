@@ -50,21 +50,21 @@ Page({
 
         if (that.data.personType == 0) {
           orderStatus = personMessage[0].orderStatus[data.info.status];
-        } else if (that.data.personType == 1) {
+        } else if (that.data.personType == 1) { // 师傅
           if (data.info.status == 4) {
             if (!data.craftsmanorderinfo) {
-              orderStatus = personMessage[1].orderStatus[5];
+              orderStatus = personMessage[1].orderStatus[5]; // 未报名
             } else {
-              orderStatus = personMessage[1].orderStatus[1];
+              orderStatus = personMessage[1].orderStatus[1]; // 已报名
             }
           } else if (data.info.status >= 5 && data.info.status < 8) {
             if (data.craftsmaninfo.craftsman_id == data.craftsmanorderinfo.craftsman_id) {
-              orderStatus = personMessage[1].orderStatus[2];
+              orderStatus = personMessage[1].orderStatus[2]; // 已承接
             } else {
-              orderStatus = personMessage[1].orderStatus[3];
+              orderStatus = personMessage[1].orderStatus[4]; // 未承接
             }
           } else if (data.info.status == 8) {
-            orderStatus = personMessage[1].orderStatus[4];
+            orderStatus = personMessage[1].orderStatus[3]; // 已完成
           }
         }
         that.setData({

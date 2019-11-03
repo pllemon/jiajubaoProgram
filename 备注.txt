@@ -19,3 +19,28 @@
 注册ok
 首页ok
 地址授权ok
+
+
+
+11.03
+小程序
+1. businessorderlist 返回用户名，改成分页
+2. 商家线下详情（商家）无接口
+3. 添加用户修改资料的接口 -> 头像、昵称
+4. 师傅、商家被驳回后再次申请失败
+5. 重置密码返回验证码错误
+
+后台
+1. 消息类型（newOrder、payEarnest、payTail、newMaster、newBusiness）
+2. 后台订单列表 按时间排序、返回接单师傅名、师傅号码、网点名、用户名，搜素条件（预约时间、订单编号、订单状态、所属网点、接单师傅、下单用户）
+3. /admin/adminuserinfo 返回网点名称、角色名称
+
+改善的地方
+1. 下单时间限制
+2. 下单网点限制
+3. 图片上传大小限制
+
+
+/businessorderlist 按时间顺序，返回用户头像
+/businessorderinfo 用户头像不存在
+/userorderlist 返回网点名、搜索条件是关键词、订单状态

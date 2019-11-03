@@ -4,7 +4,9 @@
     <view class="personal-mes blue-header">
       <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
       <view>
-        <view class="personal-name">{{userInfo.username}}</view>
+        <view wx:if="{{currType == 0}}" class="personal-name">{{userInfo.username}}</view>
+        <view wx:if="{{currType == 1}}" class="personal-name">{{userInfo.craftsmannfo.name}}</view>
+        <view wx:if="{{currType == 2}}" class="personal-name">{{userInfo.businessinfo.name}}</view>
         <view>欢迎你～</view>
       </view>
     </view>

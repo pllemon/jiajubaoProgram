@@ -99,13 +99,14 @@ const getLocation = (target, callback) => {
       addressInfo: app.globalData.addressInfo
     })
     if (callback) {
-      callback()
+      callback(app.globalData.addressInfo)
     }
     return false
   }
   qqmapsdk = new QQMapWX({
     key: '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5'
   });
+  
   wx.getLocation({
     type: 'wgs84',
     success(res) {
@@ -121,14 +122,24 @@ const getLocation = (target, callback) => {
             addressInfo: res.result
           })
           if (callback) {
-            callback()
+            callback(res.result)
           }
         }
       })
     },
     fail(err) {
-      target.setData({
-        showLocationDialog: true
+      wx.getSetting({
+        success: (res) => {
+          if (res.authSetting['scope.userLocation']) {
+            target.setData({
+              showLocationDialog: true
+            })
+          } else {
+            target.setData({
+              showLocationDialog: true
+            })
+          }
+        }
       })
     }
   })

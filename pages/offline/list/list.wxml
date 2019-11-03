@@ -1,12 +1,16 @@
 <view class="full-layout" wx:if="{{finish}}">
   <scroll-view scroll-y class="flex1 order-list">
     <block wx:if="{{list.length}}">
-      <navigator wx:for="{{list}}" wx:key="index" class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}">
+      <navigator wx:for="{{list}}" wx:key="index" class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
         <image src="/image/example/peo.jpg" mode="scaleToFill" class="peo-img"></image>
         <view class="flex1">
-          <view class="flex-center-between">
+          <view class="flex-center-between" wx:if="{{personType == 0}}">
             <view class="name flex1">{{item.business_name}}</view>
             <view class="money">-{{item.money}}</view>
+          </view>
+          <view class="flex-center-between" wx:if="{{personType == 2}}">
+            <view class="name flex1">{{item.user_name}}</view>
+            <view class="money">+{{item.money}}</view>
           </view>
           <view>
             <text class="time">{{item.creat_time}}</text>

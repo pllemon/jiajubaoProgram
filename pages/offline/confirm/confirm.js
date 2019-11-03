@@ -7,7 +7,7 @@ Page({
     money: '',
     point: 0,
     maxPoint: 0,
-    totalPoint: 120,
+    totalPoint: 0,
     business_id: ''
   },
 
@@ -15,7 +15,29 @@ Page({
     this.setData({
       business_id: params.id
     });
-    this.getSumintegral();
+    this.getInfo();
+  },
+
+  getInfo() {
+    let that = this;
+    app.request({
+      url: '/businessorderinfo',
+      data: {
+        bo_id: this.data.business_id
+      },
+      success: function(data) {
+        that.setData({
+          orderMes: data
+        })
+        that.getSumintegral();
+      }
+    })
+  },
+
+  onChange(event) {
+    this.setData({
+      point: event.detail
+    })
   },
 
   getSumintegral() {
@@ -28,36 +50,22 @@ Page({
         limit: 20
       },
       success: function(data) {
+        let maxPoint = Math.min(that.data.orderMes.pay_money, data.integralsum);
         that.setData({
-          totalPoint: data.sumintegral
+          point: maxPoint,
+          totalPoint: data.integralsum,
+          maxPoint: maxPoint
         })
       }
     })
   },
 
-  changeMoney: function (e) {
-    let money = e.detail.value;
-    let point1 = parseInt(money / 100) * 5;
-    let point2 = parseInt(this.data.totalPoint / 5) * 5;
-    let maxPoint = Math.min(point1, point2);
-
-    this.setData({
-      point: maxPoint,
-      money: money,
-      maxPoint: maxPoint
-    })
-  },
-
-  formSubmit(e) {
+  formSubmit() {
     let that = this;
-    if(!that.data.money){
-      app.showModal('请输入消费金额');
-      return false;
-    }
     let obj = {
-      integral: that.data.point,
-      money: that.data.money,
-      business_id: that.data.business_id
+      bo_id: that.data.business_id,
+      order_sn: that.data.orderMes.order_sn,
+      use_integral: that.data.point
     }
     app.request({
       url: '/buscomorder',

@@ -1,38 +1,11 @@
 <view wx:if="{{finish}}">
     <view class="blue-header">
       <view class="mes">
-        <image src="/image/example/peo.jpg" mode="scaleToFill" class="peo-img"></image>
-        <view style="font-size: 14px;margin-top:10rpx">{{orderMes.business_name}}</view>
+        <gdImage wx:if="{{personType == 2}}" src="{{ orderMes.userheaderurl }}" class="peo-img" style="background:#fff"></gdImage>
+        <view style="font-size: 14px;margin-top:10rpx">{{personType == 2?orderMes.user_name:orderMes.business_name}}</view>
         <view style="font-size: 30px;margin-top: 16rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
       </view>
     </view>
-   
-
-    <view class="concat-mes">
-      <view wx:if="{{orderStatus.showUser}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
-        <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
-        <view class="flex1">
-          <view class="name">{{orderMes.info.username}}</view>
-          <view>{{orderMes.info.phone}}</view>
-        </view>
-        <view class="flex-center phone" wx:if="{{orderStatus.showUserPhone}}" data-phone="{{orderMes.info.phone}}" bindtap="makePhoneCall">
-          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-          <text>联系</text>
-        </view>
-      </view>
-      <view wx:if="{{orderStatus.showMaster}}" class="flex-center-between concat-single">
-        <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
-        <view class="flex1">
-          <view class="name">{{orderMes.craftsmaninfo.name}}（{{orderMes.craftsmaninfo.sn}}）</view>
-          <view>{{orderMes.craftsmaninfo.phone}}</view>
-        </view>
-        <view class="flex-center phone" wx:if="{{orderStatus.showMasterPhone}}" data-phone="{{orderMes.craftsmaninfo.phone}}" bindtap="makePhoneCall">
-          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-          <text>联系</text>
-        </view>
-      </view>
-    </view>
-
   
     <!-- 订单信息 -->
     <view class="common-section">
@@ -52,18 +25,30 @@
           <text>下单时间</text>
           <text>{{orderMes.creat_time}}</text>
         </view>
-        <view>
-          <text>下单店铺</text>
-          <text>{{orderMes.business_name}}</text>
-        </view>
-        <view>
-          <text>店铺电话</text>
-          <text>{{orderMes.business_phone}}</text>
-        </view>
-        <view>
-          <text>店铺地址</text>
-          <text>{{orderMes.business_address}}</text>
-        </view>
+        <block wx:if="{{personType == 0}}">
+          <view>
+            <text>下单店铺</text>
+            <text>{{orderMes.business_name}}</text>
+          </view>
+          <view>
+            <text>店铺电话</text>
+            <text>{{orderMes.business_phone}}</text>
+          </view>
+          <view>
+            <text>店铺地址</text>
+            <text>{{orderMes.business_address}}</text>
+          </view>
+        </block>
+        <block wx:if="{{personType == 2}}">
+          <view>
+            <text>消费用户</text>
+            <text>{{orderMes.user_name}}</text>
+          </view>
+          <view>
+            <text>用户电话</text>
+            <text>{{orderMes.user_phone}}</text>
+          </view>
+        </block>
         <view>
           <text>消费金额</text>
           <text>{{orderMes.money}} 元</text>
@@ -80,6 +65,24 @@
           <text>预计返回积分</text>
           <text>{{orderMes.return_integral}} 积分</text>
         </view>
+        <block wx:if="{{personType == 2}}">
+          <view>
+            <text>应付平台费</text>
+            <text>{{orderMes.pay_money}} 元</text>
+          </view>
+          <view wx:if="{{orderMes.pay_status == 1}}">
+            <text>积分抵扣平台费</text>
+            <text>{{orderMes.integral}} 元</text>
+          </view>
+          <view wx:if="{{orderMes.pay_status == 1}}">
+            <text>实付平台费</text>
+            <text>{{orderMes.pay_money - orderMes.integral}} 元</text>
+          </view>
+        </block>
+        <view wx:if="{{orderMes.pay_status == 1}}">
+          <text>完成时间</text>
+          <text>{{orderMes.pay_time}} 元</text>
+        </view>
       </view>
     </view>
 
@@ -94,14 +97,4 @@
       <button bindtap="cancelOrder" class="main-btn plain flex1">取消订单</button>
       <button bindtap="confirmOrder" class="main-btn flex1" style="margin-left: 10rpx">确认订单</button>
     </view>
-
-    <van-dialog
-      use-slot
-      title="取消订单"
-      show-cancel-button
-      show="{{ showCancel }}"
-      bind:close="hideCancel"
-    >
-      <textarea placeholder="请输入取消理由"></textarea>
-    </van-dialog>
 </view>
