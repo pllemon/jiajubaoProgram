@@ -165,7 +165,7 @@ const personMessage = {
         showAction: false
       },
       3: {
-        status: 3,
+        status: 3, 
         label: '已完成',
         desc: '您已完成该订单',
         show: true,
