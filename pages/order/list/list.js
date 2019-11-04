@@ -17,7 +17,9 @@ Page({
 
     let statusArr = []
     for(let i in this.data.orderStatus) {
-      statusArr.push(this.data.orderStatus[i])
+      if (this.data.orderStatus[i].show) {
+        statusArr.push(this.data.orderStatus[i])
+      }
     }
     this.setData({
       statusArr

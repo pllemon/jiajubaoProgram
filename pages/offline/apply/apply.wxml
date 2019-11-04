@@ -7,6 +7,7 @@
                 <input name="name" placeholder="请输入" type="number" focus="{{isFocus}}" value="{{money}}" bindinput="changeMoney"/>
             </view>
         </view>
+
         <view class="form-item" hidden="{{!money}}">
             <label>使用积分</label>
             <view class="form-content">
@@ -16,10 +17,11 @@
                         plus-class="stepper-plus"
                         minus-class="stepper-minus"
                         value="{{ point }}" 
-                        step="5" 
+                        step="1" 
                         min="0" 
                         max="{{maxPoint}}"
                         disable-input 
+                        bind:change="onChange"
                     />
                 </view>
             </view>

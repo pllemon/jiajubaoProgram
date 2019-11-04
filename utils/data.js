@@ -8,7 +8,7 @@ const personMessage = {
       0: {
         status: 0,
         label: '全部',
-        show: false
+        show: true
       },
       1: {
         status: 1,
@@ -40,7 +40,7 @@ const personMessage = {
         status: 3,
         label: '待派单',
         desc: '已支付定金，订单等待后台派单',
-        show: false,
+        show: true,
         icon: 'icondengdai',
         showUser: true,
         showUserPhone: false,
@@ -53,7 +53,7 @@ const personMessage = {
         status: 4,
         label: '报名中',
         desc: '可选择你喜欢的师傅',
-        show: false,
+        show: true,
         icon: 'icongongcheng-',
         showUser: true,
         showUserPhone: false,
@@ -105,7 +105,7 @@ const personMessage = {
         status: 10,
         label: '已取消',
         desc: '订单已取消，欢迎再次下单',
-        show: false,
+        show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
         showUserPhone: false,
@@ -123,11 +123,11 @@ const personMessage = {
       0: {
         status: 0,
         label: '全部',
-        show: false
+        show: true
       },
       1: {
         status: 1,
-        label: '报名中',
+        label: '已报名',
         desc: '您已报名，请耐心等待结果',
         show: true,
         icon: 'icongongcheng-',
@@ -151,8 +151,8 @@ const personMessage = {
         showSignUp: true,
         showAction: true
       },
-      3: {
-        status: 3,
+      4: {
+        status: 4,
         label: '未承接',
         desc: '您未承接该订单，可报名其他订单',
         show: true,
@@ -164,8 +164,8 @@ const personMessage = {
         showSignUp: true,
         showAction: false
       },
-      4: {
-        status: 4,
+      3: {
+        status: 3, 
         label: '已完成',
         desc: '您已完成该订单',
         show: true,
@@ -179,7 +179,7 @@ const personMessage = {
       },
       5: {
         status: 5,
-        label: '报名中',
+        label: '未报名',
         desc: '订单正接受报名，需要请尽快报名哦',
         show: false,
         icon: 'icongongcheng-',

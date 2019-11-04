@@ -11,11 +11,16 @@ Page({
     searchValue: "",
     addressInfo: "",
     showLocationDialog: false,
+
+    location: {}
   },
 
   onLoad() {
     let that = this;
-    common.getLocation(that, function(){
+    common.getLocation(that, function(res){
+      that.setData({
+        location: res.location
+      })
       that.getList();
     });
   },
@@ -30,7 +35,10 @@ Page({
     that.setData({
       showLocationDialog: false
     })
-    common.getLocation(that, function(){
+    common.getLocation(that, function(res){
+      that.setData({
+        location: res.location
+      })
       that.getList();
     });
   },
@@ -40,8 +48,8 @@ Page({
     app.request({
       url: '/businesslist',
       data: {
-        lng: '112.688716',
-        lat: '22.386958'
+        lng: that.data.location.lng,
+        lat: that.data.location.lat
       },
       success: function(data) {
         data.forEach(item => {

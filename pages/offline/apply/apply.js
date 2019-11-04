@@ -7,7 +7,7 @@ Page({
     money: '',
     point: 0,
     maxPoint: 0,
-    totalPoint: 120,
+    totalPoint: 0,
     business_id: ''
   },
 
@@ -45,6 +45,12 @@ Page({
       point: maxPoint,
       money: money,
       maxPoint: maxPoint
+    })
+  },
+
+  onChange(event) {
+    this.setData({
+      point: event.detail
     })
   },
 

@@ -47,6 +47,9 @@
       "desc": "本应用需要获取你的位置信息，希望能更好地为你服务"
     }
   },
+  "usingComponents": {
+    "gdImage": "/components/image/image"
+  },
   "usingComponents2": {
     "van-button": "miniprogram_npm/vant-weapp/button",
     "van-loading": "miniprogram_npm/vant-weapp/loading",

@@ -9,9 +9,6 @@ Page({
     orderMes: {},
     masterList: [],
     orderStatus: {},
-
-    craftsmannfo: {}, 
-    showCancel: false
   },
 
   onLoad(params) {
@@ -25,7 +22,6 @@ Page({
     that.getInfo();
   },
 
-  // 获取订单信息
   getInfo() {
     let that = this;
     let url = '/userunlinkorderinfo';
@@ -47,13 +43,25 @@ Page({
   },
 
   cancelOrder() {
-    this.setData({
-      showCancel: true
-    })
-  },
-  hideCancel() {
-    this.setData({
-      showCancel: false
+    let that = this
+    wx.showModal({
+      content: '确定取消该订单？',
+      success (res) {
+        if (res.confirm) {
+          app.request({
+            url: '/businessancelorder',
+            data: {
+              bo_id: that.data.order_id,
+              order_sn: that.data.orderMes.order_sn
+            },
+            success: function(data) {
+              app.successToast('取消成功', function(){
+                that.getInfo()
+              })
+            }
+          })
+        }
+      }
     })
   },
 

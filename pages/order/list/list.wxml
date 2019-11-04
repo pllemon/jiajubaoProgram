@@ -18,14 +18,19 @@
     </van-tab>
   </van-tabs>
 
-
   <scroll-view scroll-y class="flex1 order-list">
     <block wx:if="{{list.length}}">
       <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
         <view class="common-section">
           <view class="order-header">
             <text>No:{{item.order_sn}}</text>
-            <text class="status">{{orderStatus[item.status].label}}</text>
+            <text wx:if="{{personType == 0}}" class="status">{{orderStatus[item.status].label}}</text>
+            <block wx:if="{{personType == 1}}">
+              <text wx:if="{{item.status == 4}}" class="status">已报名</text>
+              <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 1}}" class="status">已承接</text>
+              <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 0}}" class="status">未承接</text>
+              <text wx:if="{{item.status == 8}}" class="status">已完成</text>
+            </block> 
           </view>
           <view class="title">{{item.service_demand}}</view>
           <view class="mes">
@@ -42,7 +47,6 @@
           </view>
           <view>
             <text class="label label-green">水口第一网点</text>
-            <text class="label label-orange">2张图片</text>
           </view>
           <block wx:if="{{item.status == 4}}">
             <view class="sign-info">

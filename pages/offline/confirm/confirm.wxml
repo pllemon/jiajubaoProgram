@@ -4,25 +4,25 @@
         <view class="form-item">
             <label>消费金额</label>
             <view class="form-content">
-                <input name="service_demand" disabled value="100.00元"/>
+                <input name="service_demand" disabled value="{{orderMes.money}}元"/>
             </view>
         </view>
         <view class="form-item">
             <label>用户积分抵扣</label>
             <view class="form-content">
-                <input name="service_demand" disabled value="100.00元"/>
+                <input name="service_demand" disabled value="{{orderMes.integral}}元"/>
             </view>
         </view>
         <view class="form-item">
             <label>线下应收金额</label>
             <view class="form-content">
-                <input name="service_demand" disabled value="100.00元"/>
+                <input name="service_demand" disabled value="{{orderMes.money - orderMes.integral}}元"/>
             </view>
         </view>
         <view class="form-item">
             <label>平台费</label>
             <view class="form-content">
-                <input name="service_demand" disabled value="100.00元"/>
+                <input name="service_demand" disabled value="{{orderMes.pay_money}}元"/>
             </view>
         </view>
         <view class="form-item">
@@ -34,10 +34,11 @@
                         plus-class="stepper-plus"
                         minus-class="stepper-minus"
                         value="{{ point }}" 
-                        step="5" 
+                        step="1" 
                         min="0" 
                         max="{{maxPoint}}"
                         disable-input 
+                        bind:change="onChange"
                     />
                 </view>
             </view>

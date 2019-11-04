@@ -38,9 +38,10 @@ Page({
     const ctx = wx.createCanvasContext('sharePoster');
     ctx.drawImage(this.data.bgImg, 0, 0, 750, 1334);
     ctx.drawImage(this.data.ewmImg, 260, 960, 250, 250);
-    ctx.setFontSize(120)
-    ctx.setFillStyle('red')
-    ctx.fillText('Hello', 260, 120)
+    ctx.font = 'normal bold 18px sans-serif';
+    ctx.setFontSize(52)
+    ctx.setFillStyle('#ff7652')
+    ctx.fillText('932513', 380, 396)
     ctx.draw()
   },
   
