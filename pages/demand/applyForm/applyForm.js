@@ -1,5 +1,6 @@
 const app = getApp();
 const common = require('../../../utils/common.js');
+const moment = require('../../../utils/moment.min.js');
 
 Page({
   data: {
@@ -12,8 +13,8 @@ Page({
     networkIdx: undefined,
 
     showDate: false,
-    minDate: new Date().getTime(),
-    maxDate: new Date(2019, 10, 1).getTime(),
+    minDate: moment().add('days', 1).format('YYYY-MM-DD'),
+    maxDate: moment().add('days', 30).format('YYYY-MM-DD'),
     currentDate: new Date().getTime(),
 
     service_demand: ''
