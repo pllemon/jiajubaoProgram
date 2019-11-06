@@ -57,5 +57,11 @@ Page({
         console.log(res)
       }
     })
+  },
+
+  extractIntegral() {
+    wx.navigateTo({
+      url: '/pages/personal/wallet/settlement/settlement'
+    })
   }
 })

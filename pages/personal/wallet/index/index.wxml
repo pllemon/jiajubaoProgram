@@ -12,7 +12,7 @@
       </view>
     </van-cell>
     <block wx:if="{{personType==2}}">
-      <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/settlementRecord/settlementRecord?personType={{personType}}" >
+      <van-cell is-link link-type="navigateTo" url="/pages/personal/wallet/settlementRecord/settlementRecord">
         <view slot="title" class="action-item">
           <icon class="iconfont iconicon_redpacket"></icon>
           <view class="van-cell-text">提现记录</view>
@@ -28,7 +28,7 @@
   </view>
 
   <button class="main-btn" bindtap="useIntegral" wx:if="{{personType==0}}">使用</button>
-  <button class="main-btn" bindtap="changeIntegral" wx:if="{{personType==2}}">提现</button>
+  <button class="main-btn" bindtap="extractIntegral" wx:if="{{personType==2}}">提现</button>
 
   <van-dialog
     use-slot
