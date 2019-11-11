@@ -9,10 +9,10 @@ Page({
     isLoadMore: false,
 
     searchValue: "",
-    addressInfo: "",
+    addressInfo: null,
     showLocationDialog: false,
 
-    location: {}
+    location: null
   },
 
   onLoad() {
@@ -24,11 +24,22 @@ Page({
       that.getList();
     });
   },
-
-  changeDis(val) {
-    return val/1000
+  
+  openSetting() {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation']) {
+          common.getLocation(that, function(res){
+            that.setData({
+              location: res.location
+            })
+            that.getList();
+          });
+        }
+      }
+    })
   },
-
 
   upDateLocation() {
     let that = this;

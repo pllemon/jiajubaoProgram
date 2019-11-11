@@ -12,13 +12,24 @@ Page({
     businessimg: [],
     sharewximg: [],
 
-    addressInfo: "",
+    addressInfo: null,
     showLocationDialog: false,
   },
 
   onLoad () {
     let that = this;
     common.getLocation(that);
+  },
+  
+  openSetting() {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation']) {
+          common.getLocation(that)
+        }
+      }
+    })
   },
 
   upDateLocation() {
@@ -68,17 +79,17 @@ Page({
   },
 
   formSubmit: function(e) {
-    console.log(this.data.agree)
     let formData = e.detail.value;
-    formData.longitude = this.data.addressInfo.location.lng;
-    formData.latitude = this.data.addressInfo.location.lat;
-    formData.address = this.data.addressInfo.address + formData.address;
     if (!formData.name) {
       app.showModal('请输入店铺名');
       return false;
     }
     if (!validate.phone(formData.phone)) {
       app.showModal('请输入正确的手机号');
+      return false;
+    }
+    if (!this.data.addressInfo) {
+      app.showModal('请定位店铺地址');
       return false;
     }
     if (!this.data.shopimg.length) {
@@ -101,6 +112,11 @@ Page({
       app.showModal('请认真阅读并勾选同意商家入驻协议书');
       return false;
     }
+    
+    formData.longitude = this.data.addressInfo.location.lng;
+    formData.latitude = this.data.addressInfo.location.lat;
+    formData.address = this.data.addressInfo.address + formData.address;
+
     uploadNum = 0;
     wx.showLoading({
       title: '上传中',

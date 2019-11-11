@@ -8,7 +8,7 @@ Page({
     interval: 5000,
     duration: 1000,
 
-    addressInfo: "",
+    addressInfo: null,
     showLocationDialog: false,
     bannerList: []
   },
@@ -18,6 +18,17 @@ Page({
     common.getLocation(that);
 
     that.getBanner();
+  },
+
+  openSetting() {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation']) {
+          common.getLocation(that)
+        }
+      }
+    })
   },
 
   upDateLocation() {

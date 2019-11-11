@@ -20,7 +20,7 @@ Page({
       },
       {
         img: '/image/icon_dispose.png',
-        text: '我要推广',
+        text: '我要分享',
         url: '/pages/system/releaseDemand/step1/step1'
       },
       {

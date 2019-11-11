@@ -4,7 +4,7 @@ const validate = require('../../../../utils/validate.js');
 
 Page({
   data: {
-    addressInfo: "",
+    addressInfo: null,
     showLocationDialog: false,
     agree: []
   },
@@ -14,6 +14,16 @@ Page({
     common.getLocation(that);
   },
 
+  openSetting() {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation']) {
+          common.getLocation(that)
+        }
+      }
+    })
+  },
 
   upDateLocation() {
     this.setData({
@@ -51,12 +61,7 @@ Page({
 
   formSubmit: function(e) {
     let formData = e.detail.value;
-    formData.address = this.data.addressInfo.address + formData.address;
-    console.log(formData)
-    if (!formData.name) {
-      app.showModal('请输入姓名');
-      return false;
-    }
+    
     if (!formData.name) {
       app.showModal('请输入姓名');
       return false;
@@ -73,10 +78,17 @@ Page({
       app.showModal('请输入入行年份');
       return false;
     }
+    if (!this.data.addressInfo) {
+      app.showModal('请定位联系地址');
+      return false;
+    }
     if (this.data.agree.length == 0) {
       app.showModal('请认真阅读并勾选同意师傅入驻协议书');
       return false;
     }
+    
+    formData.address = this.data.addressInfo.address + formData.address;
+    
     app.request({
       url: '/applycraftsman',
       data: formData,

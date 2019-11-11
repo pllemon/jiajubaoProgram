@@ -5,7 +5,7 @@ const moment = require('../../../utils/moment.min.js');
 Page({
   data: {
     imgArr: [],
-    addressInfo: "",
+    addressInfo: null,
     showLocationDialog: false,
     date: '',
     time: '',
@@ -30,6 +30,17 @@ Page({
     })
 
     that.getNetwork();
+  },
+
+  openSetting() {
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation']) {
+          common.getLocation(that)
+        }
+      }
+    })
   },
 
   upDateLocation() {
@@ -68,6 +79,10 @@ Page({
     let formData = e.detail.value;
     let imgArr = this.data.imgArr;
 
+    if (!that.data.addressInfo) {
+      app.showModal('请定位服务地址');
+      return false;
+    }
     if (!that.data.networkIdx) {
       app.showModal('请选择服务网点');
       return false;

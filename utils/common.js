@@ -128,19 +128,20 @@ const getLocation = (target, callback) => {
       })
     },
     fail(err) {
-      wx.getSetting({
-        success: (res) => {
-          if (res.authSetting['scope.userLocation']) {
-            target.setData({
-              showLocationDialog: true
-            })
-          } else {
-            target.setData({
-              showLocationDialog: true
-            })
-          }
-        }
-      })
+      console.log('地址授权失败')
+      // wx.getSetting({
+      //   success: (res) => {
+      //     if (res.authSetting['scope.userLocation']) {
+      //       target.setData({
+      //         showLocationDialog: true
+      //       })
+      //     } else {
+      //       target.setData({
+      //         showLocationDialog: true
+      //       })
+      //     }
+      //   }
+      // })
     }
   })
 }

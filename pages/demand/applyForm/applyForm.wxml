@@ -10,11 +10,19 @@
         <view class="form-item">
             <label>服务地址</label>
             <view class="form-content address-content">
-                <view class="flex"  bindtap="chooseAddress">
-                    <text class="flex1">{{addressInfo.address}}</text>
-                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                </view>
-                <input name="address" placeholder="可补充具体的门牌号" value=""/>
+                <block wx:if="{{addressInfo}}">
+                    <view class="flex"  bindtap="chooseAddress">
+                        <text class="flex1">{{addressInfo.address}}</text>
+                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                    </view>
+                    <input name="address" placeholder="可补充具体的门牌号" value=""/>
+                </block>
+                <block wx:if="{{!addressInfo}}">
+                    <view class="flex-center" bindtap="openSetting">
+                        <text>点击定位</text>
+                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                    </view>
+                </block>
             </view>
         </view>
         <view class="form-item">
@@ -75,4 +83,4 @@
     <button form-type="submit" class="main-btn">提交</button>
 </form>
 
-  <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>
+<!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->

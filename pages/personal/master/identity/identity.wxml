@@ -28,11 +28,19 @@
         <view class="form-item">
             <label>联系地址</label>
             <view class="form-content address-content">
-                <view class="flex"  bindtap="chooseAddress">
-                    <text class="flex1">{{addressInfo.address}}</text>
-                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                </view>
-                <input name="address" placeholder="可补充具体的门牌号" value=""/>
+                <block wx:if="{{addressInfo}}">
+                    <view class="flex"  bindtap="chooseAddress">
+                        <text class="flex1">{{addressInfo.address}}</text>
+                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                    </view>
+                    <input name="address" placeholder="可补充具体的门牌号" value=""/>
+                </block>
+                <block wx:if="{{!addressInfo}}">
+                    <view class="flex-center" bindtap="openSetting">
+                        <text>点击定位</text>
+                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                    </view>
+                </block>
             </view>
         </view>
         <view class="form-item">
@@ -57,5 +65,5 @@
         <view>3. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
     </view>
     
-    <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>
+    <!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->
 </form>

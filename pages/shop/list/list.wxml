@@ -1,38 +1,45 @@
 <view class="full-layout">
-  <view>
-    <van-search
-      value="{{ searchValue }}"
-      placeholder="请输入关键词"
-      use-action-slot
-      bind:search="onSearch"
-    />
-    
-  </view>
-  <scroll-view scroll-y class="flex1 shop-list">
-    <block wx:for="{{list}}" wx:key="{{index}}">
-      <view class="shop-single m20">
-        <view class="shop-img">
-          <gdImage src="{{ item.shopimg }}"  preview="true"/>
-          <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+  <block wx:if="{{location}}">
+    <view>
+      <van-search
+        value="{{ searchValue }}"
+        placeholder="请输入关键词"
+        use-action-slot
+        bind:search="onSearch"
+      />
+    </view>
+    <scroll-view scroll-y class="flex1 shop-list">
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <view class="shop-single m20">
+          <view class="shop-img">
+            <gdImage src="{{ item.shopimg }}"  preview="true"/>
+            <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+          </view>
+          <view class="common-section">
+            <view class="flex-start-between">
+              <view class="title">{{item.name}}</view>
+              <view class="label-green">{{item.distance}}</view>
+            </view>
+            <view class="mes">
+              <icon class="iconfont iconicon_GPS"></icon>
+              <text class="content">{{item.address}}</text>
+            </view>
+            <view class="mes">
+              <icon class="iconfont iconicon_phone"></icon>
+              <text class="content">{{item.phone}}</text>
+            </view>
+          </view>
         </view>
-        <view class="common-section">
-          <view class="flex-start-between">
-            <view class="title">{{item.name}}</view>
-            <view class="label-green">{{item.distance}}</view>
-          </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_GPS"></icon>
-            <text class="content">{{item.address}}</text>
-          </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_phone"></icon>
-            <text class="content">{{item.phone}}</text>
-          </view>
-        </view>
-      </view>
-    </block>
-  </scroll-view>
+      </block>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <view class="flex-center-column">
+      <image src="/image/example/location.png" class="location-img" mode="aspectFit"></image>
+      <text bindtap="openSetting">开启定位</text>
+    </view>
+  </block>
 
   <navigation current-idx="1"></navigation>
-  <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>
+  <!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->
 </view>

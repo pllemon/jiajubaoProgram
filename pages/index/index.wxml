@@ -1,7 +1,8 @@
 <view class="full-layout">
   <view class="flex-center-start address">
     <icon class="iconfont iconicon_GPS"></icon>
-    <view class="flex1">{{addressInfo.address}}</view>
+    <view class="flex1" wx:if="{{addressInfo}}">{{addressInfo.address}}</view>
+    <view wx:else bindtap="openSetting">定位失败，点击重新定位</view>
   </view>
 
   <swiper indicator-dots="{{indicatorDots}}"
@@ -43,5 +44,5 @@
   <view style="height: 50rpx"></view>
 
   <navigation current-idx="0"></navigation>
-  <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location>
+  <!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->
 </view>
