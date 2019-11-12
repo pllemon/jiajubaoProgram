@@ -226,7 +226,7 @@
 				},
 				{
 					"id": -1,
-					"name": "我要分享",
+					"name": "邀请朋友",
 					"pathName": "pages/personal/user/share/share",
 					"query": "id=26&personType=1",
 					"scene": null

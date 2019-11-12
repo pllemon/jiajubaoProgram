@@ -232,7 +232,7 @@ const personType = {
       },
       {
         icon: 'link',
-        text: '我要分享',
+        text: '邀请朋友',
         url: '/pages/personal/user/share/share'
       },
       {
