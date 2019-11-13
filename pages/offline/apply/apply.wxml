@@ -2,7 +2,7 @@
     <view class="form-section">
         <view class="form-title">订单信息</view>
         <view class="form-item">
-            <label>消费金额</label>
+            <label><text class="required">*</text>消费金额</label>
             <view class="form-content">
                 <input name="name" placeholder="请输入" type="number" focus="{{isFocus}}" value="{{money}}" bindinput="changeMoney"/>
             </view>

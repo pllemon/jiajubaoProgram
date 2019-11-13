@@ -30,6 +30,10 @@
 .form-item label{
   line-height: 100rpx;
 }
+.form-item label .required{
+  color: red;
+  margin-left: 4rpx;
+}
 .form-item .form-content{
   width: 480rpx;
 }

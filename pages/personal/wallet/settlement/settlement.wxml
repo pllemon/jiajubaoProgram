@@ -2,7 +2,7 @@
     <view class="form-section">
         <view class="form-title">提现信息</view>
         <view class="form-item">
-            <label>提现积分</label>
+            <label><text class="required">*</text>提现积分</label>
             <view class="form-content">
                 <input name="cashinmoney" type="number" value="{{totalPoint}}" focus="{{isFocus}}"/>
             </view>

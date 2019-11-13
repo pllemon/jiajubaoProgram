@@ -2,19 +2,19 @@
     <view class="form-section">
         <view class="form-title">基本资料</view>
         <view class="form-item">
-            <label>店铺名</label>
+            <label><text class="required">*</text>店铺名</label>
             <view class="form-content">
                 <input name="name" placeholder="请输入" value=""/>
             </view>
         </view>
         <view class="form-item">
-            <label>联系电话</label>
+            <label><text class="required">*</text>联系电话</label>
             <view class="form-content">
                 <input name="phone" placeholder="请输入" value=""/>
             </view>
         </view>
         <view class="form-item">
-            <label>店铺地址</label>
+            <label><text class="required">*</text>店铺地址</label>
             <view class="form-content address-content">
                 <block wx:if="{{addressInfo}}">
                     <view class="flex"  bindtap="chooseAddress">
@@ -36,25 +36,25 @@
     <view class="form-section">
         <view class="form-title">图片资料</view>
         <view class="form-item upload">
-            <label>门面图片</label>
+            <label><text class="required">*</text>门面图片</label>
             <view class="form-content">
                 <upload name="shopimg" imgArr="{{shopimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
-            <label>产品图片</label>
+            <label><text class="required">*</text>产品图片</label>
             <view class="form-content">
                 <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
-            <label>营业执照</label>
+            <label><text class="required">*</text>营业执照</label>
             <view class="form-content" style="width:520rpx">
                 <upload name="businessimg" imgArr="{{businessimg}}" length="1" bindupdate="updateImg"></upload>
             </view>
         </view>
         <view class="form-item upload">
-            <label>分享图片</label>
+            <label><text class="required">*</text>分享图片</label>
             <view class="form-content" style="width:520rpx">
                 <upload name="sharewximg" imgArr="{{sharewximg}}" length="1" bindupdate="updateImg"></upload>
             </view>
