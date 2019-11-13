@@ -25,7 +25,7 @@ Page({
     });
   },
   
-  openSetting() {
+  onOpenSetting() {
     let that = this;
     wx.getSetting({
       success: (res) => {

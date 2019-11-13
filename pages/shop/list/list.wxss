@@ -9,5 +9,6 @@
 .location-img{
   width: 300rpx;
 	height: 300rpx;
-	margin: 50rpx auto;
+  margin: 160rpx auto;
+  margin-bottom: 50rpx;
 }

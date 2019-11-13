@@ -36,7 +36,9 @@
   <block wx:else>
     <view class="flex-center-column">
       <image src="/image/example/location.png" class="location-img" mode="aspectFit"></image>
-      <text bindtap="openSetting">开启定位</text>
+      <button class="flex-center address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
+        点击开启定位
+      </button>
     </view>
   </block>
 

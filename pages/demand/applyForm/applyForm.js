@@ -32,8 +32,9 @@ Page({
     that.getNetwork();
   },
 
-  openSetting() {
+  onOpenSetting() {
     let that = this;
+    console.log(111111112)
     wx.getSetting({
       success: (res) => {
         if (res.authSetting['scope.userLocation']) {

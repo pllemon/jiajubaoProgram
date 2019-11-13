@@ -110,6 +110,10 @@ const getLocation = (target, callback) => {
   wx.getLocation({
     type: 'wgs84',
     success(res) {
+      wx.showLoading({
+        title: '定位中',
+        mask: true
+      })
       qqmapsdk.reverseGeocoder({
         location: {
           latitude: res.latitude,
@@ -124,6 +128,7 @@ const getLocation = (target, callback) => {
           if (callback) {
             callback(res.result)
           }
+          wx.hideLoading()
         }
       })
     },

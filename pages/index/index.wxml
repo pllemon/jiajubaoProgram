@@ -1,8 +1,13 @@
 <view class="full-layout">
   <view class="flex-center-start address">
-    <icon class="iconfont iconicon_GPS"></icon>
-    <view class="flex1" wx:if="{{addressInfo}}">{{addressInfo.address}}</view>
-    <view wx:else bindtap="openSetting">定位失败，点击重新定位</view>
+    <block wx:if="{{addressInfo}}">
+      <icon class="iconfont iconicon_GPS"></icon>
+      <view class="flex1">{{addressInfo.address}}</view>
+    </block>
+    <block wx:else>
+      <icon class="iconfont iconicon_refresh"></icon>
+      <view bindtap="openSetting">定位失败</view>
+    </block>
   </view>
 
   <swiper indicator-dots="{{indicatorDots}}"
