@@ -28,7 +28,7 @@
         </view>
         <view style="padding: 30rpx 0;color:#E6A23C;font-size:14px" class="flex-center-start" hidden="{{!money}}">
             <icon class="iconfont iconicon_warn" style="margin-right: 5rpx"></icon>
-            <text>积分余额为{{totalPoint}}积分，本次最多可使用{{maxPoint}}积分</text>
+            <text>积分余额为{{totalPoint}}积分，本次可使用{{maxPoint}}积分抵扣{{maxPoint}}.00元</text>
         </view>
     </view>
 

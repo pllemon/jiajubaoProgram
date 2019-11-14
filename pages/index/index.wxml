@@ -6,7 +6,7 @@
     </block>
     <block wx:else>
       <icon class="iconfont iconicon_refresh"></icon>
-      <view bindtap="openSetting">定位失败</view>
+      <view bindtap="openSetting">定位失败，点击重新定位</view>
     </block>
   </view>
 

@@ -14,7 +14,7 @@ Page({
     common.getLocation(that);
   },
 
-  openSetting() {
+  onOpenSetting() {
     let that = this;
     wx.getSetting({
       success: (res) => {

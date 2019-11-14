@@ -27,19 +27,19 @@
         </view>
         <view class="form-item">
             <label><text class="required">*</text>联系地址</label>
-            <view class="form-content address-content">
+            <view class="form-content">
                 <block wx:if="{{addressInfo}}">
-                    <view class="flex"  bindtap="chooseAddress">
+                    <view class="flex address-content"  bindtap="chooseAddress">
                         <text class="flex1">{{addressInfo.address}}</text>
                         <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                     </view>
                     <input name="address" placeholder="可补充具体的门牌号" value=""/>
                 </block>
                 <block wx:if="{{!addressInfo}}">
-                    <view class="flex-center" bindtap="openSetting">
+                    <button class="flex-center-end picker address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
                         <text>点击定位</text>
                         <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                    </view>
+                    </button>
                 </block>
             </view>
         </view>

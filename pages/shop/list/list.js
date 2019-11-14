@@ -55,6 +55,7 @@ Page({
   },
 
   getList() {
+    console.log('查找数据')
     let that = this;
     app.request({
       url: '/businesslist',
@@ -75,6 +76,13 @@ Page({
         })
       }
     })
+  },
+
+  onSearch(event) {
+    this.setData({
+      searchValue: event.detail
+    })
+    this.getList()
   },
 
   onRefresh() {
