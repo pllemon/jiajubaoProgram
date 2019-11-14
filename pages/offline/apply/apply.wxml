@@ -12,7 +12,7 @@
             <label>使用积分</label>
             <view class="form-content">
                 <view class="flex-center-end" style="height:100rpx">
-                    <van-stepper 
+                    <!-- <van-stepper 
                         input-class="stepper-input" 
                         plus-class="stepper-plus"
                         minus-class="stepper-minus"
@@ -22,7 +22,8 @@
                         max="{{maxPoint}}"
                         disable-input 
                         bind:change="onChange"
-                    />
+                    /> -->
+                    <van-switch checked="{{ checked }}" size="24px" bind:change="changeSwitch" />
                 </view>
             </view>
         </view>

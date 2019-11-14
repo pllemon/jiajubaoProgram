@@ -29,7 +29,7 @@
             <label>积分抵扣</label>
             <view class="form-content">
                 <view class="flex-center-end" style="height:100rpx">
-                    <van-stepper 
+                    <!-- <van-stepper 
                         input-class="stepper-input" 
                         plus-class="stepper-plus"
                         minus-class="stepper-minus"
@@ -39,13 +39,14 @@
                         max="{{maxPoint}}"
                         disable-input 
                         bind:change="onChange"
-                    />
+                    /> -->
+                    <van-switch checked="{{ checked }}" size="24px" bind:change="changeSwitch" />
                 </view>
             </view>
         </view>
         <view style="padding: 30rpx 0;color:#E6A23C;font-size:14px" class="flex-center-start">
             <icon class="iconfont iconicon_warn" style="margin-right: 5rpx"></icon>
-            <text>积分余额为{{totalPoint}}积分，本次最多可使用{{maxPoint}}积分</text>
+            <text>积分余额为{{totalPoint}}积分，本次可使用{{maxPoint}}积分抵扣{{maxPoint}}.00元平台费</text>
         </view>
     </view>
 

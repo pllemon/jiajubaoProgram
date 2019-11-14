@@ -1,6 +1,5 @@
 const app = getApp()
 
-
 Page({
   data: {
     isFocus: true,
@@ -8,7 +7,8 @@ Page({
     point: 0,
     maxPoint: 0,
     totalPoint: 0,
-    business_id: ''
+    business_id: '',
+    checked: false
   },
 
   onLoad (params) {
@@ -48,9 +48,9 @@ Page({
     })
   },
 
-  onChange(event) {
+  changeSwitch(event) {
     this.setData({
-      point: event.detail
+      checked: event.detail
     })
   },
 
@@ -61,7 +61,7 @@ Page({
       return false;
     }
     let obj = {
-      integral: that.data.point,
+      integral: that.data.checked ? that.data.maxPoint : 0,
       money: that.data.money,
       business_id: that.data.business_id
     }

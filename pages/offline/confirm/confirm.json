@@ -2,6 +2,7 @@
 	"navigationBarTitleText": "确认订单",
   "usingComponents": {
     "upload": "/components/upload/upload",
-		"van-stepper": "../../miniprogram_npm/vant-weapp/stepper"
+		"van-stepper": "../../miniprogram_npm/vant-weapp/stepper",
+		"van-switch": "../../miniprogram_npm/vant-weapp/switch"
   }
 }
