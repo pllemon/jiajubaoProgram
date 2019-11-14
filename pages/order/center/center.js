@@ -4,17 +4,29 @@ Page({
   data: {
     list: [],
     tabIndex: -1,
+
     categoryPid: '',
     categoryList: [],
-    subcategoryList: []
+    subcategoryPid: '',
+    subcategoryList: [],
+    categoryTitle: '全部类目',
+
+    sortOptions: [
+      { text: '默认排序', value: 0 },
+      { text: '距离排序', value: 1 },
+      { text: '上门时间排序', value: 2 }
+    ],
+    sortValue: 0,
   },
 
   onLoad() {
     let that = this;
-    // this.setData({
-    //   categoryList: app.globalData.categoryList,
-    //   subcategory: app.globalData.categoryList[this.data.categoryIdx].child
-    // })
+    that.getList();
+    that.getCategory();
+  },
+
+  // 获取列表
+  getList() {
     app.request({
       url: '/graborderlist',
       data: {},
@@ -24,10 +36,7 @@ Page({
         })
       }
     })
-
-    that.getCategory();
   },
-
 
   // 获取类目筛选
   getCategory(pid) {
@@ -44,6 +53,10 @@ Page({
             subcategoryList: data
           })
         } else {
+          data.push({
+            id: '',
+            type_name: '全部类目'
+          })
           that.setData({
             categoryList: data,
             categoryPid: data[0].id
@@ -54,13 +67,43 @@ Page({
     })
   },
 
+  // 选择一类
   chooseCategory(e) {
-    let that = this;
     let pid = e.currentTarget.dataset.pid;
+    if (pid == '') {
+      this.setData({
+        categoryPid: '',
+        subcategoryPid: '',
+        categoryTitle: '全部类目'
+      })
+      this.selectComponent('#categorySelect').toggle();
+      this.getList();
+    } else {
+      this.setData({
+        categoryPid: pid
+      })
+      this.getCategory(pid)
+    }
+  },
+
+  // 选择二类
+  chooseSubcategory(e){
+    let pid = e.currentTarget.dataset.pid;
+    let pName = e.currentTarget.dataset.name;
     this.setData({
-      categoryPid: pid
+      subcategoryPid: pid,
+      categoryTitle: pName
     })
-    that.getCategory(pid)
+    this.selectComponent('#categorySelect').toggle();
+    this.getList();
+  },
+
+  // 改变排序条件
+  changeSort(value) {
+    this.setData({
+      sortValue: value
+    })
+    this.getList();
   },
 
   chooseTab(e) {

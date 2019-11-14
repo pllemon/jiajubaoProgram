@@ -24,7 +24,7 @@
               <icon class="iconfont iconicon_GPS"></icon>
               <text class="content">{{item.address}}</text>
             </view>
-            <view class="mes">
+            <view class="mes" bindtap="getRoutePlan">
               <icon class="iconfont iconicon_phone"></icon>
               <text class="content">{{item.phone}}</text>
             </view>

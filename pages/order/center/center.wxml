@@ -6,7 +6,7 @@
     bind:search="onSearch"
   />
 
-  <view class="filter-tab">
+  <view class="filter-tab" style="display:none">
     <view data-idx="0" bindtap="chooseTab">
       <text>全部类目</text>
       <image src="/image/icon/down.png"/>
@@ -20,6 +20,7 @@
       <image src="/image/icon/sort.png"/>
     </view>
   </view>
+
   <view class="filter-content" hidden="{{tabIndex == -1}}">
     <view class="filter-bg" catchtouchmove="return" bindtap="closeFilter"></view>
     <view class="filter-list" hidden="{{tabIndex != 0}}">
@@ -45,6 +46,25 @@
       <text>距离最近</text>
     </view>
   </view>
+
+  <!-- 筛选 -->
+  <van-dropdown-menu active-color="#4c5ce3">
+    <van-dropdown-item id="categorySelect" title="{{ categoryTitle }}">
+      <view class="category-list">
+        <view class="section">
+          <block wx:for="{{categoryList}}" wx:key="index">
+            <text class="{{item.id == categoryPid ?'active':''}}" data-pid="{{item.id}}" bindtap="chooseCategory">{{item.type_name}}</text>
+          </block>
+        </view>
+        <view class="section">
+          <block wx:for="{{subcategoryList}}" wx:key="index">
+            <text class="{{item.id == subcategoryPid ?'active':''}}" data-pid="{{item.id}}" data-name="{{item.type_name}}" bindTap="chooseSubcategory">{{item.type_name}}</text>
+          </block>
+        </view>
+      </view>
+    </van-dropdown-item>
+    <van-dropdown-item value="{{ sortValue }}" options="{{ sortOptions }}"  bind:change="changeSort"/>
+  </van-dropdown-menu>
 
   <scroll-view scroll-y class="flex1 order-list">
     <block wx:if="{{list.length}}">

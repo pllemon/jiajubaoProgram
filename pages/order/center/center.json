@@ -4,6 +4,8 @@
 	    "navigation": "/components/navigation/navigation",
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
-		"van-search": "../../miniprogram_npm/vant-weapp/search"
+		"van-search": "../../miniprogram_npm/vant-weapp/search",
+		"van-dropdown-menu": "../../miniprogram_npm/vant-weapp/dropdown-menu",
+		"van-dropdown-item": "../../miniprogram_npm/vant-weapp/dropdown-item"
 	}
 }

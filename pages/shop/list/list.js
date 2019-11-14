@@ -41,6 +41,10 @@ Page({
     })
   },
 
+  getRoutePlan() {
+    common.getRoutePlan()
+  },
+
   upDateLocation() {
     let that = this;
     that.setData({
