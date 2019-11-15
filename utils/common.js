@@ -152,15 +152,12 @@ const getLocation = (target, callback) => {
 }
 
 // 路线规划
-const getRoutePlan = () => {
+const getRoutePlan = (targetPoint) => {
+  console.log(targetPoint)
   let plugin = requirePlugin('routePlan');
   let key = '5KUBZ-FS2KK-RDVJY-AHNO4-GS7RS-PRFL5';  //使用在腾讯位置服务申请的key
   let referer = '叁两糖';   //调用插件的app的名称
-  let endPoint = JSON.stringify({  //终点
-      'name': '吉野家(北京西站北口店)',
-      'latitude': 39.89631551,
-      'longitude': 116.323459711
-  });
+  let endPoint = JSON.stringify(targetPoint); // 终点
   wx.navigateTo({
       url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
   });

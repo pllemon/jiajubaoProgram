@@ -9,12 +9,13 @@ Page({
     categoryList: [],
     subcategoryPid: '',
     subcategoryList: [],
-    categoryTitle: '全部类目',
+    categoryTitle: '服务类目',
 
     sortOptions: [
       { text: '默认排序', value: 0 },
       { text: '距离排序', value: 1 },
-      { text: '上门时间排序', value: 2 }
+      { text: '上门时间排序', value: 2 },
+      { text: '佣金排序', value: 3 },
     ],
     sortValue: 0,
   },
@@ -27,6 +28,7 @@ Page({
 
   // 获取列表
   getList() {
+    let that = this;
     app.request({
       url: '/graborderlist',
       data: {},
@@ -53,15 +55,16 @@ Page({
             subcategoryList: data
           })
         } else {
-          data.push({
+          data.unshift({
             id: '',
             type_name: '全部类目'
           })
           that.setData({
             categoryList: data,
-            categoryPid: data[0].id
+            categoryPid: '',
+            subcategoryPid: '',
+            subcategoryList: []
           })
-          that.getCategory(data[0].id)
         }
       }
     })
@@ -74,6 +77,7 @@ Page({
       this.setData({
         categoryPid: '',
         subcategoryPid: '',
+        subcategoryList: [],
         categoryTitle: '全部类目'
       })
       this.selectComponent('#categorySelect').toggle();

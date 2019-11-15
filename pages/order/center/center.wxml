@@ -1,52 +1,4 @@
 <view  class="full-layout">
-  <van-search
-    value="{{ searchValue }}"
-    placeholder="请输入关键词"
-    use-action-slot
-    bind:search="onSearch"
-  />
-
-  <view class="filter-tab" style="display:none">
-    <view data-idx="0" bindtap="chooseTab">
-      <text>全部类目</text>
-      <image src="/image/icon/down.png"/>
-    </view>
-    <view data-idx="1" bindtap="chooseTab">
-      <text>水口镇网点</text>
-      <image src="/image/icon/down.png"/>
-    </view>
-    <view data-idx="2" bindtap="chooseTab">
-      <text>默认排序</text>
-      <image src="/image/icon/sort.png"/>
-    </view>
-  </view>
-
-  <view class="filter-content" hidden="{{tabIndex == -1}}">
-    <view class="filter-bg" catchtouchmove="return" bindtap="closeFilter"></view>
-    <view class="filter-list" hidden="{{tabIndex != 0}}">
-      <view class="category-list">
-        <view class="section">
-          <block wx:for="{{categoryList}}" wx:key="index">
-            <text wx:key="index" class="{{item.id == categoryPid ?'active':''}}" data-pid="{{item.id}}" bindtap="chooseCategory">{{item.type_name}}</text>
-          </block>
-        </view>
-        <view class="section">
-          <block wx:for="{{subcategoryList}}" wx:key="index">
-            <text>{{item.type_name}}</text>
-          </block>
-        </view>
-      </view>
-    </view>
-    <view class="filter-list" hidden="{{tabIndex != 1}}">
-      <text>水口镇网点1</text>
-      <text>水口镇网点2</text>
-    </view>
-    <view class="filter-list" hidden="{{tabIndex != 2}}">
-      <text>最新发布</text>
-      <text>距离最近</text>
-    </view>
-  </view>
-
   <!-- 筛选 -->
   <van-dropdown-menu active-color="#4c5ce3">
     <van-dropdown-item id="categorySelect" title="{{ categoryTitle }}">
@@ -58,7 +10,7 @@
         </view>
         <view class="section">
           <block wx:for="{{subcategoryList}}" wx:key="index">
-            <text class="{{item.id == subcategoryPid ?'active':''}}" data-pid="{{item.id}}" data-name="{{item.type_name}}" bindTap="chooseSubcategory">{{item.type_name}}</text>
+            <text class="{{item.id == subcategoryPid ?'active':''}}" data-pid="{{item.id}}" data-name="{{item.type_name}}" bindtap="chooseSubcategory">{{item.type_name}}</text>
           </block>
         </view>
       </view>

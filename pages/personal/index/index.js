@@ -96,7 +96,8 @@ Page({
   },
 
   changeType(e) {
-    let type = e.detail.index;
+    let type = e.detail.name;
+    console.log(type)
     this.setData({
       currType: type
     })

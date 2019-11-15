@@ -20,11 +20,11 @@
               <view class="title">{{item.name}}</view>
               <view class="label-green">{{item.distance}}</view>
             </view>
-            <view class="mes">
+            <view class="mes" data-idx="{{index}}" bindtap="getRoutePlan">
               <icon class="iconfont iconicon_GPS"></icon>
               <text class="content">{{item.address}}</text>
             </view>
-            <view class="mes" bindtap="getRoutePlan">
+            <view class="mes">
               <icon class="iconfont iconicon_phone"></icon>
               <text class="content">{{item.phone}}</text>
             </view>

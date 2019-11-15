@@ -50,12 +50,6 @@
   "usingComponents": {
     "gdImage": "/components/image/image"
   },
-  "usingComponents2": {
-    "van-button": "miniprogram_npm/vant-weapp/button",
-    "van-loading": "miniprogram_npm/vant-weapp/loading",
-    "van-datetime-picker": "miniprogram_npm/vant-weapp/datetime-picker",
-    "van-popup": "miniprogram_npm/vant-weapp/popup"
-  },
   "plugins": {
     "routePlan": {
       "version": "1.0.3",

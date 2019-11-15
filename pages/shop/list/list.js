@@ -41,8 +41,14 @@ Page({
     })
   },
 
-  getRoutePlan() {
-    common.getRoutePlan()
+  getRoutePlan(e) {
+    let that = this
+    let idx = e.currentTarget.dataset.idx;
+    common.getRoutePlan({
+      'name': that.data.list[idx].name,
+      'latitude': that.data.list[idx].latitude,
+      'longitude': that.data.list[idx].longitude,
+    })
   },
 
   upDateLocation() {
@@ -59,7 +65,6 @@ Page({
   },
 
   getList() {
-    console.log('查找数据')
     let that = this;
     app.request({
       url: '/businesslist',
@@ -80,13 +85,6 @@ Page({
         })
       }
     })
-  },
-
-  onSearch(event) {
-    this.setData({
-      searchValue: event.detail
-    })
-    this.getList()
   },
 
   onRefresh() {
