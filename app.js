@@ -52,10 +52,12 @@ App({
 
   request: function (obj) {
     let that = this
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
+    if (!wx.hideLoading) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+    }
     wx.request({
       url: 'http://47.106.100.144' + obj.url,
       method: obj.method || 'POST',
@@ -65,7 +67,6 @@ App({
       },
       data: obj.data || {},
       success(res) {
-        wx.hideLoading()
         if (res.statusCode == 200) {
           if (res.data.success) {
             obj.success(res.data.data)
@@ -96,6 +97,14 @@ App({
             content: '请求出错',
             showCancel: false
           })  
+        }
+      },
+      complete() {
+        if (!wx.hideLoading) {
+          wx.hideLoading()
+        }
+        if (obj.complete) {
+          obj.complete()
         }
       }
     })

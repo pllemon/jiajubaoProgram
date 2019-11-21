@@ -1,9 +1,8 @@
 {
 	"navigationBarTitleText": "工程秀",
 	"usingComponents": {
-	    "filterTab": "/components/filterTab/filterTab",
 	    "gdImage": "/components/image/image",
-		"scroll": "/components/scroll/scroll",
+		"scroll-content": "/components/scroll/scroll",
 		"van-search": "../../miniprogram_npm/vant-weapp/search"
 	}
 }

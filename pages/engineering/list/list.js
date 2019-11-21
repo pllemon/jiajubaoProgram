@@ -4,25 +4,64 @@ Page({
   data: {
     list: [],
     page: 1,
-    isRefresh: false,
     isLoadMore: false,
+    isRefresh: false,
 
     searchValue: ''
   },
 
   onLoad() {
-    this.getList();
+    this.getList(1);
   },
 
-  getList() {
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
+  getList(type) { // 1->刷新，2->加载
     let that = this;
+    let page = this.data.page;
+
+    if (type == 1) {
+      page = 1;
+      that.setData({
+        isRefresh: true
+      })  
+    } else if (type == 2) {
+      page = page++;
+      that.setData({
+        isLoadMore: true
+      })  
+    }
+   
     app.request({
       url: '/ordershowlist',
-      data: {},
+      data: {
+        page: page,
+        limit: 10
+      },
+      hideLoading: true,
       success: function(data) {
+        let list = that.data.list;
+        if (type == 1) {
+          list = data.data;
+        } else {
+          list = list.concat(data.data);
+        }
         that.setData({
-          list: data
+          page,
+          list
         })
+      },
+      complete: function() {
+        if (type == 1) {
+          that.setData({
+            isRefresh: false
+          })
+        } else if (type == 2) {
+          that.setData({
+            isLoadMore: false
+          })
+        }
       }
     })
   },
@@ -32,38 +71,5 @@ Page({
     wx.navigateTo({
       url: '/pages/engineering/details/details?id=' + id
     })
-  },
-
-  onRefresh() {
-    if (!this.data.isRefresh) {
-      this.setData({
-        isRefresh: true
-      })
-      setTimeout( () => {
-        this.setData({
-          list: [1,2,3,4,5,6,7],
-          page: 1,
-          isRefresh: false
-        })
-      }, 5000)
-    }
-  },
-
-  onLoadMore() {
-    if (!this.data.isLoadMore) {
-      let page = this.data.page ++;
-      this.setData({
-        page,
-        isLoadMore: true
-      })
-      setTimeout( () => {
-        let data = [3,2,1,2,3];
-        let list = this.data.list.concat(data);
-        this.setData({
-          list,
-          isLoadMore: false
-        })
-      }, 5000)
-    }
   }
 })

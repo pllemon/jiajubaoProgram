@@ -99,8 +99,9 @@
 
 
 .common-list{
-  padding: 20rpx 0;
+  height: 0;
   flex: 1;
+  position: relative;
 }
 .common-card{
   background: #fff;

@@ -6,8 +6,13 @@
     bind:search="onSearch"
   />
 
-  <scroll-view scroll-y class="common-list">
-    <block wx:for="{{list}}" wx:key="{{index}}">
+  <scroll-content 
+    class="common-list"
+    is-loadMore = "{{isLoadMore}}"
+    is-refresh = "{{isRefresh}}"
+    bind:change = "changeList"
+  >
+    <block wx:for="{{list}}" wx:key="index">
       <view class="common-card" data-id="{{item.id}}" bindtap="goDetails">
         <view class="mes">
           <view class="title">{{ item.title }}</view>
@@ -15,17 +20,17 @@
             <view>{{ item.time }}</view>
             <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
               <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
-              <text>梁尼梓</text>
+              <text>nini</text>
             </view>
           </view>
           <view>{{ item.dec }}</view>
         </view>
         <view class="img-list">
-          <gdImage src="{{ item.imgurl1 }}"></gdImage>
-          <gdImage src="{{ item.imgurl2 }}"></gdImage>
-          <gdImage src="{{ item.imgurl3 }}"></gdImage>
+          <gdImage wx:if="{{item.imgurl1}}" src="{{ item.imgurl1 }}"></gdImage>
+          <gdImage wx:if="{{item.imgurl2}}" src="{{ item.imgurl2 }}"></gdImage>
+          <gdImage wx:if="{{item.imgurl3}}" src="{{ item.imgurl3 }}"></gdImage>
         </view>
       </view>
     </block>
-  </scroll-view>
+  </scroll-content>
 </view>
