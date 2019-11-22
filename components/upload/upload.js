@@ -1,4 +1,4 @@
-var app = getApp();
+let app = getApp();
 Component({
   properties: {
     name: { // 键值名

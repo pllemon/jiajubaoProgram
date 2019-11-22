@@ -1,4 +1,4 @@
-var app = getApp();
+let app = getApp();
 Component({
   properties: {
   	currentIdx: Number, // 当前激活序号

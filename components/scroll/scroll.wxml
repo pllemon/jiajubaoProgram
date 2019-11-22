@@ -1,7 +1,9 @@
 <scroll-view 
 	scroll-y
     scroll-top="{{scrollTop}}"
-	bindscrolltoupper="refresh" 
+	bindtouchstart="touchstart" 
+	bindtouchmove="touchmove" 
+	bindtouchend="touchend"
 	bindscrolltolower="loadMore" 
     bindscroll="scroll"
 >
@@ -9,6 +11,10 @@
 	<view hidden="{{!isRefresh}}" class="scroll-tips">
 		<van-loading type="spinner" size="20px"/>
 		<text>更新数据</text>
+	</view>
+	<view hidden="{{moveY <= 0}}" class="scroll-tips">
+		<van-icon name="down" size="16px"/>
+		<text>松手刷新</text>
 	</view>
 
 	<!-- 主体内容 -->
@@ -19,6 +25,8 @@
 		<van-loading type="spinner" size="20px"/>
 		<text>加载更多</text>
 	</view>
+
+	<van-divider contentPosition="center" hidden="{{lastPage != page || isRefresh}}">已无更多</van-divider>
 </scroll-view>
 
 <!-- 返回顶部 -->

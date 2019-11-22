@@ -17,7 +17,9 @@ scroll-view{
 van-loading{
     margin-right: 20rpx;
 }
-
+van-icon{
+    margin-right: 20rpx;
+}
 
 .go-top{
     position: absolute;

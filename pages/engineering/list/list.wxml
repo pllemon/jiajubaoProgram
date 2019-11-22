@@ -10,6 +10,8 @@
     class="common-list"
     is-loadMore = "{{isLoadMore}}"
     is-refresh = "{{isRefresh}}"
+    page = "{{page}}"
+    last-page = "{{lastPage}}"
     bind:change = "changeList"
   >
     <block wx:for="{{list}}" wx:key="index">

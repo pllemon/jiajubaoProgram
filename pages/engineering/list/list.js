@@ -4,6 +4,7 @@ Page({
   data: {
     list: [],
     page: 1,
+    lastPage: 1,
     isLoadMore: false,
     isRefresh: false,
 
@@ -49,6 +50,7 @@ Page({
         }
         that.setData({
           page,
+          lastPage: data.last_page,
           list
         })
       },
