@@ -8,7 +8,14 @@
         bind:search="onSearch"
       />
     </view>
-    <scroll-view scroll-y class="flex1 shop-list">
+    <scroll-content 
+      class="common-list"
+      is-loadMore = "{{isLoadMore}}"
+      is-refresh = "{{isRefresh}}"
+      page = "{{page}}"
+      last-page = "{{lastPage}}"
+      bind:change = "changeList"
+    >
       <block wx:for="{{list}}" wx:key="{{index}}">
         <view class="shop-single m20">
           <view class="shop-img">
@@ -20,7 +27,7 @@
               <view class="title">{{item.name}}</view>
               <view class="label-green">{{item.distance}}</view>
             </view>
-            <view class="mes" data-idx="{{index}}" bindtap="getRoutePlan">
+            <view class="mes">
               <icon class="iconfont iconicon_GPS"></icon>
               <text class="content">{{item.address}}</text>
             </view>
@@ -28,10 +35,14 @@
               <icon class="iconfont iconicon_phone"></icon>
               <text class="content">{{item.phone}}</text>
             </view>
+            <view class="shop-action">
+              <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">导航</button>
+              <button size="mini">分享</button>
+            </view>
           </view>
         </view>
       </block>
-    </scroll-view>
+    </scroll-content>
   </block>
   <block wx:else>
     <view class="flex-center-column">
@@ -43,5 +54,4 @@
   </block>
 
   <navigation current-idx="1"></navigation>
-  <!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->
 </view>

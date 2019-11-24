@@ -20,7 +20,7 @@
       bind:change="changeType"
     >
       <block wx:for="{{personType}}" wx:key="index">
-        <van-tab title="{{item.text}}" />
+        <van-tab title="{{item.text}}" name="{{ index }}"/>
       </block>
     </van-tabs>
   </view>

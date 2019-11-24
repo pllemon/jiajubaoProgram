@@ -5,8 +5,9 @@ Page({
   data: {
     list: [],
     page: 1,
-    isRefresh: false,
+    lastPage: 1,
     isLoadMore: false,
+    isRefresh: false,
 
     searchValue: "",
     addressInfo: null,
@@ -21,10 +22,15 @@ Page({
       that.setData({
         location: res.location
       })
-      that.getList();
+      that.getList(1);
     });
   },
   
+
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
+
   onOpenSetting() {
     let that = this;
     wx.getSetting({
@@ -64,16 +70,39 @@ Page({
     });
   },
 
-  getList() {
+  getList(type) { // 1->刷新，2->加载
     let that = this;
+    let page = this.data.page;
+
+    if (type == 1) {
+      page = 1;
+      that.setData({
+        isRefresh: true
+      })  
+    } else if (type == 2) {
+      page = page++;
+      that.setData({
+        isLoadMore: true
+      })  
+    }
+   
     app.request({
       url: '/businesslist',
       data: {
         lng: that.data.location.lng,
-        lat: that.data.location.lat
+        lat: that.data.location.lat,
+        page: page,
+        limit: 10
       },
+      hideLoading: true,
       success: function(data) {
-        data.forEach(item => {
+        let list = that.data.list;
+        if (type == 1) {
+          list = data.data;
+        } else {
+          list = list.concat(data.data);
+        }
+        list.forEach(item => {
           if (item.distance > 1000) {
             item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
           } else {
@@ -81,42 +110,22 @@ Page({
           }
         })
         that.setData({
-          list: data
+          page,
+          lastPage: data.last_page,
+          list
         })
+      },
+      complete: function() {
+        if (type == 1) {
+          that.setData({
+            isRefresh: false
+          })
+        } else if (type == 2) {
+          that.setData({
+            isLoadMore: false
+          })
+        }
       }
     })
-  },
-
-  onRefresh() {
-    if (!this.data.isRefresh) {
-      this.setData({
-        isRefresh: true
-      })
-      setTimeout( () => {
-        this.setData({
-          list: [1,2,3,4,5,6,7],
-          page: 1,
-          isRefresh: false
-        })
-      }, 5000)
-    }
-  },
-
-  onLoadMore() {
-    if (!this.data.isLoadMore) {
-      let page = this.data.page ++;
-      this.setData({
-        page,
-        isLoadMore: true
-      })
-      setTimeout( () => {
-        let data = [3,2,1,2,3];
-        let list = this.data.list.concat(data);
-        this.setData({
-          list,
-          isLoadMore: false
-        })
-      }, 5000)
-    }
   }
 })

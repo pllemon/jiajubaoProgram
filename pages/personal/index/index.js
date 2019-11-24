@@ -4,7 +4,7 @@ const app = getApp()
 Page({
   data: {
     type: '人员类型',
-    currType: 1,
+    currType: null,
     currMessage: {},
 
     userInfo: {},
@@ -38,6 +38,7 @@ Page({
 
   onLoad(params) {
     let type = params.type || 0;
+    console.log(type)
     this.setData({
       currType: type,
       personType: systemData.personType
@@ -97,7 +98,6 @@ Page({
 
   changeType(e) {
     let type = e.detail.name;
-    console.log(type)
     this.setData({
       currType: type
     })
