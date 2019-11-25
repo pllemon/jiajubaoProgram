@@ -52,7 +52,7 @@ App({
 
   request: function (obj) {
     let that = this
-    if (!wx.hideLoading) {
+    if (!obj.hideLoading) {
       wx.showLoading({
         title: '加载中',
         mask: true
@@ -100,7 +100,7 @@ App({
         }
       },
       complete() {
-        if (!wx.hideLoading) {
+        if (!obj.hideLoading) {
           wx.hideLoading()
         }
         if (obj.complete) {

@@ -47,17 +47,16 @@ Page({
   },
 
   changeType(e) {
-    let index = e.detail.index;
-    let personType = this.data.personType;
-    console.log(index);
-    if (personType == 0) {
+    let status = e.detail.name;
+    if (this.data.personType == 0) {
       this.getOrderList({
-        status: this.data.statusArr[index].status
+        status: status
       })
     } else {
       this.getOrderList({
-        cmorderstatus: this.data.statusArr[index].status
+        cmorderstatus: status
       })
     }
   }
+
 })
