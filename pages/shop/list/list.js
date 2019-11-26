@@ -25,6 +25,23 @@ Page({
       that.getList(1);
     });
   },
+
+  onShareAppMessage: function (res) {
+    let idx = res.target.dataset.idx;
+    let obj = that.data.list[idx];
+    return {
+      title: obj.name,
+      path: '/pages/shop/list/list?id=' + obj.id,
+      imageUrl: 'http://47.106.100.144/' + obj.shopimg
+    }
+  },
+
+  makePhoneCall(e) {
+    let phone = e.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone
+    })
+  },
   
 
   changeList(e) {

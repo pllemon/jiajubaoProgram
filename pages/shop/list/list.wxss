@@ -12,3 +12,11 @@
   margin: 160rpx auto;
   margin-bottom: 50rpx;
 }
+
+.shop-action{
+  margin-top: 20rpx;
+}
+
+.shop-action button{
+  border: none;
+}

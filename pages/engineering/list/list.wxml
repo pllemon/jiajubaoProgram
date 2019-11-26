@@ -15,7 +15,7 @@
     bind:change = "changeList"
   >
     <block wx:for="{{list}}" wx:key="index">
-      <view class="common-card" data-id="{{item.id}}" bindtap="goDetails">
+      <navigator class="common-card" url="/pages/engineering/details/details?id={{item.id}}">
         <view class="mes">
           <view class="title">{{ item.title }}</view>
           <view class="flex-center-between" style="font-size:14px">
@@ -32,7 +32,7 @@
           <gdImage wx:if="{{item.imgurl2}}" src="{{ item.imgurl2 }}"></gdImage>
           <gdImage wx:if="{{item.imgurl3}}" src="{{ item.imgurl3 }}"></gdImage>
         </view>
-      </view>
+      </navigator>
     </block>
   </scroll-content>
 </view>

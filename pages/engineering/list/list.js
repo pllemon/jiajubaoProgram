@@ -66,12 +66,5 @@ Page({
         }
       }
     })
-  },
-
-  goDetails(e) {
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/engineering/details/details?id=' + id
-    })
   }
 })

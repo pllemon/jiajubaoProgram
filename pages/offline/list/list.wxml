@@ -1,7 +1,15 @@
 <view class="full-layout" wx:if="{{finish}}">
   <scroll-view scroll-y class="flex1 order-list">
-    <block wx:if="{{list.length}}">
-      <navigator wx:for="{{list}}" wx:key="index" class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
+  <scroll-content 
+    class="common-list"
+    is-loadMore = "{{isLoadMore}}"
+    is-refresh = "{{isRefresh}}"
+    page = "{{page}}"
+    last-page = "{{lastPage}}"
+    bind:change = "changeList"
+  >
+    <block wx:for="{{list}}" wx:key="index" >
+      <navigator class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
         <image src="/image/example/peo.jpg" mode="scaleToFill" class="peo-img"></image>
         <view class="flex1">
           <view class="flex-center-between" wx:if="{{personType == 0}}">
@@ -22,8 +30,5 @@
         </view>
       </navigator>
     </block>
-    <block wx:else>
-      <view class="no-res">无相关数据</view>
-    </block>
-  </scroll-view>
+  </scroll-content>
 </view>
