@@ -5,24 +5,13 @@ Page({
     searchValue: '',
     list: [],
     personType: 0,
-    orderStatus: {},
-    statusArr: []
+    orderStatus: {}
   },
   onLoad(params) {
     let personType = params.personType;
     this.setData({
       personType: personType,
       orderStatus: app.globalData.personMessage[personType].orderStatus
-    })
-
-    let statusArr = []
-    for(let i in this.data.orderStatus) {
-      if (this.data.orderStatus[i].show) {
-        statusArr.push(this.data.orderStatus[i])
-      }
-    }
-    this.setData({
-      statusArr
     })
     this.getOrderList()
   },

@@ -1,5 +1,4 @@
 <view class="full-layout" wx:if="{{finish}}">
-  <scroll-view scroll-y class="flex1 order-list">
   <scroll-content 
     class="common-list"
     is-loadMore = "{{isLoadMore}}"

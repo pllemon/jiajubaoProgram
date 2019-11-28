@@ -82,6 +82,7 @@ Page({
     let validateRes = validate.phone(this.data.phone);
     if (!validateRes) {
       app.showModal('请输入正确的手机号');
+      return false;
     }
 
     let countDown = 60;

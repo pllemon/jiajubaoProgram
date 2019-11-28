@@ -57,6 +57,7 @@ Component({
       if (!this.properties.isRefresh) {
         if (this.data.moveY > 0) {
           this.triggerEvent('change', {type: 1})
+          this.goTop()
         }
         this.setData({
           moveY: 0
@@ -67,6 +68,7 @@ Component({
       if (this.properties.page < this.properties.lastPage) {
         if (!this.properties.isLoadMore) {
           this.triggerEvent('change', {type: 2})
+          this.goTop()
         }
       }
     },
