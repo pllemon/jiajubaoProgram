@@ -18,118 +18,23 @@
 
 
 .main-action{
-    padding: 20rpx 30rpx;
     background: #f8f8f8;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    height: 100rpx;
+    padding: 0 30rpx;
 }
 .main-action .main-btn{
     margin: 0;
+    display: inline-block;
 }
 .main-action .service{
-    margin-right: 30rpx;
     color: #4d5ef4;
 }
 .main-action .service .iconfont{
     font-size: 26px;
     position: relative;
-    top: 1rpx;
     margin-right: 2px;
-}
-
-.common-section{
-    margin-top: 22rpx;
-    color: #888;
-}
-.common-section .title{
-    font-size: 20px;
-}
-
-
-
-
-/* 以下 */
-.sign-single{
-    background: #fff;
-    padding: 20rpx 0rpx;
-}
-.sign-single image{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-    background: #ddd;
-    margin-right: 20rpx;
-}
-
-.order-desc{
-    background: #fdf6ec;
-    color: #e6a23c;
-    padding: 20rpx 30rpx;
-    display: flex;
-    align-items: center;
-}
-.order-desc icon{
-    margin-right: 6rpx;
-    font-size: 40rpx;
-    position: relative;
-    top: -2rpx;
-}
-
-.section{
-    background: #fff;
-}
-
-.main-btn{
-    margin: 50rpx 0rpx;
-    margin-bottom: 10rpx;
-}
-
-swiper-item{
-    position: relative;
-}
-label{
-    position: absolute;
-    bottom: 20rpx;
-    right: 20rpx;
-    color: #fff;
-    font-size: 13px;
-    padding: 10rpx 20rpx;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 4rpx;
-}
-
-.message view{
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    margin-bottom: 10rpx;
-    color: #888;
-}
-
-.message view text:nth-of-type(2){
-    flex: 1;
-    margin-left: 30rpx;
-    text-align: right;
-}
-
-
-.concat{
-    margin-top: 30rpx;
-    color: #888;
-}
-.concat image{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-    background: #ddd;
-    margin-right: 10rpx;
-}
-
-
-textarea{
-    box-sizing: border-box;
-    padding: 30rpx;
-    width: 100%;
 }

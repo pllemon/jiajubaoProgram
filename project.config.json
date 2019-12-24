@@ -39,6 +39,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 3,
 			"list": [
@@ -271,6 +275,13 @@
 					"name": "平台费",
 					"pathName": "pages/offline/confirm/confirm",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/detail",
+					"query": "id=87&personType=0",
 					"scene": null
 				}
 			]

@@ -1,4 +1,4 @@
-<view class="full-layout" wx:if="{{finish}}">
+<view class="full-layout">
   <scroll-content 
     class="common-list"
     is-loadMore = "{{isLoadMore}}"

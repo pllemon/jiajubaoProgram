@@ -12,9 +12,8 @@ Page({
     networkArr: [],
     networkIdx: undefined,
 
-    showDate: false,
     minDate: moment().add('days', 1).format('YYYY-MM-DD'),
-    maxDate: moment().add('days', 30).format('YYYY-MM-DD'),
+    maxDate: moment().add('days', 15).format('YYYY-MM-DD'),
     currentDate: new Date().getTime(),
 
     service_demand: ''
@@ -139,12 +138,11 @@ Page({
       url: '/networklist',
       data: {},
       success: function(data) {
-        let networkArr = [];
-        data.forEach(item => {
-          networkArr.push({
+        let networkArr = data.map(item => {
+          return {
             id: item.id,
             name: item.name
-          })
+          }
         })
         that.setData({
           networkArr: networkArr

@@ -13,7 +13,7 @@
     border-radius: 50%;
 }
 .name, .money{
-    font-size: 18px;
+    font-size: 16px;
 }
 .time, .status{
     font-size: 13px;

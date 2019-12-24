@@ -26,7 +26,9 @@
 		<text>加载更多</text>
 	</view>
 
-	<van-divider contentPosition="center" hidden="{{lastPage != page || isRefresh}}">已无更多</van-divider>
+	<view hidden="{{lastPage != page || isRefresh}}">
+		<van-divider contentPosition="center">已无更多</van-divider>
+	</view>
 </scroll-view>
 
 <!-- 返回顶部 -->

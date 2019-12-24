@@ -35,7 +35,7 @@
   
     <!-- 订单信息 -->
     <view class="common-section" style="border-top:0">
-      <view class="title">{{orderMes.info.service_demand}}</view>
+      <view class="category">{{orderMes.info.service_demand}}</view>
       <view class="mes">
         <icon class="iconfont iconicon_GPS"></icon>
         <text class="content">{{orderMes.info.address}}</text>
@@ -44,7 +44,7 @@
         <icon class="iconfont iconicon_calendar"></icon>
         <text class="content">{{orderMes.info.appo_time}}</text>
       </view>
-      <view class="mes">
+      <view class="mes" wx:if="{{orderMes.info.remark}}">
         <icon class="iconfont iconicon_community_line"></icon>
         <text class="content">{{orderMes.info.remark}}</text>
       </view>
@@ -61,7 +61,7 @@
     </view>
 
     <view class="common-section">
-      <view class="common-title">订单信息</view>
+      <view class="title">订单信息</view>
       <view class="message">
         <view>
           <text>订单编号</text>
@@ -89,7 +89,7 @@
     </view>
 
     <view class="common-section" wx:if="{{orderStatus.showSignUp}}">
-      <view class="common-title">报名情况({{orderMes.craftsmanlist.length}})</view>
+      <view class="title">报名情况({{orderMes.craftsmanlist.length}})</view>
       <view class="sign-list" wx:if="{{orderMes.craftsmanlist.length>0}}">
         <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
           <view class="sign-single flex-center-between">

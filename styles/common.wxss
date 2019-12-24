@@ -63,27 +63,28 @@
 .common-section{
   padding: 30rpx;
   background: #fff; 
+  color: #888;
+  margin-top: 20rpx;
 }
-.common-section .common-title{
+.common-section .category{
+  font-size: 18px;
+  color: #353535;
+}
+.common-section .title{
   color: #4d5ef4;
   padding-left: 30rpx;
   position: relative;
   margin-bottom: 30rpx;
 }
-.common-section .common-title:after{
+.common-section .title:after{
   content: '';
   position: absolute;
   width: 4px;
-  height: 36rpx;
+  height: 40rpx;
   left: 0;
   top: 5rpx;
   border-radius: 2px;
   background: #4d5ef4;
-}
-.common-section .title{
-  font-size: 18px;
-  margin-bottom: 10rpx;
-  color: #353535;
 }
 .common-section .mes{
   color: #888;

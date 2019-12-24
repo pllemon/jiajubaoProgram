@@ -36,7 +36,6 @@ Page({
   },
 
   changeMoney: function (e) {
-    console.log(22)
     let money = e.detail.value;
     let point1 = parseInt(money / 100) * 5;
     let point2 = parseInt(this.data.totalPoint / 5) * 5;

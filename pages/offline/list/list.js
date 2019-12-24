@@ -18,6 +18,10 @@ Page({
     this.getList(1)
   },
 
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
+
   getList(type) {
     let that = this;
     let page = that.data.page;
@@ -39,7 +43,7 @@ Page({
       url,
       data: {
         page: page,
-        limit: 10
+        limit: 20
       },
       hideLoading: true,
       success: function(data) {

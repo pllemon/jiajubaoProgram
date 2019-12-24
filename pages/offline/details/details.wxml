@@ -9,7 +9,7 @@
   
     <!-- 订单信息 -->
     <view class="common-section">
-      <view class="common-title">订单信息</view>
+      <view class="title">订单信息</view>
       <view class="message">
         <view>
           <text>订单编号</text>
@@ -94,7 +94,9 @@
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
       </view>
-      <button bindtap="cancelOrder" class="main-btn plain flex1">取消订单</button>
-      <button bindtap="confirmOrder" class="main-btn flex1" style="margin-left: 10rpx">确认订单</button>
+      <view>
+        <button bindtap="cancelOrder" class="main-btn small plain">取消订单</button>
+        <button bindtap="confirmOrder" class="main-btn small" style="margin-left: 10rpx">确认订单</button>
+      </view>
     </view>
 </view>

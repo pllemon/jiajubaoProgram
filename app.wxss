@@ -19,13 +19,6 @@ view{
     box-sizing: border-box;
 }
 
-.subtitle{
-    padding: 20rpx 30rpx;
-    border-left: 4px solid #4d5ef4;
-    font-size: 17px;
-    background: #f8f8f8;
-}
-
 .icon{
     width: 36rpx;
     height: 36rpx;
@@ -48,21 +41,6 @@ view{
 .label-orange{
     background: #fcf1d5;
     color: #ff9640;
-}
-
-
-
-/* 按钮 */
-.btn{
-    border-radius: 10rpx;
-    display: inline-block;
-}
-.btn.mini{
-    padding: 4rpx 10rpx;
-}
-.btn-default{
-    border: 1px solid #4c5ce3;
-    color: #4c5ce3;
 }
 
 /* 订单卡片 */
@@ -107,6 +85,10 @@ view{
     color: #fff;
     background: -webkit-linear-gradient(45deg, #7889f1, #4d5ef4);
     border-radius: 50rpx;
+}
+.main-btn.small{
+    font-size: 16px;
+    line-height: 2;
 }
 .main-btn.plain{
     background: #fff;
