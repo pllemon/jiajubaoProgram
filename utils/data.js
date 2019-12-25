@@ -228,7 +228,7 @@ const personType = {
       {
         icon: 'group',
         text: '我的朋友',
-        url: '/pages/personal/friend/friend'
+        url: '/pages/personal/user/friend/friend'
       },
       {
         icon: 'link',

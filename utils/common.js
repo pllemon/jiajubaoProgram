@@ -120,7 +120,9 @@ const getLocation = (target, callback) => {
           longitude: res.longitude
         },
         success: function(res) {
+          console.log('---------')
           console.log(res)
+          console.log('-------------')
           app.globalData.addressInfo = res.result
           target.setData({
             addressInfo: res.result
@@ -151,6 +153,30 @@ const getLocation = (target, callback) => {
   })
 }
 
+// 获取地址详细信息
+const getLocationMes = (obj, callback) => {
+  wx.showLoading({
+    title: '定位中',
+    mask: true
+  })
+  qqmapsdk.reverseGeocoder({
+    location: {
+      latitude: obj.latitude,
+      longitude: obj.longitude
+    },
+    success: function(res) {
+      console.log('---------')
+      console.log(res)
+      console.log('-------------')
+      if (callback) {
+        callback(res.result)
+      }
+      wx.hideLoading()
+    }
+  })
+}
+
+
 // 路线规划
 const getRoutePlan = (targetPoint) => {
   console.log(targetPoint)
@@ -172,5 +198,6 @@ module.exports = {
   deleteImg,
   getLocation,
   checkNetworkNum,
-  getRoutePlan
+  getRoutePlan,
+  getLocationMes
 }

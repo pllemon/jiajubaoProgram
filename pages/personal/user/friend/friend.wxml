@@ -1,0 +1,11 @@
+<view class="full-layout">
+    <canvas style="border:1px solid red;width: 750px; height: 1334px;position:absolute;right:2000px" canvas-id="sharePoster"></canvas>
+    <block wx:if="{{ shareImg }}">
+        <view class="share-view flex1">
+            <image mode="aspectFit" src="{{ shareImg }}"></image>
+        </view>
+        <view class="share-btn flex-center" bindtap="saveImg">
+            <icon class="iconfont iconicon_share"></icon>
+        </view>
+    </block>
+</view>

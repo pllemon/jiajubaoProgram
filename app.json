@@ -24,6 +24,7 @@
     
     "pages/personal/index/index",
     "pages/personal/user/share/share",
+    "pages/personal/user/friend/friend",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
     "pages/personal/setting/setting",

@@ -26,8 +26,8 @@
             </view>
         </view>
         <view class="form-item">
-            <label><text class="required">*</text>服务网点</label>
-            <picker bindchange="bindNetWorkChange" value="{{networkIdx}}" range="{{networkArr}}" range-key="name">
+            <label><text class="required">*</text>服务网点{{networkIdx}}</label>
+            <picker value="{{networkIdx}}" range="{{networkArr}}" range-key="name" data-label="networkIdx" bindchange="bindChange">
                 <view class="picker">
                     <text>{{networkIdx ? networkArr[networkIdx].name : '请选择'}}</text>
                     <icon class="address-icon iconfont iconicon_next_arrow"></icon>
@@ -36,7 +36,7 @@
         </view>
         <view class="form-item">
             <label><text class="required">*</text>预约日期</label>
-            <picker mode="date" value="{{date}}" start="{{minDate}}" end="{{maxDate}}" bindchange="bindDateChange">
+            <picker mode="date" value="{{date}}" start="{{minDate}}" end="{{maxDate}}" data-label="date" bindchange="bindChange">
                 <view class="picker">
                     <text>{{date ? date : '请选择'}}</text>
                     <icon class="address-icon iconfont iconicon_next_arrow"></icon>
@@ -45,7 +45,7 @@
         </view>
         <view class="form-item">
             <label><text class="required">*</text>预约时间</label>
-            <picker mode="time" value="{{time}}" start="08:00" end="21:00" bindchange="bindTimeChange">
+            <picker mode="time" value="{{time}}" start="08:00" end="21:00" data-label="time" bindchange="bindChange">
                 <view class="picker">
                     <text>{{time ? time : '请选择'}}</text>
                     <icon class="address-icon iconfont iconicon_next_arrow"></icon>

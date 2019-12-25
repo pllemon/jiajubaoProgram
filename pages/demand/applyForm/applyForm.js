@@ -9,28 +9,30 @@ Page({
     showLocationDialog: false,
     date: '',
     time: '',
+
     networkArr: [],
     networkIdx: undefined,
 
     minDate: moment().add('days', 1).format('YYYY-MM-DD'),
     maxDate: moment().add('days', 15).format('YYYY-MM-DD'),
-    currentDate: new Date().getTime(),
 
     service_demand: ''
   },
 
   onLoad(params) {
     let that = this;
-    common.getLocation(that);
+    common.getLocation(that, function(){
+      that.getNetwork()
+    });
 
     that.setData({
       service_id: params.service_id,
       service_demand: app.globalData.service_demand
     })
 
-    that.getNetwork();
   },
 
+  // 手动点击定位
   onOpenSetting() {
     let that = this;
     wx.getSetting({
@@ -49,19 +51,10 @@ Page({
     common.getLocation(this)
   },
 
-  bindDateChange: function(e) {
+  // 更改值
+  bindChange (e) {
     this.setData({
-      date: e.detail.value
-    })
-  },
-  bindTimeChange: function(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  bindNetWorkChange: function(e) {
-    this.setData({
-      networkIdx: e.detail.value
+      [e.target.dataset.label]: e.detail.value
     })
   },
 
@@ -121,23 +114,35 @@ Page({
     let that = this
     wx.chooseLocation({
       success(res) {
-        console.log(res)
-        let addressInfo = {
-          address: res.address + res.name
-        }        
-        that.setData({
-          addressInfo: addressInfo
+        common.getLocationMes(res, function(data) {
+          data.address = res.address + res.name
+          app.globalData.addressInfo = data
+          that.setData({
+            addressInfo: data
+          })
+          that.getNetwork()
         })
       }
     })
   },
 
   getNetwork() {
-    let that = this
+    let that = this;
+    that.setData({
+      networkArr: [],
+      networkIdx: undefined
+    })
     app.request({
       url: '/networklist',
-      data: {},
+      method: 'GET',
+      data: {
+        district: that.data.addressInfo.ad_info.adcode
+      },
       success: function(data) {
+        if (data.length == 0) {
+          app.showModal('该区域尚未开通网点哦');
+          return false;
+        }
         let networkArr = data.map(item => {
           return {
             id: item.id,
@@ -145,7 +150,8 @@ Page({
           }
         })
         that.setData({
-          networkArr: networkArr
+          networkArr: networkArr,
+          networkIdx: undefined
         })
       }
     })
