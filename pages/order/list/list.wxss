@@ -8,3 +8,7 @@
 .order-header .status{
     color: #4c5ce3;
 }
+
+.common-section{
+    margin-top: 0;
+}

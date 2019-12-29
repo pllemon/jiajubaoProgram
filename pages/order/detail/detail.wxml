@@ -35,7 +35,7 @@
   
     <!-- 订单信息 -->
     <view class="common-section" style="border-top:0">
-      <view class="category">{{orderMes.info.service_demand}}</view>
+      <view class="title2">{{orderMes.info.service_demand}}</view>
       <view class="mes">
         <icon class="iconfont iconicon_GPS"></icon>
         <text class="content">{{orderMes.info.address}}</text>

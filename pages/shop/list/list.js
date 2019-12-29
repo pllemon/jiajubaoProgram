@@ -26,11 +26,12 @@ Page({
     });
   },
 
-  onShareAppMessage: function (res) {
-    let idx = res.target.dataset.idx;
-    let obj = that.data.list[idx];
+  onShareAppMessage: function (e) {
+    let idx = e.target.dataset.idx;
+    let obj = this.data.list[idx];
+    console.log(obj)
     return {
-      title: obj.name,
+      title: '我在多师傅发现了一家好店：' + obj.name + '，进来看看吧',
       path: '/pages/shop/list/list?id=' + obj.id,
       imageUrl: 'http://47.106.100.144/' + obj.shopimg
     }
@@ -113,6 +114,12 @@ Page({
       },
       hideLoading: true,
       success: function(data) {
+        data = {
+          current_page: 1,
+          data: data,
+          last_page: 1,
+          per_page: 10
+        }
         let list = that.data.list;
         if (type == 1) {
           list = data.data;

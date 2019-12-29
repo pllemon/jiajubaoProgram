@@ -65,16 +65,18 @@
   background: #fff; 
   color: #888;
   margin-top: 20rpx;
-}
-.common-section .category{
-  font-size: 18px;
-  color: #353535;
+  line-height: 1.5;
 }
 .common-section .title{
   color: #4d5ef4;
   padding-left: 30rpx;
   position: relative;
   margin-bottom: 30rpx;
+}
+.common-section .title2{
+  font-size: 18px;
+  color: #353535;
+  font-weight: 500;
 }
 .common-section .title:after{
   content: '';

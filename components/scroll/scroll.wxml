@@ -26,12 +26,12 @@
 		<text>加载更多</text>
 	</view>
 
-	<view hidden="{{lastPage != page || isRefresh}}">
+	<view hidden="{{lastPage != page || isRefresh}}" style="padding-bottom: 40rpx">
 		<van-divider contentPosition="center">已无更多</van-divider>
 	</view>
 </scroll-view>
 
 <!-- 返回顶部 -->
-<view class="go-top" hidden="{{posTop < 200}}" bindtap="goTop">
+<!-- <view class="go-top" hidden="{{posTop < 200}}" bindtap="goTop">
 	<icon class="address-icon iconfont iconicon_next_arrow"></icon>
-</view>
+</view> -->

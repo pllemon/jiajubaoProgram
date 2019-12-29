@@ -33,7 +33,7 @@
               <text wx:if="{{item.status == 8}}" class="status">已完成</text>
             </block> 
           </view>
-          <view class="category">{{item.service_demand}}</view>
+          <view class="title2">{{item.service_demand}}</view>
           <view class="mes">
             <icon class="iconfont iconicon_GPS"></icon>
             <text class="content">{{item.address}}</text>
@@ -47,7 +47,7 @@
             <text class="content">{{item.remark}}</text>
           </view>
           <view>
-            <text class="label label-green">水口第一网点</text>
+            <text class="label-green">水口第一网点</text>
           </view>
           <block wx:if="{{item.status == 4}}">
             <view class="sign-info">

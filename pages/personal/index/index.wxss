@@ -3,8 +3,8 @@
 }
 
 .personal-img{
-	width: 160rpx;
-	height: 160rpx;
+	width: 140rpx;
+	height: 140rpx;
 	border-radius: 50%;
 	overflow: hidden;
 	margin-right: 20rpx;
@@ -33,7 +33,7 @@
 	color: #999;
 	display: inline-block;
 	padding: 0 20rpx;
-	font-size: 46px;
+	font-size: 36px;
 	position: relative;
 	left: -10px;
 	top: 0;

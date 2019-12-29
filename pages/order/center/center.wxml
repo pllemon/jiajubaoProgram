@@ -22,7 +22,7 @@
     <block wx:if="{{list.length}}">
       <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType=1">
         <view class="common-section">
-          <view class="title">{{item.service_demand}}</view>
+          <view class="title2">{{item.service_demand}}</view>
           <view class="mes">
             <icon class="iconfont iconicon_GPS"></icon>
             <text class="content">{{item.address}}</text>
@@ -33,7 +33,7 @@
           </view>
           <view class="mes">
             <icon class="iconfont iconicon_community_line"></icon>
-            <text class="content">{{item.remark}}</text>
+            <text class="content">{{item.remark ? item.remark : '无备注'}}</text>
           </view>
           <view class="sign-info">
             <view class="flex-center-start">

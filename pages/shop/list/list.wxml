@@ -24,7 +24,7 @@
           </view>
           <view class="common-section">
             <view class="flex-start-between">
-              <view class="title">{{item.name}}</view>
+              <view class="title2">{{item.name}}</view>
               <view class="label-green">{{item.distance}}</view>
             </view>
             <view class="mes">
@@ -34,14 +34,17 @@
               <text class="content">{{item.phone}}</text>
             </view>
             <view class="shop-action flex-center-end">
-              <button size="mini" data-phone="{{phone}}" bindtap="makePhoneCall">
+              <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
                 <icon class="iconfont iconicon_phone"></icon>
+                <text>联系</text>
               </button>
               <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
                 <icon class="iconfont iconicon_GPS"></icon>
+                <text>路线</text>
               </button>
               <button size="mini" data-idx="{{index}}" open-type="share">
-                <icon class="iconfont iconicon_phone"></icon>
+                <icon class="iconfont iconicon_share"></icon>
+                <text>分享</text>
               </button>
             </view>
           </view>

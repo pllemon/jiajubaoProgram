@@ -23,3 +23,7 @@
     color: #4c5ce3;
     background: #fff;
 }
+
+.common-section{
+    margin-top: 0;
+}
