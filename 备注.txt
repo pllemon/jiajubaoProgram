@@ -89,3 +89,21 @@
 /ordershowlist 返回师傅头像、姓名，添加关键字搜索（标题、描述）
 /ordershowinfo 返回师傅头像、姓名
 /graborderlist 添加类目搜索，列表返回报名人数、最新报名师傅的头像、师傅工资，排序（发布时间、服务时间、佣金）
+
+
+2019/12/30
+用户默认头像路径错误
+http://47.106.100.144/public/uploads/user/headerimg/default.png
+
+/admin/userlist 搜索条件无效
+/admin/userinfo 返回上级推荐人名称，下级推荐数量
+/admin/userlist、/admin/userinfo 返回下单数和总积分
+
+/businesslist 添加申请时间范围搜索
+/admin/businesscashinlist 商家提现流程没走通
+
+/admin/craftsmanlist 搜索条件无效
+/admin/craftsmansettlementlist 搜索和列表数据、改变发放状态（已处理、未处理）
+/admin/orderlist 添加师傅工号搜索
+
+师傅提现模块新增一个 相关订单 的接口，就是统计的订单列表（哪个师傅、哪个月份完成的订单列表）
