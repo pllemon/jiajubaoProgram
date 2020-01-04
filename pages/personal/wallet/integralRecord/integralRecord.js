@@ -25,12 +25,17 @@ Page({
       url,
       data: {
         page: 0,
-        limit: 20
+        limit: 200
       },
       success: function(data) {
+        console.log(data)
+        let sum = data.sumintegral;
+        if (personType == 2) {
+          sum = data.integralsum;
+        }
         that.setData({
           list: data.list.data,
-          sumintegral: data.sumintegral
+          sumintegral: sum
         })
       }
     })

@@ -20,10 +20,10 @@
           <view class="title">{{ item.title }}</view>
           <view class="flex-center-between" style="font-size:14px">
             <view>{{ item.time }}</view>
-            <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
-              <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+            <!-- <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
+              <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
               <text>nini</text>
-            </view>
+            </view> -->
           </view>
           <view>{{ item.dec }}</view>
         </view>

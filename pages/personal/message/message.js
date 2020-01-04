@@ -13,11 +13,11 @@ Page({
         text: '我要下单',
         url: '/pages/system/releaseDemand/step1/step1'
       },
-      {
-        img: '/image/icon_dispose.png',
-        text: '我的朋友',
-        url: '/pages/system/releaseDemand/step1/step1'
-      },
+      // {
+      //   img: '/image/icon_dispose.png',
+      //   text: '我的朋友',
+      //   url: '/pages/system/releaseDemand/step1/step1'
+      // },
       {
         img: '/image/icon_dispose.png',
         text: '邀请朋友',

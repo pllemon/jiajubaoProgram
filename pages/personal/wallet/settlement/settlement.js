@@ -24,7 +24,7 @@ Page({
         that.setData({
           finish: true,
           isFocus: true,
-          totalPoint: data.sumintegral
+          totalPoint: data.integralsum
         })
       }
     })

@@ -16,11 +16,11 @@ Page({
       url,
       data: {
         page: 0,
-        limit: 20
+        limit: 200
       },
       success: function(data) {
         that.setData({
-          list: data.list
+          list: data.data
         })
       }
     })

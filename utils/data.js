@@ -225,11 +225,11 @@ const personType = {
         text: '我要下单',
         url: '/pages/demand/category/category'
       },
-      {
-        icon: 'group',
-        text: '我的朋友',
-        url: '/pages/personal/user/friend/friend'
-      },
+      // {
+      //   icon: 'group',
+      //   text: '我的朋友',
+      //   url: '/pages/personal/user/friend/friend'
+      // },
       {
         icon: 'link',
         text: '邀请朋友',

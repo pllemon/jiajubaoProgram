@@ -3,7 +3,7 @@
   <view class="flex-center-between mes">
     <view>{{ info.time }}</view>
     <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
-      <image src="/image/example/peo.jpg" mode="scaleToFill" class="personal-img"></image>
+      <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
       <text>梁尼梓</text>
     </view>
   </view>

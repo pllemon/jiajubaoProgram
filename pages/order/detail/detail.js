@@ -38,7 +38,7 @@ Page({
       url: '/orderinfo',
       data: {
         order_id: this.data.order_id,
-        craftsman_id: this.data.craftsmannfo.id
+        craftsman_id: this.data.craftsmannfo? this.data.craftsmannfo.id : ''
       },
       success: function(data) {
         let orderStatus = {};

@@ -50,6 +50,27 @@
             </view>
         </view>
     </view>
+    <view class="form-section">
+        <view class="form-title">身份证照片</view>
+        <view class="form-item upload">
+            <label><text class="required">*</text>手持身份证</label>
+            <view class="form-content">
+                <upload name="shopimg" imgArr="{{shopimg}}" length="1" bindupdate="updateImg"></upload>
+            </view>
+        </view>
+        <view class="form-item upload">
+            <label><text class="required">*</text>身份证正面</label>
+            <view class="form-content">
+                <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" bindupdate="updateImg"></upload>
+            </view>
+        </view>
+        <view class="form-item upload">
+            <label><text class="required">*</text>身份证反面</label>
+            <view class="form-content" style="width:520rpx">
+                <upload name="businessimg" imgArr="{{businessimg}}" length="1" bindupdate="updateImg"></upload>
+            </view>
+        </view>
+    </view>
 
     <checkbox-group class="agree flex-center-start"  bindchange="checkboxChange">
         <checkbox value="1" checked="{{false}}" color="#4d5ef4"/>

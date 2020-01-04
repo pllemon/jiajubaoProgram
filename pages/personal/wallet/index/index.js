@@ -28,8 +28,14 @@ Page({
         limit: 20
       },
       success: function(data) {
+        console.log(11)
+        console.log(data)
+        let sum = data.sumintegral
+        if (personType == 2) {
+          sum = data.integralsum
+        }
         that.setData({
-          sumintegral: data.sumintegral
+          sumintegral: sum
         })
       }
     })

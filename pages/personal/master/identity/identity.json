@@ -1,6 +1,8 @@
 {
 	"navigationBarTitleText": "师傅申请",
 	"usingComponents": {
-		"location": "/components/location/location"
+		"location": "/components/location/location",
+		"upload": "/components/upload/upload",
+		"van-field": "../../miniprogram_npm/vant-weapp/field"
 	}
 }

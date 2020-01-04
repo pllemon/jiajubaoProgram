@@ -4,7 +4,6 @@ scroll-view{
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    padding-top: 20rpx;
 }
 .scroll-tips{
     background: #f8f8f8;
