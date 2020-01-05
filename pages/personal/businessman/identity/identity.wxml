@@ -1,65 +1,54 @@
 <form bindsubmit="formSubmit" class="form">
-    <view class="form-section">
-        <view class="form-title">基本资料</view>
-        <view class="form-item">
-            <label><text class="required">*</text>店铺名</label>
-            <view class="form-content">
-                <input name="name" placeholder="请输入" value=""/>
-            </view>
-        </view>
-        <view class="form-item">
-            <label><text class="required">*</text>联系电话</label>
-            <view class="form-content">
-                <input name="phone" placeholder="请输入" value=""/>
-            </view>
-        </view>
-        <view class="form-item">
-            <label><text class="required">*</text>店铺地址</label>
-            <view class="form-content">
-                <block wx:if="{{addressInfo}}">
-                    <view class="flex address-content"  bindtap="chooseAddress">
-                        <text class="flex1">{{addressInfo.address}}</text>
-                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                    </view>
-                    <input name="address" placeholder="可补充具体的门牌号" value=""/>
-                </block>
-                <block wx:if="{{!addressInfo}}">
-                    <button class="flex-center-end picker address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
-                        <text>点击定位</text>
-                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                    </button>
-                </block>
-            </view>
-        </view>
-    </view>
-
-    <view class="form-section">
-        <view class="form-title">图片资料</view>
-        <view class="form-item upload">
-            <label><text class="required">*</text>门面图片</label>
-            <view class="form-content">
-                <upload name="shopimg" imgArr="{{shopimg}}" length="1" bindupdate="updateImg"></upload>
-            </view>
-        </view>
-        <view class="form-item upload">
-            <label><text class="required">*</text>产品图片</label>
-            <view class="form-content">
-                <upload name="goodsimg" imgArr="{{goodsimg}}" length="1" bindupdate="updateImg"></upload>
-            </view>
-        </view>
-        <view class="form-item upload">
-            <label><text class="required">*</text>营业执照</label>
-            <view class="form-content" style="width:520rpx">
-                <upload name="businessimg" imgArr="{{businessimg}}" length="1" bindupdate="updateImg"></upload>
-            </view>
-        </view>
-        <view class="form-item upload">
-            <label><text class="required">*</text>分享图片</label>
-            <view class="form-content" style="width:520rpx">
-                <upload name="sharewximg" imgArr="{{sharewximg}}" length="1" bindupdate="updateImg"></upload>
-            </view>
-        </view>
-    </view>
+    <van-cell-group title="基础资料">
+        <van-field
+            input-class="input-field"
+            value="{{ form.name }}"
+            required
+            label="店铺名"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="name"
+            bind:change="onChange"
+        />
+        <van-field
+            value="{{ form.phone }}"
+            required
+            label="联系电话"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="phone"
+            type="number"
+            bind:change="onChange"
+        />
+        <van-cell title="店铺地址" title-width="100px" required>
+            <block wx:if="{{addressInfo}}">
+                <view class="flex" style="color:#323233;align-items:flex-start" bindtap="chooseAddress">
+                    <text class="flex1">{{addressInfo.address}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                </view>
+                <input type="text" style="color:#323233;margin-top:10px" name="address" placeholder="可补充具体的门牌号" value=""/>
+            </block>
+            <block wx:if="{{!addressInfo}}">
+                <button size="mini" class="address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
+                    点击定位
+                </button>
+            </block>
+        </van-cell>
+    </van-cell-group>
+    <van-cell-group title="图片资料" class="upload-content">
+        <van-cell title="门面图片" title-width="100px" required>
+            <van-uploader data-type="shopimg" file-list="{{ shopimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
+        <van-cell title="产品图片" title-width="100px" required>
+            <van-uploader data-type="goodsimg" file-list="{{ goodsimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
+        </van-cell>
+        <van-cell title="营业执照" title-width="100px" required>
+            <van-uploader data-type="businessimg" file-list="{{ businessimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
+        </van-cell>
+        <van-cell title="分享图片" title-width="100px" required>
+            <van-uploader data-type="sharewximg" file-list="{{ sharewximg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
+        </van-cell>
+    </van-cell-group>
 
     <checkbox-group class="agree flex-center-start" bindchange="checkboxChange">
         <checkbox value="1" checked="{{false}}" color="#4d5ef4"/>
@@ -67,14 +56,4 @@
     </checkbox-group>
 
     <button form-type="submit" class="main-btn">提交</button>
-
-    <view class="form-tips">
-        <view>申请说明：</view>
-        <view>1. 提交申请前请认真阅读商家入驻协议书，同意请勾选，有疑问可联系客服</view>
-        <view>2. 提交申请后后台会进行资料审核，请耐心等待</view>
-        <view>3. 感谢您对‘多师傅’的支持，欢迎您的入驻</view>
-    </view>
-
-
-    <!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->
 </form>

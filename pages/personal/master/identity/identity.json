@@ -1,8 +1,9 @@
 {
 	"navigationBarTitleText": "师傅申请",
 	"usingComponents": {
-		"location": "/components/location/location",
-		"upload": "/components/upload/upload",
-		"van-field": "../../miniprogram_npm/vant-weapp/field"
+		"van-field": "../../miniprogram_npm/vant-weapp/field",
+		"van-cell-group": "../../miniprogram_npm/vant-weapp/cell-group",
+		"van-cell": "../../miniprogram_npm/vant-weapp/cell",
+		"van-uploader": "../../miniprogram_npm/vant-weapp/uploader"
 	}
 }

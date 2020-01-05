@@ -1,5 +1,5 @@
 
-icon{
+.address-icon{
   margin-left: 10px;
-  margin-top: 12px;
+  margin-top: 2px;
 }

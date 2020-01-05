@@ -6,7 +6,19 @@ Page({
   data: {
     addressInfo: null,
     showLocationDialog: false,
-    agree: []
+    agree: [],
+
+    form: {
+      name: '',
+      sfz: '',
+      phone: '',
+      enter_time: '',
+      desc: ''
+    },
+
+    sfz1: [],
+    sfz2: [],
+    sfz3: []
   },
 
   onLoad () {
@@ -60,21 +72,21 @@ Page({
   },
 
   formSubmit: function(e) {
-    let formData = e.detail.value;
+    let form = this.data.form;
     
-    if (!formData.name) {
+    if (!form.name) {
       app.showModal('请输入姓名');
       return false;
     }
-    if (!formData.sfz) {
+    if (!form.sfz) {
       app.showModal('请输入身份证');
       return false;
     }
-    if (!validate.phone(formData.phone)) {
+    if (!validate.phone(form.phone)) {
       app.showModal('请输入正确的手机号');
       return false;
     }
-    if (!formData.enter_time) {
+    if (!form.enter_time) {
       app.showModal('请输入入行年份');
       return false;
     }
@@ -87,11 +99,13 @@ Page({
       return false;
     }
     
-    formData.address = this.data.addressInfo.address + formData.address;
+    form.address = this.data.addressInfo.address + e.detail.value.address;
     
+    console.log(form)
+    return false
     app.request({
       url: '/applycraftsman',
-      data: formData,
+      data: form,
       success: function(data) {
         app.successToast('提交成功', function(){
           wx.reLaunch({
@@ -99,6 +113,33 @@ Page({
           })
         })
       }
+    })
+  },
+
+  afterRead(e) {
+    const type = e.currentTarget.dataset.type;
+    const path = e.detail.file.path;
+    let fileList = this.data[type]
+    fileList = [
+      {
+        url: path
+      }
+    ]
+    this.setData({
+      [type]: fileList
+    })
+  },
+  deleteImage(e) {
+    const type = e.currentTarget.dataset.type;
+    this.setData({
+      [type]: []
+    })
+  },
+  onChange(e) {
+    let form = this.data.form;
+    form[e.currentTarget.dataset.name] = e.detail;
+    this.setData({
+      form
     })
   }
 })
