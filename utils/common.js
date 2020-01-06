@@ -46,7 +46,7 @@ const uploadImgs = ( url, fileList, callback)  => {
 const uploadImg = ( url, file, callback)  => {
   wx.uploadFile({
     url: 'http://47.106.100.144/' + url,
-    filePath: file,
+    filePath: file.url,
     name: 'image',
     success: function (res) {
       console.log(res)
@@ -120,6 +120,9 @@ const getLocation = (target, callback) => {
           longitude: res.longitude
         },
         success: function(res) {
+          let ad_info = res.result.ad_info
+          res.result.ad_info.provincecode = ad_info.adcode.substring(0,2) + '0000'
+          res.result.ad_info.citycode = ad_info.adcode.substring(0,4) + '00'
           console.log('---------')
           console.log(res)
           console.log('-------------')
@@ -165,6 +168,9 @@ const getLocationMes = (obj, callback) => {
       longitude: obj.longitude
     },
     success: function(res) {
+      let ad_info = res.result.ad_info
+      res.result.ad_info.provincecode = ad_info.adcode.substring(0,2) + '0000'
+      res.result.ad_info.citycode = ad_info.adcode.substring(0,4) + '00'
       console.log('---------')
       console.log(res)
       console.log('-------------')

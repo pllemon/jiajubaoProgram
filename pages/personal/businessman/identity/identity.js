@@ -68,16 +68,12 @@ Page({
     let that = this
     wx.chooseLocation({
       success(res) {
-        console.log(res)
-        let addressInfo = {
-          address: res.address + res.name,
-          location: {
-            lng: res.longitude,
-            lat: res.latitude
-          }
-        }        
-        that.setData({
-          addressInfo: addressInfo
+        common.getLocationMes(res, function(data) {
+          data.address = res.address + res.name
+          app.globalData.addressInfo = data
+          that.setData({
+            addressInfo: data
+          })
         })
       }
     })
@@ -122,6 +118,11 @@ Page({
     form.longitude = this.data.addressInfo.location.lng;
     form.latitude = this.data.addressInfo.location.lat;
     form.address = this.data.addressInfo.address + e.detail.value.address;
+    let ad_info = this.data.addressInfo.ad_info;
+    form.region = ad_info.province + ad_info.city + ad_info.district;
+    form.province = ad_info.provincecode;
+    form.city = ad_info.citycode;
+    form.district = ad_info.adcode;
 
     uploadNum = 0;
     wx.showLoading({
@@ -163,7 +164,7 @@ Page({
   upload(name) {
     let that = this;
     let form = this.data.form;
-    common.uploadImg('uploadobusinessimg', this.data[name][0].url, function (res) {
+    common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
       form[name] = res;
       uploadNum++;
       if (uploadNum == 4) {
