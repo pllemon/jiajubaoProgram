@@ -12,6 +12,11 @@ Page({
     businessimg: [],
     sharewximg: [],
 
+    form: {
+      name: '',
+      phone: ''
+    },
+
     addressInfo: null,
     showLocationDialog: false,
   },
@@ -79,12 +84,13 @@ Page({
   },
 
   formSubmit: function(e) {
-    let formData = e.detail.value;
-    if (!formData.name) {
+    let form = this.data.form;
+
+    if (!form.name) {
       app.showModal('请输入店铺名');
       return false;
     }
-    if (!validate.phone(formData.phone)) {
+    if (!validate.phone(form.phone)) {
       app.showModal('请输入正确的手机号');
       return false;
     }
@@ -113,37 +119,66 @@ Page({
       return false;
     }
     
-    formData.longitude = this.data.addressInfo.location.lng;
-    formData.latitude = this.data.addressInfo.location.lat;
-    formData.address = this.data.addressInfo.address + formData.address;
+    form.longitude = this.data.addressInfo.location.lng;
+    form.latitude = this.data.addressInfo.location.lat;
+    form.address = this.data.addressInfo.address + e.detail.value.address;
 
     uploadNum = 0;
     wx.showLoading({
       title: '上传中',
     });
-    this.upload('shopimg', formData);
-    this.upload('goodsimg', formData);
-    this.upload('businessimg', formData);
-    this.upload('sharewximg', formData);
+    this.upload('shopimg');
+    this.upload('goodsimg');
+    this.upload('businessimg');
+    this.upload('sharewximg');
   },
 
-  upload(name, formData) {
+  afterRead(e) {
+    const type = e.currentTarget.dataset.type;
+    const path = e.detail.file.path;
+    let fileList = this.data[type]
+    fileList = [
+      {
+        url: path
+      }
+    ]
+    this.setData({
+      [type]: fileList
+    })
+  },
+  deleteImage(e) {
+    const type = e.currentTarget.dataset.type;
+    this.setData({
+      [type]: []
+    })
+  },
+  onChange(e) {
+    let form = this.data.form;
+    form[e.currentTarget.dataset.name] = e.detail;
+    this.setData({
+      form
+    })
+  },
+
+  upload(name) {
     let that = this;
-    common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
-      formData[name] = res;
+    let form = this.data.form;
+    common.uploadImg('uploadobusinessimg', this.data[name][0].url, function (res) {
+      form[name] = res;
       uploadNum++;
       if (uploadNum == 4) {
         wx.hideLoading();
-        that.submitFn(formData);
+        that.submitFn();
       }
     })
   },
 
-  submitFn(formData) {
-    console.log(formData)
+  submitFn() {
+    console.log(this.data.form)
+    return false
     app.request({
       url: '/applybusiness',
-      data: formData,
+      data: this.data.form,
       success: function(data) {
         app.successToast('提交成功', function(){
           wx.reLaunch({

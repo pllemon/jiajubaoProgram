@@ -107,3 +107,7 @@ http://47.106.100.144/public/uploads/user/headerimg/default.png
 /admin/orderlist 添加师傅工号搜索
 
 师傅提现模块新增一个 相关订单 的接口，就是统计的订单列表（哪个师傅、哪个月份完成的订单列表）
+
+
+2019/12/31
+/admin/orderstatistics 添加时间范围的搜索条件
