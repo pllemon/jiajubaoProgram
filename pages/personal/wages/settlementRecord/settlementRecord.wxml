@@ -1,0 +1,17 @@
+<view class="full-layout">
+  <scroll-view scroll-y class="flex1">
+    <view class="record-list" wx:if="{{ list.length }}">
+      <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
+        <view>
+          <view>{{item.money}}积分提现</view>
+          <view>
+            <text class="time">{{item.time}}</text>
+            <text> · </text>
+            <text class="status" wx:if="{{item.status == 1 }}">申请中</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="no-res">无相关数据</view>
+  </scroll-view>
+</view>

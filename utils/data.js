@@ -225,11 +225,11 @@ const personType = {
         text: '我要下单',
         url: '/pages/demand/category/category'
       },
-      // {
-      //   icon: 'group',
-      //   text: '我的朋友',
-      //   url: '/pages/personal/user/friend/friend'
-      // },
+      {
+        icon: 'group',
+        text: '我的朋友',
+        url: '/pages/personal/user/friend/friend'
+      },
       {
         icon: 'link',
         text: '邀请朋友',
@@ -260,6 +260,16 @@ const personType = {
         icon: 'affiliations_li',
         text: '我的订单',
         url: '/pages/order/list/list?personType=1'
+      },
+      {
+        icon: 'coinpurse_line',
+        text: '我的工资',
+        url: '/pages/personal/wages/index/index'
+      },
+      {
+        icon: 'affiliations_li',
+        text: '我的资料',
+        url: '/pages/order/list/list?personType=1'
       }
     ]
   },
@@ -281,6 +291,11 @@ const personType = {
         icon: 'QRcode',
         text: '商家二维码',
         action: 'toggleEwm'
+      },
+      {
+        icon: 'affiliations_li',
+        text: '我的资料',
+        url: '/pages/order/list/list?personType=1'
       }
     ]
   }

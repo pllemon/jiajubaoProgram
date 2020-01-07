@@ -158,8 +158,15 @@ Page({
     })
   },
 
-  // 师傅确认完工
+  // 开始施工
   masterConfirm() {
+    let that = this;
+    wx.navigateTo({
+      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=1'
+    })
+  },
+  // 师傅确认完工
+  masterConfirm2() {
     let that = this
     wx.showModal({
       content: '确定工程已经完成？',
@@ -185,7 +192,7 @@ Page({
   uploadShow() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id
+      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=2'
     })
   },
 

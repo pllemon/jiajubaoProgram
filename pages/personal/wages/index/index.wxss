@@ -1,0 +1,8 @@
+.blue-header{
+  padding-top: 120rpx;
+}
+
+.total{
+  font-size: 40px;
+  margin-top: 6rpx;
+}

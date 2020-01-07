@@ -32,6 +32,10 @@
     "pages/personal/feedback/feedback",
     "pages/personal/message/message",
 
+    "pages/personal/wages/index/index",
+    "pages/personal/wages/applyRecord/applyRecord",
+    "pages/personal/wages/apply/apply",
+
     "pages/personal/wallet/index/index",
     "pages/personal/wallet/integralRecord/integralRecord",
     "pages/personal/wallet/settlement/settlement",

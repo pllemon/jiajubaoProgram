@@ -1,0 +1,22 @@
+<form bindsubmit="formSubmit" class="form" wx:if="{{finish}}">
+    <view class="form-section">
+        <view class="form-title">提现信息</view>
+        <view class="form-item">
+            <label><text class="required">*</text>提现积分</label>
+            <view class="form-content">
+                <input name="cashinmoney" type="number" value="{{totalPoint}}" focus="{{isFocus}}"/>
+            </view>
+        </view>
+        <view style="padding: 30rpx 0;color:#E6A23C;font-size:14px" class="flex-center-start">
+            <icon class="iconfont iconicon_warn" style="margin-right: 5rpx"></icon>
+            <text>积分余额为{{totalPoint}}积分，本次最多可使用{{totalPoint}}积分</text>
+        </view>
+    </view>
+
+    <button form-type="submit" class="main-btn">提交</button>
+
+    <view class="form-tips">
+        <view>说明：</view>
+        <view>1. 提交申请后预计三天内到账，请耐心等待</view>
+    </view>
+</form>

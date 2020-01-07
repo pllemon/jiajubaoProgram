@@ -126,7 +126,7 @@
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
       </view>
-      <button wx:if="{{orderMes.info.status == 5}}" bindtap="masterConfirm" class="main-btn flex1">确认完工</button>
+      <button wx:if="{{orderMes.info.status == 5}}" bindtap="masterConfirm" class="main-btn flex1">开始施工</button>
       <button wx:if="{{orderMes.info.status > 5 && orderMes.info.status < 8}}" class="main-btn flex1 disable">待客户确认完工</button>
       <button wx:if="{{orderMes.info.status == 8 && !orderMes.ordersshow}}" bindtap="uploadShow" class="main-btn flex1">上传工程秀</button>
       <button wx:if="{{orderMes.info.status == 8 && orderMes.ordersshow}}" bindtap="signUpOrder" class="main-btn flex1">再次抢单</button>

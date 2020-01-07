@@ -2,8 +2,8 @@ const app = getApp()
 
 Page({
   data: {
-    isShow: false,
     personType: 0,
+    list: [],
     sumintegral: 0
   },
 
@@ -11,7 +11,7 @@ Page({
     this.setData({
       personType: params.personType || 0
     })
-    this.getList();
+    this.getList()
   },
 
   getList() {
@@ -25,43 +25,19 @@ Page({
       url,
       data: {
         page: 0,
-        limit: 20
+        limit: 200
       },
       success: function(data) {
-        console.log(11)
         console.log(data)
-        let sum = data.sumintegral
+        let sum = data.sumintegral;
         if (personType == 2) {
-          sum = data.integralsum
+          sum = data.integralsum;
         }
         that.setData({
+          list: data.list.data,
           sumintegral: sum
         })
       }
     })
-  },
-
-  showExplain() {
-    this.setData({
-      isShow: true
-    })
-  },
-
-  closeExplain() {
-    this.setData({
-      isShow: false
-    })
-  },
-
-  useIntegral() {
-    wx.navigateTo({
-      url: '/pages/offline/apply/apply?id=3'
-    })
-    return false
-    wx.scanCode({
-      success (res) {
-        console.log(res)
-      }
-    })
-  },
+  }
 })
