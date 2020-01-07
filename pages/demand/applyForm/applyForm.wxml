@@ -1,72 +1,50 @@
-<form bindsubmit="formSubmit" class="form">
-    <view class="form-section">
-        <view class="form-title">基本资料</view>
-        <view class="form-item">
-            <label><text class="required">*</text>服务需求</label>
-            <view class="form-content">
-                <input name="service_demand" disabled value="{{service_demand}}"/>
-            </view>
-        </view>
-        <view class="form-item">
-            <label><text class="required">*</text>服务地址</label>
-            <view class="form-content">
-                <block wx:if="{{addressInfo}}">
-                    <view class="flex address-content"  bindtap="chooseAddress">
-                        <text class="flex1">{{addressInfo.address}}</text>
-                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                    </view>
-                    <input name="address" placeholder="可补充具体的门牌号" value=""/>
-                </block>
-                <block wx:if="{{!addressInfo}}">
-                    <button class="flex-center-end picker address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
-                        <text>点击定位</text>
-                        <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                    </button>
-                </block>
-            </view>
-        </view>
-        <view class="form-item">
-            <label><text class="required">*</text>服务网点{{networkIdx}}</label>
+<form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
+    <van-cell-group title="基础资料">
+        <van-cell title="服务需求" title-width="100px" required>
+            <text>{{service_demand}}</text>
+        </van-cell>
+        <van-cell title="服务地址" title-width="100px" required>
+            <block wx:if="{{addressInfo}}">
+                <view class="flex" style="color:#323233;align-items:flex-start" bindtap="chooseAddress">
+                    <text class="flex1">{{addressInfo.address}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                </view>
+                <input type="text" style="color:#323233;margin-top:10px" name="address" placeholder="可补充具体的门牌号" value=""/>
+            </block>
+            <block wx:if="{{!addressInfo}}">
+                <button size="mini" class="address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
+                    点击定位
+                </button>
+            </block>
+        </van-cell>
+        <van-cell title="服务网点" title-width="100px" required>
             <picker value="{{networkIdx}}" range="{{networkArr}}" range-key="name" data-label="networkIdx" bindchange="bindChange">
                 <view class="picker">
                     <text>{{networkIdx ? networkArr[networkIdx].name : '请选择'}}</text>
                     <icon class="address-icon iconfont iconicon_next_arrow"></icon>
                 </view>
             </picker>
+        </van-cell>
+        <van-cell title="订单加急" title-width="100px">
+            <van-switch checked="{{ checked }}" size="24px" active-color="#7889f1" bind:change="changeSwitch" />
+        </van-cell>
+        <van-field
+            value="{{ form.remark }}"
+            label="备注"
+            type="textarea"
+            placeholder="请输入"
+            title-width="100px"
+            autosize
+            border="{{ false }}"
+            data-name="remark"
+            bind:change="onChange"
+        />
+    </van-cell-group>
+    <van-cell-group title="添加图片">
+        <view class="form-section2">
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="3" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </view>
-        <view class="form-item">
-            <label><text class="required">*</text>预约日期</label>
-            <picker mode="date" value="{{date}}" start="{{minDate}}" end="{{maxDate}}" data-label="date" bindchange="bindChange">
-                <view class="picker">
-                    <text>{{date ? date : '请选择'}}</text>
-                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                </view>
-            </picker>
-        </view>
-        <view class="form-item">
-            <label><text class="required">*</text>预约时间</label>
-            <picker mode="time" value="{{time}}" start="08:00" end="21:00" data-label="time" bindchange="bindChange">
-                <view class="picker">
-                    <text>{{time ? time : '请选择'}}</text>
-                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
-                </view>
-            </picker>
-        </view>
-        <view class="form-item">
-            <label>添加图片</label>
-            <view class="form-content" style="width:520rpx">
-                <upload name="imgArr" imgArr="{{imgArr}}" length="3" bindupdate="updateImg"></upload>
-            </view>
-        </view>
-        <view class="form-item">
-            <label>备注说明</label>
-            <view class="form-content">
-                <textarea name="remark" auto-height placeholder="请输入"/>
-            </view>
-        </view>
-    </view>
+    </van-cell-group>
 
     <button form-type="submit" class="main-btn">提交</button>
 </form>
-
-<!-- <location show="{{ showLocationDialog }}" bindupDateLocation="upDateLocation"></location> -->

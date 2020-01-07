@@ -156,3 +156,10 @@
 .explain-message .content{
   margin-bottom: 30rpx;
 }
+
+.picker{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  color: #323233;
+}

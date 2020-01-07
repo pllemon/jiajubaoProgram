@@ -135,30 +135,13 @@ Page({
   },
 
   afterRead(e) {
-    const type = e.currentTarget.dataset.type;
-    const path = e.detail.file.path;
-    let fileList = this.data[type]
-    fileList = [
-      {
-        url: path
-      }
-    ]
-    this.setData({
-      [type]: fileList
-    })
-  },
+    common.readImage(this, e)
+  },  
   deleteImage(e) {
-    const type = e.currentTarget.dataset.type;
-    this.setData({
-      [type]: []
-    })
+    common.deleteImage(this, e)
   },
   onChange(e) {
-    let form = this.data.form;
-    form[e.currentTarget.dataset.name] = e.detail;
-    this.setData({
-      form
-    })
+    common.changeInput(this, e)
   },
 
   upload(name) {

@@ -29,69 +29,6 @@ const chooseImgs = (total, fileList, callback) => {
   })
 }
 
-// 上传同类型多张图片
-const uploadImgs = ( url, fileList, callback)  => {
-  let resArr = [];
-  fileList.forEach(item => {
-    uploadImg(url, item, function(res){
-      resArr.push(res);
-      if (resArr.length == fileList.length) {
-        callback(resArr);
-      }
-    })
-  })
-}
-
-// 上传单张图片
-const uploadImg = ( url, file, callback)  => {
-  wx.uploadFile({
-    url: 'http://47.106.100.144/' + url,
-    filePath: file.url,
-    name: 'image',
-    success: function (res) {
-      console.log(res)
-      let data = JSON.parse(res.data);
-      if (data.success && callback) {
-        callback(data.data)
-      }
-    }
-  })
-}
-
-// 预览图片
-const previewImgs = (fileList, idx = 0) => {
-  wx.previewImage({
-    current: fileList[idx],
-    urls: fileList
-  })
-}
-
-// 删除图片
-const deleteImg = (fileList, idx, callback) => {
-  fileList.splice(idx, i);
-  callback(fileList)
-}
-
-// 检查区域是否有网点
-const checkNetworkNum = () => {
-  let city = app.globalData.addressInfo.city;
-  app.request({
-    url: '/networklist',
-    data: {
-      city: city
-    },
-    success: function(data) {
-      console.log(data)
-      if (data.length == 0) {
-        app.showModal(city+'暂未开通网点，敬请期待')
-        return false
-      } else {
-        return true
-      }
-    }
-  })
-}
-
 // 获取用户地址
 const getLocation = (target, callback) => {
   if (app.globalData.addressInfo) {
@@ -195,15 +132,89 @@ const getRoutePlan = (targetPoint) => {
   });
 }
 
+// ------------------vant 0107---------------------------
+// 读取图片
+const readImage = (target, el) => {
+  const type = el.currentTarget.dataset.type;
+  const path = el.detail.file.path;
+  let fileList = target.data[type];
+  fileList.push({
+    url: path,
+    success: false
+  })
+  target.setData({
+    [type]: fileList
+  })
+}
+
+// 删除图片
+const deleteImage = (target, el) => {
+  const type = el.currentTarget.dataset.type;
+  const index = el.detail.index;
+  let fileList = target.data[type];
+  fileList.splice(index, 1)
+  target.setData({
+    [type]: fileList
+  })
+}
+
+
+// 上传同类型多张图片
+const uploadImgs = ( url, fileList, callback)  => {
+  let resArr = [];
+  fileList.forEach(item => {
+    uploadImg(url, item, function(res){
+      resArr.push(res);
+      if (resArr.length == fileList.length) {
+        callback(resArr);
+      }
+    })
+  })
+}
+
+// 上传单张图片
+const uploadImg = ( url, file, callback)  => {
+  if (file.success) {
+    callback(file)
+    return false
+  }
+  wx.uploadFile({
+    url: 'http://47.106.100.144/' + url,
+    filePath: file.url,
+    name: 'image',
+    success: function (res) {
+      console.log(res)
+      let data = JSON.parse(res.data);
+      if (data.success) {
+        file.success = true
+        callback(file)
+      } else {
+        callback(file)
+      }
+    }
+  })
+}
+
+
+// 修改输入框
+const changeInput = (target, el) => {
+  let form = target.data.form;
+  form[el.currentTarget.dataset.name] = el.detail;
+  target.setData({
+    form
+  })
+}
+
 module.exports = {
   checkLogin,
   chooseImgs,
   uploadImgs,
   uploadImg,
-  previewImgs,
-  deleteImg,
   getLocation,
-  checkNetworkNum,
   getRoutePlan,
-  getLocationMes
+  getLocationMes,
+
+  readImage,
+  deleteImage,
+  changeInput
 }

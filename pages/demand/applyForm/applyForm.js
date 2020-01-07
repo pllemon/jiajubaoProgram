@@ -1,22 +1,22 @@
 const app = getApp();
 const common = require('../../../utils/common.js');
-const moment = require('../../../utils/moment.min.js');
 
 Page({
   data: {
-    imgArr: [],
-    addressInfo: null,
-    showLocationDialog: false,
-    date: '',
-    time: '',
 
     networkArr: [],
     networkIdx: undefined,
 
-    minDate: moment().add('days', 1).format('YYYY-MM-DD'),
-    maxDate: moment().add('days', 15).format('YYYY-MM-DD'),
-
-    service_demand: ''
+    form: {
+      service_demand: '',
+      service_id: '',
+      urgent: false,
+      remark: ''
+    },
+    imgArr: [],
+    addressInfo: null,
+    service_demand: '',
+    checked: false
   },
 
   onLoad(params) {
@@ -29,8 +29,8 @@ Page({
       service_id: params.service_id,
       service_demand: app.globalData.service_demand
     })
-
   },
+
 
   // 手动点击定位
   onOpenSetting() {
@@ -44,13 +44,6 @@ Page({
     })
   },
 
-  upDateLocation() {
-    this.setData({
-      showLocationDialog: false
-    })
-    common.getLocation(this)
-  },
-
   // 更改值
   bindChange (e) {
     this.setData({
@@ -58,18 +51,9 @@ Page({
     })
   },
 
-  // 更新图片
-  updateImg(e) {
-    let { name, arr } = e.detail;
-    this.setData({
-      [name]: arr
-    })
-  },
-
   formSubmit(e) {
     let that = this;
-    let formData = e.detail.value;
-    let imgArr = this.data.imgArr;
+    let form = this.data.form;
 
     if (!that.data.addressInfo) {
       app.showModal('请定位服务地址');
@@ -78,36 +62,60 @@ Page({
     if (!that.data.networkIdx) {
       app.showModal('请选择服务网点');
       return false;
-    } 
-    if (!that.data.date) {
-      app.showModal('请选择预约日期');
-      return false;
-    }
-    if (!that.data.time) {
-      app.showModal('请选择预约时间');
-      return false;
     }
 
-    formData.service_demand = this.data.service_demand;
-    formData.service_id = this.data.service_id;
-    formData.appo_time = this.data.date + ' ' + this.data.time;
-    formData.address = this.data.addressInfo.address + formData.address; 
-    formData.network_id = this.data.networkArr[that.data.networkIdx].id;
+    form.service_demand = this.data.service_demand;
+    form.service_id = this.data.service_id;
+    form.address = this.data.addressInfo.address + e.detail.value.address;
+    form.network_id = this.data.networkArr[that.data.networkIdx].id;
+    form.urgent = this.data.checked;
+    let ad_info = this.data.addressInfo.ad_info;
+    form.region = ad_info.province + ad_info.city + ad_info.district;
+    form.province = ad_info.provincecode;
+    form.city = ad_info.citycode;
+    form.district = ad_info.adcode;
 
-    if (imgArr.length > 0) {
+    if (this.data.imgArr.length > 0) {
       wx.showLoading({
         title: '上传中',
       })
       common.uploadImgs('uploadordersimg', this.data.imgArr, function (res) {
         console.log(res)
         wx.hideLoading();
-        formData.imglist = res.join(',');
-        that.submitFn(formData);
+        let mapArr = res.map(item => {
+          return item.url
+        })
+        form.imglist = mapArr.join(',');
+        that.setData({
+          form,
+          imgArr: res
+        })
+        that.submitFn();
       })
     } else {
-      formData.imglist = '';
-      that.submitFn(formData);
+      form.imglist = '';
+      that.setData({
+        form
+      })
+      that.submitFn();
     } 
+  },
+
+  submitFn() {  
+    console.log(this.data.form)
+    return false
+
+    app.request({
+      url: '/markorder',
+      data: this.data.form,
+      success: function(data) {
+        app.successToast('创建订单成功', function(){
+          wx.reLaunch({
+            url: '/pages/personal/index/index'
+          })
+        })
+      }
+    })
   },
 
   chooseAddress() {
@@ -157,18 +165,20 @@ Page({
     })
   },
 
-  submitFn(formData) {  
-    console.log(formData)
-    app.request({
-      url: '/markorder',
-      data: formData,
-      success: function(data) {
-        app.successToast('创建订单成功', function(){
-          wx.reLaunch({
-            url: '/pages/personal/index/index'
-          })
-        })
-      }
+
+
+  afterRead(e) {
+    common.readImage(this, e)
+  },  
+  deleteImage(e) {
+    common.deleteImage(this, e)
+  },
+  onChange(e) {
+    common.changeInput(this, e)
+  },
+  changeSwitch(event) {
+    this.setData({
+      checked: event.detail
     })
-  }
+  },
 })

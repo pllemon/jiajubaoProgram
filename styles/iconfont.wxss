@@ -16,7 +16,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  top: -4px;
+  top: -2px;
 }
 
 .iconiconfontzhizuobiaozhun0261:before {
