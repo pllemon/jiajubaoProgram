@@ -2,6 +2,8 @@ const app = getApp()
 const common = require('../../../../utils/common.js');
 const validate = require('../../../../utils/validate.js');
 
+let uploadNum = 0;
+
 Page({
   data: {
     addressInfo: null,
@@ -16,9 +18,9 @@ Page({
       desc: ''
     },
 
-    sfz1: [],
-    sfz2: [],
-    sfz3: []
+    caridimg: [],
+    caridzimg: [],
+    caridfimg: []
   },
 
   onLoad () {
@@ -94,18 +96,61 @@ Page({
       app.showModal('请定位联系地址');
       return false;
     }
+    if (!this.data.caridimg.length) {
+      app.showModal('请上传手持证件照');
+      return false;
+    }
+    if (!this.data.caridzimg.length) {
+      app.showModal('请上传身份证正面');
+      return false;
+    }
+    if (!this.data.caridfimg.length) {
+      app.showModal('请上传身份证反面');
+      return false;
+    }
     if (this.data.agree.length == 0) {
       app.showModal('请认真阅读并勾选同意师傅入驻协议书');
       return false;
     }
     
     form.address = this.data.addressInfo.address + e.detail.value.address;
-    
-    console.log(form)
-    return false
+
+    uploadNum = 0;
+    wx.showLoading({
+      title: '上传中',
+    });
+    this.upload('caridimg');
+    this.upload('caridzimg');
+    this.upload('caridfimg');
+  },
+
+  afterRead(e) {
+    common.readImage(this, e)
+  },  
+  deleteImage(e) {
+    common.deleteImage(this, e)
+  },
+  onChange(e) {
+    common.changeInput(this, e)
+  },
+
+  upload(name) {
+    let that = this;
+    let form = this.data.form;
+    common.uploadImg('uploadcm', this.data[name][0], function (res) {
+      form[name] = res;
+      uploadNum++;
+      if (uploadNum == 3) {
+        wx.hideLoading();
+        that.submitFn();
+      }
+    })
+  },
+
+  submitFn() {
     app.request({
       url: '/applycraftsman',
-      data: form,
+      data: this.data.form,
       success: function(data) {
         app.successToast('提交成功', function(){
           wx.reLaunch({
@@ -113,33 +158,6 @@ Page({
           })
         })
       }
-    })
-  },
-
-  afterRead(e) {
-    const type = e.currentTarget.dataset.type;
-    const path = e.detail.file.path;
-    let fileList = this.data[type]
-    fileList = [
-      {
-        url: path
-      }
-    ]
-    this.setData({
-      [type]: fileList
-    })
-  },
-  deleteImage(e) {
-    const type = e.currentTarget.dataset.type;
-    this.setData({
-      [type]: []
-    })
-  },
-  onChange(e) {
-    let form = this.data.form;
-    form[e.currentTarget.dataset.name] = e.detail;
-    this.setData({
-      form
     })
   }
 })
