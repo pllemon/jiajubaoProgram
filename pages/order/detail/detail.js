@@ -188,6 +188,28 @@ Page({
     })
   },
 
+  // 师傅取消订单
+  cancelOrder() {
+    wx.showModal({
+      content: '确定取消承接该订单？',
+      success (res) {
+        if (res.confirm) {
+          app.request({
+            url: '/craftsmanconfirmorder',
+            data: {
+              order_id: that.data.order_id
+            },
+            success: function(data) {
+              app.successToast('确认成功', function(){
+                that.getInfo();
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
   // 上传工程秀
   uploadShow() {
     let that = this;

@@ -186,7 +186,8 @@ const uploadImg = ( url, file, callback)  => {
       console.log(res)
       let data = JSON.parse(res.data);
       if (data.success) {
-        file.success = true
+        file.data = data.data;
+        file.success = true;
         callback(file)
       } else {
         callback(file)

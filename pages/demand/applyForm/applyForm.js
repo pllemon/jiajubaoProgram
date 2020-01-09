@@ -10,7 +10,7 @@ Page({
     form: {
       service_demand: '',
       service_id: '',
-      urgent: false,
+      urgent: 0,
       remark: ''
     },
     imgArr: [],
@@ -68,12 +68,7 @@ Page({
     form.service_id = this.data.service_id;
     form.address = this.data.addressInfo.address + e.detail.value.address;
     form.network_id = this.data.networkArr[that.data.networkIdx].id;
-    form.urgent = this.data.checked;
-    let ad_info = this.data.addressInfo.ad_info;
-    form.region = ad_info.province + ad_info.city + ad_info.district;
-    form.province = ad_info.provincecode;
-    form.city = ad_info.citycode;
-    form.district = ad_info.adcode;
+    form.urgent = this.data.checked ? 1 : 0;
 
     if (this.data.imgArr.length > 0) {
       wx.showLoading({
@@ -83,7 +78,7 @@ Page({
         console.log(res)
         wx.hideLoading();
         let mapArr = res.map(item => {
-          return item.url
+          return item.data
         })
         form.imglist = mapArr.join(',');
         that.setData({
@@ -102,9 +97,6 @@ Page({
   },
 
   submitFn() {  
-    console.log(this.data.form)
-    return false
-
     app.request({
       url: '/markorder',
       data: this.data.form,
