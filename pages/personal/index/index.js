@@ -59,6 +59,12 @@ Page({
     })
   },
 
+  editMes() {
+    wx.navigateTo({
+      url: '/pages/personal/user/editMes/editMes'
+    })
+  },
+
   applyMaster() {
     wx.navigateTo({
       url: '/pages/personal/master/identity/identity'

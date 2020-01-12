@@ -33,11 +33,5 @@
         </view>
     </view>
 
-    <button form-type="submit" class="main-btn" disabled="{{!money}}">提交</button>
-
-    <view class="form-tips">
-        <view>说明：</view>
-        <view>1. 每100元可使用5积分抵扣5元，剩余金额请直接支付给商家。</view>
-        <view>2. 订单完成后，每消费100元可得到3积分返还，可用于下次线下消费。</view>
-    </view>
+    <button form-type="submit" class="main-btn">提交</button>
 </form>

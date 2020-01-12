@@ -138,7 +138,7 @@ Page({
     let that = this;
     let form = this.data.form;
     common.uploadImg('uploadcm', this.data[name][0], function (res) {
-      form[name] = res;
+      form[name] = res.data;
       uploadNum++;
       if (uploadNum == 3) {
         wx.hideLoading();
@@ -148,6 +148,7 @@ Page({
   },
 
   submitFn() {
+    console.log(this.data.form)
     app.request({
       url: '/applycraftsman',
       data: this.data.form,

@@ -37,6 +37,14 @@ Page({
     }
   },
 
+  // 下单
+  makeOffline(e) {
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/offline/apply/apply?id=' + id
+    })
+  },
+
   makePhoneCall(e) {
     let phone = e.currentTarget.dataset.phone;
     wx.makePhoneCall({

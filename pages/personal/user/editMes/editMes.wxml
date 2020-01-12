@@ -1,0 +1,19 @@
+<form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
+    <van-cell-group>
+        <van-cell title="头像" title-width="100px" required>
+            <van-uploader data-type="shopimg" file-list="{{ shopimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
+        <van-field
+            input-class="input-field"
+            value="{{ form.name }}"
+            required
+            label="姓名"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="name"
+            bind:change="onChange"
+        />
+    </van-cell-group>
+
+    <button form-type="submit" class="main-btn">提交</button>
+</form>

@@ -42,7 +42,7 @@
       </view>
       <view class="mes">
         <icon class="iconfont iconicon_calendar"></icon>
-        <text class="content">{{orderMes.info.appo_time}}</text>
+        <text class="content">{{orderMes.info.appo_time ? orderMes.info.appo_time : '上门时间待沟通'}}</text>
       </view>
       <view class="mes" wx:if="{{orderMes.info.remark}}">
         <icon class="iconfont iconicon_community_line"></icon>

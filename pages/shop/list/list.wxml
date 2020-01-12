@@ -42,9 +42,13 @@
                 <icon class="iconfont iconicon_GPS"></icon>
                 <text>路线</text>
               </button>
-              <button size="mini" data-idx="{{index}}" open-type="share">
+              <!-- <button size="mini" data-idx="{{index}}" open-type="share">
                 <icon class="iconfont iconicon_share"></icon>
                 <text>分享</text>
+              </button> -->
+              <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
+                <icon class="iconfont iconicon_share"></icon>
+                <text>下单</text>
               </button>
             </view>
           </view>

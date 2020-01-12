@@ -2,7 +2,7 @@
   <!-- 我的信息 -->
   <view class="personal-header">
     <view class="personal-mes blue-header">
-      <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
+      <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img" bindtap="editMes"></image>
       <view>
         <view wx:if="{{currType == 0}}" class="personal-name">{{userInfo.username}}</view>
         <view wx:if="{{currType == 1}}" class="personal-name">{{userInfo.craftsmannfo.name}}</view>

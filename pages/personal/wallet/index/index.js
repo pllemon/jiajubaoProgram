@@ -55,7 +55,7 @@ Page({
 
   useIntegral() {
     wx.navigateTo({
-      url: '/pages/offline/apply/apply?id=3'
+      url: '/pages/shop/list/list'
     })
     return false
     wx.scanCode({
