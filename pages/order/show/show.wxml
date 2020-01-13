@@ -22,7 +22,7 @@
     </van-cell-group>
     <van-cell-group title="添加图片">
         <view class="form-section2">
-            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="3" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="2" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </view>
     </van-cell-group>
     <button form-type="submit" class="main-btn">提交</button>

@@ -5,22 +5,34 @@ Page({
   data: {
     imgArr: [],
     order_id: '',
-    type: ''
+    number: '',
+    info: ''
   },
 
   onLoad(params) {
     this.setData({
       order_id: params.id,
-      type: params.type
+      number: params.number
     })
-    if (params.type == 2) {
-      this.getMes()
+    if (params.number == 2) {
+      this.getDetails()
     }
   },
 
   // 获取资料
-  getMes () {
-    
+  getDetails(id) {
+    let that = this;
+    app.request({
+      url: '/ordershowinfo',
+      data: {
+        show_id: id
+      },
+      success: function(data) {
+        that.setData({
+          info: data
+        })
+      }
+    })
   },
 
   // 更新图片

@@ -162,7 +162,7 @@ Page({
   beginWork() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=1'
+      url: '/pages/order/show/show?id=' + that.data.order_id + '&number=1'
     })
   },
 
@@ -170,7 +170,7 @@ Page({
   endWork() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=2'
+      url: '/pages/order/show/show?id=' + that.data.order_id + '&number=2'
     })
   },
 
