@@ -4,13 +4,23 @@ const common = require('../../../utils/common.js');
 Page({
   data: {
     imgArr: [],
-    order_id: ''
+    order_id: '',
+    type: ''
   },
 
   onLoad(params) {
-   this.setData({
-    order_id: params.id
-   })
+    this.setData({
+      order_id: params.id,
+      type: params.type
+    })
+    if (params.type == 2) {
+      this.getMes()
+    }
+  },
+
+  // 获取资料
+  getMes () {
+    
   },
 
   // 更新图片
@@ -51,5 +61,16 @@ Page({
         })
       }
     })
-  }
+  },
+
+
+  afterRead(e) {
+    common.readImage(this, e)
+  },  
+  deleteImage(e) {
+    common.deleteImage(this, e)
+  },
+  onChange(e) {
+    common.changeInput(this, e)
+  },
 })

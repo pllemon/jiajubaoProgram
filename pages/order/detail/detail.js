@@ -159,12 +159,21 @@ Page({
   },
 
   // 开始施工
-  masterConfirm() {
+  beginWork() {
     let that = this;
     wx.navigateTo({
       url: '/pages/order/show/show?id=' + that.data.order_id + '&type=1'
     })
   },
+
+  // 施工完成
+  endWork() {
+    let that = this;
+    wx.navigateTo({
+      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=2'
+    })
+  },
+
   // 师傅确认完工
   masterConfirm2() {
     let that = this
