@@ -4,17 +4,29 @@ const common = require('../../../utils/common.js');
 Page({
   data: {
     imgArr: [],
-    order_id: '',
-    number: '',
-    info: ''
+    info: '',
+
+    form: {
+      order_id: '',
+      title: '',
+      dec: '',
+      imgurl1: '',
+      imgurl2: '',
+      imgurl3: '',
+      imgurl4: ''
+    }
   },
 
   onLoad(params) {
-    this.setData({
-      order_id: params.id,
-      number: params.number
-    })
+    let form = this.data.form
+    form.order_id = params.id
     if (params.number == 2) {
+      form.number = params.number
+    }
+    this.setData({
+      form
+    })
+    if (form.number) {
       this.getDetails()
     }
   },
@@ -28,45 +40,65 @@ Page({
         show_id: id
       },
       success: function(data) {
+        console.log(data)
+        let form = this.data.form
+        form.title = data.title
+        form.dec = data.dec
+        form.imgurl1 = data.imgurl1
+        form.imgurl2 = data.imgurl2
         that.setData({
-          info: data
+          form
         })
       }
     })
   },
 
-  // 更新图片
-  updateImg(e) {
-    let { name, arr } = e.detail;
-    this.setData({
-      [name]: arr
-    })
-  },
-
-  formSubmit(e) {
+  formSubmit() {
     let that = this;
-    let formData = e.detail.value;
+    let form = this.data.form;
     let imgArr = this.data.imgArr; 
+    if (!form.title) {
+      app.showModal('请填写标题');
+      return false;
+    }
+    if (!imgArr.length) {
+      app.showModal('请上传图片');
+      return false;
+    }
     if (imgArr.length > 0) {
       wx.showLoading({
         title: '上传中',
       })   
       common.uploadImgs('uploadordershow', this.data.imgArr, function (res) {
+        that.setData({
+          imgArr: res
+        })
         wx.hideLoading();
-        formData.imglist = res.join(',');
-        that.submitFn(formData);
+        that.submitFn(form);
       })
     } else {
-      formData.imglist = '';
-      that.submitFn(formData);
+      that.submitFn(form);
     } 
   },
 
-  submitFn(formData) {
-    formData.order_id = this.data.order_id;
+  submitFn() {
+    let form = this.data.form;
+    let imgArr = this.data.imgArr;
+    let url = '';
+    if (form.number) {
+      form.imgurl3 = imgArr[0] ? imgArr[0].data : '';
+      form.imgurl4 = imgArr[1] ? imgArr[1].data : '';
+      url = '/savecraftsmanshow';
+    } else {
+      form.imgurl1 = imgArr[0] ? imgArr[0].data : '';
+      form.imgurl2 = imgArr[1] ? imgArr[1].data : '';
+      url = '/craftsmanshow';
+    }
+    console.log(form)
+    return false
     app.request({
-      url: '/craftsmanshow',
-      data: formData,
+      url: url,
+      data: form,
       success: function(data) {
         app.successToast('上传成功', function(){
           wx.navigateBack()
