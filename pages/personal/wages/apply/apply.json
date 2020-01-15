@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+	"navigationBarTitleText": "工资提现",
+	"usingComponents": {
+		"van-dialog": "../../miniprogram_npm/vant-weapp/dialog",
+		"van-cell": "../../miniprogram_npm/vant-weapp/cell"
+	}
 }

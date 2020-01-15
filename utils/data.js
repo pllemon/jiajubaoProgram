@@ -1,4 +1,4 @@
-// 订单状态：1 待审核 2 待支付定金 ，3待派单 4 报名中 5施工中 6待付尾款 7待评价 8已完成 9支付定金但未施工，强行结束订单
+// 订单状态：1 待审核 2 待支付 ，3待派单 4 报名中 5施工中 6待付尾款 7待评价 8已完成 9支付但未施工，强行结束订单
 // 人员状态：0 未申请 1 正常使用 2 申请中 3 驳回 4 禁用
 const personMessage = {
   0: {
@@ -26,7 +26,7 @@ const personMessage = {
       2: {
         status: 2,
         label: '待下订',
-        desc: '订单已审核通过，请支付定金',
+        desc: '订单已审核通过，请支付',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
@@ -39,7 +39,7 @@ const personMessage = {
       3: {
         status: 3,
         label: '待派单',
-        desc: '已支付定金，订单等待后台派单',
+        desc: '已支付，订单等待后台派单',
         show: true,
         icon: 'icondengdai',
         showUser: true,

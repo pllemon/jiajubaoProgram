@@ -71,7 +71,7 @@
 					"id": 3,
 					"name": "geren",
 					"pathName": "pages/personal/index/index",
-					"query": "type=0",
+					"query": "type=1",
 					"scene": null
 				},
 				{

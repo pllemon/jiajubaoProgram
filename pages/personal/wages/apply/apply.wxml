@@ -1,2 +1,5 @@
-<!--pages/personal/wages/apply/apply.wxml-->
-<text>pages/personal/wages/apply/apply.wxml</text>
+<view></view>
+<view class="main-action flex-center-between">
+    <view>合计：￥990</view>
+    <button bindtap="cancelOrder" class="main-btn flex1">提交申请</button>
+</view>

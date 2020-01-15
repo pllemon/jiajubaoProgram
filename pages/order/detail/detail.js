@@ -117,7 +117,7 @@ Page({
     })
   },
 
-  // 支付定金
+  // 支付
   payearnestprice() {
     let that = this;
     app.request({
@@ -162,7 +162,7 @@ Page({
   beginWork() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id + '&number=1'
+      url: '/pages/order/show/show?order_id=' + that.data.order_id +  '&number=1'
     })
   },
 
@@ -170,7 +170,7 @@ Page({
   endWork() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id + '&number=2'
+      url: '/pages/order/show/show?order_id=' + that.data.order_id + '&id=' + that.data.orderMes.ordersshow.id + '&number=2'
     })
   },
 
@@ -216,14 +216,6 @@ Page({
           })
         }
       }
-    })
-  },
-
-  // 上传工程秀
-  uploadShow() {
-    let that = this;
-    wx.navigateTo({
-      url: '/pages/order/show/show?id=' + that.data.order_id + '&type=2'
     })
   },
 

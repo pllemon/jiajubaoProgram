@@ -5,7 +5,7 @@ Page({
   data: {
     imgArr: [],
     info: '',
-
+    id: '',
     form: {
       order_id: '',
       title: '',
@@ -18,13 +18,16 @@ Page({
   },
 
   onLoad(params) {
+    let id = this.data.id
     let form = this.data.form
-    form.order_id = params.id
+    form.order_id = params.order_id
     if (params.number == 2) {
       form.number = params.number
+      id = params.id
     }
     this.setData({
-      form
+      form,
+      id
     })
     if (form.number) {
       this.getDetails()
@@ -32,16 +35,16 @@ Page({
   },
 
   // 获取资料
-  getDetails(id) {
+  getDetails() {
     let that = this;
     app.request({
       url: '/ordershowinfo',
       data: {
-        show_id: id
+        show_id: that.data.id
       },
       success: function(data) {
         console.log(data)
-        let form = this.data.form
+        let form = that.data.form
         form.title = data.title
         form.dec = data.dec
         form.imgurl1 = data.imgurl1
@@ -86,6 +89,7 @@ Page({
     let imgArr = this.data.imgArr;
     let url = '';
     if (form.number) {
+      form.id = this.data.id;
       form.imgurl3 = imgArr[0] ? imgArr[0].data : '';
       form.imgurl4 = imgArr[1] ? imgArr[1].data : '';
       url = '/savecraftsmanshow';
@@ -95,7 +99,6 @@ Page({
       url = '/craftsmanshow';
     }
     console.log(form)
-    return false
     app.request({
       url: url,
       data: form,

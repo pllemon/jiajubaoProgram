@@ -76,14 +76,6 @@
             <text>订单总额</text>
             <text>{{orderMes.pay.total_price}} 元</text>
           </view>
-          <view>
-            <text>定金金额</text>
-            <text>{{orderMes.pay.earnest_price}} 元</text>
-          </view>
-          <view>
-            <text>师傅工资</text>
-            <text>{{orderMes.pay.craftsman_price}} 元</text>
-          </view>
         </block>
       </view>
     </view>
@@ -114,8 +106,8 @@
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
       </view>
-      <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn flex1">支付定金</button>
-      <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn flex1">支付尾款</button>
+      <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn flex1">支付</button>
+      <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn flex1">确认完成</button>
       <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
       <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn flex1">评价订单</button>
       <button wx:if="{{orderMes.info.status == 10}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
@@ -127,8 +119,8 @@
         <text>客服</text>
       </view>
       <button wx:if="{{orderMes.info.status == 5}}" bindtap="cancelOrder" class="main-btn flex1">取消订单</button>
-      <button wx:if="{{orderMes.info.status == 5}}" bindtap="beginWork" class="main-btn flex1">开始施工</button>
-      <button wx:if="{{orderMes.info.status == 5}}" bindtap="endWork" class="main-btn flex1">施工完成</button>
+      <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="beginWork" class="main-btn flex1">开始施工</button>
+      <button wx:if="{{orderMes.info.status == 5 && orderMes.ordersshow}}" bindtap="endWork" class="main-btn flex1">施工完成</button>
       <button wx:if="{{orderMes.info.status > 5 && orderMes.info.status < 8}}" class="main-btn flex1 disable">待客户确认完工</button>
       <button wx:if="{{orderMes.info.status == 8 && !orderMes.ordersshow}}" bindtap="uploadShow" class="main-btn flex1">上传工程秀</button>
       <button wx:if="{{orderMes.info.status == 8 && orderMes.ordersshow}}" bindtap="signUpOrder" class="main-btn flex1">再次抢单</button>
