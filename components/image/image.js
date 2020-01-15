@@ -12,6 +12,14 @@ Component({
     preview: {
       type: Boolean,
       value: false
+    },
+    width: {
+      type: String,
+      value: '100%'
+    },
+    height: {
+      type: String,
+      value: '100%'
     }
   },
   data: {

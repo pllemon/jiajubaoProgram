@@ -55,6 +55,7 @@ Page({
         that.setData({
           userInfo: data
         })
+        app.globalData.loginInfo = data
       }
     })
   },

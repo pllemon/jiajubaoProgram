@@ -196,6 +196,11 @@ const uploadImg = ( url, file, callback)  => {
   })
 }
 
+// 补全图片url
+const padUrl = (url) => {
+  return 'http://47.106.100.144/' + url
+}
+
 
 // 修改输入框
 const changeInput = (target, el) => {
@@ -211,6 +216,7 @@ module.exports = {
   chooseImgs,
   uploadImgs,
   uploadImg,
+  padUrl,
   getLocation,
   getRoutePlan,
   getLocationMes,

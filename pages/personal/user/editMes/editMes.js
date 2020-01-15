@@ -1,46 +1,50 @@
 const app = getApp()
 const common = require('../../../../utils/common.js');
-const validate = require('../../../../utils/validate.js');
-
-let uploadNum = 0;
-
 Page({
   data: {
-    agree: [],
-    goodsimg: [],
-    shopimg: [],
-    businessimg: [],
-    sharewximg: [],
+    imgArr: [],
 
     form: {
-      name: '',
-      phone: ''
-    },
+      headerurl: '',
+      username: ''
+    }
+  },
 
-    addressInfo: null,
-    showLocationDialog: false,
+  onLoad() {
+    let loginInfo = app.globalData.loginInfo;
+    console.log(loginInfo)
+    let form = {
+      headerurl: loginInfo.headerurl,
+      username: loginInfo.username
+    };
+    let imgArr = [{
+      url: common.padUrl(loginInfo.headerurl),
+      success: true,
+      data: loginInfo.headerurl
+    }]
+    this.setData({
+      form,
+      imgArr
+    })
+    
   },
 
   formSubmit: function(e) {
     let form = this.data.form;
 
-    if (!form.name) {
-      app.showModal('请输入店铺名');
+    if (!form.username) {
+      app.showModal('请输入昵称');
       return false;
     }
-    if (!this.data.businessimg.length) {
-      app.showModal('请上传营业执照');
+    if (!this.data.imgArr.length) {
+      app.showModal('请上传头像');
       return false;
     }
 
-    uploadNum = 0;
     wx.showLoading({
       title: '上传中',
     });
-    this.upload('shopimg');
-    this.upload('goodsimg');
-    this.upload('businessimg');
-    this.upload('sharewximg');
+    this.upload('imgArr');
   },
 
   afterRead(e) {
@@ -56,26 +60,21 @@ Page({
   upload(name) {
     let that = this;
     let form = this.data.form;
-    common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
-      form[name] = res;
-      uploadNum++;
-      if (uploadNum == 4) {
-        wx.hideLoading();
-        that.submitFn();
-      }
+    common.uploadImg('uploaduserheader', this.data[name][0], function (res) {
+      form.headerurl = res.data;
+      wx.hideLoading();
+      that.submitFn();
     })
   },
 
   submitFn() {
-    console.log(this.data.form)
-    return false
     app.request({
-      url: '/applybusiness',
+      url: '/saveuserinfo',
       data: this.data.form,
       success: function(data) {
         app.successToast('提交成功', function(){
           wx.reLaunch({
-            url: '/pages/personal/index/index?type=2'
+            url: '/pages/personal/index/index?type=0'
           })
         })
       }

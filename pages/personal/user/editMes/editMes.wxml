@@ -1,16 +1,16 @@
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
     <van-cell-group>
         <van-cell title="头像" title-width="100px" required>
-            <van-uploader data-type="shopimg" file-list="{{ shopimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </van-cell>
         <van-field
             input-class="input-field"
-            value="{{ form.name }}"
+            value="{{ form.username }}"
             required
-            label="姓名"
+            label="昵称"
             placeholder="请输入"
             title-width="100px"
-            data-name="name"
+            data-name="username"
             bind:change="onChange"
         />
     </van-cell-group>

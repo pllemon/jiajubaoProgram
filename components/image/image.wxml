@@ -1,1 +1,14 @@
-<image src="http://47.106.100.144/{{src}}" mode="{{mode}}" bindtap="preview"/>
+<image 
+    wx:if="{{src}}" 
+    src="http://47.106.100.144/{{src}}" 
+    mode="{{mode}}" 
+    bindtap="preview"
+    style="width:{{width}};height:{{height}}"
+/>
+<image 
+    wx:else 
+    src="/image/example/user6.png" 
+    mode="{{mode}}" 
+    bindtap="preview"
+    style="width:{{width}},height:{{height}}"
+/>

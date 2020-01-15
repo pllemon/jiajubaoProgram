@@ -3,7 +3,6 @@
 	"usingComponents": {
 		"scroll-content": "/components/scroll/scroll",
 	    "navigation": "/components/navigation/navigation",
-		"gdImage": "/components/image/image",
 		"van-search": "../../miniprogram_npm/vant-weapp/search"
 	}
 }
