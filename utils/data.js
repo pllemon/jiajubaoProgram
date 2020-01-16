@@ -25,7 +25,7 @@ const personMessage = {
       },
       2: {
         status: 2,
-        label: '待下订',
+        label: '待支付',
         desc: '订单已审核通过，请支付',
         show: true,
         icon: 'iconqianbao',

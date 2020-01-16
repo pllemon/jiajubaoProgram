@@ -1,3 +1,4 @@
+const app = getApp()
 
 Page({
   data: {
@@ -12,13 +13,29 @@ Page({
       pay_status_code: 'GETTOW',
       cmorderstatus: 4
     },
-    form: {
-      
-    }
+    list: []
   },
   onLoad(params) {
     this.setData({
       type: params.type
     })
-  }
+    if (this.data.type == 1) {
+      this.getOrderList(this.data.query1)
+    } else {
+      this.getOrderList(this.data.query2)
+    }
+  },
+
+  getOrderList(data = {}) {
+    let that = this;
+    app.request({
+      url: '/craftsmanorderlist',
+      data,
+      success: function(data) {
+        that.setData({
+          list: data
+        })
+      }
+    })
+  },
 })
