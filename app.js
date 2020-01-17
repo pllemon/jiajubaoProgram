@@ -69,7 +69,9 @@ App({
       success(res) {
         if (res.statusCode == 200) {
           if (res.data.success) {
-            obj.success(res.data.data)
+            if (obj.success) {
+              obj.success(res.data.data)
+            }
           } else {
             if (res.data.code == 404) {
               wx.showModal({

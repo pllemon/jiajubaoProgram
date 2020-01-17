@@ -1,5 +1,6 @@
-const app = getApp()
-let num = 0
+const app = getApp();
+const common = require('../../../../utils/common.js');
+let num = 0;
 
 Page({
   data: {
@@ -12,18 +13,25 @@ Page({
 
     form: {
       order_id: '',
-      pay_status_code: '',
+      pay_status_code: 'GETONE',
       pay_name: '',
-      pay_type: ''
+      pay_type: '',
+      pay_username: ''
     },
 
     isPopup: false,
-    radio: '1'
+    radio: '2'
   },
   onLoad(params) {
     let query = this.data.query
+    let form = this.data.query
     if (params.type == 2) {
       query.pay_status_code = 'GETTOW'
+      form.pay_status_code = 'GETTOW'
+      this.setData({
+        query,
+        form
+      })
     }
     this.getOrderList(this.data.query)
   },
@@ -68,8 +76,7 @@ Page({
     let that = this;
     let data = that.data.form;
     data.order_id = order_id;
-    console.log(this.data.form);
-    return false;
+    data.pay_type = this.data.radio;
     wx.showLoading({
       title: '提交中',
       mask: true
@@ -82,16 +89,11 @@ Page({
         num = num + 1;
         if (num == that.data.list.length) {
           wx.hideLoading()
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 1000
-          })
-          setTimeout(() => {
+          app.successToast('提交成功', function(){
             wx.redirectTo({
               url: '/pages/personal/wages/applyRecord/applyRecord'
             })
-          }, 1000)
+          })
         }
       }
     })
