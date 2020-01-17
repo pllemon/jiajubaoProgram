@@ -1,5 +1,52 @@
-<view></view>
-<view class="main-action flex-center-between">
-    <view>合计：￥990</view>
-    <button bindtap="cancelOrder" class="main-btn flex1">提交申请</button>
+<view class="full-layout">
+    <view class="order-list">
+        <view wx:for="{{list}}" wx:key="index" class="order-single">
+            <view class="category">{{item.service_demand}}</view>
+            <view>服务地址：{{item.address}}</view>
+            <view>确认完成：{{item.success_time}}</view>
+            <view>师傅工资：{{item.craftsman_price}}</view>
+        </view>
+    </view>
+
+    <view class="page-action">
+        <view class="money">合计：￥990</view>
+        <button bindtap="openPopup" class="main-btn flex1">申请一期（80%）</button>
+    </view>
 </view>
+<van-popup
+  show="{{ isPopup }}"
+  position="top"
+  bind:close="closePopup"
+>
+    <form bindsubmit="formSubmit" class="form" style="padding: 30rpx">
+        <van-cell-group title="基础资料">
+            <van-cell title="方式" title-width="100px" required>
+                <van-radio-group value="{{ radio }}" bind:change="changeType">
+                    <van-radio name="1" checked-color="#4d5ef4" custom-class="radio-single">银行卡</van-radio>
+                    <van-radio name="2" checked-color="#4d5ef4" custom-class="radio-single">支付宝</van-radio>
+                </van-radio-group>
+            </van-cell>
+            <van-field
+                input-class="input-field"
+                value="{{ form.pay_name }}"
+                required
+                label="账号"
+                placeholder="请输入"
+                title-width="100px"
+                data-name="pay_name"
+                bind:change="onChange"
+            />
+            <van-field
+                input-class="input-field"
+                value="{{ form.pay_name }}"
+                required
+                label="真实姓名"
+                placeholder="请输入"
+                title-width="100px"
+                data-name="pay_name"
+                bind:change="onChange"
+            />
+        </van-cell-group>
+        <button form-type="submit" class="main-btn">提交</button>
+    </form>
+</van-popup>
