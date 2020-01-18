@@ -4,3 +4,10 @@ textarea{
     width: 100%;
     box-sizing: border-box;
 }
+
+.van-icon-star-o{
+    font-size: 40px !important;
+}
+.van-rate__icon{
+    font-size: 40px !important;
+}
