@@ -9,51 +9,53 @@
       />
     </view>
     <scroll-content 
-      class="common-list"
+      class="scroll-view"
       is-loadMore = "{{isLoadMore}}"
       is-refresh = "{{isRefresh}}"
       page = "{{page}}"
       last-page = "{{lastPage}}"
       bind:change = "changeList"
     >
-      <block wx:for="{{list}}" wx:key="{{index}}">
-        <view class="shop-single m20">
-          <view class="shop-img">
-            <gdImage src="{{ item.shopimg }}"  preview="true"/>
-            <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+      <view class="common-list">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+          <view class="shop-single m20">
+            <view class="shop-img">
+              <gdImage src="{{ item.shopimg }}"  preview="true"/>
+              <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+            </view>
+            <view class="common-section">
+              <view class="flex-start-between">
+                <view class="title2">{{item.name}}</view>
+                <view class="label-green">{{item.distance}}</view>
+              </view>
+              <view class="mes">
+                <text class="content">{{item.address}}</text>
+              </view>
+              <view class="mes">
+                <text class="content">{{item.phone}}</text>
+              </view>
+              <view class="shop-action flex-center-end">
+                <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
+                  <icon class="iconfont iconicon_phone"></icon>
+                  <text>联系</text>
+                </button>
+                <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
+                  <icon class="iconfont iconicon_GPS"></icon>
+                  <text>路线</text>
+                </button>
+                <!-- <button size="mini" data-idx="{{index}}" open-type="share">
+                  <icon class="iconfont iconicon_share"></icon>
+                  <text>分享</text>
+                </button> -->
+                <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
+                  <icon class="iconfont iconicon_share"></icon>
+                  <text>下单</text>
+                </button>
+              </view>
+            </view>
           </view>
-          <view class="common-section">
-            <view class="flex-start-between">
-              <view class="title2">{{item.name}}</view>
-              <view class="label-green">{{item.distance}}</view>
-            </view>
-            <view class="mes">
-              <text class="content">{{item.address}}</text>
-            </view>
-            <view class="mes">
-              <text class="content">{{item.phone}}</text>
-            </view>
-            <view class="shop-action flex-center-end">
-              <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
-                <icon class="iconfont iconicon_phone"></icon>
-                <text>联系</text>
-              </button>
-              <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
-                <icon class="iconfont iconicon_GPS"></icon>
-                <text>路线</text>
-              </button>
-              <!-- <button size="mini" data-idx="{{index}}" open-type="share">
-                <icon class="iconfont iconicon_share"></icon>
-                <text>分享</text>
-              </button> -->
-              <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
-                <icon class="iconfont iconicon_share"></icon>
-                <text>下单</text>
-              </button>
-            </view>
-          </view>
-        </view>
-      </block>
+        </block>
+      </view>
     </scroll-content>
   </block>
   <block wx:else>

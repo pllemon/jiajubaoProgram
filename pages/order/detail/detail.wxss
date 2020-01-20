@@ -24,12 +24,6 @@
     color: #4d5ef4;
 }
 
-.personal-img{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-    margin-right: 20rpx;
-}
 
 .main-action{
     padding: 20rpx 30rpx;
@@ -59,10 +53,6 @@
     padding: 20rpx 0rpx;
 }
 .sign-single image{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-    background: #ddd;
     margin-right: 20rpx;
 }
 
@@ -89,20 +79,6 @@
     margin-bottom: 10rpx;
 }
 
-swiper-item{
-    position: relative;
-}
-label{
-    position: absolute;
-    bottom: 20rpx;
-    right: 20rpx;
-    color: #fff;
-    font-size: 13px;
-    padding: 10rpx 20rpx;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 4rpx;
-}
-
 .message view{
     display: flex;
     align-content: center;
@@ -116,10 +92,16 @@ label{
     margin-top: 30rpx;
     color: #888;
 }
-.concat image{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-    background: #ddd;
-    margin-right: 10rpx;
+
+
+.personal-img{
+    margin-right: 20rpx;
+}
+
+
+
+.money{
+    font-size: 22px;
+    color:#4d5ef4;
+    font-weight: 500;
 }

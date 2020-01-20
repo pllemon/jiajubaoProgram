@@ -1,6 +1,17 @@
-@import '/styles/iconfont.wxss';
-
-image{
+.gd-image{
+	position: relative;
+}
+.gd-image image{
 	width: 100%;
 	height: 100%;
+}
+.gd-image .label{
+	position: absolute;
+	bottom: 6rpx;
+	right: 6rpx;
+	color: #fff;
+	font-size: 13px;
+	padding: 6rpx 16rpx;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 4rpx;
 }

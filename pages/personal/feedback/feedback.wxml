@@ -1,12 +1,4 @@
 <form bindsubmit="formSubmit" class="form">
-    <view class="form-section">
-        <view class="form-item">
-            <label><text class="required">*</text>反馈内容</label>
-            <view class="form-content">
-                <textarea name="feedback" style="height: 500rpx" placeholder="请输入"/>
-            </view>
-        </view>
-    </view>
-
+    <textarea placeholder="请输入反馈内容" name="feedback"/>
     <button form-type="submit" class="main-btn">提交</button>
 </form>

@@ -27,6 +27,9 @@ Page({
       data: formData,
       success: function(data) {
         app.successToast('评价成功', function(){
+          let pages = getCurrentPages();
+          let beforePage = pages[pages.length - 2];
+          beforePage.getInfo();
           wx.navigateBack()
         })
       }

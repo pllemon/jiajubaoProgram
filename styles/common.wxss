@@ -16,6 +16,10 @@
   color: #888;
 }
 
+.personal-img{
+  border-radius: 50%;
+  overflow: hidden;
+}
 
 .tab-list{
   display: flex;
@@ -101,22 +105,6 @@
 }
 
 
-.common-list{
-  height: 0;
-  flex: 1;
-  position: relative;
-}
-.common-card{
-  background: #fff;
-  margin: 20rpx;
-  padding: 30rpx;
-  margin-top: 0;
-  border-radius: 20rpx;
-  overflow: hidden;
-  font-size: 16px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-}
-
 /* 操作列表 */
 .action-list{
 	margin-bottom: 30rpx;
@@ -165,6 +153,28 @@
 }
 
 
+
+/* 常规列表 */
+.scroll-view{
+  height: 0;
+  flex: 1;
+  position: relative;
+}
+.common-list{
+  padding-top: 20rpx;
+}
+.common-card{
+  background: #fff;
+  margin: 20rpx;
+  padding: 30rpx;
+  margin-top: 0;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+}
+/* —————————————————— */
+
+
 /* 订单列表 */
 .order-list{
   flex: 1;
@@ -180,7 +190,7 @@
   position: relative;
 }
 .order-single .category{
-  font-size: 17px;
+  font-size: 18px;
   color: #353535;
   font-weight: 500;
 }
@@ -202,5 +212,50 @@
 .page-action .main-btn{
   margin: 0;
   margin-left: 20rpx;
+}
+/* —————————————————— */
+
+
+/* 工程秀 */
+.show-single{
+  background: #fff;
+}
+.show-single .show-title{
+  font-size: 18px;
+  color: #353535;
+  font-weight: 500;
+}
+.show-single .show-mes{
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.show-single .master{
+  display: flex;
+  align-items: center;
+}
+.show-single .master .personal-img{
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.show-single .show-dec{
+  font-size: 14px;
+}
+.show-single .img-list{
+  display: flex;
+  margin-top: 20rpx;
+}
+.show-single .img-list gdImage{
+  width: 33.33%;
+  height: 150rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.show-single .img-list gdImage:last-child{
+  margin-right: 0;
 }
 /* —————————————————— */

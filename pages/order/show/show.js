@@ -14,20 +14,24 @@ Page({
       imgurl2: '',
       imgurl3: '',
       imgurl4: ''
-    }
+    },
+    maxCount: 1
   },
 
   onLoad(params) {
     let id = this.data.id
     let form = this.data.form
+    let maxCount = this.data.form
     form.order_id = params.order_id
     if (params.number == 2) {
       form.number = params.number
       id = params.id
+      maxCount = 2
     }
     this.setData({
       form,
-      id
+      id,
+      maxCount
     })
     if (form.number) {
       this.getDetails()
@@ -98,12 +102,14 @@ Page({
       form.imgurl2 = imgArr[1] ? imgArr[1].data : '';
       url = '/craftsmanshow';
     }
-    console.log(form)
     app.request({
       url: url,
       data: form,
       success: function(data) {
         app.successToast('上传成功', function(){
+          let pages = getCurrentPages();
+          let beforePage = pages[pages.length - 2];
+          beforePage.getInfo();
           wx.navigateBack()
         })
       }

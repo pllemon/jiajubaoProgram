@@ -20,7 +20,8 @@ Page({
     },
 
     isPopup: false,
-    radio: '2'
+    radio: '2',
+    finish: false
   },
   onLoad(params) {
     let query = this.data.query
@@ -66,7 +67,8 @@ Page({
       data,
       success: function(data) {
         that.setData({
-          list: data
+          list: data,
+          finish: true
         })
       }
     })

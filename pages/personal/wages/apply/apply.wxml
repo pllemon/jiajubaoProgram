@@ -1,17 +1,22 @@
 <view class="full-layout">
-    <view class="order-list">
-        <view wx:for="{{list}}" wx:key="index" class="order-single">
-            <view class="category">{{item.service_demand}}</view>
-            <view>服务地址：{{item.address}}</view>
-            <view>确认完成：{{item.success_time}}</view>
-            <view>师傅工资：￥{{item.craftsman_price}}</view>
+    <block wx:if="{{list.length && finish}}">
+        <view class="order-list">
+            <view wx:for="{{list}}" wx:key="index" class="order-single">
+                <view class="category">{{item.service_demand}}</view>
+                <view>服务地址：{{item.address}}</view>
+                <view>确认完成：{{item.success_time}}</view>
+                <view>师傅工资：￥{{item.craftsman_price}}</view>
+            </view>
         </view>
-    </view>
 
-    <view class="page-action">
-        <view class="money">合计：￥990</view>
-        <button bindtap="openPopup" class="main-btn flex1">申请一期（80%）</button>
-    </view>
+        <view class="page-action">
+            <view class="money">合计：￥990</view>
+            <button bindtap="openPopup" class="main-btn flex1">申请一期（80%）</button>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="no-res">暂无数据</view>
+    </block>
 </view>
 <van-popup
   show="{{ isPopup }}"

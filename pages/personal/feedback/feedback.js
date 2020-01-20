@@ -10,11 +10,10 @@ Page({
       url: '/feedback',
       data: formData,
       success: function(data) {
-        app.successToast('反馈成功', function(){
+        app.successToast('感谢反馈', function(){
           wx.navigateBack()
         })
       }
     })
   }
-
 })

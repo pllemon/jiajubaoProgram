@@ -38,7 +38,7 @@ Page({
       url: '/ordershowlist',
       data: {
         page: page,
-        limit: 10
+        limit: 4
       },
       hideLoading: true,
       success: function(data) {

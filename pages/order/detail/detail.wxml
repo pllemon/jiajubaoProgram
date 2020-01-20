@@ -9,7 +9,7 @@
 
     <view class="concat-mes">
       <view wx:if="{{orderStatus.showUser}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
-        <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
+        <gdImage src="" class="personal-img" width="80rpx" height="80rpx"></gdImage>
         <view class="flex1">
           <view class="name">{{orderMes.info.username}}</view>
           <view>{{orderMes.info.phone}}</view>
@@ -20,7 +20,7 @@
         </view>
       </view>
       <view wx:if="{{orderStatus.showMaster}}" class="flex-center-between concat-single">
-        <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
+        <gdImage src="" class="personal-img" width="80rpx" height="80rpx"></gdImage>
         <view class="flex1">
           <view class="name">{{orderMes.craftsmaninfo.name}}（{{orderMes.craftsmaninfo.sn}}）</view>
           <view>{{orderMes.craftsmaninfo.phone}}</view>
@@ -52,8 +52,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="margin-top: 30rpx">
           <block wx:for="{{orderMes.userimglist}}" wx:key="id">
             <swiper-item>
-              <label>订单图片</label>
-              <gdImage  class="slide-image" preview="true" src="{{ item }}"></gdImage>
+              <gdImage  class="slide-image" src="{{ item }}" preview label="订单图"></gdImage>
             </swiper-item>
           </block>
         </swiper>
@@ -74,7 +73,7 @@
         <block wx:if="{{orderMes.info.status > 1}}">
           <view>
             <text>订单总额</text>
-            <text>{{orderMes.pay.total_price}} 元</text>
+            <text class="money">￥{{orderMes.pay.total_price}}</text>
           </view>
         </block>
       </view>
@@ -86,7 +85,7 @@
         <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
           <view class="sign-single flex-center-between">
             <view class="flex-center-start">
-              <gdImage src="{{ item.imgurl }}"></gdImage>
+              <gdImage src="{{ item.imgurl }}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
               <text>{{item.name}}</text>
             </view>
             <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
@@ -95,6 +94,23 @@
       </view>
       <view class="flex-center" wx:if="{{orderMes.craftsmanlist.length==0}}" style="height: 300rpx">
         还没有师傅报名哦~
+      </view>
+    </view>
+
+    <view class="common-section" wx:if="{{orderMes.ordersshow}}">
+      <view class="title">工程秀</view>
+      <view class="show-single">
+        <view class="show-title">{{orderMes.ordersshow.title}}</view>
+        <view class="show-mes">
+          <text class="show-time">{{orderMes.ordersshow.time}}</text>
+        </view>
+        <view class="show-dec">{{orderMes.ordersshow.dec}}</view>
+        <view class="img-list">
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="施工前"></gdImage>
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl2}}" src="{{ orderMes.ordersshow.imgurl2 }}" preview label="施工前"></gdImage>
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="施工后"></gdImage>
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl4}}" src="{{ orderMes.ordersshow.imgurl4 }}" preview label="施工后"></gdImage>
+        </view>
       </view>
     </view>
 

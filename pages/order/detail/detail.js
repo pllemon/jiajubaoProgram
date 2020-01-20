@@ -25,10 +25,7 @@ Page({
       personType,
       craftsmannfo: app.globalData.loginInfo.craftsmannfo
     })
-  },
-
-  onShow() {
-    this.getInfo();
+    that.getInfo()
   },
 
   // 获取订单信息
@@ -134,11 +131,11 @@ Page({
     })
   },
 
-  // 支付尾款
+  // 确认工程已经完成
   paytailprice() {
     let that = this;
     wx.showModal({
-      content: '确定工程已经完成并支付尾款？',
+      content: '确认工程已经完成？',
       success (res) {
         if (res.confirm) {
           app.request({
@@ -148,7 +145,7 @@ Page({
               order_sn: that.data.orderMes.info.order_sn
             },
             success: function(data) {
-              app.successToast('支付成功', function(){
+              app.successToast('确认成功', function(){
                 that.getInfo();
               })
             }

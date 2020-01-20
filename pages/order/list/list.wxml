@@ -24,7 +24,6 @@
       <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
         <view class="common-section">
           <view class="order-header">
-            <text>No:{{item.order_sn}}</text>
             <text wx:if="{{personType == 0}}" class="status">{{orderStatus[item.status].label}}</text>
             <block wx:if="{{personType == 1}}">
               <text wx:if="{{item.status == 4}}" class="status">已报名</text>
@@ -38,18 +37,11 @@
             <icon class="iconfont iconicon_GPS"></icon>
             <text class="content">{{item.address}}</text>
           </view>
-          <view class="mes">
+          <view class="mes" wx:if="{{ item.appo_time }}">
             <icon class="iconfont iconicon_calendar"></icon>
             <text class="content">{{item.appo_time}}</text>
           </view>
-          <view class="mes" wx:if="{{item.remark}}">
-            <icon class="iconfont iconicon_community_line"></icon>
-            <text class="content">{{item.remark}}</text>
-          </view>
-          <!-- <view>
-            <text class="label-green">水口第一网点</text>
-          </view> -->
-          <!-- <block wx:if="{{item.status == 4}}">
+          <block wx:if="{{item.status == 4}}">
             <view class="sign-info">
               <view class="flex-center-start">
                 <image src="/image/example/user6.png"></image>
@@ -57,7 +49,7 @@
               </view>
               <text wx:if="{{personType == 1}}">预计收入 <text class="money">¥100</text></text>
             </view>
-          </block> -->
+          </block>
         </view>
       </navigator>
     </block>

@@ -1,33 +1,13 @@
-page{
-  background: #fff;
-}
 
-.details{
+.show-single{
   padding: 30rpx;
 }
-
-.title{
-  font-size: 20px;
+.show-single .img-list{
+  display: block;
 }
-
-.content{
-  margin-bottom: 30rpx;
-  color: #888;
-  margin-top: 20rpx;
-}
-.mes{
-  color: #888;
-}
-
-.personal-img{
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  margin-right: 10rpx;
-}
-
-.img-list image{
+.show-single .img-list gdImage{
   width: 100%;
-  height: 400rpx;
-  margin-bottom: 20rpx;
+  height: 500rpx;
+  display: block;
+  margin-bottom: 30rpx;
 }

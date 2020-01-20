@@ -1,19 +1,17 @@
-<view class="details">
-  <view class="title">{{ info.title }}</view>
-  <view class="flex-center-between mes">
+<view class="show-single">
+  <view class="show-title">{{ info.title }}</view>
+  <view class="show-mes">
     <view>{{ info.time }}</view>
-    <view class="flex-center-start" wx:if="{{ item.type == 1 }}">
-      <image src="/image/example/user6.png" mode="scaleToFill" class="personal-img"></image>
-      <text>梁尼梓</text>
+    <view class="master" wx:if="{{ info.type == 1 }}">
+      <gdImage src="{{ info.cm_headerurl }}" class="personal-img"></gdImage>
+      <text>{{ info.cm_name }}</text>
     </view>
   </view>
-  <view class="content">
-    {{ info.dec }}
-  </view>
+  <view class="show-dec">{{ info.dec }}</view>
   <view class="img-list">
-    <gdImage wx:if="{{ info.imgurl1 }}" preview="true" src="{{ info.imgurl1 }}"></gdImage>
-    <gdImage wx:if="{{ info.imgurl2 }}" preview="true" src="{{ info.imgurl2 }}"></gdImage>
-    <gdImage wx:if="{{ info.imgurl3 }}" preview="true" src="{{ info.imgurl3 }}"></gdImage>
-    <gdImage wx:if="{{ info.imgurl4 }}" preview="true" src="{{ info.imgurl4 }}"></gdImage>
+    <gdImage wx:if="{{ info.imgurl1 }}" src="{{ info.imgurl1 }}" label="施工前"></gdImage>
+    <gdImage wx:if="{{ info.imgurl2 }}" src="{{ info.imgurl2 }}" label="施工前"></gdImage>
+    <gdImage wx:if="{{ info.imgurl3 }}" src="{{ info.imgurl3 }}" label="施工后"></gdImage>
+    <gdImage wx:if="{{ info.imgurl4 }}" src="{{ info.imgurl4 }}" label="施工后"></gdImage>
   </view>
 </view>

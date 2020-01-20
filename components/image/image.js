@@ -20,6 +20,10 @@ Component({
     height: {
       type: String,
       value: '100%'
+    },
+    label: {
+      type: String,
+      value: ''
     }
   },
   data: {
