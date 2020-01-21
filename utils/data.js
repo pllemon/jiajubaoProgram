@@ -282,16 +282,16 @@ const personType = {
         text: '线下账单',
         url: '/pages/offline/list/list?personType=2'
       },
-      {
-        icon: 'coinpurse_line',
-        text: '我的积分',
-        url: '/pages/personal/wallet/index/index?personType=2'
-      },
-      {
-        icon: 'QRcode',
-        text: '商家二维码',
-        action: 'toggleEwm'
-      },
+      // {
+      //   icon: 'coinpurse_line',
+      //   text: '我的积分',
+      //   url: '/pages/personal/wallet/index/index?personType=2'
+      // },
+      // {
+      //   icon: 'QRcode',
+      //   text: '商家二维码',
+      //   action: 'toggleEwm'
+      // },
       {
         icon: 'affiliations_li',
         text: '我的资料',

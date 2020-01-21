@@ -148,7 +148,7 @@ Page({
     let that = this;
     let form = this.data.form;
     common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
-      form[name] = res;
+      form[name] = res.data;
       uploadNum++;
       if (uploadNum == 4) {
         wx.hideLoading();
@@ -159,7 +159,6 @@ Page({
 
   submitFn() {
     console.log(this.data.form)
-    return false
     app.request({
       url: '/applybusiness',
       data: this.data.form,
