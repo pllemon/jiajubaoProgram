@@ -1,8 +1,6 @@
 {
 	"navigationBarTitleText": "商家",
 	"usingComponents": {
-		"scroll-content": "/components/scroll/scroll",
-	    "navigation": "/components/navigation/navigation",
 		"van-search": "../../miniprogram_npm/vant-weapp/search"
 	}
 }

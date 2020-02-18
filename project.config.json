@@ -99,7 +99,7 @@
 					"id": 7,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "id=109&personType=0",
+					"query": "id=113&personType=0",
 					"scene": null
 				},
 				{

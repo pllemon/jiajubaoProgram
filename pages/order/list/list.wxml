@@ -19,37 +19,30 @@
     </block>
   </van-tabs>
 
-  <scroll-view scroll-y class="flex1 order-list">
+  <scroll-view scroll-y class="order-list">
     <block wx:if="{{list.length}}">
-      <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
-        <view class="common-section">
-          <view class="order-header">
-            <text wx:if="{{personType == 0}}" class="status">{{orderStatus[item.status].label}}</text>
-            <block wx:if="{{personType == 1}}">
-              <text wx:if="{{item.status == 4}}" class="status">已报名</text>
-              <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 1}}" class="status">已承接</text>
-              <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 0}}" class="status">未承接</text>
-              <text wx:if="{{item.status == 8}}" class="status">已完成</text>
-            </block> 
-          </view>
-          <view class="title2">{{item.service_demand}}</view>
-          <view class="mes">
-            <icon class="iconfont iconicon_GPS"></icon>
-            <text class="content">{{item.address}}</text>
-          </view>
-          <view class="mes" wx:if="{{ item.appo_time }}">
-            <icon class="iconfont iconicon_calendar"></icon>
-            <text class="content">{{item.appo_time}}</text>
-          </view>
-          <block wx:if="{{item.status == 4}}">
-            <view class="sign-info">
-              <view class="flex-center-start">
-                <image src="/image/example/user6.png"></image>
-                <text>等12人已报名</text>
-              </view>
-              <text wx:if="{{personType == 1}}">预计收入 <text class="money">¥100</text></text>
-            </view>
-          </block>
+      <navigator wx:for="{{list}}" wx:key="index" class="order-single" url="../detail/detail?id={{item.order_id}}&personType={{personType}}">
+        <view class="category">{{item.service_demand}}</view>
+        <view class="status">
+          <text wx:if="{{personType == 0}}">{{orderStatus[item.status].label}}</text>
+          <block wx:if="{{personType == 1}}">
+            <text wx:if="{{item.status == 4}}">已报名</text>
+            <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 1}}">已承接</text>
+            <text wx:if="{{item.status >= 5 && item.status < 8 && item.is_choose == 0}}">未承接</text>
+            <text wx:if="{{item.status == 8}}">已完成</text>
+          </block> 
+        </view>
+        <view class="mes">
+          <icon class="iconfont iconicon_GPS"></icon>
+          <text class="content ellipsis">{{item.address}}</text>
+        </view>
+        <view class="mes">
+          <icon class="iconfont iconicon_calendar"></icon>
+          <text class="content">{{item.appo_time ? item.appo_time : '上门时间待沟通'}}</text>
+        </view>
+        <view class="other">
+          <view class="label green">天河网点1</view>
+          <view class="label red">加急</view>
         </view>
       </navigator>
     </block>
@@ -57,4 +50,6 @@
       <view class="no-res">暂无数据</view>
     </block>
   </scroll-view>
+
+  <navigation wx:if="{{showNav == 1}}"></navigation>
 </view>

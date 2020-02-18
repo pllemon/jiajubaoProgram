@@ -56,24 +56,6 @@
     margin-right: 20rpx;
 }
 
-.order-desc{
-    background: #fdf6ec;
-    color: #e6a23c;
-    padding: 20rpx 30rpx;
-    display: flex;
-    align-items: center;
-}
-.order-desc icon{
-    margin-right: 6rpx;
-    font-size: 40rpx;
-    position: relative;
-    top: -2rpx;
-}
-
-.section{
-    background: #fff;
-}
-
 .main-btn{
     margin: 50rpx 0rpx;
     margin-bottom: 10rpx;
@@ -104,4 +86,13 @@
     font-size: 22px;
     color:#4d5ef4;
     font-weight: 500;
+}
+
+/* 0218 */
+.order-single{
+    margin: 0;
+    margin-top: 20rpx;
+}
+.order-single .category{
+    font-weight: bold;
 }

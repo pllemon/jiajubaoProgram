@@ -77,11 +77,6 @@
   position: relative;
   margin-bottom: 30rpx;
 }
-.common-section .title2{
-  font-size: 18px;
-  color: #353535;
-  font-weight: 500;
-}
 .common-section .title:after{
   content: '';
   position: absolute;
@@ -91,17 +86,6 @@
   top: 5rpx;
   border-radius: 2px;
   background: #4d5ef4;
-}
-.common-section .mes{
-  color: #888;
-  display: flex;
-  align-items: center;
-}
-.common-section .mes .iconfont{
-  margin-right: 10rpx;
-}
-.common-section .mes .content{
-  flex: 1;
 }
 
 
@@ -182,23 +166,43 @@
 }
 .order-single{
   background: #fff;
-  border-bottom: 1px solid #f2f2f2;
-  padding: 20rpx 30rpx;
-  line-height: 1.6;
+  padding: 30rpx;
   font-size: 14px;
   color: #666;
   position: relative;
+  margin: 20rpx;
 }
 .order-single .category{
-  font-size: 18px;
+  font-size: 17px;
   color: #353535;
   font-weight: 500;
+  margin-bottom: 6rpx;
 }
 .order-single .status{
   position: absolute;
   top: 20rpx;
   right: 30rpx;
   color: #4d5ef4;
+}
+.order-single .mes{
+  display: flex;
+  align-items: center;
+  position: relative;
+  line-height: 1.8;
+}
+.order-single .mes .iconfont{
+  margin-right: 4px;
+  position: absolute;
+  top: -8rpx;
+  left: 0;
+}
+.order-single .mes .content{
+  flex: 1;
+  padding-left: 40rpx;
+}
+.order-single .other{
+  margin-top: 20rpx;
+  display: flex;
 }
 /* —————————————————— */
 

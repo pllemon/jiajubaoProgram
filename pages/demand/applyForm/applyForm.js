@@ -103,7 +103,7 @@ Page({
       success: function(data) {
         app.successToast('创建订单成功', function(){
           wx.reLaunch({
-            url: '/pages/personal/index/index'
+            url: '/pages/order/list/list?personType=0&showNav=1'
           })
         })
       }

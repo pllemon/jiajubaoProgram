@@ -1,7 +1,6 @@
 {
 	"navigationBarTitleText": "抢单中心",
 	"usingComponents": {
-	    "navigation": "/components/navigation/navigation",
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
 		"van-search": "../../miniprogram_npm/vant-weapp/search",

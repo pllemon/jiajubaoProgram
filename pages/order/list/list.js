@@ -8,10 +8,10 @@ Page({
     orderStatus: {}
   },
   onLoad(params) {
-    let personType = params.personType;
     this.setData({
-      personType: personType,
-      orderStatus: app.globalData.personMessage[personType].orderStatus
+      showNav: params.showNav || 0,
+      personType: params.personType,
+      orderStatus: app.globalData.personMessage[params.personType].orderStatus
     })
     this.getOrderList()
   },

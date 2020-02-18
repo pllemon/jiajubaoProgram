@@ -12,6 +12,7 @@ Page({
     orderMes: {},
     masterList: [],
     orderStatus: {},
+    finish: false,
 
     craftsmannfo: {}, // 自身师傅信息
   },
@@ -66,7 +67,8 @@ Page({
         }
         that.setData({
           orderMes: data,
-          orderStatus: orderStatus
+          orderStatus: orderStatus,
+          finish: true
         })
       }
     })
@@ -74,23 +76,21 @@ Page({
 
   // 打电话
   makePhoneCall(e) {
-    let phone = e.currentTarget.dataset.phone;
     wx.makePhoneCall({
-      phoneNumber: phone
+      phoneNumber: e.currentTarget.dataset.phone
     })
   },
 
   // 选择师傅
   chooseMaster(e) {
     let that = this;
-    let craftsman_id = e.currentTarget.dataset.id;
     app.request({
       url: '/choosecraftsman',
       data: {
         order_id: this.data.order_id,
-        craftsman_id: craftsman_id
+        craftsman_id: e.currentTarget.dataset.id
       },
-      success: function(data) {
+      success: function() {
         app.successToast('选择成功', function(){
           that.getInfo();
         })
@@ -106,7 +106,7 @@ Page({
       data: {
         order_id: this.data.order_id
       },
-      success: function(data) {
+      success: function() {
         app.successToast('报名成功', function(){
           that.getInfo();
         })

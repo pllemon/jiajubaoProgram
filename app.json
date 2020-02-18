@@ -54,7 +54,9 @@
     }
   },
   "usingComponents": {
-    "gdImage": "/components/image/image"
+    "gdImage": "/components/image/image",
+    "navigation": "/components/navigation/navigation",
+		"scroll-content": "/components/scroll/scroll"
   },
   "plugins": {
     "routePlan": {

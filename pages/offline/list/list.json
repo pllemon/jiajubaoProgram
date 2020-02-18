@@ -1,7 +1,6 @@
 {
 	"navigationBarTitleText": "线下账单",
 	"usingComponents": {
-		"scroll-content": "/components/scroll/scroll",
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
 		"van-search": "../../miniprogram_npm/vant-weapp/search"

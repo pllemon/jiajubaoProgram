@@ -25,63 +25,35 @@ view{
     height: 36rpx;
 }
 
+/* 文字溢出省略 */
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 0;
+    white-space: nowrap;
+}
+
 /* label */
 .label{
     display: inline-block;
-    font-size: 13px;
-    padding: 1px 5px;
+    padding: 2px 6px;
     border-radius: 4rpx;
-    margin-top: 10rpx;
-    margin-bottom: 20rpx;
     margin-right: 10rpx;
 }
-.label-green{
-    background: #e3f8f1;
-    color: #5f9186;
-    font-size: 13px;
-    padding: 1px 5px;
-    border-radius: 2px;
+.label.green{
+    background: rgb(240, 249, 235);
+    color: rgb(103, 194, 58);
 }
-.label-orange{
-    background: #fcf1d5;
-    color: #ff9640;
-    font-size: 13px;
-    padding: 1px 5px;
-    border-radius: 1px;
+.label.orange{
+    background: rgb(253, 246, 236);
+    color: rgb(230, 162, 60);
+}
+.label.red{
+    background: rgb(254, 240, 240);
+    color: rgb(245, 108, 108);
 }
 
 /* 订单卡片 */
-.order-list{
-    padding-top: 20rpx;
-}
-.order-card{
-    margin: 20rpx;
-    margin-top: 0;
-    border-radius: 10rpx;
-    overflow: hidden;
-}
-.order-card .sign-info{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20rpx;
-    color: #888;
-    font-size: 16px;
-}
-.order-card .sign-info image{
-    width: 60rpx;
-    height: 60rpx;
-    border-radius: 50%;
-    margin-right: 10rpx;
-}
-.order-card .sign-info .money{
-    color: #4c5ce3;
-}
-.order-card .main-btn{
-    width: 100%;
-    margin: 30rpx 0;
-}
-
 .single{
     background: #fff;
     border-bottom: 1px solid #eaeaea;
