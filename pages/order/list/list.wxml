@@ -51,5 +51,5 @@
     </block>
   </scroll-view>
 
-  <navigation wx:if="{{showNav == 1}}"></navigation>
+  <navigation wx:if="{{showNav == 1}}" current-idx="-1"></navigation>
 </view>
