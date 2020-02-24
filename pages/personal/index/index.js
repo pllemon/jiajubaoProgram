@@ -56,6 +56,7 @@ Page({
           userInfo: data
         })
         app.globalData.loginInfo = data
+        console.log(data)
       }
     })
   },

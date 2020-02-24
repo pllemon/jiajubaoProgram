@@ -26,6 +26,35 @@ Page({
   onLoad () {
     let that = this;
     common.getLocation(that);
+
+    const craftsmannfo = app.globalData.loginInfo.craftsmannfo
+    console.log(craftsmannfo)
+    if (craftsmannfo) {
+      let form = this.data.form;
+      for (let i in form) {
+        if (craftsmannfo[i]) {
+          form[i] = craftsmannfo[i]
+        }
+      }
+      this.setData({
+        form,
+        caridimg: [{
+          url: common.padUrl(craftsmannfo.caridimg),
+          success: true,
+          data: craftsmannfo.caridimg
+        }],
+        caridzimg: [{
+          url: common.padUrl(craftsmannfo.caridzimg),
+          success: true,
+          data: craftsmannfo.caridzimg
+        }],
+        caridfimg: [{
+          url: common.padUrl(craftsmannfo.caridfimg),
+          success: true,
+          data: craftsmannfo.caridfimg
+        }]
+      })
+    }
   },
 
   onOpenSetting() {
