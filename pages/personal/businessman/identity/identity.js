@@ -24,6 +24,39 @@ Page({
   onLoad () {
     let that = this;
     common.getLocation(that);
+
+    const businessinfo = app.globalData.loginInfo.businessinfo
+    if (businessinfo) {
+      let form = this.data.form;
+      for (let i in form) {
+        if (businessinfo[i]) {
+          form[i] = businessinfo[i];
+        }
+      }
+      this.setData({
+        form,
+        goodsimg: [{
+          url: common.padUrl(businessinfo.goodsimg),
+          success: true,
+          data: businessinfo.goodsimg
+        }],
+        shopimg: [{
+          url: common.padUrl(businessinfo.shopimg),
+          success: true,
+          data: businessinfo.shopimg
+        }],
+        businessimg: [{
+          url: common.padUrl(businessinfo.businessimg),
+          success: true,
+          data: businessinfo.businessimg
+        }],
+        sharewximg: [{
+          url: common.padUrl(businessinfo.sharewximg),
+          success: true,
+          data: businessinfo.sharewximg
+        }]
+      })
+    }
   },
   
   onOpenSetting() {

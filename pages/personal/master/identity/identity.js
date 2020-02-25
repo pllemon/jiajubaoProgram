@@ -33,7 +33,7 @@ Page({
       let form = this.data.form;
       for (let i in form) {
         if (craftsmannfo[i]) {
-          form[i] = craftsmannfo[i]
+          form[i] = craftsmannfo[i];
         }
       }
       this.setData({
