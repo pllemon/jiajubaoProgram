@@ -56,7 +56,8 @@
   "usingComponents": {
     "gdImage": "/components/image/image",
     "navigation": "/components/navigation/navigation",
-		"scroll-content": "/components/scroll/scroll"
+		"scroll-content": "/components/scroll/scroll",
+		"common-scroll": "/components/scroll2/scroll2"
   },
   "plugins": {
     "routePlan": {

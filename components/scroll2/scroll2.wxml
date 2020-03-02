@@ -1,0 +1,30 @@
+<view class="common-scroll">
+	<view></view>
+	<scroll-view 
+		scroll-y
+		scroll-top="{{scrollTop}}"
+		bindtouchstart="touchstart" 
+		bindtouchmove="touchmove" 
+		bindtouchend="touchend"
+		bindscrolltolower="loadMore" 
+		bindscroll="scroll"
+	>
+		<!-- 主体内容 -->
+		<slot></slot>
+
+		<!-- 加载更多 -->
+		<view hidden="{{!isLoadMore}}" class="scroll-tips">
+			<van-loading type="spinner" size="20px"/>
+			<text>努力加载中</text>
+		</view>
+
+		<view hidden="{{lastPage != page || isRefresh}}" style="padding-bottom: 40rpx">
+			<van-divider contentPosition="center">已无更多</van-divider>
+		</view>
+	</scroll-view>
+</view>
+
+<!-- 返回顶部 -->
+<!-- <view class="go-top" hidden="{{posTop < 200}}" bindtap="goTop">
+	<icon class="address-icon iconfont iconicon_next_arrow"></icon>
+</view> -->
