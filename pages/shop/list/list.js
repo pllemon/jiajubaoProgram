@@ -9,21 +9,36 @@ Page({
     isLoadMore: false,
     isRefresh: false,
 
-    searchValue: "",
+    keyword: "",
     addressInfo: null,
     showLocationDialog: false,
 
-    location: null
+    location: null,
+
+    districtCode: '',
+    regionName: []
   },
 
   onLoad() {
     let that = this;
     common.getLocation(that, function(res){
+      let { province, city, district } = res.address_component
       that.setData({
-        location: res.location
+        location: res.location,
+        regionName: [province, city, district],
+        districtCode: res.ad_info.adcode
       })
       that.getList(1);
     });
+  },
+
+  bindRegionChange: function (e) {
+    console.log(e.detail)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      regionName: e.detail.value,
+      districtCode: e.detail.code[2]
+    })
   },
 
   onShareAppMessage: function (e) {
@@ -118,7 +133,9 @@ Page({
         lng: that.data.location.lng,
         lat: that.data.location.lat,
         page: page,
-        limit: 10
+        limit: 10,
+        keyword: that.data.keyword,
+        district: that.data.districtCode
       },
       hideLoading: true,
       success: function(data) {

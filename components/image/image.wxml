@@ -3,12 +3,14 @@
         wx:if="{{src}}" 
         src="http://47.106.100.144/{{src}}" 
         mode="{{mode}}" 
+        lazy-load="{{true}}"
         bindtap="preview"
     />
     <image 
         wx:else 
         src="/image/example/user6.png" 
         mode="{{mode}}" 
+        lazy-load="{{true}}"
         bindtap="preview"
     />
     <view class="label" wx:if="{{label}}">{{label}}</view>

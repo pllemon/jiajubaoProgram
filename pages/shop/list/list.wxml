@@ -1,13 +1,24 @@
 <view class="full-layout">
   <block wx:if="{{location}}">
-    <view>
+    <view class="flex-center-between">
       <van-search
-        value="{{ searchValue }}"
+        class="flex1"
+        value="{{ keyword }}"
         placeholder="请输入关键词"
         use-action-slot
         bind:search="onSearch"
       />
+      <picker 
+        mode="region" 
+        bindchange="bindRegionChange" 
+        value="{{regionName}}"
+      >
+        <view class="picker">
+          {{regionName[2]}}
+        </view>
+      </picker>
     </view>
+    
     <scroll-content 
       class="scroll-view"
       is-loadMore = "{{isLoadMore}}"
