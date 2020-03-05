@@ -9,6 +9,7 @@
 .shop-single{
   border-top: 1px solid #f2f2f2;
   border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 20rpx;
 }
 
 .location-img{
@@ -16,12 +17,6 @@
 	height: 300rpx;
   margin: 160rpx auto;
   margin-bottom: 50rpx;
-}
-
-.common-section{
-  padding: 20rpx;
-  padding-bottom: 0;
-  margin-top: 0;
 }
 
 .shop-action{
@@ -45,4 +40,14 @@
 }
 .shop-action button::after{
   display: none;
+}
+
+.search{
+  background: #fff;
+}
+.search picker{
+  padding: 0 30rpx;
+  border-left: 1px solid #DCDFE6;
+  font-size: 13px;
+  line-height: 60rpx;
 }

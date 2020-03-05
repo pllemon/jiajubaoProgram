@@ -32,6 +32,6 @@
 </scroll-view>
 
 <!-- 返回顶部 -->
-<!-- <view class="go-top" hidden="{{posTop < 200}}" bindtap="goTop">
+<view class="go-top" hidden="{{posTop < 100}}" bindtap="goTop">
 	<icon class="address-icon iconfont iconicon_next_arrow"></icon>
-</view> -->
+</view>

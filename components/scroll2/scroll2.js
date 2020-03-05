@@ -1,20 +1,32 @@
+let app = getApp();
+let upDateTime = 0;
+let currTime = 0;
+
 Component({
   properties: {
-    page: { // 当前页面序号
-      type: Number,
-      value: 0
-    },
-    total: { // 总页面数
-      type: Number,
-      value: 0
-    },
-    isLoading: { // 是否加载中
+    isPaging: { // 是否分页
       type: Boolean,
-      value: false
+      value: true
+    },
+    loadStatus: { // 加载状态，0 =》 未加载，1 =》 下拉刷新中，2 =》 上拉加载更多 
+      type: Number,
+      value: 0
+    },
+    page: { // 当前页
+      type: Number,
+      value: 0
+    },
+    lastPage: { // 最后页
+      type: Number,
+      value: 0
+    },
+    data: { // 数据
+      type: Array,
+      value: []
     }
   },
   data: {
-    scrollTop: 0,
+    scrollTop: 0, // 滚动距离
     posTop: 0,
     startY: 0,
     moveY: 0,
@@ -22,7 +34,7 @@ Component({
   },
   methods: {
     touchstart(e) {
-      if (!this.properties.isRefresh) {
+      if (this.properties.loadStatus == 0) {
         let clientY = e.changedTouches[0].clientY;
         this.setData({
           startY: clientY,
@@ -31,7 +43,7 @@ Component({
       }
     },
     touchmove(e) {    
-      if (!this.properties.isRefresh) {
+      if (this.properties.loadStatus == 0) {
         let startY = this.data.startY;
         let endY = this.data.endY;
         let clientY = e.changedTouches[0].clientY;
@@ -46,7 +58,7 @@ Component({
       }
     },
     touchend(e) {
-      if (!this.properties.isRefresh) {
+      if (this.properties.loadStatus == 0) {
         if (this.data.moveY > 0) {
           this.triggerEvent('change', {type: 1})
           this.goTop()
@@ -58,7 +70,7 @@ Component({
     },
     loadMore() {
       if (this.properties.page < this.properties.lastPage) {
-        if (!this.properties.isLoadMore) {
+        if (this.properties.loadStatus == 0) {
           this.triggerEvent('change', {type: 2})
           this.goTop()
         }

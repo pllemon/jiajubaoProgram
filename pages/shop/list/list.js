@@ -6,8 +6,7 @@ Page({
     list: [],
     page: 1,
     lastPage: 1,
-    isLoadMore: false,
-    isRefresh: false,
+    loadStatus: 0,
 
     keyword: "",
     addressInfo: null,
@@ -16,7 +15,8 @@ Page({
     location: null,
 
     districtCode: '',
-    regionName: []
+    regionName: [],
+
   },
 
   onLoad() {
@@ -39,6 +39,7 @@ Page({
       regionName: e.detail.value,
       districtCode: e.detail.code[2]
     })
+    this.getList(1);
   },
 
   onShareAppMessage: function (e) {
@@ -81,7 +82,7 @@ Page({
             that.setData({
               location: res.location
             })
-            that.getList();
+            that.getList(1);
           });
         }
       }
@@ -107,50 +108,28 @@ Page({
       that.setData({
         location: res.location
       })
-      that.getList();
+      that.getList(1);
     });
   },
 
   getList(type) { // 1->刷新，2->加载
     let that = this;
-    let page = this.data.page;
+  
+    that.setData({
+      loadStatus: type || 1
+    })
 
-    if (type == 1) {
-      page = 1;
-      that.setData({
-        isRefresh: true
-      })  
-    } else if (type == 2) {
-      page = page++;
-      that.setData({
-        isLoadMore: true
-      })  
-    }
-   
     app.request({
       url: '/businesslist',
       data: {
         lng: that.data.location.lng,
         lat: that.data.location.lat,
-        page: page,
-        limit: 10,
         keyword: that.data.keyword,
         district: that.data.districtCode
       },
       hideLoading: true,
       success: function(data) {
-        data = {
-          current_page: 1,
-          data: data,
-          last_page: 1,
-          per_page: 10
-        }
-        let list = that.data.list;
-        if (type == 1) {
-          list = data.data;
-        } else {
-          list = list.concat(data.data);
-        }
+        let list = data || []
         list.forEach(item => {
           if (item.distance > 1000) {
             item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
@@ -159,21 +138,15 @@ Page({
           }
         })
         that.setData({
-          page,
-          lastPage: data.last_page,
+          page: 1,
+          lastPage: 1,
           list
         })
       },
       complete: function() {
-        if (type == 1) {
-          that.setData({
-            isRefresh: false
-          })
-        } else if (type == 2) {
-          that.setData({
-            isLoadMore: false
-          })
-        }
+        that.setData({
+          loadStatus: 0
+        })
       }
     })
   }

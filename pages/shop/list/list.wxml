@@ -1,6 +1,6 @@
 <view class="full-layout">
   <block wx:if="{{location}}">
-    <view class="flex-center-between">
+    <view class="search flex-center-between">
       <van-search
         class="flex1"
         value="{{ keyword }}"
@@ -19,25 +19,25 @@
       </picker>
     </view>
     
-    <scroll-content 
+    <common-scroll
       class="scroll-view"
-      is-loadMore = "{{isLoadMore}}"
-      is-refresh = "{{isRefresh}}"
+      load-status="{{loadStatus}}"
       page = "{{page}}"
       last-page = "{{lastPage}}"
+      data = "{{list}}"
       bind:change = "changeList"
     >
       <view class="common-list">
         <block wx:for="{{list}}" wx:key="{{index}}">
-          <view class="shop-single m20">
+          <view class="shop-single">
             <view class="shop-img">
               <gdImage src="{{ item.shopimg }}"  preview="true"/>
               <gdImage src="{{ item.goodsimg }}"  preview="true"/>
             </view>
-            <view class="common-section">
+            <view class="unit">
               <view class="flex-start-between">
-                <view class="title2">{{item.name}}</view>
-                <view class="label-green">{{item.distance}}</view>
+                <view class="title">{{item.name}}</view>
+                <view class="label green">{{item.distance}}</view>
               </view>
               <view class="mes">
                 <text class="content">{{item.address}}</text>
@@ -67,7 +67,7 @@
           </view>
         </block>
       </view>
-    </scroll-content>
+    </common-scroll>
   </block>
   <block wx:else>
     <view class="flex-center-column">

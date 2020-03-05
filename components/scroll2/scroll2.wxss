@@ -1,6 +1,6 @@
 @import '/styles/iconfont.wxss';
 
-.common-scroll{
+scroll-view{
     height: 100%;
     box-sizing: border-box;
     position: relative;
