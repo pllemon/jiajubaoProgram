@@ -7,10 +7,6 @@
 	bindscrolltolower="loadMore" 
     bindscroll="scroll"
 >
-	<!-- 无数据 -->
-	<view wx:if="{{loadStatus == 0 && data.length == 0}}">
-		哎呦，无相关数据
-	</view>
 
 	<!-- 下拉刷新 -->
 	<view wx:if="{{loadStatus == 1}}" class="scroll-tips">
@@ -18,9 +14,17 @@
 		<text>更新数据</text>
 	</view>
 
+
 	<view hidden="{{moveY <= 0}}" class="scroll-tips">
 		<van-icon name="down" size="16px"/>
 		<text>松手刷新</text>
+	</view>
+
+
+	<!-- 无数据 -->
+	<view class="empty" wx:if="{{loadStatus == 0 && data.length == 0}}">
+		<image src="/image/icon/kong.svg" />
+		<view>哎呦，无相关数据</view>
 	</view>
 
 	<!-- 主体内容 -->

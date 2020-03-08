@@ -1,6 +1,6 @@
 <form bindsubmit="formSubmit" class="form">
     <view class="form-section">
-        <view class="form-title">支付平台费</view>
+        <view class="form-title">订单详情</view>
         <view class="form-item">
             <label>消费金额</label>
             <view class="form-content">
@@ -20,7 +20,7 @@
             </view>
         </view>
         <view class="form-item">
-            <label>平台费</label>
+            <label>需支付平台费</label>
             <view class="form-content">
                 <input name="service_demand" disabled value="{{orderMes.pay_money}}元"/>
             </view>
@@ -40,7 +40,7 @@
                         disable-input 
                         bind:change="onChange"
                     /> -->
-                    <van-switch checked="{{ checked }}" size="24px" bind:change="changeSwitch" />
+                    <van-switch checked="{{ checked }}" size="24px" active-color="#7889f1" bind:change="changeSwitch" />
                 </view>
             </view>
         </view>
@@ -50,11 +50,11 @@
         </view>
     </view>
 
-    <button form-type="submit" class="main-btn">确定并支付</button>
+    <button form-type="submit" class="main-btn">确定已收款并支付平台费</button>
 
-    <view class="form-tips">
+    <!-- <view class="form-tips">
         <view>说明：</view>
         <view>1. 每收入100元需支付6元平台费，可使用积分抵扣。</view>
         <view>2. 订单完成后，用户使用的积分将转到您账上，积分可进行提现。</view>
-    </view>
+    </view> -->
 </form>

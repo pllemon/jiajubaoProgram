@@ -9,7 +9,7 @@ Page({
     maxPoint: 0,
     totalPoint: 0,
     business_id: '',
-    checked: false
+    checked: true 
   },
 
   onLoad (params) {

@@ -3,9 +3,15 @@ const app = getApp()
 Page({
   data: {
     searchValue: '',
-    list: [],
     personType: 0,
-    orderStatus: {}
+    orderStatus: {},
+
+    list: [],
+    page: 1,
+    lastPage: 1,
+    loadStatus: 0,
+    status: '',
+    keyword: ''
   },
   onLoad(params) {
     this.setData({
@@ -13,39 +19,50 @@ Page({
       personType: params.personType,
       orderStatus: app.globalData.personMessage[params.personType].orderStatus
     })
-    this.getOrderList()
+    this.getList()
   },
 
   // 获取订单列表
-  getOrderList(data = {}) {
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
+  getList() {
     let that = this;
     let personType = that.data.personType;
-    let url = '/userorderlist';
-    if (personType == 1) {
-      url = '/craftsmanorderlist';
-    }
+    let url = personType == 0 ? '/userorderlist' : '/craftsmanorderlist';
+    let status = personType == 0 ? 'status' : 'cmorderstatus';
+
+    that.setData({
+      loadStatus: 1,
+      list: []
+    })
+
     app.request({
       url,
-      data,
+      data: {
+        [status]: this.data.status,
+        keyword: this.data.keyword
+      },
+      hideLoading: true,
       success: function(data) {
         that.setData({
+          page: 1,
+          lastPage: 1,
           list: data
+        })
+      },
+      complete: function() {
+        that.setData({
+          loadStatus: 0
         })
       }
     })
   },
 
   changeType(e) {
-    let status = e.detail.name;
-    if (this.data.personType == 0) {
-      this.getOrderList({
-        status: status
-      })
-    } else {
-      this.getOrderList({
-        cmorderstatus: status
-      })
-    }
+    this.setData({
+      status: e.detail.name
+    })
+    this.getList()
   }
-
 })

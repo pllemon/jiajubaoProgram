@@ -6,12 +6,12 @@
     bind:search="onSearch"
   />
 
-  <scroll-content 
+  <common-scroll
     class="scroll-view"
-    is-loadMore = "{{isLoadMore}}"
-    is-refresh = "{{isRefresh}}"
+    load-status="{{loadStatus}}"
     page = "{{page}}"
     last-page = "{{lastPage}}"
+    data = "{{list}}"
     bind:change = "changeList"
   >
     <view class="common-list">
@@ -37,5 +37,5 @@
         </navigator>
       </block>
     </view>
-  </scroll-content>
+  </common-scroll>
 </view>

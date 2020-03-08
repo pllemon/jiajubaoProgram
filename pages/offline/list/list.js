@@ -5,8 +5,7 @@ Page({
     list: [],
     page: 1,
     lastPage: 1,
-    isLoadMore: false,
-    isRefresh: false,
+    loadStatus: 0,
 
     personType: 0
   },
@@ -24,51 +23,31 @@ Page({
 
   getList(type) {
     let that = this;
-    let page = that.data.page;
+    let page = type == 1 ? 1 : ++ this.data.page;
     let url = that.data.personType == 0 ? '/userunlinkorderlist' : '/businessorderlist';
 
-    if (type == 1) {
-      page = 1;
-      that.setData({
-        isRefresh: true
-      })  
-    } else if (type == 2) {
-      page = page++;
-      that.setData({
-        isLoadMore: true
-      })  
-    }
+    that.setData({
+      loadStatus: type || 1,
+      page
+    })
 
     app.request({
       url,
       data: {
-        page: page,
-        limit: 20
+        page: page
       },
       hideLoading: true,
       success: function(data) {
-        let list = that.data.list;
-        if (type == 1) {
-          list = data.data;
-        } else {
-          list = list.concat(data.data);
-        }
+        let list = type == 1 ? data.data : that.data.list.concat(data.data);
         that.setData({
-          page,
           lastPage: data.last_page,
           list
         })
       },
       complete: function() {
-        if (type == 1) {
-          that.setData({
-            isRefresh: false
-          })
-        } else if (type == 2) {
-          that.setData({
-            isLoadMore: false
-          })
-        }
+        that.setData({
+          loadStatus: 0
+        })
       }
     })
   }

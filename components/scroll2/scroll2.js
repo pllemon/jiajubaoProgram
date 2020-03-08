@@ -72,7 +72,6 @@ Component({
       if (this.properties.page < this.properties.lastPage) {
         if (this.properties.loadStatus == 0) {
           this.triggerEvent('change', {type: 2})
-          this.goTop()
         }
       }
     },

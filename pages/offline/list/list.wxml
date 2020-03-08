@@ -1,15 +1,15 @@
 <view class="full-layout">
-  <scroll-content 
+  <common-scroll
     class="scroll-view"
-    is-loadMore = "{{isLoadMore}}"
-    is-refresh = "{{isRefresh}}"
+    load-status="{{loadStatus}}"
     page = "{{page}}"
     last-page = "{{lastPage}}"
+    data = "{{list}}"
     bind:change = "changeList"
   >
     <view class="common-list">
       <block wx:for="{{list}}" wx:key="index" >
-        <navigator class="order-single flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
+        <navigator class="unit bb flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
           <image src="/image/example/user6.png" mode="scaleToFill" class="peo-img"></image>
           <view class="flex1">
             <view class="flex-center-between" wx:if="{{personType == 0}}">
@@ -31,5 +31,5 @@
         </navigator>
       </block>
     </view>
-  </scroll-content>
+  </common-scroll>
 </view>

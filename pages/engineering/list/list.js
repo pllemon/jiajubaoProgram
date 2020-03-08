@@ -5,8 +5,7 @@ Page({
     list: [],
     page: 1,
     lastPage: 1,
-    isLoadMore: false,
-    isRefresh: false,
+    loadStatus: 0,
 
     searchValue: ''
   },
@@ -20,50 +19,30 @@ Page({
   },
   getList(type) { // 1->刷新，2->加载
     let that = this;
-    let page = this.data.page;
+    let page = type == 1 ? 1 : ++ this.data.page;
 
-    if (type == 1) {
-      page = 1;
-      that.setData({
-        isRefresh: true
-      })  
-    } else if (type == 2) {
-      page = page++;
-      that.setData({
-        isLoadMore: true
-      })  
-    }
+    that.setData({
+      loadStatus: type || 1,
+      page
+    })
    
     app.request({
       url: '/ordershowlist',
       data: {
-        page: page,
-        limit: 4
+        page: page
       },
       hideLoading: true,
       success: function(data) {
-        let list = that.data.list;
-        if (type == 1) {
-          list = data.data;
-        } else {
-          list = list.concat(data.data);
-        }
+        let list = type == 1 ? data.data : that.data.list.concat(data.data);
         that.setData({
-          page,
           lastPage: data.last_page,
           list
         })
       },
       complete: function() {
-        if (type == 1) {
-          that.setData({
-            isRefresh: false
-          })
-        } else if (type == 2) {
-          that.setData({
-            isLoadMore: false
-          })
-        }
+        that.setData({
+          loadStatus: 0
+        })
       }
     })
   }

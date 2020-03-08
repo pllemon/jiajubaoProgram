@@ -1,8 +1,19 @@
-<view class="order-list">
-  <view wx:for="{{list}}" wx:key="index" class="order-single">
-      <view class="category">{{item.service_demand}}</view>
-      <view>服务地址：{{item.address}}</view>
-      <view>确认完成：{{item.success_time}}</view>
-      <view>师傅工资：{{item.craftsman_price}}</view>
-  </view>
+<view class="full-layout">
+  <common-scroll
+    class="scroll-view"
+    load-status="{{loadStatus}}"
+    page = "{{page}}"
+    last-page = "{{lastPage}}"
+    data = "{{list}}"
+    bind:change = "changeList"
+  >
+    <view class="order-list">
+      <view wx:for="{{list}}" wx:key="index" class="order-single">
+          <view class="category">{{item.service_demand}}</view>
+          <view>服务地址：{{item.address}}</view>
+          <view>确认完成：{{item.success_time}}</view>
+          <view>师傅工资：{{item.craftsman_price}}</view>
+      </view>
+    </view>
+  </common-scroll>
 </view>

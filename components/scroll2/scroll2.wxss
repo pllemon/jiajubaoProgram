@@ -38,3 +38,16 @@ van-icon{
     z-index: 99;
     color: #4d5ef4;
 }
+
+.empty{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #868686;
+}
+.empty image{
+    width: 140rpx;
+    height: 140rpx;
+    margin-bottom: 20px;
+    margin-top: 200rpx;
+}

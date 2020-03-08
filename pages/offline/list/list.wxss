@@ -11,9 +11,11 @@
     font-size: 13px;
     color: #888;
 }
-.order-single .status{
-    position: static;
+
+.name{
+    color: #303133;
 }
-.order-single{
-    height: 200px;
+
+.status{
+    color: #4d5ef4;
 }

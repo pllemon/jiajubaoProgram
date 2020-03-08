@@ -33,5 +33,5 @@
         </view>
     </view>
 
-    <button form-type="submit" class="main-btn">提交</button>
+    <button hidden="{{!money}}" form-type="submit" class="main-btn">提交</button>
 </form>
