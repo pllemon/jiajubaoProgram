@@ -9,7 +9,11 @@ Page({
       pay_status_code: 'GETONE',
       cmorderstatus: 4
     },
+
     list: [],
+    page: 1,
+    lastPage: 1,
+    loadStatus: 0,
 
     form: {
       order_id: '',
@@ -21,7 +25,7 @@ Page({
 
     isPopup: false,
     radio: '2',
-    finish: false
+    sumMoney: 0
   },
   onLoad(params) {
     let query = this.data.query
@@ -34,7 +38,7 @@ Page({
         form
       })
     }
-    this.getOrderList(this.data.query)
+    this.getList()
   },
   
   openPopup() {
@@ -59,16 +63,36 @@ Page({
     })
   },
 
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
 
-  getOrderList(data = {}) {
+  getList(type) {
     let that = this;
+  
+    that.setData({
+      loadStatus: type || 1
+    })
+
     app.request({
       url: '/craftsmanorderlist',
-      data,
+      data: this.data.query,
+      hideLoading: true,
       success: function(data) {
+        let sumMoney = 0;
+        data.forEach((item) => {
+          sumMoney += item.craftsman_price
+        })
         that.setData({
+          page: 1,
+          lastPage: 1,
           list: data,
-          finish: true
+          sumMoney
+        })
+      },
+      complete: function() {
+        that.setData({
+          loadStatus: 0
         })
       }
     })
@@ -93,7 +117,7 @@ Page({
           wx.hideLoading()
           app.successToast('提交成功', function(){
             wx.redirectTo({
-              url: '/pages/personal/wages/applyRecord/applyRecord'
+              url: '/pages/personal/wages/applyRecord/applyRecord?personType=1'
             })
           })
         }

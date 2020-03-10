@@ -4,7 +4,7 @@
   </view>
 
   <view class="action-list">
-    <van-cell is-link link-type="navigateTo" url="/pages/personal/wages/applyRecord/applyRecord">
+    <van-cell is-link link-type="navigateTo" url="/pages/personal/wages/applyRecord/applyRecord?personType=1">
       <view slot="title" class="action-item">
         <icon class="iconfont iconicon_redpacket"></icon>
         <view class="van-cell-text">申请记录</view>

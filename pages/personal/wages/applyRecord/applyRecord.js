@@ -3,8 +3,11 @@ const app = getApp()
 Page({
   data: {
     personType: 0,
+
     list: [],
-    sumintegral: 0
+    page: 1,
+    lastPage: 1,
+    loadStatus: 0
   },
 
   onLoad(params) {
@@ -14,28 +17,37 @@ Page({
     this.getList()
   },
 
-  getList() {
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
+  getList(type) {
     let that = this;
+  
+    that.setData({
+      loadStatus: type || 1
+    })
+
     let personType = that.data.personType;
     let url = '/userintegrallist';
-    if (personType == 2) {
-      url = '/busiintegrallist';
+    if (personType == 1) {
+      url = '/craftsmancashoutlist';
     }
     app.request({
       url,
       data: {
-        page: 0,
-        limit: 200
+        number: 1
       },
       success: function(data) {
         console.log(data)
-        let sum = data.sumintegral;
-        if (personType == 2) {
-          sum = data.integralsum;
-        }
         that.setData({
-          list: data.list.data,
-          sumintegral: sum
+          page: 1,
+          lastPage: 1,
+          list: data
+        })
+      },
+      complete: function() {
+        that.setData({
+          loadStatus: 0
         })
       }
     })

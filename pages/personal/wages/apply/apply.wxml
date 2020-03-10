@@ -1,5 +1,12 @@
 <view class="full-layout">
-    <block wx:if="{{list.length && finish}}">
+    <common-scroll
+        class="scroll-view"
+        load-status="{{loadStatus}}"
+        page = "{{page}}"
+        last-page = "{{lastPage}}"
+        data = "{{list}}"
+        bind:change = "changeList"
+    >
         <view class="order-list">
             <view wx:for="{{list}}" wx:key="index" class="order-single">
                 <view class="category">{{item.service_demand}}</view>
@@ -8,15 +15,12 @@
                 <view>师傅工资：￥{{item.craftsman_price}}</view>
             </view>
         </view>
-
-        <view class="page-action">
-            <view class="money">合计：￥990</view>
-            <button bindtap="openPopup" class="main-btn flex1">申请一期（80%）</button>
-        </view>
-    </block>
-    <block wx:else>
-        <view class="no-res">暂无数据</view>
-    </block>
+    </common-scroll>
+    <view class="page-action" wx:if="{{sumMoney}}">
+        <view class="money">合计：￥{{sumMoney}}</view>
+        <button bindtap="openPopup" class="main-btn flex1" wx:if="{{query.pay_status_code == 'GETONE'}}">申请一期（80%）</button>
+        <button bindtap="openPopup" class="main-btn flex1" wx:else>申请二期（20%）</button>
+    </view>
 </view>
 <van-popup
   show="{{ isPopup }}"
