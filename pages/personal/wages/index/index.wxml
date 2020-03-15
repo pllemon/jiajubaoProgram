@@ -1,26 +1,18 @@
-<view>
-  <view class="blue-header flex-column-center">
-    
+<van-cell is-link link-type="navigateTo" url="/pages/personal/wages/applyRecord/applyRecord?personType=1">
+  <view slot="title" class="action-item">
+    <icon class="iconfont iconicon_redpacket"></icon>
+    <view class="van-cell-text">申请记录</view>
   </view>
-
-  <view class="action-list">
-    <van-cell is-link link-type="navigateTo" url="/pages/personal/wages/applyRecord/applyRecord?personType=1">
-      <view slot="title" class="action-item">
-        <icon class="iconfont iconicon_redpacket"></icon>
-        <view class="van-cell-text">申请记录</view>
-      </view>
-    </van-cell>
-    <van-cell is-link link-type="navigateTo" url="/pages/personal/wages/apply/apply?type=1">
-      <view slot="title" class="action-item">
-        <icon class="iconfont iconicon_warn"></icon>
-        <view class="van-cell-text">申请一期</view>
-      </view>
-    </van-cell>
-    <van-cell is-link link-type="navigateTo" url="/pages/personal/wages/apply/apply?type=2">
-      <view slot="title" class="action-item">
-        <icon class="iconfont iconicon_warn"></icon>
-        <view class="van-cell-text">申请二期</view>
-      </view>
-    </van-cell>
+</van-cell>
+<van-cell is-link link-type="navigateTo" url="/pages/personal/wages/apply/apply?type=1">
+  <view slot="title" class="action-item">
+    <icon class="iconfont iconicon_warn"></icon>
+    <view class="van-cell-text">申请一期</view>
   </view>
-</view>
+</van-cell>
+<van-cell is-link link-type="navigateTo" url="/pages/personal/wages/apply/apply?type=2">
+  <view slot="title" class="action-item">
+    <icon class="iconfont iconicon_warn"></icon>
+    <view class="van-cell-text">申请二期</view>
+  </view>
+</van-cell>
