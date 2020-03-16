@@ -4,6 +4,12 @@
     margin-right: 20rpx;
     border-radius: 50%;
 }
+.bussiness-img{
+    width: 200rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+    border-radius: 4rpx;
+}
 .name, .money{
     font-size: 16px;
 }
@@ -18,4 +24,8 @@
 
 .status{
     color: #4d5ef4;
+}
+
+.common-list{
+    padding-top: 0;
 }

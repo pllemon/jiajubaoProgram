@@ -21,6 +21,9 @@ Page({
     })
     that.getInfo();
   },
+  onShow() {
+    this.getInfo();
+  },
 
   getInfo() {
     let that = this;

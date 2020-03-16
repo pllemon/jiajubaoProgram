@@ -201,12 +201,12 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
-            url: '/craftsmanconfirmorder',
+            url: '/craftsmanCancelOrder',
             data: {
               order_id: that.data.order_id
             },
             success: function(data) {
-              app.successToast('确认成功', function(){
+              app.successToast('取消成功', function(){
                 that.getInfo();
               })
             }
