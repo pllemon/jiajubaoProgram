@@ -2,7 +2,7 @@
     <view class="blue-header">
       <view class="mes">
         <gdImage wx:if="{{personType == 2}}" src="{{ orderMes.userheaderurl }}" class="peo-img"></gdImage>
-        <gdImage wx:if="{{personType == 0}}" src="{{ orderMes.userheaderurl }}" class="bussiness-img"></gdImage>
+        <gdImage wx:if="{{personType == 0}}" src="{{ orderMes.shopimg }}" class="bussiness-img"></gdImage>
         <view style="font-size: 14px;margin-top:10rpx">{{personType == 2?orderMes.user_name:orderMes.business_name}}</view>
         <view style="font-size: 30px;margin-top: 12rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
       </view>

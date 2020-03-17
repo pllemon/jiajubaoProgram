@@ -3,6 +3,10 @@ const app = getApp();
 Page({
   data: {
     list: [],
+    page: 1,
+    lastPage: 1,
+    loadStatus: 0,
+
     tabIndex: -1,
 
     categoryPid: '',
@@ -27,14 +31,31 @@ Page({
   },
 
   // 获取列表
+  changeList(e) {
+    this.getList(e.detail.type)
+  },
   getList() {
     let that = this;
+
+    that.setData({
+      loadStatus: 1,
+      list: []
+    })
+
     app.request({
       url: '/graborderlist',
       data: {},
+      hideLoading: true,
       success: function(data) {
         that.setData({
+          page: 1,
+          lastPage: 1,
           list: data
+        })
+      },
+      complete: function() {
+        that.setData({
+          loadStatus: 0
         })
       }
     })

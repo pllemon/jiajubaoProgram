@@ -3,6 +3,7 @@
     height: 100rpx;
     margin-right: 20rpx;
     border-radius: 50%;
+    overflow: hidden;
 }
 .bussiness-img{
     width: 200rpx;

@@ -48,10 +48,10 @@
             <icon class="iconfont iconicon_calendar"></icon>
             <text class="content">{{item.appo_time ? item.appo_time : '上门时间待沟通'}}</text>
           </view>
-          <view class="other">
+          <!-- <view class="other">
             <view class="label green">天河网点1</view>
             <view class="label red">加急</view>
-          </view>
+          </view> -->
         </navigator>
       </block>
     </view>

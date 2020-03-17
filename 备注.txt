@@ -134,3 +134,11 @@ http://47.106.100.144/public/uploads/user/headerimg/default.png
 /businessorderlist 返回下单用户头像
 
 /admin/businessorderinfo 返回用户门店图和商家头像
+
+
+
+0317
+/admin/craftsmansettlementlist
+返回：订单总额、真实名称、银行卡账号、支付宝账号
+
+/userunlinkorderlist，/userunlinkorderinfo 按最新下单时间返回

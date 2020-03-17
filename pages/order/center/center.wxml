@@ -18,35 +18,26 @@
     <van-dropdown-item value="{{ sortValue }}" options="{{ sortOptions }}"  bind:change="changeSort"/>
   </van-dropdown-menu> -->
 
-  <scroll-view scroll-y class="flex1 order-list">
-    <block wx:if="{{list.length}}">
-      <navigator wx:for="{{list}}" wx:key="index" class="order-card" url="../detail/detail?id={{item.order_id}}&personType=1">
-        <view class="common-section">
-          <view class="title2">{{item.service_demand}}</view>
-          <view class="mes">
-            <icon class="iconfont iconicon_GPS"></icon>
-            <text class="content">{{item.address}}</text>
-          </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_calendar"></icon>
-            <text class="content">{{item.appo_time}}</text>
-          </view>
-          <view class="mes">
-            <icon class="iconfont iconicon_community_line"></icon>
-            <text class="content">{{item.remark ? item.remark : '无备注'}}</text>
-          </view>
-          <!-- <view class="sign-info">
-            <view class="flex-center-start">
-              <image src="/image/example/user6.png"></image>
-              <text>等12人已报名</text>
-            </view>
-            <text>预计收入 <text class="money">¥100</text></text>
-          </view> -->
+  <common-scroll
+    class="scroll-view"
+    load-status="{{loadStatus}}"
+    page = "{{page}}"
+    last-page = "{{lastPage}}"
+    data = "{{list}}"
+    bind:change = "changeList"
+  >
+    <view class="order-list">
+      <navigator wx:for="{{list}}" wx:key="index" class="order-single" url="../detail/detail?id={{item.order_id}}&personType=1">
+        <view class="category">{{item.service_demand}}</view>
+        <view class="mes">
+          <icon class="iconfont iconicon_GPS"></icon>
+          <text class="content ellipsis">{{item.address}}</text>
+        </view>
+        <view class="mes">
+          <icon class="iconfont iconicon_calendar"></icon>
+          <text class="content">{{item.appo_time ? item.appo_time : '上门时间待沟通'}}</text>
         </view>
       </navigator>
-    </block>
-    <block wx:else>
-      <view class="no-res">暂无数据</view>
-    </block>
-  </scroll-view>
+    </view>
+  </common-scroll>
 </view>
