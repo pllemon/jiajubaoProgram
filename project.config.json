@@ -44,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 38,
 			"list": [
 				{
 					"id": -1,
@@ -310,6 +310,13 @@
 					"name": "申请1",
 					"pathName": "pages/personal/wages/apply/apply",
 					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "线下账单",
+					"pathName": "pages/offline/list/list",
+					"query": "personType=0",
 					"scene": null
 				}
 			]

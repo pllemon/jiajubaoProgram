@@ -230,19 +230,12 @@ van-icon{
 /* 工程秀 */
 .show-single{
   background: #fff;
-}
-.show-single .show-title{
-  font-size: 18px;
-  color: #353535;
-  font-weight: 500;
-}
-.show-single .show-mes{
-  color: #888;
-  font-size: 13px;
-  margin-bottom: 10rpx;
+  padding: 30rpx 20rpx;
+  border-bottom: 1px solid #f2f2f2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  color: #888;
+  font-size: 13px;
 }
 .show-single .master{
   display: flex;
@@ -254,15 +247,23 @@ van-icon{
   height: 50rpx;
 }
 .show-single .show-dec{
-  font-size: 14px;
+  margin-left: 20rpx;
+}
+.show-single .rate{
+  display: flex;
+  margin: 6rpx 0;
+}
+.show-single .rate image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 4rpx;
 }
 .show-single .img-list{
   display: flex;
-  margin-top: 20rpx;
 }
 .show-single .img-list gdImage{
-  width: 33.33%;
-  height: 150rpx;
+  width: 220rpx;
+  height: 180rpx;
   margin-right: 20rpx;
   border-radius: 10rpx;
 }

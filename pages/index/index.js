@@ -3,21 +3,13 @@ const common = require('../../utils/common.js');
 
 Page({
   data: {
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-
     addressInfo: null,
-    showLocationDialog: false,
-    bannerList: []
+    showLocationDialog: false
   },
 
   onLoad() {
     let that = this;
     common.getLocation(that);
-
-    that.getBanner();
   },
 
   openSetting() {
@@ -38,30 +30,8 @@ Page({
     common.getLocation(this)
   },
 
-  getBanner() {
-    let that = this;
-    app.request({
-      url: '/bannerlist',
-      data: {},
-      success: function(data) {
-        that.setData({
-          bannerList: data
-        })
-      }
-    })
-  },
 
-  bindAdvert(e) {
-    let idx = e.currentTarget.dataset.idx
-    let obj = this.data.bannerList[idx]
-    if (obj.type == 1) {
-      wx.navigateTo({
-        url: obj.url
-      })
-    } else if (obj.type == 2){
-
-    }
-  },
+  
 
   goDiscount() {
     app.showModal('该功能暂未开放，敬请期待')

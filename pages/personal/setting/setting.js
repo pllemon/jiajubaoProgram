@@ -10,7 +10,7 @@ Page({
       },
       {
         img: 'wechat',
-        text: '关于我们',
+        text: '企业文化',
         url: '/pages/personal/doc/doc?type=about'
       },
       {

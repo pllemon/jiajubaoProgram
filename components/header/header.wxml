@@ -1,0 +1,26 @@
+<view class='nav' style='height: {{status + navHeight}}px'> 
+    <view class='status' style='height: {{status}}px'></view>    
+    <view class='navbar' style='height:{{navHeight}}px'> 
+        <view class="action">
+            <view class='icon back-icon' wx:if="{{back}}" bindtap='back'>   
+                <image src="/image/icon/back.svg"></image>
+            </view> 
+            <view class='icon home-icon' wx:if="{{home}}" bindtap='home'>   
+                <image src="/image/icon/home2.svg"></image>
+            </view>
+
+            <picker 
+                wx:if="{{area}}"
+                mode="region" 
+                bindchange="bindRegionChange" 
+                value="{{regionName}}"
+            >
+                <view class="picker">{{regionName[2]}}</view>
+            </picker>
+        </view>
+
+        <view class='nav-title'>
+            <text>{{title}}</text>
+        </view>
+    </view>
+</view>

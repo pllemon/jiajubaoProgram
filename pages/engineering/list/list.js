@@ -5,9 +5,7 @@ Page({
     list: [],
     page: 1,
     lastPage: 1,
-    loadStatus: 0,
-
-    searchValue: ''
+    loadStatus: 0
   },
 
   onLoad() {

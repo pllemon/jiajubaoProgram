@@ -1,0 +1,7 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{bannerList}}" wx:key="id">
+      <swiper-item>
+        <gdImage src="{{ item.imgurl }}" class="slide-image" data-idx="{{index}}" bindtap="bindAdvert"></gdImage>
+      </swiper-item>
+    </block>
+  </swiper>

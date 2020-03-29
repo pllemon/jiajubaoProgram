@@ -1,11 +1,4 @@
 <view class="full-layout">
-  <van-search
-    value="{{ searchValue }}"
-    placeholder="请输入关键词"
-    use-action-slot
-    bind:search="onSearch"
-  />
-
   <common-scroll
     class="scroll-view"
     load-status="{{loadStatus}}"
@@ -14,28 +7,26 @@
     data = "{{list}}"
     bind:change = "changeList"
   >
-    <view class="common-list">
-      <block wx:for="{{list}}" wx:key="index">
-        <navigator class="common-card" url="/pages/engineering/details/details?id={{item.id}}">
-          <view class="show-single">
-            <view class="show-title">{{ item.title }}</view>
-            <view class="show-mes">
-              <view>{{ item.time }}</view>
-              <view class="master" wx:if="{{ item.type == 1 }}">
-                <gdImage src="{{ item.cm_headerurl }}" class="personal-img"></gdImage>
-                <text>{{ item.cm_name }}</text>
-              </view>
-            </view>
-            <view class="show-dec">{{ item.dec }}</view>
-            <view class="img-list">
-              <gdImage wx:if="{{item.imgurl1}}" src="{{ item.imgurl1 }}"></gdImage>
-              <gdImage wx:if="{{item.imgurl2}}" src="{{ item.imgurl2 }}"></gdImage>
-              <gdImage wx:if="{{item.imgurl3}}" src="{{ item.imgurl3 }}"></gdImage>
-              <gdImage wx:if="{{item.imgurl4}}" src="{{ item.imgurl4 }}"></gdImage>
-            </view>
+    <ad-swiper pos="2"></ad-swiper>
+
+    <view>
+      <view wx:for="{{list}}" wx:key="index" class="show-single">
+        <view class="img-list">
+          <gdImage src="{{ item.imgurl1 }}" preview label2="开工图"></gdImage>
+          <gdImage src="{{ item.imgurl3 }}" preview label2="竣工图"></gdImage>
+        </view>
+        <view class="show-dec">
+          <view>工号: 072012234</view>
+          <view class="rate">
+            <image src="/image/icon/start.svg" />
+            <image src="/image/icon/start.svg" />
+            <image src="/image/icon/start.svg" />
+            <image src="/image/icon/start.svg" />
+            <image src="/image/icon/start.svg" />
           </view>
-        </navigator>
-      </block>
+          <view>广东江门</view>
+        </view>
+      </view>
     </view>
   </common-scroll>
 </view>

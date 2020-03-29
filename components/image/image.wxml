@@ -14,4 +14,5 @@
         bindtap="preview"
     />
     <view class="label" wx:if="{{label}}">{{label}}</view>
+    <view class="label2" wx:if="{{label2}}">{{label2}}</view>
 </view>

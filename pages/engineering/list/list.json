@@ -1,6 +1,7 @@
 {
 	"navigationBarTitleText": "工程秀",
 	"usingComponents": {
-		"van-search": "../../miniprogram_npm/vant-weapp/search"
+		"van-search": "../../miniprogram_npm/vant-weapp/search",
+		"van-rate": "../../miniprogram_npm/vant-weapp/rate"
 	}
 }

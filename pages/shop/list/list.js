@@ -15,7 +15,6 @@ Page({
     location: null,
 
     districtCode: '',
-    regionName: [],
 
   },
 
@@ -32,14 +31,8 @@ Page({
     });
   },
 
-  bindRegionChange: function (e) {
-    console.log(e.detail)
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      regionName: e.detail.value,
-      districtCode: e.detail.code[2]
-    })
-    this.getList(1);
+  updateArea(e) {
+    console.log(e.detail.districtCode)
   },
 
   onShareAppMessage: function (e) {
@@ -125,7 +118,7 @@ Page({
         lng: that.data.location.lng,
         lat: that.data.location.lat,
         keyword: that.data.keyword,
-        district: that.data.districtCode
+        // district: that.data.districtCode
       },
       hideLoading: true,
       success: function(data) {

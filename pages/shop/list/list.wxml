@@ -1,24 +1,8 @@
 <view class="full-layout">
+
+  <header title="实体店" area bind:updateArea="updateArea"></header>
+
   <block wx:if="{{location}}">
-    <view class="search flex-center-between">
-      <van-search
-        class="flex1"
-        value="{{ keyword }}"
-        placeholder="请输入关键词"
-        use-action-slot
-        bind:search="onSearch"
-      />
-      <picker 
-        mode="region" 
-        bindchange="bindRegionChange" 
-        value="{{regionName}}"
-      >
-        <view class="picker">
-          {{regionName[2]}}
-        </view>
-      </picker>
-    </view>
-    
     <common-scroll
       class="scroll-view"
       load-status="{{loadStatus}}"
@@ -27,45 +11,44 @@
       data = "{{list}}"
       bind:change = "changeList"
     >
+      <ad-swiper pos="3"></ad-swiper>
       <view class="common-list">
-        <block wx:for="{{list}}" wx:key="{{index}}">
-          <view class="shop-single">
-            <view class="shop-img">
-              <gdImage src="{{ item.shopimg }}"  preview="true"/>
-              <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+        <view wx:for="{{list}}" wx:key="{{index}}" class="shop-single">
+          <view class="shop-img">
+            <gdImage src="{{ item.shopimg }}"  preview="true"/>
+            <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+          </view>
+          <view class="unit">
+            <view class="flex-start-between">
+              <view class="title">{{item.name}}</view>
+              <!-- <view class="label green">{{item.distance}}</view> -->
+            </view>   
+            <view class="mes">
+              <text class="content">{{item.address}}</text>
             </view>
-            <view class="unit">
-              <view class="flex-start-between">
-                <view class="title">{{item.name}}</view>
-                <view class="label green">{{item.distance}}</view>
-              </view>
-              <view class="mes">
-                <text class="content">{{item.address}}</text>
-              </view>
-              <view class="mes">
-                <text class="content">{{item.phone}}</text>
-              </view>
-            </view>
-            <view class="shop-action flex-center-end">
-              <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
-                <icon class="iconfont iconicon_phone"></icon>
-                <text>联系</text>
-              </button>
-              <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
-                <icon class="iconfont iconicon_GPS"></icon>
-                <text>路线</text>
-              </button>
-              <!-- <button size="mini" data-idx="{{index}}" open-type="share">
-                <icon class="iconfont iconicon_share"></icon>
-                <text>分享</text>
-              </button> -->
-              <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
-                <icon class="iconfont iconicon_share"></icon>
-                <text>下单</text>
-              </button>
+            <view class="mes">
+              <text class="content">{{item.phone}}</text>
             </view>
           </view>
-        </block>
+          <view class="shop-action flex-center-end">
+            <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
+              <icon class="iconfont iconicon_phone"></icon>
+              <text>联系</text>
+            </button>
+            <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
+              <icon class="iconfont iconicon_GPS"></icon>
+              <text>路线</text>
+            </button>
+            <!-- <button size="mini" data-idx="{{index}}" open-type="share">
+              <icon class="iconfont iconicon_share"></icon>
+              <text>分享</text>
+            </button> -->
+            <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
+              <icon class="iconfont iconicon_share"></icon>
+              <text>下单</text>
+            </button>
+          </view>
+        </view>
       </view>
     </common-scroll>
   </block>

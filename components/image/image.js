@@ -24,6 +24,10 @@ Component({
     label: {
       type: String,
       value: ''
+    },
+    label2: {
+      type: String,
+      value: ''
     }
   },
   data: {

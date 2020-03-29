@@ -4,7 +4,7 @@ var WxParse = require('../../../components/wxParse/wxParse.js');
 Page({
   data: {
     doc: {
-      about: '关于我们',
+      about: '企业文化',
       lxwm: '联系我们',
       hhxy: '用户协议',
       sfxy: '师傅协议',

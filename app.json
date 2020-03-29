@@ -58,7 +58,9 @@
     "gdImage": "/components/image/image",
     "navigation": "/components/navigation/navigation",
 		"scroll-content": "/components/scroll/scroll",
-		"common-scroll": "/components/scroll2/scroll2"
+		"common-scroll": "/components/scroll2/scroll2",
+    "ad-swiper": "/components/adSwiper/adSwiper",
+    "header": "/components/header/header"
   },
   "plugins": {
     "routePlan": {
