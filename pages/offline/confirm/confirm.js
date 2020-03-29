@@ -1,6 +1,5 @@
 const app = getApp()
 
-
 Page({
   data: {
     isFocus: true,
@@ -73,9 +72,7 @@ Page({
       data: obj,
       success: function(data) {
         app.successToast('提交成功', function(){
-          wx.redirectTo({
-            url: '/pages/offline/list/list?personType=2'
-          })
+          wx.navigateBack()
         })
       }
     })

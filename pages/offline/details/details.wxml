@@ -1,9 +1,10 @@
 <view wx:if="{{finish}}">
     <view class="blue-header">
       <view class="mes">
-        <gdImage wx:if="{{personType == 2}}" src="{{ orderMes.userheaderurl }}" class="peo-img" style="background:#fff"></gdImage>
+        <gdImage wx:if="{{personType == 2}}" src="{{ orderMes.userheaderurl }}" class="peo-img"></gdImage>
+        <gdImage wx:if="{{personType == 0}}" src="{{ orderMes.shopimg }}" class="bussiness-img"></gdImage>
         <view style="font-size: 14px;margin-top:10rpx">{{personType == 2?orderMes.user_name:orderMes.business_name}}</view>
-        <view style="font-size: 30px;margin-top: 16rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
+        <view style="font-size: 30px;margin-top: 12rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
       </view>
     </view>
   
@@ -32,7 +33,7 @@
           </view>
           <view>
             <text>店铺电话</text>
-            <text>{{orderMes.business_phone}}</text>
+            <text>{{orderMes.business_phone}}{{orderMes.business_phone}}</text>
           </view>
           <view>
             <text>店铺地址</text>
@@ -89,14 +90,12 @@
     <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
 
     <!-- 操作按钮 -->
-    <view class="main-action flex-center-between" wx:if="{{personType == 2}}">
+    <view class="main-action flex-center-between" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
       <view class="flex-center service">
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
       </view>
-      <view>
-        <button bindtap="cancelOrder" class="main-btn small plain">取消订单</button>
-        <button bindtap="confirmOrder" class="main-btn small" style="margin-left: 10rpx">确认订单</button>
-      </view>
+      <button bindtap="cancelOrder" class="main-btn flex1 plain">取消订单</button>
+      <button bindtap="confirmOrder" class="main-btn flex1" style="margin-left: 10rpx">确认订单</button>
     </view>
 </view>

@@ -10,7 +10,8 @@
     <view class="common-list">
       <block wx:for="{{list}}" wx:key="index" >
         <navigator class="unit bb flex-center-start" url="/pages/offline/details/details?id={{item.id}}&personType={{personType}}">
-          <image src="/image/example/user6.png" mode="scaleToFill" class="peo-img"></image>
+          <gdImage wx:if="{{personType == 2}}" src="{{ item.headerurl }}" class="peo-img"></gdImage>
+          <gdImage wx:if="{{personType == 0}}" src="{{ item.shopimg }}" class="bussiness-img"></gdImage>
           <view class="flex1">
             <view class="flex-center-between" wx:if="{{personType == 0}}">
               <view class="name flex1">{{item.business_name}}</view>
