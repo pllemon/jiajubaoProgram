@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "平台通知",
+	"usingComponents": {
+		"van-cell": "../../miniprogram_npm/vant-weapp/cell"
+	}
+}

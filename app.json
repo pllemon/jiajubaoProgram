@@ -29,6 +29,7 @@
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
     "pages/personal/setting/setting",
+    "pages/personal/notice/notice",
     "pages/personal/doc/doc",
     "pages/personal/feedback/feedback",
     "pages/personal/message/message",

@@ -246,6 +246,11 @@ const personType = {
         action: 'goMaster'
       },
       {
+        icon: 'notice',
+        text: '平台通知',
+        url: '/pages/personal/notice/notice'
+      },
+      {
         icon: 'setting',
         text: '设置',
         url: '/pages/personal/setting/setting'
