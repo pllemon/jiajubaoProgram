@@ -1,4 +1,6 @@
 <view class="full-layout">
+  <header title="案例广场" area bind:updateArea="updateArea"></header>
+
   <common-scroll
     class="scroll-view"
     load-status="{{loadStatus}}"
@@ -29,4 +31,7 @@
       </view>
     </view>
   </common-scroll>
+
+
+  <navigation current-idx="-1"></navigation>
 </view>

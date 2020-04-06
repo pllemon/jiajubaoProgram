@@ -30,7 +30,13 @@ Page({
         text2: '你的申请已驳回',
         btn: '重新申请',
         active: true
-      }
+      },
+      4: {
+        text: '您的账号已被禁用，如有疑问请联系客服',
+        text2: '您的账号已被禁用，如有疑问请联系客服',
+        btn: '账号已禁用',
+        active: false
+      },
     },
 
     personType: {}, // 用户类型

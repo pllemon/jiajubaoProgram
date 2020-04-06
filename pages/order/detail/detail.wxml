@@ -92,7 +92,7 @@
               <gdImage src="{{ item.imgurl }}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
               <text>{{item.name}}</text>
             </view>
-            <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
+            <!-- <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button> -->
           </view>
         </block>
       </view>
@@ -102,18 +102,11 @@
     </view>
 
     <view class="common-section" wx:if="{{orderMes.ordersshow}}">
-      <view class="title">工程秀</view>
+      <view class="title">施工情况</view>
       <view class="show-single">
-        <view class="show-title">{{orderMes.ordersshow.title}}</view>
-        <view class="show-mes">
-          <text class="show-time">{{orderMes.ordersshow.time}}</text>
-        </view>
-        <view class="show-dec">{{orderMes.ordersshow.dec}}</view>
         <view class="img-list">
-          <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="施工前"></gdImage>
-          <gdImage wx:if="{{orderMes.ordersshow.imgurl2}}" src="{{ orderMes.ordersshow.imgurl2 }}" preview label="施工前"></gdImage>
-          <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="施工后"></gdImage>
-          <gdImage wx:if="{{orderMes.ordersshow.imgurl4}}" src="{{ orderMes.ordersshow.imgurl4 }}" preview label="施工后"></gdImage>
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" src="{{ orderMes.ordersshow.imgurl1 }}" preview label2="开工图"></gdImage>
+          <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" src="{{ orderMes.ordersshow.imgurl3 }}" preview label2="竣工图"></gdImage>
         </view>
       </view>
     </view>
@@ -122,10 +115,10 @@
 
     <!-- 操作按钮 -->
     <view class="main-action flex-center-between" wx:if="{{personType == 0 && orderStatus.showAction}}">
-      <view class="flex-center service">
+      <!-- <view class="flex-center service">
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
-      </view>
+      </view> -->
       <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn flex1">支付</button>
       <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn flex1">确认完成</button>
       <button wx:if="{{orderMes.info.status == 8 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn flex1">再次下单</button>
@@ -134,11 +127,11 @@
     </view>
 
     <view class="main-action flex-center-between" wx:if="{{personType == 1 && orderStatus.showAction}}">
-      <view class="flex-center service">
+      <!-- <view class="flex-center service">
         <icon class="iconfont iconkefu"></icon>
         <text>客服</text>
-      </view>
-      <button wx:if="{{orderMes.info.status == 5}}" bindtap="cancelOrder" class="main-btn flex1">取消订单</button>
+      </view> -->
+      <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="cancelOrder" class="main-btn plain flex1">取消订单</button>
       <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="beginWork" class="main-btn flex1">开始施工</button>
       <button wx:if="{{orderMes.info.status == 5 && orderMes.ordersshow}}" bindtap="endWork" class="main-btn flex1">施工完成</button>
       <button wx:if="{{orderMes.info.status > 5 && orderMes.info.status < 8}}" class="main-btn flex1 disable">待客户确认完工</button>

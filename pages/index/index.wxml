@@ -1,15 +1,6 @@
 <view class="full-layout">
-  <view class="flex-center-start address">
-    <block wx:if="{{addressInfo}}">
-      <icon class="iconfont iconicon_GPS"></icon>
-      <view class="flex1">{{addressInfo.address}}</view>
-    </block>
-    <block wx:else>
-      <icon class="iconfont iconicon_refresh"></icon>
-      <view bindtap="openSetting">定位失败，点击重新定位</view>
-    </block>
-  </view>
-  
+  <header title="多师傅" area></header>
+
   <ad-swiper pos="1"></ad-swiper>
 
   <!-- <view class="nav-list flex1">
@@ -46,8 +37,8 @@
       <navigator class="link" url="/pages/order/center/center" style="background:#a3cf54"><image src="/image/icon/order_list.svg"/><text>抢单中心</text></navigator>
     </view>
     <view>
-      <navigator class="link" url="/pages/engineering/list/list" style="background:#a594fe"><image src="/image/icon/square2.svg" style="width:84rpx;height:84rpx"/><text>案例广场</text></navigator>
-      <navigator class="link" url="/pages/shop/list/list" style="background:#ee9b9b"><image src="/image/icon/shop.svg" style="width:64rpx;height:64rpx"/><text>实体店</text></navigator>
+      <navigator class="link" url="/pages/engineering/list/list" open-type="reLaunch" style="background:#a594fe"><image src="/image/icon/square2.svg" style="width:84rpx;height:84rpx"/><text>案例广场</text></navigator>
+      <navigator class="link" url="/pages/shop/list/list" open-type="reLaunch" style="background:#ee9b9b"><image src="/image/icon/shop.svg" style="width:64rpx;height:64rpx"/><text>实体店</text></navigator>
     </view>
   </view>
 

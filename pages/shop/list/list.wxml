@@ -61,5 +61,7 @@
     </view>
   </block>
 
-  <navigation current-idx="1"></navigation>
+
+  <navigation current-idx="-1"></navigation>
+
 </view>

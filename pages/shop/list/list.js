@@ -32,7 +32,10 @@ Page({
   },
 
   updateArea(e) {
-    console.log(e.detail.districtCode)
+    this.setData({
+      districtCode: e.detail.districtCode
+    })
+    this.getList(1)
   },
 
   onShareAppMessage: function (e) {
@@ -118,7 +121,7 @@ Page({
         lng: that.data.location.lng,
         lat: that.data.location.lat,
         keyword: that.data.keyword,
-        // district: that.data.districtCode
+        district: that.data.districtCode
       },
       hideLoading: true,
       success: function(data) {

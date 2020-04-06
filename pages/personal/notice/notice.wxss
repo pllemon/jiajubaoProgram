@@ -1,0 +1,14 @@
+.notice-single{
+    background: #fff;
+    padding: 30rpx;
+    border-bottom: 1px solid #f2f2f2;
+}
+.title{
+    font-size: 17px;
+    color: #353535;
+    font-weight: 500;
+    margin-bottom: 6rpx;
+}
+.time{
+    color: #868686;
+}

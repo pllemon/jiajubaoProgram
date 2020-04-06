@@ -1,10 +1,10 @@
 <view class="full-layout">
-  <van-search
+  <!-- <van-search
     value="{{ searchValue }}"
     placeholder="请输入关键词"
     use-action-slot
     bind:search="onSearch"
-  />
+  /> -->
 
   <van-tabs 
     color="#4c5ce3"

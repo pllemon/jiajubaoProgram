@@ -35,6 +35,7 @@
 }
 .main-action .main-btn{
     margin: 0;
+    margin-left: 10rpx;
 }
 .main-action .service{
     margin-right: 30rpx;
@@ -95,4 +96,9 @@
 }
 .order-single .category{
     font-weight: bold;
+}
+
+.show-single{
+    padding: 0;
+    border-bottom: none;
 }

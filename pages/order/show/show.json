@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText": "上传工程秀",
+	"navigationBarTitleText": "上传图片",
 	"usingComponents": {
 		"van-field": "../../miniprogram_npm/vant-weapp/field",
 		"van-cell-group": "../../miniprogram_npm/vant-weapp/cell-group",

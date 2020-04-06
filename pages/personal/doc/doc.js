@@ -27,6 +27,9 @@ Page({
         },
         success: function(data) {
           WxParse.wxParse('dec', 'html', data.dec, that, 0)
+          wx.setNavigationBarTitle({
+            title: data.title
+          })
         }
       })
     } else {

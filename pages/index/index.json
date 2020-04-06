@@ -1,5 +1,6 @@
 {
 	"navigationBarTitleText": "多师傅",
+	"navigationStyle": "custom",
 	"usingComponents": {
 		"location": "/components/location/location"
 	}

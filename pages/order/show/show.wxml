@@ -1,5 +1,5 @@
 <form bindsubmit="formSubmit" class="form">
-    <van-cell-group title="基础信息">
+    <!-- <van-cell-group title="基础信息">
         <van-field
             input-class="input-field"
             value="{{ form.title }}"
@@ -19,8 +19,8 @@
             data-name="dec"
             bind:change="onChange"
         />
-    </van-cell-group>
-    <van-cell-group title="添加图片">
+    </van-cell-group> -->
+    <van-cell-group title="{{title}}">
         <view class="form-section2">
             <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="{{ maxCount }}" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </view>

@@ -77,8 +77,8 @@ const personMessage = {
       },
       6: {
         status: 6,
-        label: '待付尾款',
-        desc: '请支付尾款',
+        label: '确认完成',
+        desc: '师傅已完成施工，请检查后确认',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
@@ -105,6 +105,19 @@ const personMessage = {
         status: 10,
         label: '已取消',
         desc: '订单已取消，欢迎再次下单',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      12: {
+        status: 12,
+        label: '已过期',
+        desc: '订单已过期，欢迎再次下单',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
@@ -220,11 +233,11 @@ const personType = {
         text: '我的积分',
         url: '/pages/personal/wallet/index/index?personType=0'
       },
-      {
-        icon: 'addresslist',
-        text: '我要下单',
-        url: '/pages/demand/category/category'
-      },
+      // {
+      //   icon: 'addresslist',
+      //   text: '我要下单',
+      //   url: '/pages/demand/category/category'
+      // },
       {
         icon: 'group',
         text: '我的朋友',
@@ -247,12 +260,12 @@ const personType = {
       },
       {
         icon: 'notice',
-        text: '平台通知',
+        text: '系统通知',
         url: '/pages/personal/notice/notice'
       },
       {
         icon: 'setting',
-        text: '设置',
+        text: '我要设置',
         url: '/pages/personal/setting/setting'
       }
     ]
@@ -271,11 +284,11 @@ const personType = {
         text: '我的工资',
         url: '/pages/personal/wages/index/index'
       },
-      {
-        icon: 'affiliations_li',
-        text: '我的资料',
-        url: '/pages/order/list/list?personType=1'
-      }
+      // {
+      //   icon: 'affiliations_li',
+      //   text: '我的资料',
+      //   url: '/pages/personal/master/identity/identity?readonly=1'
+      // }
     ]
   },
   2: {
@@ -297,11 +310,11 @@ const personType = {
       //   text: '商家二维码',
       //   action: 'toggleEwm'
       // },
-      {
-        icon: 'affiliations_li',
-        text: '我的资料',
-        url: '/pages/order/list/list?personType=1'
-      }
+      // {
+      //   icon: 'affiliations_li',
+      //   text: '我的资料',
+      //   url: '/pages/personal/master/identity/identity?readonly=1'
+      // }
     ]
   }
 }

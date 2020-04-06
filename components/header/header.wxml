@@ -15,7 +15,10 @@
                 bindchange="bindRegionChange" 
                 value="{{regionName}}"
             >
-                <view class="picker">{{regionName[2]}}</view>
+                <view class="picker">
+                    <icon class="iconfont iconicon_GPS"></icon> 
+                    <text>{{regionName[2]}}</text>
+                </view>
             </picker>
         </view>
 

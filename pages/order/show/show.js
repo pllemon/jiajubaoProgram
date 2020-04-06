@@ -15,23 +15,27 @@ Page({
       imgurl3: '',
       imgurl4: ''
     },
-    maxCount: 1
+    maxCount: 1,
+    title: '添加施工前图片'
   },
 
   onLoad(params) {
     let id = this.data.id
     let form = this.data.form
     let maxCount = this.data.form
+    let title = this.data.title
     form.order_id = params.order_id
     if (params.number == 2) {
       form.number = params.number
       id = params.id
       maxCount = 2
+      title = "添加施工后图片"
     }
     this.setData({
       form,
       id,
-      maxCount
+      maxCount,
+      title
     })
     if (form.number) {
       this.getDetails()
@@ -64,10 +68,6 @@ Page({
     let that = this;
     let form = this.data.form;
     let imgArr = this.data.imgArr; 
-    if (!form.title) {
-      app.showModal('请填写标题');
-      return false;
-    }
     if (!imgArr.length) {
       app.showModal('请上传图片');
       return false;

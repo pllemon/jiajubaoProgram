@@ -1,20 +1,20 @@
 <view class="place" wx:if="{{place}}"></view>
 <view class="navigation">
 	<navigator url="/pages/index/index" open-type="reLaunch" class="nav-single {{currentIdx==0?'active':''}}">
-		<image src="/image/icon/icon_square.svg" mode="aspectFit"></image>
-		<image src="/image/icon/icon_square_active.svg" mode="aspectFit"></image>
+		<image src="/image/icon/home5.svg" mode="aspectFit"></image>
+		<image src="/image/icon/home4.svg" mode="aspectFit"></image>
 		<text>首页</text>
 	</navigator>
 	<view class="nav-single {{currentIdx==1?'active':''}}">
-		<navigator url="/pages/shop/list/list" open-type="reLaunch" class="nav-circle">
-			<image src="/image/icon/shop.svg" mode="aspectFit"></image>
-			<image src="/image/icon/shop.svg" mode="aspectFit"></image>
-			<text>商家</text>
+		<navigator url="/pages/demand/category/category" class="nav-circle">
+			<image src="/image/icon/order.svg" mode="aspectFit"></image>
+			<image src="/image/icon/order.svg" mode="aspectFit"></image>
+			<text>下单</text>
 		</navigator>
 	</view>
 	<view class="nav-single {{currentIdx==2?'active':''}}" bindtap="goPersonal">
-		<image src="/image/icon/icon_patriarch.svg" mode="aspectFit"></image>
-		<image src="/image/icon/icon_patriarch_active.svg" mode="aspectFit"></image>
+		<image src="/image/icon/person2.svg" mode="aspectFit"></image>
+		<image src="/image/icon/person.svg" mode="aspectFit"></image>
 		<text>我的</text>
 	</view>
 </view>

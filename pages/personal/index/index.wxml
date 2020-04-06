@@ -74,7 +74,7 @@
 
   <!-- 商家验证 -->
   <block wx:if="{{currType == 2}}">
-    <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3}}">
+    <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3 || userInfo.is_business == 4}}">
       <view class="flex-center">
         <icon class="iconfont iconbusiness"></icon>
         <view class="flex1">

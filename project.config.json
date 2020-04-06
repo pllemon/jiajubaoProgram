@@ -209,7 +209,7 @@
 				},
 				{
 					"id": -1,
-					"name": "工程秀详情",
+					"name": "案例详情",
 					"pathName": "pages/engineering/details/details",
 					"query": "id=24&personType=1",
 					"scene": null
@@ -317,6 +317,13 @@
 					"name": "线下账单",
 					"pathName": "pages/offline/list/list",
 					"query": "personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "系统通知",
+					"pathName": "pages/personal/notice/notice",
+					"query": "type=0",
 					"scene": null
 				}
 			]

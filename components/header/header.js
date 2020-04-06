@@ -9,7 +9,7 @@ Component({
         }, 
         back: {  
             type: Boolean,  
-            value: true
+            value: false
         }, 
         home: {  
             type: Boolean,  
