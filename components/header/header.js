@@ -29,6 +29,7 @@ Component({
         location: null,
         regionName: [],
         districtCode: '',
+        customItem: '全部'
     }, 
     methods: { 
         // 通过获取系统信息计算导航栏高度 
@@ -74,7 +75,7 @@ Component({
 
         bindRegionChange: function (e) {
             // console.log(e.detail)
-            // console.log('picker发送选择改变，携带值为', e.detail.value)
+            console.log('picker发送选择改变，携带值为', e.detail)
             this.setData({
                 regionName: e.detail.value,
                 districtCode: e.detail.code[2]
