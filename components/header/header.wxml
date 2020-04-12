@@ -9,16 +9,24 @@
                 <image src="/image/icon/home2.svg"></image>
             </view>
 
+            <view wx:if="{{!addressInfo}}">
+                <button size="mini" class="address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
+                    <icon class="iconfont iconicon_GPS"></icon> 
+                    <text>点击定位</text>
+                </button>
+            </view>
             <picker 
-                wx:if="{{area}}"
+                wx:if="{{area && addressInfo}}"
                 mode="region" 
                 bindchange="bindRegionChange" 
-                value="{{regionName}}"
+                value="{{regionInfo.name}}"
                 custom-item="{{customItem}}"
             >
                 <view class="picker">
                     <icon class="iconfont iconicon_GPS"></icon> 
-                    <text>{{regionName[2]}}</text>
+                    <text wx:if="{{regionInfo.code[2]}}">{{regionInfo.name[2]}}</text>
+                    <text wx:elif="{{regionInfo.code[1]}}">{{regionInfo.name[1]}}</text>
+                    <text wx:else>{{regionInfo.name[0]}}</text>
                 </view>
             </picker>
         </view>

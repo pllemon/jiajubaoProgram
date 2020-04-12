@@ -15,6 +15,11 @@ Page({
   changeList(e) {
     this.getList(e.detail.type)
   },
+
+
+  updateArea(e) {
+    this.getList(1)
+  },
   getList(type) { // 1->刷新，2->加载
     let that = this;
     let page = type == 1 ? 1 : ++ this.data.page;
@@ -27,7 +32,10 @@ Page({
     app.request({
       url: '/ordershowlist',
       data: {
-        page: page
+        page: page,
+        province: app.globalData.regionInfo.code[0] || '',
+        city: app.globalData.regionInfo.code[1] || '',
+        district: app.globalData.regionInfo.code[2] || '',
       },
       hideLoading: true,
       success: function(data) {

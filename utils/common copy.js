@@ -75,13 +75,6 @@ const getLocation = (target, callback) => {
       })
     },
     fail(err) {
-      app.globalData.addressInfo = null
-      target.setData({
-        addressInfo: null
-      })
-      if (callback) {
-        callback(null)
-      }
       console.log('地址授权失败')
       // wx.getSetting({
       //   success: (res) => {

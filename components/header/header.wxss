@@ -45,3 +45,19 @@
 	font-size: 18px;
 	font-weight: bold;
 }
+
+.address-btn{
+	border: none;
+	padding: 0;
+	background: #fff;
+	margin-top: 6px;
+	font-size: 14px;
+}
+.address-btn:after{
+	display: none;
+}
+.address-btn .iconfont{
+	position: relative;
+	top: 1px;
+	margin-right: 4px;
+}

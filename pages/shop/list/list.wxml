@@ -2,66 +2,54 @@
 
   <header title="实体店" area bind:updateArea="updateArea"></header>
 
-  <block wx:if="{{location}}">
-    <common-scroll
-      class="scroll-view"
-      load-status="{{loadStatus}}"
-      page = "{{page}}"
-      last-page = "{{lastPage}}"
-      data = "{{list}}"
-      bind:change = "changeList"
-    >
-      <ad-swiper pos="3"></ad-swiper>
-      <view class="common-list">
-        <view wx:for="{{list}}" wx:key="{{index}}" class="shop-single">
-          <view class="shop-img">
-            <gdImage src="{{ item.shopimg }}"  preview="true"/>
-            <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+  <common-scroll
+    class="scroll-view"
+    load-status="{{loadStatus}}"
+    page = "{{page}}"
+    last-page = "{{lastPage}}"
+    data = "{{list}}"
+    bind:change = "changeList"
+  >
+    <ad-swiper pos="3"></ad-swiper>
+    <view class="common-list">
+      <view wx:for="{{list}}" wx:key="id" class="shop-single">
+        <view class="shop-img">
+          <gdImage src="{{ item.shopimg }}"  preview="true"/>
+          <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+        </view>
+        <view class="unit">
+          <view class="flex-start-between">
+            <view class="title">{{item.name}}</view>
+            <!-- <view class="label green">{{item.distance}}</view> -->
+          </view>   
+          <view class="mes">
+            <text class="content">{{item.address}}</text>
           </view>
-          <view class="unit">
-            <view class="flex-start-between">
-              <view class="title">{{item.name}}</view>
-              <!-- <view class="label green">{{item.distance}}</view> -->
-            </view>   
-            <view class="mes">
-              <text class="content">{{item.address}}</text>
-            </view>
-            <view class="mes">
-              <text class="content">{{item.phone}}</text>
-            </view>
-          </view>
-          <view class="shop-action flex-center-end">
-            <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
-              <icon class="iconfont iconicon_phone"></icon>
-              <text>联系</text>
-            </button>
-            <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
-              <icon class="iconfont iconicon_GPS"></icon>
-              <text>路线</text>
-            </button>
-            <!-- <button size="mini" data-idx="{{index}}" open-type="share">
-              <icon class="iconfont iconicon_share"></icon>
-              <text>分享</text>
-            </button> -->
-            <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
-              <icon class="iconfont iconicon_share"></icon>
-              <text>下单</text>
-            </button>
+          <view class="mes">
+            <text class="content">{{item.phone}}</text>
           </view>
         </view>
+        <view class="shop-action flex-center-end">
+          <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
+            <icon class="iconfont iconicon_phone"></icon>
+            <text>联系</text>
+          </button>
+          <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
+            <icon class="iconfont iconicon_GPS"></icon>
+            <text>路线</text>
+          </button>
+          <!-- <button size="mini" data-idx="{{index}}" open-type="share">
+            <icon class="iconfont iconicon_share"></icon>
+            <text>分享</text>
+          </button> -->
+          <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
+            <icon class="iconfont iconicon_share"></icon>
+            <text>下单</text>
+          </button>
+        </view>
       </view>
-    </common-scroll>
-  </block>
-  <block wx:else>
-    <view class="flex-center-column">
-      <image src="/image/example/location.png" class="location-img" mode="aspectFit"></image>
-      <button class="flex-center address-btn" open-type="openSetting" bindopensetting="onOpenSetting">
-        点击开启定位
-      </button>
     </view>
-  </block>
-
+  </common-scroll>
 
   <navigation current-idx="-1"></navigation>
-
 </view>

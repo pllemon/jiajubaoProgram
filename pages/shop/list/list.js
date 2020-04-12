@@ -13,28 +13,9 @@ Page({
     showLocationDialog: false,
 
     location: null,
-
-    districtCode: '',
-
-  },
-
-  onLoad() {
-    let that = this;
-    common.getLocation(that, function(res){
-      let { province, city, district } = res.address_component
-      that.setData({
-        location: res.location,
-        regionName: [province, city, district],
-        districtCode: res.ad_info.adcode
-      })
-      that.getList(1);
-    });
   },
 
   updateArea(e) {
-    this.setData({
-      districtCode: e.detail.districtCode
-    })
     this.getList(1)
   },
 
@@ -52,8 +33,10 @@ Page({
   // 下单
   makeOffline(e) {
     let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/offline/apply/apply?id=' + id
+    common.checkLogin(function(){
+      wx.navigateTo({
+        url: '/pages/offline/apply/apply?id=' + id
+      })
     })
   },
 
@@ -118,10 +101,12 @@ Page({
     app.request({
       url: '/businesslist',
       data: {
-        lng: that.data.location.lng,
-        lat: that.data.location.lat,
+        lng: app.globalData.addressInfo? app.globalData.addressInfo.lng : '',
+        lat: app.globalData.addressInfo? app.globalData.addressInfo.lat : '',
         keyword: that.data.keyword,
-        district: that.data.districtCode
+        province: app.globalData.regionInfo.code[0] || '',
+        city: app.globalData.regionInfo.code[1] || '',
+        district: app.globalData.regionInfo.code[2] || '',
       },
       hideLoading: true,
       success: function(data) {

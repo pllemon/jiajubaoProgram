@@ -139,6 +139,7 @@ App({
     loginInfo: null, // 登录后账号信息
     addressInfo: null, // 地理位置信息
     personMessage: systemData.personMessage,
-    service_demand: '' // 已选的项目名
+    service_demand: '', // 已选的项目名
+    regionInfo: null // 省市区信息
   }
 })
