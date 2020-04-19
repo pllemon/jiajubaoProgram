@@ -15,6 +15,8 @@ Page({
     finish: false,
 
     craftsmannfo: {}, // 自身师傅信息
+    isPopup: false,
+    cancelremark: ''
   },
 
   onLoad(params) {
@@ -27,6 +29,13 @@ Page({
       craftsmannfo: app.globalData.loginInfo.craftsmannfo
     })
     that.getInfo()
+  },
+
+
+  closePopup() {
+    this.setData({ 
+      isPopup: false 
+    })
   },
 
   // 获取订单信息
@@ -194,8 +203,41 @@ Page({
     })
   },
 
-  // 师傅取消订单
+  // 用户取消订单
+  formSubmit() {
+    if (this.data.personType == 0) {
+      this.cancelOrder()
+    }
+  },
+  inputCancelRemark(e) {
+    this.setData({
+      cancelremark: e.detail.value
+    })
+  },
+  showPopup() {
+   this.setData({
+     isPopup: true
+   }) 
+  },
   cancelOrder() {
+    let that = this
+    that.closePopup()
+    app.request({
+      url: '/usercancelorder',
+      data: {
+        order_id: that.data.order_id,
+        cancelremark: that.data.cancelremark
+      },
+      success: function(data) {
+        app.successToast('取消成功', function(){
+          that.getInfo();
+        })
+      }
+    })
+  },
+
+  // 师傅取消订单
+  cancelOrder2() {
     wx.showModal({
       content: '确定取消承接该订单？',
       success (res) {

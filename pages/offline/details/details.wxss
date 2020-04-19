@@ -1,7 +1,5 @@
 .blue-header{
     font-size: 13px;
-    padding-top: 140rpx;
-    height: 480rpx;
 }
 .blue-header .mes{
     display: flex;

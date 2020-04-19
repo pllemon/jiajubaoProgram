@@ -21,7 +21,7 @@ const personMessage = {
         showMaster: false,
         showMasterPhone: false,
         showSignUp: false,
-        showAction: false
+        showAction: true
       },
       2: {
         status: 2,
@@ -103,6 +103,19 @@ const personMessage = {
       },
       10: {
         status: 10,
+        label: '已取消',
+        desc: '订单已取消，欢迎再次下单',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      11: {
+        status: 11,
         label: '已取消',
         desc: '订单已取消，欢迎再次下单',
         show: true,

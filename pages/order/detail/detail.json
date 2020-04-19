@@ -1,6 +1,6 @@
 {
 	"navigationBarTitleText": "订单详情",
-	"navigationStyle": "custom",
 	"usingComponents": {
+		"van-popup": "../../miniprogram_npm/vant-weapp/popup"
 	}
 }

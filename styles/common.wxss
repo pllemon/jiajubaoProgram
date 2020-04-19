@@ -112,9 +112,8 @@ van-icon{
 
 /* 蓝色顶部 */
 .blue-header{
-	height: 380rpx;
 	background: -webkit-linear-gradient(#7889f1, #4d5ef4);
-	padding: 180rpx 40rpx 0;
+	padding: 40rpx;
 	color: #fff;
 	display: flex;
   align-items: center;
