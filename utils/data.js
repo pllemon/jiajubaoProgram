@@ -103,8 +103,8 @@ const personMessage = {
       },
       10: {
         status: 10,
-        label: '已取消',
-        desc: '订单已取消，欢迎再次下单',
+        label: '审核不通过',
+        desc: '订单审核不通过，欢迎再次下单',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
