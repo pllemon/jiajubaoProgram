@@ -321,7 +321,7 @@
 				},
 				{
 					"id": -1,
-					"name": "系统通知",
+					"name": "系统公告",
 					"pathName": "pages/personal/notice/notice",
 					"query": "type=0",
 					"scene": null

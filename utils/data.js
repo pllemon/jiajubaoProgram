@@ -52,7 +52,7 @@ const personMessage = {
       4: {
         status: 4,
         label: '报名中',
-        desc: '可选择你喜欢的师傅',
+        desc: '师傅报名中',
         show: true,
         icon: 'icongongcheng-',
         showUser: true,
@@ -77,8 +77,8 @@ const personMessage = {
       },
       6: {
         status: 6,
-        label: '确认完成',
-        desc: '师傅已完成施工，请检查后确认',
+        label: '待验收',
+        desc: '师傅已完成施工，请检查验收',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
@@ -105,7 +105,7 @@ const personMessage = {
         status: 10,
         label: '审核不通过',
         desc: '订单审核不通过，欢迎再次下单',
-        show: true,
+        show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
         showUserPhone: false,
@@ -154,7 +154,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '已报名',
-        desc: '您已报名，请耐心等待结果',
+        desc: '报名成功，请耐心等待结果',
         show: true,
         icon: 'icongongcheng-',
         showUser: false,
@@ -266,14 +266,14 @@ const personType = {
         text: '意见反馈',
         url: '/pages/personal/feedback/feedback'
       },
-      {
-        icon: 'namecard',
-        text: '师傅加盟',
-        action: 'goMaster'
-      },
+      // {
+      //   icon: 'namecard',
+      //   text: '师傅加盟',
+      //   action: 'goMaster'
+      // },
       {
         icon: 'notice',
-        text: '系统通知',
+        text: '系统公告',
         url: '/pages/personal/notice/notice'
       },
       {

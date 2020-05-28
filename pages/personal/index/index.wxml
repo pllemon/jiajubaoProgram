@@ -96,7 +96,6 @@
     show="{{ showEwm }}"
     bind:close="toggleEwm"
   >
-    
   </van-dialog>
 
   <navigation current-idx="2"></navigation>

@@ -25,7 +25,7 @@
 	<!-- 无数据 -->
 	<view class="empty" wx:if="{{loadStatus == 0 && data.length == 0}}">
 		<image src="/image/icon/kong.svg" />
-		<view>哎呦，无相关数据</view>
+		<view>无相关数据</view>
 	</view>
 
 	<!-- 加载更多 -->
