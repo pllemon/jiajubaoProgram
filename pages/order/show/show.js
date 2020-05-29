@@ -28,7 +28,7 @@ Page({
     if (params.number == 2) {
       form.number = params.number
       id = params.id
-      maxCount = 2
+      maxCount = 1
       title = "添加施工后图片"
     }
     this.setData({

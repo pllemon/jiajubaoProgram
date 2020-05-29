@@ -7,7 +7,7 @@ Page({
     interval: 5000,
     duration: 1000,
 
-    personType: 0,
+    personType: 0, // 0用户1师傅
     order_id: '',
     orderMes: {},
     masterList: [],

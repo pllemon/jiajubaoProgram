@@ -54,3 +54,28 @@
 	font-size: 20px;
 	top: -4px;
 }
+
+
+/*  */
+.customer-service{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	background: rgba(255,69,0,0.6);
+	color: #fff;
+	overflow: hidden;
+	top: 30%;
+	left: 650rpx;
+}
+.customer-service button{
+	width: 100rpx;
+	height: 100rpx;
+	padding: 0;
+	background: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: #fff;
+	font-size: 20rpx;
+}

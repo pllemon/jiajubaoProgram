@@ -1,4 +1,4 @@
-<view class="container personal">
+<movable-area class="full-layout personal" style="width:100%;height:100%">
   <!-- 我的信息 -->
   <view class="personal-header">
     <view class="personal-mes blue-header">
@@ -99,4 +99,11 @@
   </van-dialog>
 
   <navigation current-idx="2"></navigation>
-</view>
+
+  <movable-view direction="all" class="customer-service">
+    <button open-type="contact">
+      <image src="/image/icon/kf.png" style="width:44rpx;height:44rpx;position:relative;top:10rpx"/>
+      <text>客服</text>
+    </button>
+  </movable-view>
+</movable-area>
