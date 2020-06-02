@@ -19,11 +19,11 @@
   </van-dropdown-menu> -->
 
   <common-scroll
+    id="list"
     class="scroll-view"
-    load-status="{{loadStatus}}"
-    page = "{{page}}"
-    last-page = "{{lastPage}}"
-    data = "{{list}}"
+    request-url="/graborderlist"
+    query="{{query}}"
+    isPaging="{{false}}"
     bind:change = "changeList"
   >
     <view class="order-list">

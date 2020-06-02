@@ -3,11 +3,12 @@
   <header title="实体店" area bind:updateArea="updateArea"></header>
 
   <common-scroll
+    id="list"
     class="scroll-view"
-    load-status="{{loadStatus}}"
-    page = "{{page}}"
-    last-page = "{{lastPage}}"
-    data = "{{list}}"
+    request-url="/businesslist"
+    query="{{query}}"
+    isPaging="{{false}}"
+    auto="{{false}}"
     bind:change = "changeList"
   >
     <ad-swiper pos="3"></ad-swiper>
@@ -44,7 +45,7 @@
           </button> -->
           <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
             <icon class="iconfont iconicon_share"></icon>
-            <text>下单</text>
+            <text>优惠</text>
           </button>
         </view>
       </view>

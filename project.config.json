@@ -89,9 +89,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "商家列表",
-					"pathName": "pages/shop/list/list",
+					"pathName": "pages/shop/discount/discount",
 					"query": "",
 					"scene": null
 				},
@@ -331,6 +331,13 @@
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
 					"query": "id=153&personType=0",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "我的订单",
+					"pathName": "pages/order/list/list",
+					"query": "personType=1",
 					"scene": null
 				}
 			]

@@ -7,6 +7,7 @@
     "pages/demand/applyForm/applyForm",
 
     "pages/shop/list/list",
+    "pages/shop/discount/discount",
 
     "pages/engineering/list/list",
     "pages/engineering/details/details",
@@ -28,6 +29,7 @@
     "pages/personal/user/editMes/editMes",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
+    "pages/personal/businessman/goods/goods",
     "pages/personal/setting/setting",
     "pages/personal/notice/notice",
     "pages/personal/doc/doc",
@@ -58,8 +60,7 @@
   "usingComponents": {
     "gdImage": "/components/image/image",
     "navigation": "/components/navigation/navigation",
-		"scroll-content": "/components/scroll/scroll",
-		"common-scroll": "/components/scroll2/scroll2",
+		"common-scroll": "/components/scrollList/scrollList",
     "ad-swiper": "/components/adSwiper/adSwiper",
     "header": "/components/header/header"
   },

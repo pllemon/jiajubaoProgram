@@ -4,9 +4,7 @@ const common = require('../../../utils/common.js');
 Page({
   data: {
     list: [],
-    page: 1,
-    lastPage: 1,
-    loadStatus: 0,
+    query: {},
 
     keyword: "",
     addressInfo: null,
@@ -16,7 +14,20 @@ Page({
   },
 
   updateArea(e) {
-    this.getList(1)
+    let that = this
+    let addressInfo = app.globalData.addressInfo
+    let regionInfo = app.globalData.regionInfo
+    this.setData({
+      query: {
+        // lng: addressInfo? addressInfo.lng : '',
+        // lat: addressInfo? addressInfo.lat : '',
+        keyword: that.data.keyword,
+        province: regionInfo.code[0] || '',
+        city: regionInfo.code[1] || '',
+        district: regionInfo.code[2] || '',
+      }
+    })
+    this.selectComponent("#list").getData(1);
   },
 
   onShareAppMessage: function (e) {
@@ -49,7 +60,17 @@ Page({
   
 
   changeList(e) {
-    this.getList(e.detail.type)
+    let list = e.detail
+    // list.forEach(item => {
+    //   if (item.distance > 1000) {
+    //     item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
+    //   } else {
+    //     item.distance = item.distance + 'm'
+    //   }
+    // })
+    this.setData({
+      list
+    })
   },
 
   onOpenSetting() {
@@ -87,48 +108,7 @@ Page({
       that.setData({
         location: res.location
       })
-      that.getList(1);
-    });
-  },
-
-  getList(type) { // 1->刷新，2->加载
-    let that = this;
-  
-    that.setData({
-      loadStatus: type || 1
-    })
-
-    app.request({
-      url: '/businesslist',
-      data: {
-        lng: app.globalData.addressInfo? app.globalData.addressInfo.lng : '',
-        lat: app.globalData.addressInfo? app.globalData.addressInfo.lat : '',
-        keyword: that.data.keyword,
-        province: app.globalData.regionInfo.code[0] || '',
-        city: app.globalData.regionInfo.code[1] || '',
-        district: app.globalData.regionInfo.code[2] || '',
-      },
-      hideLoading: true,
-      success: function(data) {
-        let list = data || []
-        list.forEach(item => {
-          if (item.distance > 1000) {
-            item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
-          } else {
-            item.distance = item.distance + 'm'
-          }
-        })
-        that.setData({
-          page: 1,
-          lastPage: 1,
-          list
-        })
-      },
-      complete: function() {
-        that.setData({
-          loadStatus: 0
-        })
-      }
+      that.updateArea()
     })
   }
 })

@@ -1,0 +1,46 @@
+<scroll-view 
+	scroll-y
+    scroll-top="{{scrollTop}}"
+	bindtouchstart="touchstart" 
+	bindtouchmove="touchmove" 
+	bindtouchend="touchend"
+	bindscrolltolower="loadMore" 
+    bindscroll="scroll"
+>
+
+	<!-- 下拉刷新 -->
+	<view wx:if="{{loadStatus == 1}}" class="scroll-tips">
+		<van-loading type="spinner" size="20px"/>
+		<text>更新数据</text>
+	</view>
+
+	<view hidden="{{moveY <= 0}}" class="scroll-tips">
+		<van-icon name="down" size="16px"/>
+		<text>松手刷新</text>
+	</view>
+
+	<!-- 主体内容 -->
+	<slot></slot>
+
+	<!-- 无数据 -->
+	<view class="empty" wx:if="{{show && loadStatus == 0 && data.length == 0}}">
+		<image src="/image/icon/kong.svg" />
+		<view>无相关数据</view>
+	</view>
+
+	<!-- 加载更多 -->
+	<view wx:if="{{loadStatus == 2}}" class="scroll-tips">
+		<van-loading type="spinner" size="20px"/>
+		<text>加载更多</text>
+	</view>
+
+	<!-- 无更多 -->
+	<view wx:if="{{loadStatus == 0 && data.length != 0 && page == last_page}}" style="padding-bottom: 40rpx">
+		<van-divider contentPosition="center">已无更多</van-divider>
+	</view>
+</scroll-view>
+
+<!-- 返回顶部 -->
+<!-- <view class="go-top" hidden="{{posTop < 100}}" bindtap="goTop">
+	<icon class="address-icon iconfont iconicon_next_arrow"></icon>
+</view> -->

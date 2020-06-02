@@ -6,63 +6,45 @@ Page({
     personType: 0,
     orderStatus: {},
 
+    requestUrl: '',
+    statusName: '',
     list: [],
-    page: 1,
-    lastPage: 1,
-    loadStatus: 0,
-    status: '',
-    keyword: ''
+    query: {}
   },
   onLoad(params) {
+    let personType = params.personType
+    let url = personType == 0 ? '/userorderlist' : '/craftsmanorderlist';
+    let statusName = personType == 0 ? 'status' : 'cmorderstatus';
+
     this.setData({
       showNav: params.showNav || 0,
-      personType: params.personType,
-      orderStatus: app.globalData.personMessage[params.personType].orderStatus
-    })
-    this.getList()
-  },
+      personType: personType,
+      orderStatus: app.globalData.personMessage[personType].orderStatus,
 
-  // 获取订单列表
-  changeList(e) {
-    this.getList(e.detail.type)
-  },
-  getList() {
-    let that = this;
-    let personType = that.data.personType;
-    let url = personType == 0 ? '/userorderlist' : '/craftsmanorderlist';
-    let status = personType == 0 ? 'status' : 'cmorderstatus';
-
-    that.setData({
-      loadStatus: 1,
-      list: []
-    })
-
-    app.request({
-      url,
-      data: {
-        [status]: this.data.status,
-        keyword: this.data.keyword
-      },
-      hideLoading: true,
-      success: function(data) {
-        that.setData({
-          page: 1,
-          lastPage: 1,
-          list: data
-        })
-      },
-      complete: function() {
-        that.setData({
-          loadStatus: 0
-        })
+      statusName: statusName,
+      requestUrl: url,
+      query: {
+        [statusName]: '',
+        keyword: ''
       }
+    })
+
+    this.selectComponent("#list").getData(1);
+  },
+
+  changeList(e) {
+    this.setData({
+      list: e.detail
     })
   },
 
   changeType(e) {
     this.setData({
-      status: e.detail.name
+      query: {
+        [this.data.statusName]: e.detail.name,
+        keyword: ''
+      }
     })
-    this.getList()
+    this.selectComponent("#list").getData(1);
   }
 })

@@ -20,11 +20,12 @@
   </van-tabs>
 
   <common-scroll
+    id="list"
     class="scroll-view"
-    load-status="{{loadStatus}}"
-    page = "{{page}}"
-    last-page = "{{lastPage}}"
-    data = "{{list}}"
+    request-url="{{requestUrl}}"
+    query="{{query}}"
+    isPaging="{{false}}"
+    auto="{{false}}"
     bind:change = "changeList"
   >
     <view class="order-list">

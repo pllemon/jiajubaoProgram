@@ -224,6 +224,12 @@ const personMessage = {
     icon: '/image/icon/business.svg',
     orderStatus: {},
     action: []
+  },
+  3: {
+    text: '我是店长',
+    icon: '/image/icon/business.svg',
+    orderStatus: {},
+    action: []
   }
 }
 const personType = {
@@ -233,12 +239,12 @@ const personType = {
     action: [
       {
         icon: 'affiliations_li',
-        text: '我的订单',
+        text: '维修订单',
         url: '/pages/order/list/list?personType=0'
       },
       {
         icon: 'cspace',
-        text: '线下账单',
+        text: '优惠订单',
         url: '/pages/offline/list/list?personType=0'
       },
       {
@@ -289,7 +295,7 @@ const personType = {
     action: [
       {
         icon: 'affiliations_li',
-        text: '我的订单',
+        text: '接单记录',
         url: '/pages/order/list/list?personType=1'
       },
       {
@@ -310,24 +316,30 @@ const personType = {
     action: [
       {
         icon: 'cspace',
-        text: '线下账单',
+        text: '优惠订单',
         url: '/pages/offline/list/list?personType=2'
       },
-      // {
-      //   icon: 'coinpurse_line',
-      //   text: '我的积分',
-      //   url: '/pages/personal/wallet/index/index?personType=2'
-      // },
-      // {
-      //   icon: 'QRcode',
-      //   text: '商家二维码',
-      //   action: 'toggleEwm'
-      // },
+      {
+        icon: 'cspace',
+        text: '优惠商品',
+        url: '/pages/personal/businessman/goods/goods'
+      },
       // {
       //   icon: 'affiliations_li',
       //   text: '我的资料',
       //   url: '/pages/personal/master/identity/identity?readonly=1'
       // }
+    ]
+  },
+  3: {
+    text: '我是店长',
+    icon: '/image/icon/business.svg',
+    action: [
+      {
+        icon: 'cspace',
+        text: '网点订单',
+        url: '/pages/offline/list/list?personType=2'
+      },
     ]
   }
 }

@@ -3,9 +3,7 @@ const app = getApp();
 Page({
   data: {
     list: [],
-    page: 1,
-    lastPage: 1,
-    loadStatus: 0,
+    query: {},
 
     tabIndex: -1,
 
@@ -26,38 +24,12 @@ Page({
 
   onLoad() {
     let that = this;
-    that.getList();
     that.getCategory();
   },
 
-  // 获取列表
   changeList(e) {
-    this.getList(e.detail.type)
-  },
-  getList() {
-    let that = this;
-
-    that.setData({
-      loadStatus: 1,
-      list: []
-    })
-
-    app.request({
-      url: '/graborderlist',
-      data: {},
-      hideLoading: true,
-      success: function(data) {
-        that.setData({
-          page: 1,
-          lastPage: 1,
-          list: data
-        })
-      },
-      complete: function() {
-        that.setData({
-          loadStatus: 0
-        })
-      }
+    this.setData({
+      list: e.detail
     })
   },
 

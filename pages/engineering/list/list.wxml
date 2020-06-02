@@ -2,11 +2,11 @@
   <header title="案例广场" area bind:updateArea="updateArea"></header>
 
   <common-scroll
+    id="list"
     class="scroll-view"
-    load-status="{{loadStatus}}"
-    page = "{{page}}"
-    last-page = "{{lastPage}}"
-    data = "{{list}}"
+    request-url="/ordershowlist"
+    query="{{query}}"
+    auto="{{false}}"
     bind:change = "changeList"
   >
     <ad-swiper pos="2"></ad-swiper>
@@ -31,7 +31,6 @@
       </view>
     </view>
   </common-scroll>
-
 
   <navigation current-idx="-1"></navigation>
 </view>

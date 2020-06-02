@@ -1,0 +1,31 @@
+<view class="full-layout">
+  <view class="flex1">
+    <view wx:for="{{list}}" wx:key="index" class="goods-single">
+      <image class="goods-image" />
+      <view class="flex1">
+        <view class="name">{{item.name}}</view>
+        <view class="flex-center-between">
+          <view>
+            <text>￥{{item.price}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <van-stepper 
+            data-idx="{{index}}"
+            input-class="stepper-input" 
+            plus-class="stepper-plus"
+            minus-class="stepper-minus"
+            value="{{ item.number }}" 
+            step="1" 
+            min="0"
+            disable-input 
+            bind:change="onChange"
+          />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <text>￥{{sum}}</text>
+    <view bindtap="makeOrder">下单</view>
+  </view>
+</view>
