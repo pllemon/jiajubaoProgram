@@ -11,9 +11,6 @@ Page({
     },
 
     list: [],
-    page: 1,
-    lastPage: 1,
-    loadStatus: 0,
 
     form: {
       order_id: '',
@@ -29,7 +26,7 @@ Page({
   },
   onLoad(params) {
     let query = this.data.query
-    let form = this.data.query
+    let form = this.data.form
     if (params.type == 2) {
       query.pay_status_code = 'GETTOW'
       form.pay_status_code = 'GETTOW'
@@ -38,7 +35,7 @@ Page({
         form
       })
     }
-    this.getList()
+    this.selectComponent("#list").getData(1);
   },
   
   openPopup() {
@@ -64,37 +61,8 @@ Page({
   },
 
   changeList(e) {
-    this.getList(e.detail.type)
-  },
-
-  getList(type) {
-    let that = this;
-  
-    that.setData({
-      loadStatus: type || 1
-    })
-
-    app.request({
-      url: '/craftsmanorderlist',
-      data: this.data.query,
-      hideLoading: true,
-      success: function(data) {
-        let sumMoney = 0;
-        data.forEach((item) => {
-          sumMoney += item.craftsman_price
-        })
-        that.setData({
-          page: 1,
-          lastPage: 1,
-          list: data,
-          sumMoney
-        })
-      },
-      complete: function() {
-        that.setData({
-          loadStatus: 0
-        })
-      }
+    this.setData({
+      list: e.detail
     })
   },
 

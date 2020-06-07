@@ -83,5 +83,12 @@ Page({
         app.showModal('保存成功，马上去分享吧～')
       }
     })
+  },
+
+  onShareAppMessage: function (res) {
+    return {
+      title: '多师傅，专业维修平台',
+      path: '/pages/login/login?invitation_code=' + app.globalData.loginInfo.invitation_code
+    }
   }
 })

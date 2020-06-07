@@ -1,23 +1,19 @@
-.goods-single{
+.action{
+  background: #f8f8f8;
   display: flex;
-  background: #fff;
-  padding: 30rpx;
-  border-bottom: 1px solid #f2f2f2;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-top: 1px solid #f2f2f2;
+  justify-content: space-between;
 }
-
-.goods-image{
-  width: 150rpx;
-  height: 150rpx;
-  background: #f2f2f2;
-  margin-right: 20rpx;
+.action button{
+  width: 200rpx;
+  margin: 0;
 }
-
-.name{
-  color: #353535;
-  font-size: 32rpx;
-  margin-bottom: 20rpx;
+.action .jf{
+  color: #868686;
+  font-size: 24rpx;
 }
-
-.stepper-input{
-  color: #353535;
+.action .money{
+  font-size: 38rpx;
 }

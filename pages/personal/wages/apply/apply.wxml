@@ -1,10 +1,11 @@
 <view class="full-layout">
     <common-scroll
+        id="list"
         class="scroll-view"
-        load-status="{{loadStatus}}"
-        page = "{{page}}"
-        last-page = "{{lastPage}}"
-        data = "{{list}}"
+        request-url="/craftsmanorderlist"
+        query="{{query}}"
+        isPaging="{{false}}"
+        auto="{{false}}"
         bind:change = "changeList"
     >
         <view class="order-list">
@@ -16,10 +17,9 @@
             </view>
         </view>
     </common-scroll>
-    <view class="page-action" wx:if="{{sumMoney}}">
-        <view class="money">合计：￥{{sumMoney}}</view>
-        <button bindtap="openPopup" class="main-btn flex1" wx:if="{{query.pay_status_code == 'GETONE'}}">申请一期（80%）</button>
-        <button bindtap="openPopup" class="main-btn flex1" wx:else>申请二期（20%）</button>
+    <view class="page-action flex-center-end" wx:if="{{list.length}}">
+        <button bindtap="openPopup" class="main-btn" wx:if="{{query.pay_status_code == 'GETONE'}}">申请一期</button>
+        <button bindtap="openPopup" class="main-btn" wx:else>申请二期</button>
     </view>
 </view>
 <van-popup

@@ -18,7 +18,11 @@
           <gdImage src="{{ item.imgurl3 }}" preview label2="竣工图"></gdImage>
         </view>
         <view class="show-dec">
-          <view>工号: 072012234</view>
+          <view class="flex" style="align-items: center">
+            <gdImage src="{{ item.cm_headerurl }}" width="50rpx" height="50rpx" style="margin-right:10rpx;border-radius:50%;overflow:hidden"></gdImage>
+            <text>{{item.cm_name}}</text>
+          </view>
+          <!-- <view>{{item.crafts_man_sn}}</view> -->
           <view class="rate">
             <image src="/image/icon/start.svg" />
             <image src="/image/icon/start.svg" />
@@ -26,7 +30,7 @@
             <image src="/image/icon/start.svg" />
             <image src="/image/icon/start.svg" />
           </view>
-          <view>广东江门</view>
+          <view>{{item.region}}</view>
         </view>
       </view>
     </view>

@@ -39,15 +39,15 @@
         <van-cell title="门面图片" title-width="100px" required>
             <van-uploader data-type="shopimg" file-list="{{ shopimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </van-cell>
-        <van-cell title="产品图片" title-width="100px" required>
+        <van-cell title="宣传图片" title-width="100px" required>
             <van-uploader data-type="goodsimg" file-list="{{ goodsimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
         </van-cell>
         <van-cell title="营业执照" title-width="100px" required>
             <van-uploader data-type="businessimg" file-list="{{ businessimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
         </van-cell>
-        <van-cell title="分享图片" title-width="100px" required>
+        <!-- <van-cell title="分享图片" title-width="100px" required>
             <van-uploader data-type="sharewximg" file-list="{{ sharewximg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
-        </van-cell>
+        </van-cell> -->
     </van-cell-group>
 
     <checkbox-group class="agree flex-center-start" bindchange="checkboxChange">

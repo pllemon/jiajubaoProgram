@@ -22,7 +22,7 @@ Page({
   goDemand() {
     common.checkLogin(function(){
       wx.navigateTo({
-        url: '/pages/demand/category/category'
+        url: '/pages/demand/applyForm/applyForm'
       })
     })
   },

@@ -6,26 +6,17 @@ Page({
   },
 
   onLoad() {
-    
+    this.getList()
   },
 
   getList() {
     let that = this;
     app.request({
       url: '/usersharelist',
-      data: {
-        page: 0,
-        limit: 20
-      },
+      data: {},
       success: function(data) {
-        console.log(11)
-        console.log(data)
-        let sum = data.sumintegral
-        if (personType == 2) {
-          sum = data.integralsum
-        }
         that.setData({
-          sumintegral: sum
+          list: data
         })
       }
     })

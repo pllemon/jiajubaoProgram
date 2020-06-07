@@ -155,37 +155,44 @@ Page({
     } else if (this.data.formType == 2) {
       url = '/resetpwd'
     }
-    app.request({
-      url,
-      data: formData,
-      success: function(data) {
-        that.formReset();
-        if (that.data.formType == 0) {
-          app.showModal('注册成功，请登录');
-          that.setData({
-            formType: 1
-          })
-        } else if (that.data.formType == 1) {
-          app.globalData.session = data
-          wx.setStorage({
-            key: 'session',
-            data: data
-          })
-          app.request({
-            url: '/userinfo',
-            success: function(data) {
-              app.globalData.loginInfo = data
-            }
-          })
-          wx.reLaunch({
-            url: '/pages/index/index'
-          })
-        } else if (that.data.formType == 2) {
-          app.showModal('重置成功，请登录');
-          that.setData({
-            formType: 1
-          })
+    wx.login({
+      success: res => {
+        if (that.data.formType == 1) {
+          formData.code = res.code
         }
+        app.request({
+          url,
+          data: formData,
+          success: function(data) {
+            that.formReset();
+            if (that.data.formType == 0) {
+              app.showModal('注册成功，请登录');
+              that.setData({
+                formType: 1
+              })
+            } else if (that.data.formType == 1) {
+              app.globalData.session = data
+              wx.setStorage({
+                key: 'session',
+                data: data
+              })
+              app.request({
+                url: '/userinfo',
+                success: function(data) {
+                  app.globalData.loginInfo = data
+                }
+              })
+              wx.reLaunch({
+                url: '/pages/index/index'
+              })
+            } else if (that.data.formType == 2) {
+              app.showModal('重置成功，请登录');
+              that.setData({
+                formType: 1
+              })
+            }
+          }
+        })
       }
     })
   },

@@ -36,7 +36,7 @@ Page({
         text2: '您的账号已被禁用，如有疑问请联系客服',
         btn: '账号已禁用',
         active: false
-      },
+      }
     },
 
     personType: {}, // 用户类型
@@ -53,6 +53,7 @@ Page({
     this.getInfo();
   },
 
+  // 获取账号信息
   getInfo() {
     let that = this;
     app.request({
@@ -66,50 +67,49 @@ Page({
       }
     })
   },
-
+ 
+  // 编辑个人资料
   editMes() {
     wx.navigateTo({
       url: '/pages/personal/user/editMes/editMes'
     })
   },
 
+  // 申请成为师傅
   applyMaster() {
     wx.navigateTo({
       url: '/pages/personal/master/identity/identity'
     })
   },
 
+  // 申请成为商家
   applyBusiness() {
     wx.navigateTo({
       url: '/pages/personal/businessman/identity/identity'
     })
   },
 
-  goMaster() {
-    this.setData({
-      currType: 1
-    })
-  },
 
-  toggleEwm() {
-    let that = this;
-    if (!that.data.ewmURL) {
-      app.request({
-        url: '/businessorcode',
-        success: function(data) {
-          console.log(data)
-          that.setData({
-            showEwm: !that.data.showEwm
-          })
-        }
-      })
-    } else {
-      that.setData({
-        showEwm: !that.data.showEwm
-      })
-    }
-  },
+  // toggleEwm() {
+  //   let that = this;
+  //   if (!that.data.ewmURL) {
+  //     app.request({
+  //       url: '/businessorcode',
+  //       success: function(data) {
+  //         console.log(data)
+  //         that.setData({
+  //           showEwm: !that.data.showEwm
+  //         })
+  //       }
+  //     })
+  //   } else {
+  //     that.setData({
+  //       showEwm: !that.data.showEwm
+  //     })
+  //   }
+  // },
 
+  // 切换身份
   changeType(e) {
     let type = e.detail.name;
     this.setData({
@@ -117,6 +117,7 @@ Page({
     })
   },
 
+  // 操作
   bindAction(e) {
     let action = e.currentTarget.dataset.action;
     this[action]();

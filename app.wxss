@@ -66,6 +66,11 @@ view{
     background: -webkit-linear-gradient(45deg, #7889f1, #4d5ef4);
     border-radius: 50rpx;
 }
+.main-btn.default{
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    background: #fff;
+}
 .main-btn.small{
     font-size: 16px;
     line-height: 2;
@@ -83,9 +88,12 @@ view{
 .main-btn.danger{
     background: -webkit-linear-gradient(45deg, #ea5514, #e83828);
 }
+button:after{
+    display: none;
+}
 
 swiper{
-    height: 400rpx;
+    height: 360rpx;
 }
 .slide-image{
     width: 100%;

@@ -139,10 +139,6 @@ Page({
       app.showModal('请上传营业执照');
       return false;
     }
-    if (!this.data.sharewximg.length) {
-      app.showModal('请上传分享图片');
-      return false;
-    }
     if (this.data.agree.length == 0) {
       app.showModal('请认真阅读并勾选同意商家入驻协议书');
       return false;

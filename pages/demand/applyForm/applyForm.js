@@ -5,32 +5,49 @@ Page({
   data: {
 
     networkArr: [],
-    networkIdx: undefined,
+    categroyArr: [],
+    categroyIdx: '',
 
     form: {
       service_demand: '',
       service_id: '',
       urgent: 0,
-      remark: ''
+      remark: '',
+      district: '',
+      city: '',
+      province: '',
+      address: ''
     },
     imgArr: [],
     addressInfo: null,
-    service_demand: '',
-    checked: false
+    checked: false,
+
+    address: ''
   },
 
   onLoad(params) {
     let that = this;
+    that.getCategory();
     common.getLocation(that, function(){
       that.getNetwork()
     });
-
-    that.setData({
-      service_id: params.service_id,
-      service_demand: app.globalData.service_demand
-    })
   },
 
+  // 获取类目
+  getCategory() {
+    let that = this
+    app.request({
+      url: '/getconfig',
+      method: 'GET',
+      data: {},
+      success: function(data) {
+        console.log(data)
+        that.setData({
+          categroyArr: data
+        })
+      }
+    })
+  },
 
   // 手动点击定位
   onOpenSetting() {
@@ -51,52 +68,69 @@ Page({
     })
   },
 
-  formSubmit(e) {
+  formSubmit() {
     let that = this;
     let form = this.data.form;
+    let addressInfo = this.data.addressInfo;
 
-    if (!that.data.addressInfo) {
+    if (this.data.categroyIdx === '') {
+      app.showModal('请选择服务需求');
+      return false;
+    }
+    if (!addressInfo) {
       app.showModal('请定位服务地址');
       return false;
     }
-    if (!that.data.networkIdx) {
-      app.showModal('请选择服务网点');
+    if (!that.data.networkArr.length) {
+      app.showModal(addressInfo.address_component.city + '尚未开通网点哦，请选择其它地址');
       return false;
     }
 
-    form.service_demand = this.data.service_demand;
-    form.service_id = this.data.service_id;
-    form.address = this.data.addressInfo.address + e.detail.value.address;
-    form.network_id = this.data.networkArr[that.data.networkIdx].id;
+    form.service_demand = this.data.categroyArr[this.data.categroyIdx].type_name;
+    form.service_id = this.data.categroyArr[this.data.categroyIdx].id;
+    form.address = addressInfo.address + form.address;
     form.urgent = this.data.checked ? 1 : 0;
+    form.province = addressInfo.ad_info.provincecode;
+    form.city = addressInfo.ad_info.city_code;
+    form.district = addressInfo.ad_info.adcode;
 
-    if (this.data.imgArr.length > 0) {
-      wx.showLoading({
-        title: '上传中',
-      })
-      common.uploadImgs('uploadordersimg', this.data.imgArr, function (res) {
-        console.log(res)
-        wx.hideLoading();
-        let mapArr = res.map(item => {
-          return item.data
-        })
-        form.imglist = mapArr.join(',');
-        that.setData({
-          form,
-          imgArr: res
-        })
-        that.submitFn();
-      })
-    } else {
-      form.imglist = '';
-      that.setData({
-        form
-      })
-      that.submitFn();
-    } 
+    wx.requestSubscribeMessage({
+      tmplIds: [
+        '_2qnHOlTzMu_nTiJmamzCrkLaodBaZ6qZrOODYqpUNM',
+        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI'
+      ],
+      success (res) {
+        if (that.data.imgArr.length > 0) {
+          wx.showLoading({
+            title: '上传中',
+          })
+          common.uploadImgs('uploadordersimg', that.data.imgArr, function (res) {
+            wx.hideLoading();
+            let mapArr = res.map(item => {
+              return item.data
+            })
+            form.imglist = mapArr.join(',');
+            that.setData({
+              form,
+              imgArr: res
+            })
+            that.submitFn();
+          })
+        } else {
+          form.imglist = '';
+          that.setData({
+            form
+          })
+          that.submitFn();
+        } 
+      },
+      fail(err) {
+        console.log(err)
+      }
+    })
   },
 
-  submitFn() {  
+  submitFn() { 
     app.request({
       url: '/markorder',
       data: this.data.form,
@@ -128,30 +162,23 @@ Page({
 
   getNetwork() {
     let that = this;
+    let addressInfo = that.data.addressInfo;
     that.setData({
-      networkArr: [],
-      networkIdx: undefined
+      networkArr: []
     })
     app.request({
       url: '/networklist',
       method: 'GET',
       data: {
-        district: that.data.addressInfo.ad_info.adcode
+        city: addressInfo.ad_info.citycode
       },
       success: function(data) {
         if (data.length == 0) {
-          app.showModal('该区域尚未开通网点哦');
+          app.showModal(addressInfo.address_component.city + '尚未开通网点哦，请选择其它地址');
           return false;
         }
-        let networkArr = data.map(item => {
-          return {
-            id: item.id,
-            name: item.name
-          }
-        })
         that.setData({
-          networkArr: networkArr,
-          networkIdx: undefined
+          networkArr: data
         })
       }
     })

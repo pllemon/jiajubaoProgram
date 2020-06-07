@@ -12,7 +12,6 @@ Page({
 
   onLoad() {
     let loginInfo = app.globalData.loginInfo;
-    console.log(loginInfo)
     let form = {
       headerurl: loginInfo.headerurl,
       username: loginInfo.username

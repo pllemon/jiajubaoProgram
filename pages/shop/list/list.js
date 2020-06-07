@@ -46,7 +46,7 @@ Page({
     let id = e.currentTarget.dataset.id;
     common.checkLogin(function(){
       wx.navigateTo({
-        url: '/pages/offline/apply/apply?id=' + id
+        url: '/pages/shop/discount/discount?id=' + id
       })
     })
   },

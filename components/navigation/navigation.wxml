@@ -6,7 +6,7 @@
 		<text>首页</text>
 	</navigator>
 	<view class="nav-single {{currentIdx==1?'active':''}}">
-		<navigator url="/pages/demand/category/category" class="nav-circle">
+		<navigator url="/pages/demand/applyForm/applyForm" class="nav-circle">
 			<image src="/image/icon/order.svg" mode="aspectFit"></image>
 			<image src="/image/icon/order.svg" mode="aspectFit"></image>
 			<text>下单</text>

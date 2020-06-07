@@ -165,4 +165,17 @@ https://blog.csdn.net/weixin_42342572/article/details/80506303
 
 
 
-2020/06/02
+
+
+我的朋友
+
+
+
+
+2020/06/06
+/markorder 添加省市区字段（province, city, district）
+
+
+/admin/networklist 添加搜索字段（city）
+添加员工模块
+/admin/businessexamine 添加加盟费，状态变成4，商家在小程序付款后才变成1

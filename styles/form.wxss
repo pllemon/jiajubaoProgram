@@ -82,6 +82,10 @@
   width: 520rpx;
 }
 
+.stepper-input.van-stepper__input--disabled{
+  color: #353535;
+}
+
 
 /* 地址 */
 .address-content{

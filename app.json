@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/login/login",
 
-    "pages/demand/category/category",
     "pages/demand/applyForm/applyForm",
 
     "pages/shop/list/list",
@@ -17,6 +16,7 @@
     "pages/order/detail/detail",
     "pages/order/score/score",
     "pages/order/show/show",
+    "pages/order/examine/examine",
 
     "pages/offline/apply/apply",
     "pages/offline/confirm/confirm",
@@ -29,6 +29,7 @@
     "pages/personal/user/editMes/editMes",
     "pages/personal/master/identity/identity",
     "pages/personal/businessman/identity/identity",
+    "pages/personal/businessman/addGoods/addGoods",
     "pages/personal/businessman/goods/goods",
     "pages/personal/setting/setting",
     "pages/personal/notice/notice",

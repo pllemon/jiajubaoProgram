@@ -9,14 +9,20 @@ App({
    console.log('session=' + session)
    if (session) {
     that.globalData.session = session;
-
-    that.request({
-      url: '/userinfo',
-      data: {},
-      success: function(data) {
-        that.globalData.loginInfo = data
+    wx.login({
+      success: res => {
+        that.request({
+          url: '/userinfo',
+          data: {
+            code: res.code
+          },
+          success: function(data) {
+            that.globalData.loginInfo = data
+          }
+        })
       }
     })
+
    }
 
     // 登录

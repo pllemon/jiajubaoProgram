@@ -4,10 +4,10 @@
     <view class="personal-mes blue-header">
       <gdImage src="{{ userInfo.headerurl }}" class="personal-img" bindtap="editMes"></gdImage>
       <view>
-        <view wx:if="{{currType == 0}}" class="personal-name">{{userInfo.username}}</view>
-        <view wx:if="{{currType == 1}}" class="personal-name">{{userInfo.craftsmannfo.name}}</view>
-        <view wx:if="{{currType == 2}}" class="personal-name">{{userInfo.businessinfo.name}}</view>
-        <view>欢迎你～</view>
+        <view class="personal-name">{{userInfo.username}}</view>
+        <!-- <view wx:if="{{currType == 1}}" class="personal-name">{{userInfo.craftsmannfo.name}}</view> -->
+        <!-- <view wx:if="{{currType == 2}}" class="personal-name">{{userInfo.businessinfo.name}}</view> -->
+        <view>{{userInfo.phone}}</view>
       </view>
     </view>
 
@@ -25,7 +25,7 @@
     </van-tabs>
   </view>
 
-  <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1)}}">
+  <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1) || currType == 3}}">
     <!-- 操作列表 -->
     <view class="action-list">
       <block wx:for="{{personType[currType].action}}" wx:key="index">
@@ -90,13 +90,13 @@
   </block>
 
 
-  <van-dialog
+  <!-- <van-dialog
     use-slot
     title="商家二维码"
     show="{{ showEwm }}"
     bind:close="toggleEwm"
   >
-  </van-dialog>
+  </van-dialog> -->
 
   <navigation current-idx="2"></navigation>
 

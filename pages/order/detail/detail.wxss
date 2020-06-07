@@ -36,6 +36,7 @@
 .main-action .main-btn{
     margin: 0;
     margin-left: 10rpx;
+    font-size: 28rpx;
 }
 .main-action .service{
     margin-right: 30rpx;
@@ -109,4 +110,12 @@ textarea{
     box-sizing: border-box;
     border:1px solid #eee;
 
+}
+
+.rate{
+    display: flex;
+}
+.rate image{
+    width: 40rpx;
+    height: 40rpx;
 }

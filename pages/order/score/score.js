@@ -30,7 +30,7 @@ Page({
           let pages = getCurrentPages();
           let beforePage = pages[pages.length - 2];
           beforePage.getInfo();
-          wx.navigateBack()
+          wx.navigateBack();
         })
       }
     })

@@ -228,7 +228,143 @@ const personMessage = {
   3: {
     text: '我是店长',
     icon: '/image/icon/business.svg',
-    orderStatus: {},
+    orderStatus: {
+      0: {
+        status: 0,
+        label: '全部',
+        show: true
+      },
+      1: {
+        status: 1,
+        label: '待审核',
+        desc: '订单已提交，请耐心等待',
+        show: true,
+        icon: 'iconshenhe',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      2: {
+        status: 2,
+        label: '待支付',
+        desc: '订单已审核通过，请支付',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      3: {
+        status: 3,
+        label: '待派单',
+        desc: '已支付，订单等待后台派单',
+        show: true,
+        icon: 'icondengdai',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: false
+      },
+      4: {
+        status: 4,
+        label: '报名中',
+        desc: '师傅报名中',
+        show: true,
+        icon: 'icongongcheng-',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: true,
+        showAction: false
+      },
+      5: {
+        status: 5,
+        label: '施工中',
+        desc: '师傅施工中',
+        show: true,
+        icon: 'icongongcheng-1',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: true,
+        showAction: false
+      },
+      6: {
+        status: 6,
+        label: '待验收',
+        desc: '师傅已完成施工，请检查验收',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: true,
+        showAction: true
+      },
+      8: {
+        status: 8,
+        label: '已完成',
+        desc: '订单已完成，欢迎再次下单',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0261',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: true,
+        showAction: true
+      },
+      10: {
+        status: 10,
+        label: '审核不通过',
+        desc: '订单审核不通过，欢迎再次下单',
+        show: false,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      11: {
+        status: 11,
+        label: '已取消',
+        desc: '订单已取消，欢迎再次下单',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      },
+      12: {
+        status: 12,
+        label: '已过期',
+        desc: '订单已过期，欢迎再次下单',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        showAction: true
+      }
+    },
     action: []
   }
 }
@@ -255,7 +391,7 @@ const personType = {
       // {
       //   icon: 'addresslist',
       //   text: '我要下单',
-      //   url: '/pages/demand/category/category'
+      //   url: '/pages/demand/applyForm/applyForm'
       // },
       {
         icon: 'group',
@@ -337,8 +473,13 @@ const personType = {
     action: [
       {
         icon: 'cspace',
-        text: '网点订单',
+        text: '网点信息',
         url: '/pages/offline/list/list?personType=2'
+      },
+      {
+        icon: 'cspace',
+        text: '网点订单',
+        url: '/pages/order/list/list?personType=3'
       },
     ]
   }

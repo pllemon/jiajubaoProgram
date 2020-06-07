@@ -1,5 +1,20 @@
 const app = getApp()
 
+let personMes = {
+  0: {
+    url: '/userorderlist',
+    status: 'status'
+  },
+  1: {
+    url: '/craftsmanorderlist',
+    status: 'cmorderstatus'
+  },
+  3: {
+    url: '/networkorderlist',
+    status: 'status'
+  }
+}
+
 Page({
   data: {
     searchValue: '',
@@ -13,13 +28,17 @@ Page({
   },
   onLoad(params) {
     let personType = params.personType
-    let url = personType == 0 ? '/userorderlist' : '/craftsmanorderlist';
-    let statusName = personType == 0 ? 'status' : 'cmorderstatus';
+    let url = personMes[personType].url;
+    let statusName = personMes[personType].status;
+    let orderStatus = app.globalData.personMessage[personType].orderStatus;
+    if (personType == 3) {
+      orderStatus = app.globalData.personMessage[0].orderStatus
+    }
 
     this.setData({
       showNav: params.showNav || 0,
       personType: personType,
-      orderStatus: app.globalData.personMessage[personType].orderStatus,
+      orderStatus: orderStatus,
 
       statusName: statusName,
       requestUrl: url,

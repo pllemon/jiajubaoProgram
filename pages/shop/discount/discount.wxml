@@ -7,7 +7,6 @@
         <view class="flex-center-between">
           <view>
             <text>￥{{item.price}}</text>
-            <text>￥{{item.price}}</text>
           </view>
           <van-stepper 
             data-idx="{{index}}"
@@ -24,8 +23,14 @@
       </view>
     </view>
   </view>
-  <view>
-    <text>￥{{sum}}</text>
-    <view bindtap="makeOrder">下单</view>
+  <view class="action">
+    <view>
+      <view class="money">合计：
+        <text style="color: #4d5ef4">￥{{sum - maxintegral}}</text>
+        <text wx:if="{{maxintegral}}" style="color: #868686;font-size:26rpx;text-decoration:line-through;margin-left:10rpx">￥{{sum}}</text>
+      </view>
+      <view wx:if="{{maxintegral}}" class="jf">共{{sumintegral}}积分，已使用{{maxintegral}}积分抵扣{{maxintegral}}元</view>
+    </view>
+    <button class="main-btn {{!sum?'disable':''}}" bindtap="makeOrder">下单</button>
   </view>
 </view>

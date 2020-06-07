@@ -15,3 +15,7 @@ van-radio{
     margin: 0;
     margin-top: 30rpx;
 }
+
+.page-action{
+    justify-content: flex-end;
+}

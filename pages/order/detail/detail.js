@@ -32,6 +32,12 @@ Page({
   },
 
 
+  onPullDownRefresh() {
+    this.getInfo(1)
+  },
+
+
+
   closePopup() {
     this.setData({ 
       isPopup: false 
@@ -39,7 +45,7 @@ Page({
   },
 
   // 获取订单信息
-  getInfo() {
+  getInfo(type) {
     let that = this;
     app.request({
       url: '/orderinfo',
@@ -73,12 +79,18 @@ Page({
           } else if (data.info.status == 8) {
             orderStatus = personMessage[1].orderStatus[3]; // 已完成
           }
+        } else if (that.data.personType == 3) {
+          orderStatus = personMessage[3].orderStatus[data.info.status];
         }
         that.setData({
           orderMes: data,
           orderStatus: orderStatus,
           finish: true
         })
+
+        if (type) {
+          wx.stopPullDownRefresh()
+        }
       }
     })
   },
@@ -268,7 +280,7 @@ Page({
   // 再次下单
   makeOrder() {
     wx.navigateTo({
-      url: '/pages/demand/category/category'
+      url: '/pages/demand/applyForm/applyForm'
     })
   },
 
@@ -276,6 +288,14 @@ Page({
   signUpOrder() {
     wx.navigateTo({
       url: '/pages/order/center/center'
+    })
+  },
+
+
+  // 审核订单
+  examineOrder() {
+    wx.navigateTo({
+      url: '/pages/order/examine/examine?id=' + this.data.order_id
     })
   }
 })

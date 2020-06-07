@@ -4,8 +4,14 @@
         <view class="share-view flex1">
             <image mode="aspectFit" src="{{ shareImg }}"></image>
         </view>
-        <view class="share-btn flex-center" bindtap="saveImg">
-            <icon class="iconfont iconicon_share"></icon>
+        <view class="btns">
+            <view class="down-btn flex-center" bindtap="saveImg">
+                <image src="/image/icon/down2.png" />
+            </view>
+            <button class="share-btn flex-center" open-type="share">
+                <image src="/image/icon/share.png" />
+                <text style="margin-left: 10rpx">分享给朋友</text>
+            </button>
         </view>
     </block>
 </view>
