@@ -1,9 +1,16 @@
 <view class="full-layout">
-  <view class="flex1">
+   <common-scroll
+    id="list"
+    class="scroll-view"
+    request-url="{{requestUrl}}"
+    query="{{query}}"
+    isPaging="{{false}}"
+    bind:change = "changeList"
+  >
     <view wx:for="{{list}}" wx:key="index" class="goods-single">
-      <image class="goods-image" />
+      <gdImage class="goods-image" src="{{ item.goods_image }}"></gdImage>
       <view class="flex1">
-        <view class="name">{{item.name}}</view>
+        <view class="name">{{item.goods_name}}</view>
         <view class="flex-center-between">
           <view>
             <text>￥{{item.price}}</text>
@@ -11,6 +18,6 @@
         </view>
       </view>
     </view>
-  </view>
+  </common-scroll>
   <button class="main-btn" bindtap="addGoods">添加商品</button>
 </view>

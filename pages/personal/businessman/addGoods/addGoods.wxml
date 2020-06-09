@@ -5,34 +5,34 @@
         </van-cell>
         <van-field
             input-class="input-field"
-            value="{{ form.appo_time }}"
+            value="{{ form.goods_name }}"
             required
             label="商品名称"
             placeholder="请输入"
             title-width="100px"
-            data-name="appo_time"
+            data-name="goods_name"
             bind:change="onChange"
         />
         <van-field
             input-class="input-field"
-            value="{{ form.appo_time }}"
+            value="{{ form.price }}"
             required
             label="商品价格"
             type="number"
             placeholder="请输入"
             title-width="100px"
-            data-name="appo_time"
+            data-name="price"
             bind:change="onChange"
         />
-        <van-field
+        <!-- <van-field
             input-class="input-field"
-            value="{{ form.appo_time }}"
+            value="{{ form.desc }}"
             label="商品描述"
             placeholder="请输入"
             title-width="100px"
-            data-name="appo_time"
+            data-name="desc"
             bind:change="onChange"
-        />
+        /> -->
     </van-cell-group>
 
     <button form-type="submit" class="main-btn">提交</button>
