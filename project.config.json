@@ -402,6 +402,13 @@
 					"pathName": "pages/order/examine/examine",
 					"query": "id=16",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠下单",
+					"pathName": "pages/shop/discount/discount",
+					"query": "id=1",
+					"scene": null
 				}
 			]
 		}

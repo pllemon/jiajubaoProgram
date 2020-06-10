@@ -68,7 +68,7 @@ App({
       url: 'http://47.106.100.144' + obj.url,
       method: obj.method || 'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded',
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         'cookie': that.globalData.session
       },
       data: obj.data || {},
