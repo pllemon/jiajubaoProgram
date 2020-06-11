@@ -1,13 +1,55 @@
 <view wx:if="{{finish}}">
-    <view class="blue-header">
-      <view class="mes">
-        <gdImage wx:if="{{personType == 2}}" src="{{ orderMes.userheaderurl }}" class="peo-img"></gdImage>
-        <gdImage wx:if="{{personType == 0}}" src="{{ orderMes.shopimg }}" class="bussiness-img"></gdImage>
-        <view style="font-size: 14px;margin-top:10rpx">{{personType == 2?orderMes.user_name:orderMes.business_name}}</view>
-        <view style="font-size: 30px;margin-top: 12rpx">{{personType == 2?'+':'-'}}{{orderMes.money}}</view>
+    <view class="blue-header flex-center-between">
+      <view>
+        <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</view>
+        <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</view>
+        <view class="title" wx:if="{{orderMes.status == 2 }}">已取消</view>
+      </view>
+      <icon class="iconfont {{orderStatus.icon}}"></icon>
+    </view>
+
+    <view class="concat-mes">
+      <view wx:if="{{personType == 2}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
+        <gdImage src="{{orderMes.userheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+        <view class="flex1">
+          <view class="name">{{orderMes.user_name}}</view>
+          <view>{{orderMes.user_phone}}</view>
+        </view>
+        <view class="flex-center phone" data-phone="{{orderMes.user_phone}}" bindtap="makePhoneCall">
+          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+          <text>联系</text>
+        </view>
+      </view>
+      <view wx:if="{{personType == 0}}" class="flex-start-between concat-single">
+        <gdImage src="{{orderMes.shopimg}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+        <view class="flex1">
+          <view class="name">{{orderMes.business_name}}</view>
+          <view>{{orderMes.business_phone}}</view>
+          <view>{{orderMes.business_address}}</view>
+        </view>
+        <view class="flex-center phone" data-phone="{{orderMes.business_phone}}" bindtap="makePhoneCall">
+          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+          <text>联系</text>
+        </view>
       </view>
     </view>
-  
+    
+    <view class="common-section">
+      <view class="title">订单商品</view>
+      <view wx:for="{{item.goodslist}}">
+        <view wx:for="{{list}}" wx:key="index" wx:for-item="item2" class="goods-single">
+          <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
+          <view class="flex1">
+            <view class="name">{{item2.goods_name}}</view>
+            <view class="flex-center-between">
+              <text>￥{{item2.price}}</text>
+              <text>数量：{{item2.number}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
     <!-- 订单信息 -->
     <view class="common-section">
       <view class="title">订单信息</view>
@@ -17,39 +59,9 @@
           <text>{{orderMes.order_sn}}</text>
         </view>
         <view>
-          <text>订单状态:</text>
-          <text wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</text>
-          <text wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</text>
-          <text wx:if="{{orderMes.status == 2 }}">已取消</text>
-        </view>
-        <view>
           <text>下单时间:</text>
           <text>{{orderMes.creat_time}}</text>
         </view>
-        <block wx:if="{{personType == 0}}">
-          <view>
-            <text>下单店铺:</text>
-            <text>{{orderMes.business_name}}</text>
-          </view>
-          <view>
-            <text>店铺电话:</text>
-            <text>{{orderMes.business_phone}}{{orderMes.business_phone}}</text>
-          </view>
-          <view>
-            <text>店铺地址:</text>
-            <text>{{orderMes.business_address}}</text>
-          </view>
-        </block>
-        <block wx:if="{{personType == 2}}">
-          <view>
-            <text>消费用户:</text>
-            <text>{{orderMes.user_name}}</text>
-          </view>
-          <view>
-            <text>用户电话:</text>
-            <text>{{orderMes.user_phone}}</text>
-          </view>
-        </block>
         <view>
           <text>消费金额:</text>
           <text>{{orderMes.money}} 元</text>
@@ -78,7 +90,7 @@
         </block>
         <view wx:if="{{orderMes.pay_status == 1}}">
           <text>完成时间:</text>
-          <text>{{orderMes.pay_time}} 元</text>
+          <text>{{orderMes.pay_time}}</text>
         </view>
       </view>
     </view>

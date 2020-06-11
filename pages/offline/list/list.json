@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText": "线下账单",
+	"navigationBarTitleText": "优惠订单",
 	"usingComponents": {
 		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
 		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",

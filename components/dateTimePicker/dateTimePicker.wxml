@@ -1,0 +1,6 @@
+<picker mode="multiSelector" value="{{valueArray}}" range="{{rangeValues}}" bindcolumnchange="handleColumnChange" bindchange="handleValueChange" bindcancel="handleCancel">
+  <view class="picker">
+    <text>{{value ? value : '请选择'}}</text>
+    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+  </view>
+</picker>

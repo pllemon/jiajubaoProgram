@@ -138,9 +138,10 @@ Page({
   onChange(e) {
     common.changeInput(this, e)
   },
-  changeSwitch(event) {
+  changeTime(e) {
+    let key = e.target.dataset.key
     this.setData({
-      checked: event.detail
+      [key]: e.detail.dateString
     })
-  },
+  }
 })

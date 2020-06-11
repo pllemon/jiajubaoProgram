@@ -293,3 +293,18 @@ van-icon{
   margin-bottom: 20rpx;
 }
 /*  ———————————————————— */
+
+
+.concat-mes .concat-single{
+  padding: 24rpx 30rpx;
+  background: #fff;
+  color: #888;
+  font-size: 14px;
+}
+.concat-mes .concat-single .name{
+  font-size: 16px;
+  color: #333;
+}
+.concat-mes .concat-single .phone{
+  color: #4d5ef4;
+}

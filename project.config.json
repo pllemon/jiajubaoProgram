@@ -13,7 +13,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
+	"libVersion": "2.6.6",
 	"appid": "wx24bb246d1af49225",
 	"projectname": "jiajubao",
 	"debugOptions": {
@@ -408,6 +408,20 @@
 					"name": "优惠下单",
 					"pathName": "pages/shop/discount/discount",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠订单",
+					"pathName": "pages/offline/list/list",
+					"query": "personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/offline/details/details",
+					"query": "id=4&personType=0",
 					"scene": null
 				}
 			]

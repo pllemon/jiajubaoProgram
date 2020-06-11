@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText": "线下账单详情",
+	"navigationBarTitleText": "优惠订单详情",
 	"usingComponents": {
 		"van-dialog": "../../miniprogram_npm/vant-weapp/dialog"
 	}

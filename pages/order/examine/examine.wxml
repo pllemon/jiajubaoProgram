@@ -8,17 +8,9 @@
                 </view>
             </picker>
         </van-cell>
-        <van-field
-            wx:if="{{statusIdx == 0}}"
-            input-class="input-field"
-            value="{{ form.appo_time }}"
-            required
-            label="开工时间"
-            placeholder="请输入"
-            title-width="100px"
-            data-name="appo_time"
-            bind:change="onChange"
-        />
+        <van-cell title="开工时间" title-width="100px" required wx:if="{{statusIdx == 0}}">
+            <date-time-picker data-key="form.appo_time" value="{{form.appo_time}}" bind:change="changeTime" />
+        </van-cell>
         <van-field
             wx:if="{{statusIdx == 0}}"
             type="number"

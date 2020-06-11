@@ -1,0 +1,8 @@
+@import '../../styles/iconfont.wxss';
+
+.picker{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  color: #323233;
+}

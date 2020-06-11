@@ -1,25 +1,15 @@
 .blue-header{
     font-size: 13px;
 }
-.blue-header .mes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.blue-header .iconfont{
+    font-size: 46px;
+    top: 0px;
 }
-.blue-header .mes .peo-img{
-    width: 120rpx;
-    height: 120rpx;
-    border-radius: 50%;
-    overflow: hidden;
+.blue-header .title{
+    font-size: 20px;
+    margin-bottom: 2px;
 }
-.blue-header .mes .bussiness-img{
-    width: 240rpx;
-    height: 120rpx;
-    border-radius: 4rpx;
-    overflow: hidden;
-}
+
 
 .main-action{
     padding: 20rpx 30rpx;

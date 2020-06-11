@@ -195,3 +195,17 @@ businessuploadgoods 商家上传商品 goods_image，goods_name，price，desc
 businessgoodslist
 admin/businessgoodslist 后台商家列表 status=1给了钱 0没有
 markgoodsorder post.goods_id business_id integral user_id
+
+
+
+
+2020.06.11
+1. 获取商品详情
+2. 编辑商品
+3. 优惠订单列表和详情都返回商品信息
+    userunlinkorderlist
+    businessorderlist
+    userunlinkorderinfo
+    businessorderinfo
+
+4. 后台添加商家加盟费、单个商品金额

@@ -63,6 +63,7 @@
     "navigation": "/components/navigation/navigation",
 		"common-scroll": "/components/scrollList/scrollList",
     "ad-swiper": "/components/adSwiper/adSwiper",
+    "date-time-picker": "/components/dateTimePicker/dateTimePicker",
     "header": "/components/header/header"
   },
   "plugins": {
