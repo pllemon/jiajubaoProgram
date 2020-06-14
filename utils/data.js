@@ -237,7 +237,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '订单已提交，请耐心等待',
+        desc: '订单已分配，请尽快处理',
         show: true,
         icon: 'iconshenhe',
         showUser: true,
@@ -250,7 +250,7 @@ const personMessage = {
       2: {
         status: 2,
         label: '待支付',
-        desc: '订单已审核通过，请支付',
+        desc: '订单已审核通过，等待支付',
         show: true,
         icon: 'iconqianbao',
         showUser: true,

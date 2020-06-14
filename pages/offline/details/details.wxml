@@ -36,17 +36,18 @@
     
     <view class="common-section">
       <view class="title">订单商品</view>
-      <view wx:for="{{item.goodslist}}">
-        <view wx:for="{{list}}" wx:key="index" wx:for-item="item2" class="goods-single">
-          <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
-          <view class="flex1">
-            <view class="name">{{item2.goods_name}}</view>
-            <view class="flex-center-between">
-              <text>￥{{item2.price}}</text>
-              <text>数量：{{item2.number}}</text>
-            </view>
+      <view wx:for="{{orderMes.goodslst}}" wx:key="index" wx:for-item="item2" class="goods-single">
+        <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
+        <view class="flex1">
+          <view class="name">{{item2.goods_name}}</view>
+          <view class="flex-center-between">
+            <text>￥{{item2.price}}</text>
+            <text>数量：{{item2.goods_number}}</text>
           </view>
         </view>
+      </view>
+      <view class="flex-center-end" style="margin-top: 30rpx">总价￥{{orderMes.money}}，积分抵扣￥{{orderMes.integral}}，实付款
+        <text style="font-size: 36rpx;color:#4d5ef4;font-weight:bold">￥{{orderMes.money - orderMes.integral}}</text>
       </view>
     </view>
 
@@ -98,12 +99,8 @@
     <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
 
     <!-- 操作按钮 -->
-    <view class="main-action flex-center-between" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
-      <!-- <view class="flex-center service">
-        <icon class="iconfont iconkefu"></icon>
-        <text>客服</text>
-      </view> -->
-      <button bindtap="cancelOrder" class="main-btn flex1 plain">取消订单</button>
-      <button bindtap="confirmOrder" class="main-btn flex1" style="margin-left: 10rpx">确认订单</button>
+    <view class="main-action  flex-center-end" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
+      <button bindtap="cancelOrder" class="main-btn default">取消订单</button>
+      <button bindtap="confirmOrder" class="main-btn plain" style="margin-left: 10rpx">确认订单</button>
     </view>
 </view>

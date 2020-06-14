@@ -411,17 +411,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 52,
 					"name": "优惠订单",
 					"pathName": "pages/offline/list/list",
-					"query": "personType=0",
+					"query": "personType=2",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 53,
 					"name": "订单详情",
 					"pathName": "pages/offline/details/details",
-					"query": "id=4&personType=0",
+					"query": "id=4&personType=2",
 					"scene": null
 				}
 			]

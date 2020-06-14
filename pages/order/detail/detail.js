@@ -152,7 +152,7 @@ Page({
     })
   },
 
-  // 确认工程已经完成
+  // 用户确认工程已经完成
   paytailprice() {
     let that = this;
     wx.showModal({
@@ -161,6 +161,30 @@ Page({
         if (res.confirm) {
           app.request({
             url: '/paytailprice',
+            data: {
+              order_id: that.data.order_id,
+              order_sn: that.data.orderMes.info.order_sn
+            },
+            success: function(data) {
+              app.successToast('确认成功', function(){
+                that.getInfo();
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  // 店主确认订单已完成
+  networkconfirmorder() {
+    let that = this;
+    wx.showModal({
+      content: '确认工程已经完成？',
+      success (res) {
+        if (res.confirm) {
+          app.request({
+            url: '/networkconfirmorder',
             data: {
               order_id: that.data.order_id,
               order_sn: that.data.orderMes.info.order_sn

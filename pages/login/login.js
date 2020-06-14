@@ -157,9 +157,11 @@ Page({
     }
     wx.login({
       success: res => {
+        console.log('code=' + res.code)
         if (that.data.formType == 1) {
           formData.code = res.code
         }
+        console.log(formData)
         app.request({
           url,
           data: formData,

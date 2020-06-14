@@ -75,6 +75,12 @@
     font-weight: bold;
 }
 
-.common-section{
-    margin-top: 0;
+
+.goods-single {
+    border: none;
+    padding: 20rpx 0;
+}
+.goods-single .goods-image{
+    width: 100rpx;
+    height: 100rpx;
 }

@@ -33,3 +33,12 @@
     position: relative;
     margin: 20rpx;
 }
+
+.goods-single {
+    border: none;
+    padding: 20rpx 0;
+}
+.goods-single .goods-image{
+    width: 100rpx;
+    height: 100rpx;
+}

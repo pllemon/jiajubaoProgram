@@ -21,21 +21,19 @@
             <text class="status" wx:if="{{item.status == 1 && item.pay_status == 1}}">已完成</text>
             <text class="status" wx:if="{{item.status == 2 }}">已取消</text>
           </view>
-          <view style="margin: 30rpx 0">
-            <view wx:for="{{item.goodslist}}">
-              <view wx:for="{{list}}" wx:key="index" wx:for-item="item2" class="goods-single">
-                <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
-                <view class="flex1">
-                  <view class="name">{{item2.goods_name}}</view>
-                  <view class="flex-center-between">
-                    <text>￥{{item2.price}}</text>
-                    <text>数量：{{item2.number}}</text>
-                  </view>
+          <view style="margin: 10rpx 0">
+            <view wx:for="{{item.goodslist}}" wx:key="index" wx:for-item="item2" class="goods-single">
+              <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
+              <view class="flex1">
+                <view class="name">{{item2.goods_name}}</view>
+                <view class="flex-center-between">
+                  <text>￥{{item2.price}}</text>
+                  <text>数量：{{item2.goods_number}}</text>
                 </view>
               </view>
             </view>
           </view>
-          <view class="flex-center-end">合计：￥{{item.money}}，积分抵扣：￥{{item.jf}}</view>
+          <view class="flex-center-end">总价￥{{item.money}}，积分抵扣￥{{item.integral}}，实付款￥{{item.money - item.integral}}</view>
         </navigator>
       </block>
     </view>
