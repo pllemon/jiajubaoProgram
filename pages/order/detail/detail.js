@@ -135,11 +135,28 @@ Page({
     })
   },
 
-  // 支付
+  // 客户支付
   payearnestprice() {
     let that = this;
     app.request({
       url: '/payearnestprice',
+      data: {
+        order_id: this.data.order_id,
+        order_sn: this.data.orderMes.info.order_sn
+      },
+      success: function(data) {
+        app.successToast('支付成功', function(){
+          that.getInfo();
+        })
+      }
+    })
+  },
+
+  // 店长代支付
+  networkpayment() {
+    let that = this;
+    app.request({
+      url: '/networkpayment',
       data: {
         order_id: this.data.order_id,
         order_sn: this.data.orderMes.info.order_sn

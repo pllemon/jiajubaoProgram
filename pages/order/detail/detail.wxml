@@ -182,7 +182,7 @@
 
     <view class="main-action flex-center-end" wx:if="{{personType == 3}}">
       <button wx:if="{{orderMes.info.status == 1}}" bindtap="examineOrder" class="main-btn plain">审核订单</button>
-      <button wx:if="{{orderMes.info.status == 2}}" bindtap="examineOrder" class="main-btn plain">代支付</button>
+      <button wx:if="{{orderMes.info.status == 2}}" bindtap="networkpayment" class="main-btn plain">代支付</button>
       <button wx:if="{{orderMes.info.status == 7}}" bindtap="networkconfirmorder" class="main-btn plain">确认完成</button>
     </view>
 
