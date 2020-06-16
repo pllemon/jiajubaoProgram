@@ -13,7 +13,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
+	"libVersion": "2.11.1",
 	"appid": "wx24bb246d1af49225",
 	"projectname": "jiajubao",
 	"debugOptions": {

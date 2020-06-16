@@ -139,14 +139,28 @@ Page({
   payearnestprice() {
     let that = this;
     app.request({
-      url: '/payearnestprice',
+      url: '/usergetwxpayinfo',
       data: {
         order_id: this.data.order_id,
         order_sn: this.data.orderMes.info.order_sn
       },
       success: function(data) {
-        app.successToast('支付成功', function(){
-          that.getInfo();
+        console.log(data)
+        wx.requestPayment({
+          'nonceStr': data.nonceStr,
+          'package': data.package,
+          'signType': data.signType,
+          'timeStamp': data.timeStamp.toString(),
+          'paySign': data.sign,
+          'success':function(res){
+            app.successToast('支付成功', function(){
+              that.getInfo();
+            })
+          },
+          'fail':function(res){
+            console.log(res)
+            app.showModal('支付失败')
+          }
         })
       }
     })
