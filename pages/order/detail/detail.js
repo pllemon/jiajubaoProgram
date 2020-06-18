@@ -122,14 +122,21 @@ Page({
   // 师傅报名
   masterSignUp() {
     let that = this;
-    app.request({
-      url: '/craftsmansignup',
-      data: {
-        order_id: this.data.order_id
-      },
-      success: function() {
-        app.successToast('报名成功', function(){
-          that.getInfo();
+    wx.requestSubscribeMessage({
+      tmplIds: [
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
+      ],
+      success (res) {
+        app.request({
+          url: '/craftsmansignup',
+          data: {
+            order_id: this.data.order_id
+          },
+          success: function() {
+            app.successToast('报名成功', function(){
+              that.getInfo();
+            })
+          }
         })
       }
     })
@@ -138,28 +145,36 @@ Page({
   // 客户支付
   payearnestprice() {
     let that = this;
-    app.request({
-      url: '/usergetwxpayinfo',
-      data: {
-        order_id: this.data.order_id,
-        order_sn: this.data.orderMes.info.order_sn
-      },
-      success: function(data) {
-        console.log(data)
-        wx.requestPayment({
-          'nonceStr': data.nonceStr,
-          'package': data.package,
-          'signType': data.signType,
-          'timeStamp': data.timeStamp.toString(),
-          'paySign': data.sign,
-          'success':function(res){
-            app.successToast('支付成功', function(){
-              that.getInfo();
-            })
+    wx.requestSubscribeMessage({
+      tmplIds: [
+        '2J-8dLmex9I1Y-FLvYMdDtVB1MwLkU0H-Z9fcvyDAzc',
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
+        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE'
+      ],
+      success (res) {
+        app.request({
+          url: '/usergetwxpayinfo',
+          data: {
+            order_id: this.data.order_id,
+            order_sn: this.data.orderMes.info.order_sn
           },
-          'fail':function(res){
-            console.log(res)
-            app.showModal('支付失败')
+          success: function(data) {
+            wx.requestPayment({
+              'nonceStr': data.nonceStr,
+              'package': data.package,
+              'signType': data.signType,
+              'timeStamp': data.timeStamp.toString(),
+              'paySign': data.sign,
+              'success':function(res){
+                app.successToast('支付成功', function(){
+                  that.getInfo();
+                })
+              },
+              'fail':function(res){
+                console.log(res)
+                app.showModal('支付失败')
+              }
+            })
           }
         })
       }
@@ -176,8 +191,21 @@ Page({
         order_sn: this.data.orderMes.info.order_sn
       },
       success: function(data) {
-        app.successToast('支付成功', function(){
-          that.getInfo();
+        wx.requestPayment({
+          'nonceStr': data.nonceStr,
+          'package': data.package,
+          'signType': data.signType,
+          'timeStamp': data.timeStamp.toString(),
+          'paySign': data.sign,
+          'success':function(res){
+            app.successToast('支付成功', function(){
+              that.getInfo();
+            })
+          },
+          'fail':function(res){
+            console.log(res)
+            app.showModal('支付失败')
+          }
         })
       }
     })

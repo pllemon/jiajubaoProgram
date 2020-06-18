@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
+<form class="form" style="padding-bottom: 50rpx">
     <van-cell-group>
         <van-cell title="是否成单" title-width="100px" required>
             <picker value="{{statusIdx}}" range="{{statusArr}}" range-key="name" data-label="statusIdx" bindchange="bindChange">
@@ -39,5 +39,5 @@
         />
     </van-cell-group>
 
-    <button form-type="submit" class="main-btn">提交</button>
+    <button bindtap="formSubmit" class="main-btn">提交</button>
 </form>

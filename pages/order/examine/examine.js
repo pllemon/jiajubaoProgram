@@ -95,36 +95,45 @@ Page({
       return false;
     }
 
-    wx.showLoading({
-      title: '上传中',
-    })
-    wx.uploadFile({
-      url: 'http://47.106.100.144/networkorderexamine',
-      filePath: this.data.imgArr[0].url,
-      name: 'bjimg',
-      formData: form,
-      header: {
-        'content-type': 'multipart/form-data',
-        'cookie': app.globalData.session
-      },
-      success: function(data) {
-        let odata = JSON.parse(data.data)
-        if (odata.success) {
-          app.successToast('提交成功', function(){
-            let pages = getCurrentPages();
-            let beforePage = pages[pages.length - 2];
-            beforePage.getInfo();
-            wx.navigateBack();        
-          })
-        } else {
-          app.showModal(odata.message);
-        }
-      },
-      fail: function(err) {
-        console.log(err)
-      },
-      complete: function() {
-        wx.hideLoading();
+    wx.requestSubscribeMessage({
+      tmplIds: [
+        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI',
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
+        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE'
+      ],
+      success (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: 'http://47.106.100.144/networkorderexamine',
+          filePath: this.data.imgArr[0].url,
+          name: 'bjimg',
+          formData: form,
+          header: {
+            'content-type': 'multipart/form-data',
+            'cookie': app.globalData.session
+          },
+          success: function(data) {
+            let odata = JSON.parse(data.data)
+            if (odata.success) {
+              app.successToast('提交成功', function(){
+                let pages = getCurrentPages();
+                let beforePage = pages[pages.length - 2];
+                beforePage.getInfo();
+                wx.navigateBack();        
+              })
+            } else {
+              app.showModal(odata.message);
+            }
+          },
+          fail: function(err) {
+            console.log(err)
+          },
+          complete: function() {
+            wx.hideLoading();
+          }
+        })
       }
     })
   },

@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit" class="form">
+<form class="form">
     <!-- <van-cell-group title="基础信息">
         <van-field
             input-class="input-field"
@@ -25,5 +25,5 @@
             <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="{{ maxCount }}" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </view>
     </van-cell-group>
-    <button form-type="submit" class="main-btn">提交</button>
+    <button bindtap="formSubmit" class="main-btn">提交</button>
 </form>

@@ -97,7 +97,8 @@ Page({
     wx.requestSubscribeMessage({
       tmplIds: [
         '_2qnHOlTzMu_nTiJmamzCrkLaodBaZ6qZrOODYqpUNM',
-        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI'
+        '1lvXKU_y_dwHgRukL9JmLDa2FCyak6FfduIbtJg_OD8',
+        'dTRHHtV9PYbYsqJgAj-WDqq9kbBR-S-8hLumO3FVQec'
       ],
       success (res) {
         if (that.data.imgArr.length > 0) {
