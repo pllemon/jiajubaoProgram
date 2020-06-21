@@ -8,16 +8,22 @@ Page({
       price: '',
       goods_image: ''
     },
-    imgArr: []
+    imgArr: [],
+    businessinfo: null
   },
 
   onLoad(params) {
     let that = this;
+    const businessinfo = app.globalData.loginInfo.businessinfo
+    that.setData({
+      businessinfo
+    })
   },
 
   formSubmit(e) {
     let that = this;
     let form = this.data.form;
+    form.business_id = that.data.businessinfo.id
     
     if (!form.goods_name) {
       app.showModal('请输入商品名称');
@@ -27,6 +33,8 @@ Page({
       app.showModal('请输入商品价格');
       return false;
     }
+
+    console.log(form)
 
     wx.showLoading({
       title: '上传中',
@@ -43,11 +51,25 @@ Page({
       success: function(data) {
         let odata = JSON.parse(data.data)
         if (odata.success) {
-          app.successToast('提交成功', function(){
-            let pages = getCurrentPages();
-            let beforePage = pages[pages.length - 2];
-            beforePage.selectComponent("#list").getData(1);
-            wx.navigateBack();        
+          let payInfo = odata.data.payinfo
+          wx.requestPayment({
+            'nonceStr': payInfo.nonceStr,
+            'package': payInfo.package,
+            'signType': payInfo.signType,
+            'timeStamp': payInfo.timeStamp.toString(),
+            'paySign': payInfo.sign,
+            'success':function(res){
+              app.successToast('支付成功', function(){
+                let pages = getCurrentPages();
+                let beforePage = pages[pages.length - 2];
+                beforePage.selectComponent("#list").getData(1);
+                wx.navigateBack();    
+              })
+            },
+            'fail':function(res){
+              console.log(res)
+              app.showModal('支付失败')
+            }
           })
         } else {
           app.showModal(odata.message);

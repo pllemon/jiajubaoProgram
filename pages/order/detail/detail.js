@@ -124,13 +124,15 @@ Page({
     let that = this;
     wx.requestSubscribeMessage({
       tmplIds: [
-        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+        '5cJNI23NK0uABlWJ3gQ4zoOH6S3snrXYt9TFJSlEa-M', // 客户验收
+        'VAkPVlDzT7OFLDSuaDpocrf8PHT_eS9wCQSVPtehie0', // 店长验收
       ],
       success (res) {
         app.request({
           url: '/craftsmansignup',
           data: {
-            order_id: this.data.order_id
+            order_id: that.data.order_id
           },
           success: function() {
             app.successToast('报名成功', function(){
@@ -147,16 +149,16 @@ Page({
     let that = this;
     wx.requestSubscribeMessage({
       tmplIds: [
-        '2J-8dLmex9I1Y-FLvYMdDtVB1MwLkU0H-Z9fcvyDAzc',
-        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
-        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE'
+        '2J-8dLmex9I1Y-FLvYMdDtVB1MwLkU0H-Z9fcvyDAzc', // 支付成功通知
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅完工通知
       ],
       success (res) {
         app.request({
           url: '/usergetwxpayinfo',
           data: {
-            order_id: this.data.order_id,
-            order_sn: this.data.orderMes.info.order_sn
+            order_id: that.data.order_id,
+            order_sn: that.data.orderMes.info.order_sn
           },
           success: function(data) {
             wx.requestPayment({

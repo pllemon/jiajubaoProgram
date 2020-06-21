@@ -96,9 +96,9 @@ Page({
 
     wx.requestSubscribeMessage({
       tmplIds: [
-        '_2qnHOlTzMu_nTiJmamzCrkLaodBaZ6qZrOODYqpUNM',
-        '1lvXKU_y_dwHgRukL9JmLDa2FCyak6FfduIbtJg_OD8',
-        'dTRHHtV9PYbYsqJgAj-WDqq9kbBR-S-8hLumO3FVQec'
+        '_2qnHOlTzMu_nTiJmamzCrkLaodBaZ6qZrOODYqpUNM', // 下单成功通知
+        '1lvXKU_y_dwHgRukL9JmLDa2FCyak6FfduIbtJg_OD8', // 待支付通知（审核通过）
+        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI' // 订单状态通知（审核不通过、超时未处理、超时未付款、客户取消）
       ],
       success (res) {
         if (that.data.imgArr.length > 0) {
