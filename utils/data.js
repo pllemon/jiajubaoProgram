@@ -301,8 +301,21 @@ const personMessage = {
       },
       6: {
         status: 6,
-        label: '待验收',
-        desc: '师傅已完成施工，请检查验收',
+        label: '已完成',
+        desc: '订单已完成，欢迎再次下单',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: true,
+        showAction: true
+      },
+      7: {
+        status: 7,
+        label: '已完成',
+        desc: '订单已完成，欢迎再次下单',
         show: true,
         icon: 'iconqianbao',
         showUser: true,

@@ -72,27 +72,20 @@ Page({
       app.showModal('请上传图片');
       return false;
     }
-    wx.requestSubscribeMessage({
-      tmplIds: [
-        '5cJNI23NK0uABlWJ3gQ4zoOH6S3snrXYt9TFJSlEa-M',
-      ],
-      success (res) {
-        if (imgArr.length > 0) {
-          wx.showLoading({
-            title: '上传中',
-          })   
-          common.uploadImgs('uploadordershow', this.data.imgArr, function (res) {
-            that.setData({
-              imgArr: res
-            })
-            wx.hideLoading();
-            that.submitFn(form);
-          })
-        } else {
-          that.submitFn(form);
-        } 
-      }
-    })
+    if (imgArr.length > 0) {
+      wx.showLoading({
+        title: '上传中',
+      })   
+      common.uploadImgs('uploadordershow', that.data.imgArr, function (res) {
+        that.setData({
+          imgArr: res
+        })
+        wx.hideLoading();
+        that.submitFn(form);
+      })
+    } else {
+      that.submitFn(form);
+    }
   },
 
   submitFn() {

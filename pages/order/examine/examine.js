@@ -97,9 +97,9 @@ Page({
 
     wx.requestSubscribeMessage({
       tmplIds: [
-        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI',
-        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI',
-        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE'
+        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI', // 订单状态通知
+        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅维修完成通知
       ],
       success (res) {
         wx.showLoading({
@@ -107,7 +107,7 @@ Page({
         })
         wx.uploadFile({
           url: 'http://47.106.100.144/networkorderexamine',
-          filePath: this.data.imgArr[0].url,
+          filePath: that.data.imgArr[0].url,
           name: 'bjimg',
           formData: form,
           header: {
