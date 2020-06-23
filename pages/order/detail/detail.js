@@ -1,4 +1,5 @@
 const app = getApp()
+const common = require('../../../utils/common.js')
 
 Page({
   data: {
@@ -21,6 +22,14 @@ Page({
 
   onLoad(params) {
     let that = this
+
+    let order_id = params.id;
+    let personType = params.personType || 0;
+    that.setData({
+      order_id,
+      personType,
+    })
+    
     common.checkLogin(function(){
       if (app.globalData.loginInfo) {
         that.init()
@@ -31,15 +40,10 @@ Page({
       }
     })
 
-    let order_id = params.id;
-    let personType = params.personType || 0;
-    that.setData({
-      order_id,
-      personType,
-    })
   },
 
   init() {
+    console.log(app.globalData.loginInfo)
     this.setData({
       craftsmannfo: app.globalData.loginInfo.craftsmannfo
     })
