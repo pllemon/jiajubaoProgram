@@ -5,7 +5,7 @@ let qqmapsdk;
 // 检测登录
 const checkLogin = (callback) => {
   if ( !app.globalData.session ) {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/pages/login/login?type=1'
     })
   } else {

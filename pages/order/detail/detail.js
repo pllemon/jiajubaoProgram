@@ -20,15 +20,30 @@ Page({
   },
 
   onLoad(params) {
-    let that = this;
+    let that = this
+    common.checkLogin(function(){
+      if (app.globalData.loginInfo) {
+        that.init()
+      } else {
+        app.loginCallback = function() {
+          that.init()
+        }
+      }
+    })
+
     let order_id = params.id;
     let personType = params.personType || 0;
     that.setData({
       order_id,
       personType,
+    })
+  },
+
+  init() {
+    this.setData({
       craftsmannfo: app.globalData.loginInfo.craftsmannfo
     })
-    that.getInfo()
+    this.getInfo()
   },
 
 

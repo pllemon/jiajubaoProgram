@@ -1,4 +1,4 @@
-// 订单状态：1 待审核 2 待支付 ，3待派单 4 报名中 5施工中 6待付尾款 7待评价 8已完成 9支付但未施工，强行结束订单
+// 订单状态：1 待审核 2 待支付 ，3待派单 4 报名中 5施工中 6待用户确认 7待店长确认 8已完成 9支付但未施工，强行结束订单
 // 人员状态：0 未申请 1 正常使用 2 申请中 3 驳回 4 禁用
 const personMessage = {
   0: {
@@ -388,11 +388,6 @@ const personType = {
         text: '我的积分',
         url: '/pages/personal/wallet/index/index?personType=0'
       },
-      // {
-      //   icon: 'addresslist',
-      //   text: '我要下单',
-      //   url: '/pages/demand/applyForm/applyForm'
-      // },
       {
         icon: 'group',
         text: '我的朋友',
@@ -408,11 +403,6 @@ const personType = {
         text: '意见反馈',
         url: '/pages/personal/feedback/feedback'
       },
-      // {
-      //   icon: 'namecard',
-      //   text: '师傅加盟',
-      //   action: 'goMaster'
-      // },
       {
         icon: 'notice',
         text: '系统公告',

@@ -12,15 +12,13 @@
 
 
 .main-action{
-    padding: 20rpx 30rpx;
+    padding: 0 30rpx;
     background: #f8f8f8;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
 }
 .main-action .main-btn{
-    margin: 0;
+    margin: 20rpx;
+    margin-right: 0;
 }
 .main-action .service{
     margin-right: 30rpx;
