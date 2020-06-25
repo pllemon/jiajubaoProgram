@@ -17,8 +17,9 @@
     width: 100%;
 }
 .main-action .main-btn{
-    margin: 20rpx;
-    margin-right: 0;
+    margin: 20rpx 0;
+    margin-left: 10rpx;
+    font-size: 28rpx;
 }
 .main-action .service{
     margin-right: 30rpx;
@@ -29,9 +30,6 @@
     position: relative;
     top: 1rpx;
     margin-right: 2px;
-}
-.scroll-view{
-    overflow: auto;
 }
 
 /* 以下 */
@@ -103,4 +101,8 @@ textarea{
 .rate image{
     width: 40rpx;
     height: 40rpx;
+}
+
+.scroll-view{
+    overflow: auto;
 }

@@ -31,9 +31,9 @@ Page({
     let url = personMes[personType].url;
     let statusName = personMes[personType].status;
     let orderStatus = app.globalData.personMessage[personType].orderStatus;
-    if (personType == 3) {
-      orderStatus = app.globalData.personMessage[0].orderStatus
-    }
+    orderStatus = orderStatus.filters(item => {
+      return item.show
+    })
 
     this.setData({
       showNav: params.showNav || 0,

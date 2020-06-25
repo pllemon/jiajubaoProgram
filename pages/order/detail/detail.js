@@ -1,5 +1,5 @@
 const app = getApp()
-const common = require('../../../utils/common.js')
+const common = require('../../../utils/common.js');
 
 Page({
   data: {
@@ -22,14 +22,6 @@ Page({
 
   onLoad(params) {
     let that = this
-
-    let order_id = params.id;
-    let personType = params.personType || 0;
-    that.setData({
-      order_id,
-      personType,
-    })
-    
     common.checkLogin(function(){
       if (app.globalData.loginInfo) {
         that.init()
@@ -40,10 +32,15 @@ Page({
       }
     })
 
+    let order_id = params.id;
+    let personType = params.personType || 0;
+    that.setData({
+      order_id,
+      personType,
+    })
   },
 
   init() {
-    console.log(app.globalData.loginInfo)
     this.setData({
       craftsmannfo: app.globalData.loginInfo.craftsmannfo
     })
@@ -80,25 +77,33 @@ Page({
         craftsmaninfo = data.craftsmanlist.find(item => item.is_choose);
         data.craftsmaninfo = craftsmaninfo;
 
-        if (that.data.personType == 0) {
+        if (that.data.personType == 0) { // 用户
           orderStatus = personMessage[0].orderStatus[data.info.status];
+
         } else if (that.data.personType == 1) { // 师傅
           if (data.info.status == 4) {
             if (!data.craftsmanorderinfo) {
-              orderStatus = personMessage[1].orderStatus[5]; // 未报名
+              orderStatus = personMessage[1].orderStatus[7]; // 未报名
             } else {
               orderStatus = personMessage[1].orderStatus[1]; // 已报名
             }
           } else if (data.info.status >= 5 && data.info.status < 8) {
             if (data.craftsmaninfo.craftsman_id == data.craftsmanorderinfo.craftsman_id) {
-              orderStatus = personMessage[1].orderStatus[2]; // 已承接
+              if (data.info.status == 5) {
+                orderStatus = personMessage[1].orderStatus[2]; // 已承接
+              } else if (data.info.status == 6) {
+                orderStatus = personMessage[1].orderStatus[4]; // 待客户验收
+              } else if (data.info.status == 7) {
+                orderStatus = personMessage[1].orderStatus[5]; // 待店长验收
+              }
             } else {
-              orderStatus = personMessage[1].orderStatus[4]; // 未承接
+              orderStatus = personMessage[1].orderStatus[3]; // 未承接
             }
           } else if (data.info.status == 8) {
-            orderStatus = personMessage[1].orderStatus[3]; // 已完成
+            orderStatus = personMessage[1].orderStatus[6]; // 已完成
           }
-        } else if (that.data.personType == 3) {
+
+        } else if (that.data.personType == 3) { // 店长
           orderStatus = personMessage[3].orderStatus[data.info.status];
         }
         that.setData({

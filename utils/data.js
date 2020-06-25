@@ -20,8 +20,7 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       2: {
         status: 2,
@@ -33,34 +32,31 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       3: {
         status: 3,
         label: '待派单',
         desc: '已支付，订单等待后台派单',
-        show: true,
+        show: false,
         icon: 'icondengdai',
         showUser: true,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: false
+        showSignUp: false
       },
       4: {
         status: 4,
         label: '报名中',
         desc: '师傅报名中',
-        show: true,
+        show: false,
         icon: 'icongongcheng-',
         showUser: true,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
         showSignUp: true,
-        showAction: false
       },
       5: {
         status: 5,
@@ -72,8 +68,7 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: false
+        showSignUp: true
       },
       6: {
         status: 6,
@@ -85,21 +80,31 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: true
+        showSignUp: true
       },
-      8: {
-        status: 8,
+      7: {
+        status: 7,
         label: '已完成',
         desc: '订单已完成，欢迎再次下单',
-        show: true,
+        show: false,
         icon: 'iconiconfontzhizuobiaozhun0261',
         showUser: true,
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: true
+        showSignUp: true
+      },
+      8: {
+        status: 8,
+        label: '已完成',
+        desc: '订单已完成，欢迎再次下单',
+        show: false,
+        icon: 'iconiconfontzhizuobiaozhun0261',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: true
       },
       10: {
         status: 10,
@@ -111,34 +116,31 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       11: {
         status: 11,
         label: '已取消',
         desc: '订单已取消，欢迎再次下单',
-        show: true,
+        show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       12: {
         status: 12,
         label: '已过期',
         desc: '订单已过期，欢迎再次下单',
-        show: true,
+        show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       }
     }
   },
@@ -155,56 +157,76 @@ const personMessage = {
         status: 1,
         label: '已报名',
         desc: '报名成功，请耐心等待结果',
-        show: true,
+        show: false,
         icon: 'icongongcheng-',
         showUser: false,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: false
+        showSignUp: true
       },
       2: {
         status: 2,
         label: '已承接',
-        desc: '您已承接该订单，请按时完成工作',
+        desc: '已承接该订单，请按时完成工作',
         show: true,
         icon: 'icongongcheng-1',
         showUser: true,
         showUserPhone: true,
         showMaster: true,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: true
+        showSignUp: true
       },
-      4: {
-        status: 4,
+      3: {
+        status: 3,
         label: '未承接',
-        desc: '您未承接该订单，可报名其他订单',
-        show: true,
+        desc: '未承接该订单，可报名其他订单',
+        show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: false,
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: false
+        showSignUp: true
       },
-      3: {
-        status: 3, 
-        label: '已完成',
-        desc: '您已完成该订单',
+      4: {
+        status: 4, 
+        label: '待客户验收',
+        desc: '施工完成，待客户验收',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0261',
         showUser: true,
         showUserPhone: true,
         showMaster: true,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: true
+        showSignUp: false
       },
       5: {
-        status: 5,
+        status: 5, 
+        label: '待店长验收',
+        desc: '施工完成，待店长验收',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0261',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      6: {
+        status: 6, 
+        label: '已验收',
+        desc: '施工完成，工程已验收',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0261',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      7: {
+        status: 7,
         label: '未报名',
         desc: '订单正接受报名，需要请尽快报名哦',
         show: false,
@@ -213,8 +235,7 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: true
+        showSignUp: true
       }
     },
     action: []
@@ -237,28 +258,26 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '订单已分配，请尽快处理',
+        desc: '请尽快处理联系用户并处理',
         show: true,
         icon: 'iconshenhe',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       2: {
         status: 2,
         label: '待支付',
-        desc: '订单已审核通过，等待支付',
+        desc: '审核通过，等待支付',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       3: {
         status: 3,
@@ -267,11 +286,10 @@ const personMessage = {
         show: true,
         icon: 'icondengdai',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: false
+        showSignUp: false
       },
       4: {
         status: 4,
@@ -280,11 +298,10 @@ const personMessage = {
         show: true,
         icon: 'icongongcheng-',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: true,
-        showAction: false
+        showSignUp: false
       },
       5: {
         status: 5,
@@ -293,89 +310,82 @@ const personMessage = {
         show: true,
         icon: 'icongongcheng-1',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: false
+        showSignUp: false,
       },
       6: {
         status: 6,
-        label: '已完成',
-        desc: '订单已完成，欢迎再次下单',
+        label: '待验收',
+        desc: '师傅已完成施工，待客户检查验收',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: true
+        showSignUp: false
       },
       7: {
         status: 7,
-        label: '已完成',
-        desc: '订单已完成，欢迎再次下单',
+        label: '待验收',
+        desc: '客户已验收，请检查验收',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: true
+        showSignUp: false
       },
       8: {
         status: 8,
-        label: '已完成',
-        desc: '订单已完成，欢迎再次下单',
+        label: '已验收',
+        desc: '工程已验收',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0261',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true,
-        showAction: true
+        showSignUp: false
       },
       10: {
         status: 10,
         label: '审核不通过',
-        desc: '订单审核不通过，欢迎再次下单',
-        show: false,
+        desc: '订单审核不通过',
+        show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       11: {
         status: 11,
         label: '已取消',
-        desc: '订单已取消，欢迎再次下单',
+        desc: '订单已取消',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       },
       12: {
         status: 12,
         label: '已过期',
-        desc: '订单已过期，欢迎再次下单',
+        desc: '订单已过期',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
-        showUserPhone: false,
+        showUserPhone: true,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false,
-        showAction: true
+        showSignUp: false
       }
     },
     action: []
