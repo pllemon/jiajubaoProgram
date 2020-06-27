@@ -14,9 +14,27 @@ Page({
 
   onLoad(params) {
     let that = this;
+    let goods_id = params.id || ''
     const businessinfo = app.globalData.loginInfo.businessinfo
     that.setData({
-      businessinfo
+      businessinfo,
+      goods_id
+    })
+    if (goods_id) {
+      that.getDetails()
+    }
+  },
+
+  getDetails() {
+    app.request({
+      url: '/businessgoodsinfo',
+      method: 'get',
+      data: {
+        goods_id: this.data.goods_id
+      },
+      success: function(data) {
+        console.log(data)
+      }
     })
   },
 

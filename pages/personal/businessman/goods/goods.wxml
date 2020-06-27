@@ -7,7 +7,7 @@
     isPaging="{{false}}"
     bind:change = "changeList"
   >
-    <view wx:for="{{list}}" wx:key="index" class="goods-single">
+    <view wx:for="{{list}}" wx:key="index" class="goods-single" data-id="{{item.goods_id}}" bindtap="goodsDetails">
       <gdImage class="goods-image" src="{{ item.goods_image }}"></gdImage>
       <view class="flex1">
         <view class="name">{{item.goods_name}}</view>

@@ -18,5 +18,11 @@ Page({
     wx.navigateTo({
       url: '/pages/personal/businessman/addGoods/addGoods'
     })
+  },
+
+  goodsDetails(e) {
+    wx.navigateTo({
+      url: '/pages/personal/businessman/addGoods/addGoods?id=' + e.currentTarget.dataset.id
+    })
   }
 })

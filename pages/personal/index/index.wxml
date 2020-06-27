@@ -74,13 +74,14 @@
 
   <!-- 商家验证 -->
   <block wx:if="{{currType == 2}}">
-    <view class="apply-view" wx:if="{{userInfo.is_business == 0 || userInfo.is_business == 2 || userInfo.is_business == 3 || userInfo.is_business == 4}}">
+    <view class="apply-view" wx:if="{{userInfo.is_business != 1}}">
       <view class="flex-center">
         <icon class="iconfont iconbusiness"></icon>
         <view class="flex1">
           <text>{{status[userInfo.is_business].text2}}</text>
           <text wx:if="{{userInfo.businessinfo.bhremark && userInfo.businessinfo.status == 3}}">，驳回原因是：{{userInfo.businessinfo.bhremark}}</text>
           <text wx:if="{{userInfo.businessinfo.status == 3}}">，可重新申请</text>
+          <text wx:if="{{userInfo.businessinfo.status == 5}}">¥{{userInfo.businessinfo.joininprice}}</text>
         </view>
       </view>
       <button class="main-btn plain" wx:if="{{status[userInfo.is_business].active}}" bindtap="applyBusiness">

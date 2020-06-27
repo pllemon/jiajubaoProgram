@@ -64,14 +64,14 @@
 					"id": 2,
 					"name": "订单列表",
 					"pathName": "pages/order/list/list",
-					"query": "personType=0",
+					"query": "personType=1",
 					"scene": null
 				},
 				{
 					"id": 3,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
-					"query": "type=3",
+					"query": "type=2",
 					"scene": null
 				},
 				{
@@ -293,7 +293,7 @@
 				},
 				{
 					"id": -1,
-					"name": "我的工资",
+					"name": "订单佣金",
 					"pathName": "pages/personal/wages/index/index",
 					"query": "id=87&personType=0",
 					"scene": null

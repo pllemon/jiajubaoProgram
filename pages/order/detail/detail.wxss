@@ -41,11 +41,6 @@
     margin-right: 20rpx;
 }
 
-.main-btn{
-    margin: 50rpx 0rpx;
-    margin-bottom: 10rpx;
-}
-
 .message view{
     display: flex;
     align-content: center;

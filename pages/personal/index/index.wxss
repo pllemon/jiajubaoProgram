@@ -23,7 +23,8 @@
 .apply-view{
 	background: #fff;
 	margin: 30rpx;
-	padding: 50rpx;
+	margin-top: 0;
+	padding: 30rpx;
 	font-size: 16px;
 	line-height: 1.8;
 	color: #666;
@@ -39,11 +40,13 @@
 	top: 0;
 }
 .apply-view button{
-	margin: 50rpx 0;
+	margin: 0;
+	margin-top: 30rpx;
 }
 
 .action-list{
 	margin-bottom: 30rpx;
+	overflow: auto;
 }
 .action-item{
 	display: flex;

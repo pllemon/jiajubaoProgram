@@ -36,6 +36,12 @@ Page({
         text2: '您的账号已被禁用，如有疑问请联系客服',
         btn: '账号已禁用',
         active: false
+      },
+      5: {
+        text: '',
+        text2: '信息审核已通过，请支付加盟费',
+        btn: '支付加盟费',
+        active: true
       }
     },
 
@@ -43,27 +49,43 @@ Page({
   },
 
   onLoad(params) {
+    let that = this;
     let type = params.type || 0;
-    console.log(type)
     this.setData({
-      currType: type,
-      personType: systemData.personType
+      currType: type
     })
 
-    this.getInfo();
+    if (app.globalData.loginInfo) {
+      that.init()
+    } else {
+      app.loginCallback = function() {
+        that.init()
+      }
+    }
   },
 
   // 获取账号信息
-  getInfo() {
+  init() {
     let that = this;
+    let loginInfo = app.globalData.loginInfo;
+    let personType = systemData.personType
+    if (!loginInfo.networkauth) {
+      delete personType[3]
+    }
+    that.setData({
+      personType: personType,
+      userInfo: loginInfo
+    })
+  },
+
+  getInfo() {
     app.request({
       url: '/userinfo',
       success: function(data) {
-        that.setData({
+        app.globalData.loginInfo = data
+        this.setData({
           userInfo: data
         })
-        app.globalData.loginInfo = data
-        console.log(data)
       }
     })
   },
@@ -84,9 +106,38 @@ Page({
 
   // 申请成为商家
   applyBusiness() {
-    wx.navigateTo({
-      url: '/pages/personal/businessman/identity/identity'
-    })
+    let that = this;
+    let businessinfo =  this.data.userInfo.businessinfo;
+    if (businessinfo.status == 5) {
+      app.request({
+        url: '/businesswxpayinfo',
+        data: {
+          business_id: businessinfo.id
+        },
+        success: function(data) {
+          wx.requestPayment({
+            'nonceStr': data.nonceStr,
+            'package': data.package,
+            'signType': data.signType,
+            'timeStamp': data.timeStamp.toString(),
+            'paySign': data.sign,
+            'success':function(res){
+              app.successToast('支付成功', function(){
+                that.getInfo();
+              })
+            },
+            'fail':function(res){
+              console.log(res)
+              app.showModal('支付失败')
+            }
+          })
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/personal/businessman/identity/identity'
+      })
+    }
   },
 
 

@@ -24,21 +24,27 @@ Page({
     requestUrl: '',
     statusName: '',
     list: [],
-    query: {}
+    query: {},
+
+    tabList: {}
   },
   onLoad(params) {
     let personType = params.personType
     let url = personMes[personType].url;
     let statusName = personMes[personType].status;
     let orderStatus = app.globalData.personMessage[personType].orderStatus;
-    orderStatus = orderStatus.filters(item => {
-      return item.show
-    })
+    let tabList = {}
+    for (let i in orderStatus) {
+      if (orderStatus[i].show) {
+        tabList[i] = orderStatus[i]
+      }
+    }
 
     this.setData({
       showNav: params.showNav || 0,
-      personType: personType,
-      orderStatus: orderStatus,
+      personType,
+      orderStatus,
+      tabList,
 
       statusName: statusName,
       requestUrl: url,
@@ -58,6 +64,7 @@ Page({
   },
 
   changeType(e) {
+    console.log(e)
     this.setData({
       query: {
         [this.data.statusName]: e.detail.name,

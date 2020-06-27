@@ -179,7 +179,7 @@ Page({
     common.uploadImg('uploadobusinessimg', this.data[name][0], function (res) {
       form[name] = res.data;
       uploadNum++;
-      if (uploadNum == 4) {
+      if (uploadNum == 3) {
         wx.hideLoading();
         that.submitFn();
       }

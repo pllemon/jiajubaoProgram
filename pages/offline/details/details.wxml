@@ -1,103 +1,103 @@
-<view wx:if="{{finish}}">
-    <view class="blue-header flex-center-between">
-      <view>
-        <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</view>
-        <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</view>
-        <view class="title" wx:if="{{orderMes.status == 2 }}">已取消</view>
-      </view>
-      <icon class="iconfont {{orderStatus.icon}}"></icon>
-    </view>
+<view wx:if="{{finish}}" class="full-layout">
+    <view class="scroll-view">
+        <view class="blue-header flex-center-between">
+          <view>
+            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</view>
+            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</view>
+            <view class="title" wx:if="{{orderMes.status == 2 }}">已取消</view>
+          </view>
+          <icon class="iconfont {{orderStatus.icon}}"></icon>
+        </view>
 
-    <view class="concat-mes">
-      <view wx:if="{{personType == 2}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
-        <gdImage src="{{orderMes.userheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
-        <view class="flex1">
-          <view class="name">{{orderMes.user_name}}</view>
-          <view>{{orderMes.user_phone}}</view>
+        <view class="concat-mes">
+          <view wx:if="{{personType == 2}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
+            <gdImage src="{{orderMes.userheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+            <view class="flex1">
+              <view class="name">{{orderMes.user_name}}</view>
+              <view>{{orderMes.user_phone}}</view>
+            </view>
+            <view class="flex-center phone" data-phone="{{orderMes.user_phone}}" bindtap="makePhoneCall">
+              <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+              <text>联系</text>
+            </view>
+          </view>
+          <view wx:if="{{personType == 0}}" class="flex-start-between concat-single">
+            <gdImage src="{{orderMes.shopimg}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+            <view class="flex1">
+              <view class="name">{{orderMes.business_name}}</view>
+              <view>{{orderMes.business_phone}}</view>
+              <view>{{orderMes.business_address}}</view>
+            </view>
+            <view class="flex-center phone" data-phone="{{orderMes.business_phone}}" bindtap="makePhoneCall">
+              <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
+              <text>联系</text>
+            </view>
+          </view>
         </view>
-        <view class="flex-center phone" data-phone="{{orderMes.user_phone}}" bindtap="makePhoneCall">
-          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-          <text>联系</text>
+        
+        <view class="common-section">
+          <view class="title">订单商品</view>
+          <view wx:for="{{orderMes.goodslst}}" wx:key="index" wx:for-item="item2" class="goods-single">
+            <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
+            <view class="flex1">
+              <view class="name">{{item2.goods_name}}</view>
+              <view class="flex-center-between">
+                <text>￥{{item2.price}}</text>
+                <text>数量：{{item2.goods_number}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="flex-center-end" style="margin-top: 30rpx">总价￥{{orderMes.money}}，积分抵扣￥{{orderMes.integral}}，实付款
+            <text style="font-size: 36rpx;color:#4d5ef4;font-weight:bold">￥{{orderMes.money - orderMes.integral}}</text>
+          </view>
         </view>
-      </view>
-      <view wx:if="{{personType == 0}}" class="flex-start-between concat-single">
-        <gdImage src="{{orderMes.shopimg}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
-        <view class="flex1">
-          <view class="name">{{orderMes.business_name}}</view>
-          <view>{{orderMes.business_phone}}</view>
-          <view>{{orderMes.business_address}}</view>
+
+        <!-- 订单信息 -->
+        <view class="common-section">
+          <view class="title">订单信息</view>
+          <view class="message">
+            <view>
+              <text>订单编号:</text>
+              <text>{{orderMes.order_sn}}</text>
+            </view>
+            <view>
+              <text>下单时间:</text>
+              <text>{{orderMes.creat_time}}</text>
+            </view>
+            <view>
+              <text>消费金额:</text>
+              <text>{{orderMes.money}} 元</text>
+            </view>
+            <view>
+              <text>{{personType == 0 ? '积分抵扣':'用户积分抵扣'}}</text>
+              <text>-{{orderMes.integral}} 元</text>
+            </view>
+            <view>
+              <text>线下支付金额:</text>
+              <text>{{orderMes.money - orderMes.integral}} 元</text>
+            </view>
+            <block wx:if="{{personType == 2}}">
+              <view>
+                <text>应付平台费:</text>
+                <text>{{orderMes.pay_money}} 元</text>
+              </view>
+              <view wx:if="{{orderMes.pay_status == 1}}">
+                <text>积分抵扣平台费:</text>
+                <text>{{orderMes.integral}} 元</text>
+              </view>
+              <view wx:if="{{orderMes.pay_status == 1}}">
+                <text>实付平台费:</text>
+                <text>{{orderMes.pay_money - orderMes.integral}} 元</text>
+              </view>
+            </block>
+            <view wx:if="{{orderMes.pay_status == 1}}">
+              <text>完成时间:</text>
+              <text>{{orderMes.pay_time}}</text>
+            </view>
+          </view>
         </view>
-        <view class="flex-center phone" data-phone="{{orderMes.business_phone}}" bindtap="makePhoneCall">
-          <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-          <text>联系</text>
-        </view>
-      </view>
     </view>
     
-    <view class="common-section">
-      <view class="title">订单商品</view>
-      <view wx:for="{{orderMes.goodslst}}" wx:key="index" wx:for-item="item2" class="goods-single">
-        <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
-        <view class="flex1">
-          <view class="name">{{item2.goods_name}}</view>
-          <view class="flex-center-between">
-            <text>￥{{item2.price}}</text>
-            <text>数量：{{item2.goods_number}}</text>
-          </view>
-        </view>
-      </view>
-      <view class="flex-center-end" style="margin-top: 30rpx">总价￥{{orderMes.money}}，积分抵扣￥{{orderMes.integral}}，实付款
-        <text style="font-size: 36rpx;color:#4d5ef4;font-weight:bold">￥{{orderMes.money - orderMes.integral}}</text>
-      </view>
-    </view>
-
-    <!-- 订单信息 -->
-    <view class="common-section">
-      <view class="title">订单信息</view>
-      <view class="message">
-        <view>
-          <text>订单编号:</text>
-          <text>{{orderMes.order_sn}}</text>
-        </view>
-        <view>
-          <text>下单时间:</text>
-          <text>{{orderMes.creat_time}}</text>
-        </view>
-        <view>
-          <text>消费金额:</text>
-          <text>{{orderMes.money}} 元</text>
-        </view>
-        <view>
-          <text>{{personType == 0 ? '积分抵扣':'用户积分抵扣'}}</text>
-          <text>-{{orderMes.integral}} 元</text>
-        </view>
-        <view>
-          <text>线下支付金额:</text>
-          <text>{{orderMes.money - orderMes.integral}} 元</text>
-        </view>
-        <block wx:if="{{personType == 2}}">
-          <view>
-            <text>应付平台费:</text>
-            <text>{{orderMes.pay_money}} 元</text>
-          </view>
-          <view wx:if="{{orderMes.pay_status == 1}}">
-            <text>积分抵扣平台费:</text>
-            <text>{{orderMes.integral}} 元</text>
-          </view>
-          <view wx:if="{{orderMes.pay_status == 1}}">
-            <text>实付平台费:</text>
-            <text>{{orderMes.pay_money - orderMes.integral}} 元</text>
-          </view>
-        </block>
-        <view wx:if="{{orderMes.pay_status == 1}}">
-          <text>完成时间:</text>
-          <text>{{orderMes.pay_time}}</text>
-        </view>
-      </view>
-    </view>
-
-    <view style="height: 130rpx" wx:if="{{orderStatus.showAction}}"></view>
-
     <!-- 操作按钮 -->
     <view class="main-action  flex-center-end" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
       <button bindtap="cancelOrder" class="main-btn default">取消订单</button>

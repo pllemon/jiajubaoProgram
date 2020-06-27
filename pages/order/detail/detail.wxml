@@ -81,7 +81,7 @@
               <text>{{orderMes.info.cancel_time}}</text>
             </view>
             <view>
-              <text>订单原因:</text>
+              <text>取消原因:</text>
               <text>{{orderMes.info.cancelremark}}</text>
             </view>
           </block>

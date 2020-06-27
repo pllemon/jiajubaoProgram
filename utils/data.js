@@ -258,7 +258,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '请尽快处理联系用户并处理',
+        desc: '请尽快联系用户并处理',
         show: true,
         icon: 'iconshenhe',
         showUser: true,
@@ -317,7 +317,7 @@ const personMessage = {
       },
       6: {
         status: 6,
-        label: '待验收',
+        label: '待客户验收',
         desc: '师傅已完成施工，待客户检查验收',
         show: true,
         icon: 'iconqianbao',
@@ -329,7 +329,7 @@ const personMessage = {
       },
       7: {
         status: 7,
-        label: '待验收',
+        label: '待店长验收',
         desc: '客户已验收，请检查验收',
         show: true,
         icon: 'iconqianbao',
@@ -449,7 +449,7 @@ const personType = {
       },
       {
         icon: 'coinpurse_line',
-        text: '我的工资',
+        text: '订单佣金',
         url: '/pages/personal/wages/index/index'
       },
       // {

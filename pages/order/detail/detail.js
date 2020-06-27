@@ -21,7 +21,19 @@ Page({
   },
 
   onLoad(params) {
+    let pages = getCurrentPages();
+    let aa = pages[pages.length - 1];
+    console.log(aa)
+
     let that = this
+
+    let order_id = params.id;
+    let personType = params.personType || 0;
+    that.setData({
+      order_id,
+      personType,
+    })
+    
     common.checkLogin(function(){
       if (app.globalData.loginInfo) {
         that.init()
@@ -30,13 +42,6 @@ Page({
           that.init()
         }
       }
-    })
-
-    let order_id = params.id;
-    let personType = params.personType || 0;
-    that.setData({
-      order_id,
-      personType,
     })
   },
 
