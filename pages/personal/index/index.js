@@ -1,5 +1,6 @@
 const systemData = require('../../../utils/data.js')
 const app = getApp()
+const common = require('../../../utils/common.js')
 
 Page({
   data: {
@@ -55,13 +56,15 @@ Page({
       currType: type
     })
 
-    if (app.globalData.loginInfo) {
-      that.init()
-    } else {
-      app.loginCallback = function() {
+    common.checkLogin(function(){
+      if (app.globalData.loginInfo) {
         that.init()
+      } else {
+        app.loginCallback = function() {
+          that.init()
+        }
       }
-    }
+    })
   },
 
   // 获取账号信息

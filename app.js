@@ -102,7 +102,8 @@ App({
     wx.showToast({
       title: text,
       icon: 'success',
-      duration: 1000
+      duration: 1000,
+      mask: true
     })
     if (callback) {
       setTimeout(function () {
