@@ -71,7 +71,7 @@
 					"id": 3,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
-					"query": "type=2",
+					"query": "type=0",
 					"scene": null
 				},
 				{
@@ -429,6 +429,20 @@
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
 					"query": "id=41&personType=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收益",
+					"pathName": "pages/personal/wages/settlement/settlement",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分记录",
+					"pathName": "pages/personal/wallet/integralRecord/integralRecord",
+					"query": "type=0",
 					"scene": null
 				}
 			]

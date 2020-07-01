@@ -4,8 +4,9 @@
     class="scroll-view"
     request-url="{{requestUrl}}"
     query="{{query}}"
-    isPaging="{{false}}"
+    isPaging="{{true}}"
     auto="{{true}}"
+    specialData="{{true}}"
     bind:change = "changeList"
   >
     <view class="order-list">

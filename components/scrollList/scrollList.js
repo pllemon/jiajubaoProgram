@@ -23,6 +23,10 @@ Component({
     auto: { // 自动请求
       type: Boolean,
       value: true
+    },
+    specialData: { // 接口返回的特殊格式
+      type: Boolean,
+      value: false
     }
   },
   data: {
@@ -134,28 +138,39 @@ Component({
         data: query,
         hideLoading: true,
         success: function(data) {
+          console.log(data)
+          let list = that.properties.specialData ? data.list : data
           if (that.properties.isPaging) {
             if (type == 1) {
               that.setData({
-                data: data.data,
-                last_page: data.last_page,
+                data: list.data,
+                last_page: list.last_page,
                 page: page
               })
             } else {
               let data = that.data.data
               that.setData({
-                data: data.concat(data.data),
-                last_page: data.last_page,
+                data: data.concat(list.data),
+                last_page: list.last_page,
                 page: page
               })
             }
-            that.triggerEvent('change', that.data.data)
+            console.log(that.data.data)
+            if (that.properties.specialData) {
+              that.triggerEvent('change', {
+                list: that.data.data,
+                data: data
+              })
+            } else {
+              that.triggerEvent('change', that.data.data)
+            }
           } else {
             that.setData({
-              data: data,
+              data: list,
               page: 1,
               last_page: 1
             })
+            console.log(that.data.data)
             that.triggerEvent('change', that.data.data)
           }
         },

@@ -24,11 +24,11 @@
           </view>
           <!-- <view>{{item.crafts_man_sn}}</view> -->
           <view class="rate">
-            <image src="/image/icon/start.svg" />
-            <image src="/image/icon/start.svg" />
-            <image src="/image/icon/start.svg" />
-            <image src="/image/icon/start.svg" />
-            <image src="/image/icon/start.svg" />
+            <image src="/image/icon/start.svg" wx:if="{{item.stars > 0}}" />
+            <image src="/image/icon/start.svg" wx:if="{{item.stars > 1}}" />
+            <image src="/image/icon/start.svg" wx:if="{{item.stars > 2}}" />
+            <image src="/image/icon/start.svg" wx:if="{{item.stars > 3}}" />
+            <image src="/image/icon/start.svg" wx:if="{{item.stars > 4}}" />
           </view>
           <view>{{item.region}}</view>
         </view>

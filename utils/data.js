@@ -408,13 +408,13 @@ const personType = {
       },
       {
         icon: 'coinpurse_line',
-        text: '我的佣金',
-        url: '/pages/personal/wallet/settlement/settlement'
+        text: '我的收益',
+        url: '/pages/personal/wages/settlement/settlement'
       },
       {
         icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/index/index'
+        url: '/pages/personal/wallet/integralRecord/integralRecord'
       },
       {
         icon: 'group',

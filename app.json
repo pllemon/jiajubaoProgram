@@ -40,6 +40,7 @@
     "pages/personal/wages/index/index",
     "pages/personal/wages/applyRecord/applyRecord",
     "pages/personal/wages/apply/apply",
+    "pages/personal/wages/settlement/settlement",
 
     "pages/personal/wallet/index/index",
     "pages/personal/wallet/integralRecord/integralRecord",

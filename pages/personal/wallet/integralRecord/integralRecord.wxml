@@ -1,11 +1,20 @@
 <view class="full-layout">
-  <view class="blue-header flex-column-center">
+    <view class="blue-header flex-column-center">
     <view>您共拥有积分</view>
     <view class="total">{{sumintegral}}</view>
   </view>
 
-  <scroll-view scroll-y class="flex1">
-    <view class="record-list" wx:if="{{ list.length }}">
+  <common-scroll
+    id="list"
+    class="scroll-view flex1"
+    request-url="{{requestUrl}}"
+    query="{{query}}"
+    isPaging="{{true}}"
+    auto="{{true}}"
+    specialData="{{true}}"
+    bind:change = "changeList"
+  >
+    <view class="record-list">
       <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
         <view>
           <view>{{item.remark}}</view>
@@ -14,6 +23,9 @@
         <view class="points">{{item.integral > 0 ? '+' + item.integral : item.integral}}</view>
       </view>
     </view>
-    <view wx:else class="no-res">无相关数据</view>
-  </scroll-view>
+  </common-scroll>
+
+  <view class="page-action">
+    <button bindtap="openPopup" class="main-btn flex1" data-type="2" bindtap="useIntegral">使用</button>
+  </view>
 </view>

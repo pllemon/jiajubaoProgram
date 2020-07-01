@@ -1,6 +1,3 @@
-.blue-header{
-  padding-top: 120rpx;
-}
 
 .total{
   font-size: 40px;

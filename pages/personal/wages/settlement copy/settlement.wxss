@@ -19,8 +19,3 @@ van-radio{
 .page-action{
     justify-content: flex-end;
 }
-
-.total{
-    font-size: 40px;
-    margin-top: 6rpx;
-  }
