@@ -84,9 +84,10 @@ Page({
         if (num == that.data.list.length) {
           wx.hideLoading()
           app.successToast('提交成功', function(){
-            wx.redirectTo({
-              url: '/pages/personal/wages/applyRecord/applyRecord?personType=1'
-            })
+            let pages = getCurrentPages();
+            let prevPage = pages[pages.length - 2];
+            prevPage.selectComponent("#list").getData(1);
+            wx.navigateBack()
           })
         }
       }

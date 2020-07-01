@@ -408,8 +408,13 @@ const personType = {
       },
       {
         icon: 'coinpurse_line',
+        text: '我的佣金',
+        url: '/pages/personal/wallet/settlement/settlement'
+      },
+      {
+        icon: 'coinpurse_line',
         text: '我的积分',
-        url: '/pages/personal/wallet/index/index?personType=0'
+        url: '/pages/personal/wallet/index/index'
       },
       {
         icon: 'group',
@@ -450,7 +455,7 @@ const personType = {
       {
         icon: 'coinpurse_line',
         text: '订单佣金',
-        url: '/pages/personal/wages/index/index'
+        url: '/pages/personal/wages/applyRecord/applyRecord'
       },
       // {
       //   icon: 'affiliations_li',

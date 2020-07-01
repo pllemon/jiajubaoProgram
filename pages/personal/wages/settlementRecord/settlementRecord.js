@@ -2,27 +2,16 @@ const app = getApp()
 
 Page({
   data: {
-    list: []
+    personType: 0,
+    
+    requestUrl: '/userwithdrawallist',
+    list: [],
+    query: {},
   },
 
-  onLoad(params) {
-    this.getList()
-  },
-
-  getList() {
-    let that = this;
-    let url = '/businesscashinlist';
-    app.request({
-      url,
-      data: {
-        page: 0,
-        limit: 200
-      },
-      success: function(data) {
-        that.setData({
-          list: data.data
-        })
-      }
+  changeList(e) {
+    this.setData({
+      list: e.detail
     })
   }
 })

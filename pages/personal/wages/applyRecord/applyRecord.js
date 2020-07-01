@@ -4,25 +4,23 @@ Page({
   data: {
     personType: 0,
     
-    requestUrl: '',
+    requestUrl: '/craftsmancashoutlist',
     list: [],
     query: {
       number: 1
     },
   },
 
-  onLoad(params) {
-    let personType = params.personType || 0
-    this.setData({
-      personType,
-      requestUrl: personType == 1 ? '/craftsmancashoutlist' : '/userintegrallist'
-    })
-    this.selectComponent("#list").getData(1);
-  },
-
   changeList(e) {
     this.setData({
       list: e.detail
+    })
+  },
+
+  apply(e) {
+    let type = e.currentTarget.dataset.type
+    wx.navigateTo({
+      url: '/pages/personal/wages/apply/apply?type=' + type
     })
   }
 })

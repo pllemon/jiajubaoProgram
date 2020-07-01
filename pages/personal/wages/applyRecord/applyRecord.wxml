@@ -5,7 +5,7 @@
     request-url="{{requestUrl}}"
     query="{{query}}"
     isPaging="{{false}}"
-    auto="{{false}}"
+    auto="{{true}}"
     bind:change = "changeList"
   >
     <view class="order-list">
@@ -14,7 +14,13 @@
           <view>服务地址：{{item.address}}</view>
           <view>确认完成：{{item.success_time}}</view>
           <view>师傅工资：{{item.craftsman_price}}</view>
+          <view>申请时间：{{item.craftsman_price}}</view>
+          <view>申请状态：{{item.craftsman_price}}</view>
       </view>
     </view>
   </common-scroll>
+  <view class="page-action">
+    <button bindtap="openPopup" class="main-btn flex1" data-type="1" bindtap="apply">申请一期</button>
+    <button bindtap="openPopup" class="main-btn flex1" data-type="2" bindtap="apply">申请二期</button>
+  </view>
 </view>

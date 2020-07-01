@@ -21,6 +21,7 @@ Page({
   },
 
   onLoad(params) {
+    // 删
     let pages = getCurrentPages();
     let aa = pages[pages.length - 1];
     console.log(aa)

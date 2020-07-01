@@ -1,17 +1,20 @@
 <view class="full-layout">
-  <scroll-view scroll-y class="flex1">
-    <view class="record-list" wx:if="{{ list.length }}">
-      <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
-        <view>
-          <view>{{item.money}}积分提现</view>
-          <view>
-            <text class="time">{{item.time}}</text>
-            <text> · </text>
-            <text class="status" wx:if="{{item.status == 1 }}">申请中</text>
-          </view>
-        </view>
+  <common-scroll
+    id="list"
+    class="scroll-view"
+    request-url="{{requestUrl}}"
+    query="{{query}}"
+    isPaging="{{false}}"
+    auto="{{true}}"
+    bind:change = "changeList"
+  >
+    <view class="order-list">
+      <view wx:for="{{list}}" wx:key="index" class="order-single">
+          <view class="category">{{item.service_demand}}</view>
+          <view>申请时间：{{item.address}}</view>
+          <view>申请金额：{{item.success_time}}</view>
+          <view>申请状态：{{item.craftsman_price}}</view>
       </view>
     </view>
-    <view wx:else class="no-res">无相关数据</view>
-  </scroll-view>
+  </common-scroll>
 </view>
