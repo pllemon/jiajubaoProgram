@@ -15,7 +15,7 @@
 	</view>
 
 	<view hidden="{{moveY <= 0}}" class="scroll-tips">
-		<van-icon name="down" size="16px"/>
+		<van-icon name="down" size="12px"/>
 		<text>松手刷新</text>
 	</view>
 

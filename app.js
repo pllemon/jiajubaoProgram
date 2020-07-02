@@ -3,6 +3,11 @@ const systemData = require('utils/data.js')
 
 App({
   onLaunch: function () {
+    wx.setEnableDebug({
+      enableDebug: true
+    })
+
+    
    let that = this;
 
    let session = wx.getStorageSync('session');

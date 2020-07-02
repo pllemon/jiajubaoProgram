@@ -264,3 +264,12 @@ businessorderlist 按时间排序、返回商品信息
 
 /admin/businessexamine 报错 fields not exists:[Joininprice]
 craftsmanorderlist 搜索条件有问题 订单列表都返回网点名
+
+
+
+下单成功通知（personType=0）
+
+
+
+
+在下单页定位有问题，没有重新获取网点，会提示没网点

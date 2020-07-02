@@ -12,6 +12,7 @@ scroll-view{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #888;
 }
 van-loading{
     margin-right: 20rpx;

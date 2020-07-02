@@ -1,5 +1,6 @@
 .blue-header{
     font-size: 13px;
+    padding: 30rpx 40rpx;
 }
 .blue-header .iconfont{
     font-size: 46px;

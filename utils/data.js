@@ -258,7 +258,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '请尽快联系用户并处理',
+        desc: '请尽快联系用户并处理订单',
         show: true,
         icon: 'iconshenhe',
         showUser: true,

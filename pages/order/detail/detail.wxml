@@ -50,7 +50,7 @@
           <text class="content">{{orderMes.info.remark}}</text>
         </view>
         <view class="other">
-          <view class="label green">{{orderMes.info.networkname}}</view>
+          <view class="label green" wx:if="{{orderMes.info.networkname}}">{{orderMes.info.networkname}}</view>
           <view class="label red" wx:if="{{orderMes.info.urgent}}">加急</view>
         </view>
         <block wx:if="{{orderMes.userimglist.length > 0}}">
@@ -89,24 +89,32 @@
             <text>审核时间:</text>
             <text>{{orderMes.info.examine_time}}</text>
           </view>
-          <view wx:if="{{orderMes.pay && orderMes.pay.earnest_pay_time}}">
-            <text>支付时间:</text>
-            <text>{{orderMes.pay.earnest_pay_time}}</text>
-          </view>
-          <view wx:if="{{orderMes.info.status == 12}}">
-            <text>过期时间:</text>
-            <text>{{orderMes.info.cancel_time}}</text>
+          <view wx:if="{{personType == 3}}">
+            <text>审核人:</text>
+            <text></text>
           </view>
           <block wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}">
             <view>
               <text>报价单:</text>
               <gdImage width="220rpx" height="180rpx" src="{{ orderMes.pay.bjimg }}" preview ></gdImage>
             </view>
-            <view>
-              <text>订单总额:</text>
+            <view wx:if="{{personType != 1}}">
+              <text>订单金额:</text>
               <text class="money">￥{{orderMes.pay.total_price}}</text>
             </view>
+            <view wx:if="{{personType == 1}}">
+              <text>订单佣金:</text>
+              <text class="money">￥{{orderMes.pay.craftsman_price}}</text>
+            </view>
           </block>
+          <view wx:if="{{orderMes.pay && orderMes.pay.pay_time}}">
+            <text>支付时间:</text>
+            <text>{{orderMes.pay.pay_time}}</text>
+          </view>
+          <view wx:if="{{orderMes.info.status == 12}}">
+            <text>过期时间:</text>
+            <text>{{orderMes.info.cancel_time}}</text>
+          </view>
         </view>
       </view>
 
@@ -176,7 +184,7 @@
       <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn plain">立即支付</button>
       <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn plain">确认完成</button>
       <button wx:if="{{orderMes.info.status > 6 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn default">再次下单</button>
-      <button wx:if="{{orderMes.info.status > 6 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn default">评价订单</button>
+      <button wx:if="{{orderMes.info.status > 6 && orderMes.info.status <= 8 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn default">评价订单</button>
       <button wx:if="{{orderMes.info.status == 10}}" bindtap="makeOrder" class="main-btn default">再次下单</button>
     </view>
 

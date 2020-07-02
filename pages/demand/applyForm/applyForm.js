@@ -55,7 +55,9 @@ Page({
     wx.getSetting({
       success: (res) => {
         if (res.authSetting['scope.userLocation']) {
-          common.getLocation(that)
+          common.getLocation(that, function(){
+            that.getNetwork()
+          });
         }
       }
     })
