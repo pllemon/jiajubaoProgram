@@ -15,6 +15,21 @@ const checkLogin = (callback) => {
   }
 }
 
+// 深度拷贝
+const deepCopy = (obj) => {
+  var result = Array.isArray(obj) ? [] : {}
+  for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          if (typeof obj[key] === 'object' && obj[key] !== null) {
+              result[key] = deepCopy(obj[key])
+          } else {
+              result[key] = obj[key]
+          }
+      }
+  }
+  return result
+}
+
 // 选择图片
 const chooseImgs = (total, fileList, callback) => {
   let count = total - fileList.length
@@ -220,6 +235,7 @@ const changeInput = (target, el) => {
 
 module.exports = {
   checkLogin,
+  deepCopy,
   chooseImgs,
   uploadImgs,
   uploadImg,

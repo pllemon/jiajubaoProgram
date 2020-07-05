@@ -25,7 +25,7 @@
   </common-scroll>
   
   <view class="page-action">
-    <button bindtap="openPopup" class="main-btn flex1 plain" data-type="1" bindtap="apply">提现记录</button>
+    <button bindtap="openPopup" class="main-btn flex1 plain" data-type="1" bindtap="applyRecord">提现记录</button>
     <button bindtap="openPopup" class="main-btn flex1 disable" bindtap="openPopup" data-type="2">立即提现</button>
   </view>
 </view>

@@ -93,7 +93,7 @@ Page({
             } else {
               orderStatus = personMessage[1].orderStatus[1]; // 已报名
             }
-          } else if (data.info.status >= 5 && data.info.status < 8) {
+          } else {
             if (data.craftsmaninfo.craftsman_id == data.craftsmanorderinfo.craftsman_id) {
               if (data.info.status == 5) {
                 orderStatus = personMessage[1].orderStatus[2]; // 已承接
@@ -101,14 +101,13 @@ Page({
                 orderStatus = personMessage[1].orderStatus[4]; // 待客户验收
               } else if (data.info.status == 7) {
                 orderStatus = personMessage[1].orderStatus[5]; // 待店长验收
+              } else if (data.info.status == 8) {
+                orderStatus = personMessage[1].orderStatus[6]; // 已验收
               }
             } else {
               orderStatus = personMessage[1].orderStatus[3]; // 未承接
             }
-          } else if (data.info.status == 8) {
-            orderStatus = personMessage[1].orderStatus[6]; // 已完成
-          }
-
+          } 
         } else if (that.data.personType == 3) { // 店长
           orderStatus = personMessage[3].orderStatus[data.info.status];
         }

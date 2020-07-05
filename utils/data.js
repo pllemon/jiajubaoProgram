@@ -181,7 +181,7 @@ const personMessage = {
         status: 3,
         label: '未承接',
         desc: '未承接该订单，可报名其他订单',
-        show: false,
+        show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: false,
         showUserPhone: false,

@@ -71,7 +71,7 @@ Page({
   init() {
     let that = this;
     let loginInfo = app.globalData.loginInfo;
-    let personType = systemData.personType
+    let personType = common.deepCopy(systemData.personType)
     if (!loginInfo.networkauth) {
       delete personType[3]
     }

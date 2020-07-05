@@ -27,6 +27,9 @@ Page({
   },
 
   openPopup() {
+    if (this.data.sumprofit < 20) {
+      return false;
+    }
     this.setData({ 
       isPopup: true 
     })
@@ -45,6 +48,12 @@ Page({
   changeType(e) {
     this.setData({
       radio: e.detail
+    })
+  },
+
+  applyRecord() {
+    wx.navigateTo({
+      url: '/pages/personal/wages/settlementRecord/settlementRecord'
     })
   },
 

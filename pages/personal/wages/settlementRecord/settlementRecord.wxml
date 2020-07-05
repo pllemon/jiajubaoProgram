@@ -5,8 +5,6 @@
     request-url="{{requestUrl}}"
     query="{{query}}"
     isPaging="{{true}}"
-    auto="{{true}}"
-    specialData="{{true}}"
     bind:change = "changeList"
   >
     <view class="order-list">

@@ -118,7 +118,7 @@
         </view>
       </view>
 
-      <view class="common-section" wx:if="{{orderMes.ordersshow}}">
+      <view class="common-section" wx:if="{{orderMes.ordersshow  && !(personType == 1 && orderStatus.status == 3)}}">
         <view class="title">施工情况</view>
         <view class="message">
           <view>
@@ -139,7 +139,7 @@
         </view>
       </view>
 
-      <view class="common-section" wx:if="{{orderMes.comment}}">
+      <view class="common-section" wx:if="{{orderMes.comment && !(personType == 1 && orderStatus.status == 3)}}">
         <view class="title">用户评价</view>
         <view class="message">
           <view>
@@ -194,7 +194,7 @@
       <button wx:if="{{orderMes.info.status == 7}}" bindtap="networkconfirmorder" class="main-btn plain">确认完成</button>
     </view>
 
-    <view class="main-action flex-center-end" wx:if="{{personType == 1}}">
+    <view class="main-action flex-center-end" wx:if="{{personType == 1 && orderStatus.status != 3}}">
       <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="cancelOrder2" class="main-btn default">取消订单</button>
       <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="beginWork" class="main-btn plain">开始施工</button>
       <button wx:if="{{orderMes.info.status == 5 && orderMes.ordersshow}}" bindtap="endWork" class="main-btn plain">结束施工</button>
