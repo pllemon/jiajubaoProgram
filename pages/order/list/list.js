@@ -64,7 +64,6 @@ Page({
   },
 
   changeType(e) {
-    console.log(e)
     this.setData({
       query: {
         [this.data.statusName]: e.detail.name,
