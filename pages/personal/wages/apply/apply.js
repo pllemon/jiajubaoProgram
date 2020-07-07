@@ -37,6 +37,16 @@ Page({
     }
     this.selectComponent("#list").getData(1);
   },
+
+  applyNow() {
+    app.globalData.otherData = this.data.list.map(item => {
+      return item.order_id
+    })
+    console.log(app.globalData.otherData)
+    wx.navigateTo({
+      url: '/pages/personal/wages/submitForm/submitForm?personType=1&pay_status_code=' + this.data.query.pay_status_code
+    })
+  },
   
   openPopup() {
     this.setData({ 

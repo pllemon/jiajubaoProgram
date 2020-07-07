@@ -12,8 +12,8 @@
       <view wx:for="{{list}}" wx:key="index" class="order-single">
           <view class="category">{{item.service_demand}}</view>
           <view>服务地址：{{item.address}}</view>
-          <view>确认完成：{{item.success_time}}</view>
-          <view>师傅工资：{{item.craftsman_price}}</view>
+          <view>验收时间：{{item.success_time}}</view>
+          <view>订单佣金：{{item.craftsman_price}}</view>
           <view>申请时间：{{item.craftsman_price}}</view>
           <view>申请状态：{{item.craftsman_price}}</view>
       </view>

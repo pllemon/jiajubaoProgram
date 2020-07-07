@@ -1,0 +1,45 @@
+<form bindsubmit="apply" class="form">
+    <van-cell-group title="基础资料">
+        <van-cell title="提现方式" title-width="100px" required>
+            <van-radio-group value="{{ radio }}" bind:change="changeType" style="display:flex">
+                <van-radio name="2" checked-color="#4d5ef4" custom-class="radio-single">银行卡</van-radio>
+                <van-radio name="1" checked-color="#4d5ef4" custom-class="radio-single">支付宝</van-radio>
+            </van-radio-group>
+        </van-cell>
+        <van-field
+            input-class="input-field"
+            value="{{ form.pay_name }}"
+            required
+            label="提现账号"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="pay_name"
+            bind:change="onChange"
+        />
+        <van-field
+            input-class="input-field"
+            value="{{ form.pay_username }}"
+            required
+            label="真实姓名"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="pay_username"
+            bind:change="onChange"
+        />
+        <van-cell title="提现金额" title-width="100px" required wx:if="{{personType == 0}}">
+            <van-stepper 
+                input-class="stepper-input" 
+                plus-class="stepper-plus"
+                minus-class="stepper-minus"
+                value="{{ point }}" 
+                step="10" 
+                min="20"
+                max="{{maxPoint}}"
+                disable-input 
+                data-name="money"
+                bind:change="changeMoney"
+            />
+        </van-cell>
+    </van-cell-group>
+    <button form-type="submit" class="main-btn">提交</button>
+</form>

@@ -26,6 +26,20 @@ Page({
     })
   },
 
+  goRecord() {
+
+  },
+
+  applyNow() {
+    if (this.data.sumprofit > 20) {
+      wx.navigateTo({
+        url: '/pages/personal/wages/submitForm/submitForm?personType=0&sumprofit=' + this.data.sumprofit
+      })
+    } else {
+      app.showModal('满20才可申请提现哦');
+    }
+  },
+
   openPopup() {
     if (this.data.sumprofit < 20) {
       return false;

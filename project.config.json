@@ -71,7 +71,7 @@
 					"id": 3,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
-					"query": "type=0",
+					"query": "type=1",
 					"scene": null
 				},
 				{
@@ -391,7 +391,7 @@
 				},
 				{
 					"id": -1,
-					"name": "工资提现",
+					"name": "佣金提现",
 					"pathName": "pages/personal/wages/apply/apply",
 					"query": "type=1",
 					"scene": null
@@ -443,6 +443,13 @@
 					"name": "积分记录",
 					"pathName": "pages/personal/wallet/integralRecord/integralRecord",
 					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提交申请",
+					"pathName": "pages/personal/wages/submitForm/submitForm",
+					"query": "type=1",
 					"scene": null
 				}
 			]

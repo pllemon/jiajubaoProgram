@@ -1,6 +1,7 @@
 {
-	"navigationBarTitleText": "佣金提现",
+	"navigationBarTitleText": "提交申请",
 	"usingComponents": {
+		"van-stepper": "../../miniprogram_npm/vant-weapp/stepper",
 		"van-cell": "../../miniprogram_npm/vant-weapp/cell",
 		"van-field": "../../miniprogram_npm/vant-weapp/field",
 		"van-popup": "../../miniprogram_npm/vant-weapp/popup",

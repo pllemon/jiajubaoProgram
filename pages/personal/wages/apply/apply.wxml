@@ -9,18 +9,17 @@
         bind:change = "changeList"
     >
         <view class="order-list">
-            <view wx:for="{{list}}" wx:key="index" class="order-single">
+            <navigator wx:for="{{list}}" wx:key="index" class="order-single" url="/pages/order/detail/detail?id={{item.order_id}}&personType=1">
                 <view class="category">{{item.service_demand}}</view>
-                <view>订单编号：{{item.order_sn}}</view>
-                <view>服务地址：{{item.address}}</view>
-                <view>确认完成：{{item.success_time}}</view>
-                <view>师傅工资：￥{{item.craftsman_price}}</view>
-            </view>
+                <view class="mes">订单编号：{{item.order_sn}}</view>
+                <view class="mes">服务地址：{{item.address}}</view>
+                <view class="mes">验收时间：{{item.success_time}}</view>
+                <view class="mes">订单佣金：￥{{item.craftsman_price}}</view>
+            </navigator>
         </view>
     </common-scroll>
     <view class="page-action flex-center-end" wx:if="{{list.length}}">
-        <button bindtap="openPopup" class="main-btn" wx:if="{{query.pay_status_code == 'GETONE'}}">一键申请</button>
-        <button bindtap="openPopup" class="main-btn" wx:else>一键申请</button>
+        <button bindtap="applyNow" class="main-btn flex1">一键申请</button>
     </view>
 </view>
 <van-popup

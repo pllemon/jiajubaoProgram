@@ -37,7 +37,7 @@ App({
     let that = this
     if (!obj.hideLoading) {
       wx.showLoading({
-        title: '加载中',
+        title: obj.loadText || '加载中',
         mask: true
       })
     }
@@ -124,6 +124,7 @@ App({
     addressInfo: null, // 地理位置信息
     personMessage: systemData.personMessage,
     service_demand: '', // 已选的项目名
-    regionInfo: null // 省市区信息
+    regionInfo: null, // 省市区信息
+    otherData: null // 过渡数据
   }
 })
