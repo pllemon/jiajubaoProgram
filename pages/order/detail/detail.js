@@ -250,7 +250,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
-            url: '/paytailprice',
+            url: '/userconfirmorder',
             data: {
               order_id: that.data.order_id,
               order_sn: that.data.orderMes.info.order_sn

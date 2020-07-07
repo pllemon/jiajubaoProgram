@@ -7,7 +7,7 @@ Page({
     query: {
       pay_status: 1,
       pay_status_code: 'GETONE',
-      cmorderstatus: 4
+      cmorderstatus: 6
     },
 
     list: [],
