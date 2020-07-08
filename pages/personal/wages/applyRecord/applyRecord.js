@@ -7,7 +7,7 @@ Page({
     requestUrl: '/craftsmancashoutlist',
     list: [],
     query: {
-      number: 1
+      
     },
   },
 
