@@ -53,6 +53,21 @@ view{
     background: rgb(254, 240, 240);
     color: rgb(245, 108, 108);
 }
+.cRed{
+    color: rgb(245, 108, 108) !important;
+}
+.cGreen{
+    color: rgb(103, 194, 58) !important;
+}
+.cGray{
+    color: #888 !important;
+}
+.cOrange{
+    color: rgb(230, 162, 60) !important;
+}
+.cPurple{
+    color: #4d5ef4 !important;
+}
 
 /* 订单卡片 */
 .single{

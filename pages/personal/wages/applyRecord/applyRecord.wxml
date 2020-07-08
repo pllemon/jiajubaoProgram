@@ -11,11 +11,15 @@
     <view class="order-list">
       <view wx:for="{{list}}" wx:key="index" class="order-single">
           <view class="category">{{item.service_demand}}</view>
-          <view>服务地址：{{item.address}}</view>
-          <view>验收时间：{{item.success_time}}</view>
-          <view>订单佣金：{{item.craftsman_price}}</view>
-          <view>申请时间：{{item.craftsman_price}}</view>
-          <view>申请状态：{{item.craftsman_price}}</view>
+          <view class="status cGray" wx:if="{{item.status == 0}}">待处理</view>
+          <view class="status cGreen" wx:if="{{item.status == 1}}">已发放</view>
+          <view class="status cRed" wx:if="{{item.status == 3}}">已驳回</view>
+          <view class="mes">订单编号：{{item.order_sn}}</view>
+          <view class="mes">{{item.number == 1? '一期' : '二期'}}佣金：<text class="money">￥{{item.money}}</text></view>
+          <view class="mes">申请时间：{{item.time}}</view>
+          <view class="mes">提现账号：{{item.pay_name}}</view>
+          <view class="mes">真实姓名：{{item.pay_username}}</view>
+          <view class="mes" wx:if="{{item.shremark}}">审核备注：{{item.shremark}}</view>
       </view>
     </view>
   </common-scroll>

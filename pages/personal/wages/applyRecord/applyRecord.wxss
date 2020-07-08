@@ -1,0 +1,4 @@
+.money{
+    font-size: 34rpx;
+    color: #4d5ef4;
+}

@@ -20,7 +20,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cPurple'
       },
       2: {
         status: 2,
@@ -32,7 +33,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cOrange'
       },
       3: {
         status: 3,
@@ -44,7 +46,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cPurple'
       },
       4: {
         status: 4,
@@ -57,6 +60,7 @@ const personMessage = {
         showMaster: false,
         showMasterPhone: false,
         showSignUp: true,
+        color: 'cPurple'
       },
       5: {
         status: 5,
@@ -68,7 +72,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true
+        showSignUp: true,
+        color: 'cPurple'
       },
       6: {
         status: 6,
@@ -80,7 +85,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true
+        showSignUp: true,
+        color: 'cOrange'
       },
       7: {
         status: 7,
@@ -92,7 +98,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true
+        showSignUp: true,
+        color: 'cGreen'
       },
       8: {
         status: 8,
@@ -104,7 +111,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: true,
         showMasterPhone: true,
-        showSignUp: true
+        showSignUp: true,
+        color: 'cGreen'
       },
       10: {
         status: 10,
@@ -116,7 +124,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cGray'
       },
       11: {
         status: 11,
@@ -128,7 +137,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cGray'
       },
       12: {
         status: 12,
@@ -140,7 +150,8 @@ const personMessage = {
         showUserPhone: false,
         showMaster: false,
         showMasterPhone: false,
-        showSignUp: false
+        showSignUp: false,
+        color: 'cGray'
       }
     }
   },

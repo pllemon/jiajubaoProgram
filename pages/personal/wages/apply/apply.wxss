@@ -1,14 +1,6 @@
-van-radio-group{
-    position: relative;
-    top: 10rpx;
-}
-van-radio{
-    display: inline-block !important;
-    margin-right: 50rpx;
-}
-
 .money{
-    font-size: 18px;
+    font-size: 34rpx;
+    color: #4d5ef4;
 }
 
 .main-btn{

@@ -14,7 +14,7 @@
                 <view class="mes">订单编号：{{item.order_sn}}</view>
                 <view class="mes">服务地址：{{item.address}}</view>
                 <view class="mes">验收时间：{{item.success_time}}</view>
-                <view class="mes">订单佣金：￥{{item.craftsman_price}}</view>
+                <view class="mes">订单佣金：<text class="money">￥{{item.craftsman_price}}</text></view>
             </navigator>
         </view>
     </common-scroll>
@@ -22,40 +22,3 @@
         <button bindtap="applyNow" class="main-btn flex1">一键申请</button>
     </view>
 </view>
-<van-popup
-  show="{{ isPopup }}"
-  position="top"
-  bind:close="closePopup"
->
-    <form bindsubmit="formSubmit" class="form" style="padding: 30rpx">
-        <van-cell-group title="基础资料">
-            <van-cell title="提现方式" title-width="100px" required>
-                <van-radio-group value="{{ radio }}" bind:change="changeType">
-                    <van-radio name="2" checked-color="#4d5ef4" custom-class="radio-single">银行卡</van-radio>
-                    <van-radio name="1" checked-color="#4d5ef4" custom-class="radio-single">支付宝</van-radio>
-                </van-radio-group>
-            </van-cell>
-            <van-field
-                input-class="input-field"
-                value="{{ form.pay_name }}"
-                required
-                label="提现账号"
-                placeholder="请输入"
-                title-width="100px"
-                data-name="pay_name"
-                bind:change="onChange"
-            />
-            <van-field
-                input-class="input-field"
-                value="{{ form.pay_username }}"
-                required
-                label="真实姓名"
-                placeholder="请输入"
-                title-width="100px"
-                data-name="pay_username"
-                bind:change="onChange"
-            />
-        </van-cell-group>
-        <button form-type="submit" class="main-btn">提交</button>
-    </form>
-</van-popup>
