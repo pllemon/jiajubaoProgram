@@ -286,3 +286,8 @@ craftsmanorderlist 搜索条件有问题 订单列表都返回网点名
 3. 把id=11的订单时间改改，让我可以申请第二次
 4. /admin/expendituretransaction?page=1&limit=20报错 SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dsf.dsf_expenditure_transaction' doesn't exist"
 5. /admin/orderinfo 、 /orderinfo 没有返回审核店长
+
+
+
+收入流水多条重复记录（商家添加商品）
+平台费不对

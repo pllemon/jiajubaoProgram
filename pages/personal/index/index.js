@@ -56,15 +56,7 @@ Page({
       currType: type
     })
 
-    common.checkLogin(function(){
-      if (app.globalData.loginInfo) {
-        that.init()
-      } else {
-        app.loginCallback = function() {
-          that.init()
-        }
-      }
-    })
+    this.getInfo();
   },
 
   // 获取账号信息
@@ -82,13 +74,12 @@ Page({
   },
 
   getInfo() {
+    let that = this
     app.request({
       url: '/userinfo',
       success: function(data) {
         app.globalData.loginInfo = data
-        this.setData({
-          userInfo: data
-        })
+        that.init()
       }
     })
   },
@@ -111,7 +102,7 @@ Page({
   applyBusiness() {
     let that = this;
     let businessinfo =  this.data.userInfo.businessinfo;
-    if (businessinfo.status == 5) {
+    if (businessinfo && businessinfo.status == 5) {
       app.request({
         url: '/businesswxpayinfo',
         data: {

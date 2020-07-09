@@ -89,9 +89,9 @@
             <text>审核时间:</text>
             <text>{{orderMes.info.examine_time}}</text>
           </view>
-          <view wx:if="{{personType == 3}}">
+          <view wx:if="{{orderMes.info.networkusername}}">
             <text>审核人:</text>
-            <text></text>
+            <text>{{orderMes.info.networkusername}}（{{orderMes.info.network_auth}}）</text>
           </view>
           <block wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}">
             <view>
@@ -212,6 +212,6 @@
 >
     <form bindsubmit="formSubmit" class="form" style="padding: 30rpx;">
         <textarea height="300rpx" bindinput="inputCancelRemark" focus="{{isPopup}}" placeholder="请输入"/>
-        <button form-type="submit" class="main-btn">确认取消</button>
+        <button form-type="submit" class="main-btn" style="margin:40rpx 30rpx 10rpx">确认取消</button>
     </form>
 </van-popup>

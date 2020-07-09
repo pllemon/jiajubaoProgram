@@ -64,7 +64,7 @@
 					"id": 2,
 					"name": "订单列表",
 					"pathName": "pages/order/list/list",
-					"query": "personType=1",
+					"query": "personType=0",
 					"scene": null
 				},
 				{
