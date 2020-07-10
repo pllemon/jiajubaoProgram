@@ -68,6 +68,9 @@ view{
 .cPurple{
     color: #4d5ef4 !important;
 }
+.cBlack{
+    color: #333 !important;
+}
 
 /* 订单卡片 */
 .single{

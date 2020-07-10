@@ -21,9 +21,6 @@ Page({
     })
     that.getInfo();
   },
-  onShow() {
-    this.getInfo();
-  },
 
   getInfo() {
     let that = this;
@@ -77,8 +74,31 @@ Page({
   },
 
   confirmOrder() {
-    wx.navigateTo({
-      url: '/pages/offline/confirm/confirm?id=' + this.data.order_id
+    let that = this;
+    app.request({
+      url: '/buscomorder',
+      data: {
+        bo_id: that.data.order_id,
+        order_sn: that.data.orderMes.order_sn
+      },
+      loadText: '提交中',
+      success: function(data) {
+        wx.requestPayment({
+          'nonceStr': data.nonceStr,
+          'package': data.package,
+          'signType': data.signType,
+          'timeStamp': data.timeStamp.toString(),
+          'paySign': data.sign,
+          'success':function(res){
+            app.successToast('支付成功', function(){
+              that.getInfo();
+            })
+          },
+          'fail':function(res){
+            app.showModal('支付失败')
+          }
+        })
+      }
     })
   }
 })

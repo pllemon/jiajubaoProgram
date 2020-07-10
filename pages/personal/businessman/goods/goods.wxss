@@ -1,0 +1,10 @@
+.main-btn.inline {
+    margin: 0rpx;
+    border-radius: 10rpx;
+    padding: 0 20rpx;
+    margin-left: 20rpx;
+    line-height: 1.8;
+}
+.goods-single .name{
+    font-size: 34rpx;
+}

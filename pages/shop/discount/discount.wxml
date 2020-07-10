@@ -1,5 +1,13 @@
 <view class="full-layout">
-  <view class="flex1">
+  <common-scroll
+    id="list"
+    class="scroll-view"
+    request-url="{{requestUrl}}"
+    query="{{query}}"
+    isPaging="{{false}}"
+    auto="{{false}}"
+    bind:change = "changeList"
+  >
     <view wx:for="{{list}}" wx:key="index" class="goods-single">
       <gdImage src="{{ item.goods_image }}" class="goods-image"></gdImage>
       <view class="flex1">
@@ -22,8 +30,8 @@
         </view>
       </view>
     </view>
-  </view>
-  <view class="action">
+  </common-scroll>
+  <view class="action" wx:if="{{list.length}}">
     <view>
       <view class="money">
         <text wx:if="{{!maxintegral}}">合计：</text>

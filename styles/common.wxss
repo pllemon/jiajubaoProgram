@@ -290,7 +290,7 @@ van-icon{
 .goods-single .name{
   color: #353535;
   font-size: 32rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 /*  ———————————————————— */
 

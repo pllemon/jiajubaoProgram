@@ -3,7 +3,7 @@
         <view class="blue-header flex-center-between">
           <view>
             <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</view>
-            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">已完成</view>
+            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">商家已接单</view>
             <view class="title" wx:if="{{orderMes.status == 2 }}">已取消</view>
           </view>
           <icon class="iconfont {{orderStatus.icon}}"></icon>
@@ -42,13 +42,27 @@
             <view class="flex1">
               <view class="name">{{item2.goods_name}}</view>
               <view class="flex-center-between">
-                <text>￥{{item2.price}}</text>
-                <text>数量：{{item2.goods_number}}</text>
+                <text>￥{{item2.price}} × {{item2.goods_number}}</text>
               </view>
             </view>
           </view>
-          <view class="flex-center-end" style="margin-top: 30rpx">总价￥{{orderMes.money}}，积分抵扣￥{{orderMes.integral}}，实付款
-            <text style="font-size: 36rpx;color:#4d5ef4;font-weight:bold">￥{{orderMes.money - orderMes.integral}}</text>
+          <view class="message" style="margin-top: 20rpx;">
+            <view>
+              <text>合计:</text>
+              <text>￥{{orderMes.money}}</text>
+            </view>
+            <view>
+              <text>积分抵扣:</text>
+              <text>￥{{orderMes.integral}}</text>
+            </view>
+            <view>
+              <text>实付款:</text>
+              <text class="cPurple" style="font-size:38rpx">￥{{orderMes.money - orderMes.integral}}</text>
+            </view>
+            <view wx:if="{{personType == 2}}" style="border-top:1px solid #f2f2f2;padding-top:20rpx">
+              <text>平台费:</text>
+              <text>￥{{orderMes.pay_money}}</text>
+            </view>
           </view>
         </view>
 
@@ -64,35 +78,13 @@
               <text>下单时间:</text>
               <text>{{orderMes.creat_time}}</text>
             </view>
-            <view>
-              <text>消费金额:</text>
-              <text>{{orderMes.money}} 元</text>
-            </view>
-            <view>
-              <text>{{personType == 0 ? '积分抵扣':'用户积分抵扣'}}</text>
-              <text>-{{orderMes.integral}} 元</text>
-            </view>
-            <view>
-              <text>线下支付金额:</text>
-              <text>{{orderMes.money - orderMes.integral}} 元</text>
-            </view>
-            <block wx:if="{{personType == 2}}">
-              <view>
-                <text>应付平台费:</text>
-                <text>{{orderMes.pay_money}} 元</text>
-              </view>
-              <view wx:if="{{orderMes.pay_status == 1}}">
-                <text>积分抵扣平台费:</text>
-                <text>{{orderMes.integral}} 元</text>
-              </view>
-              <view wx:if="{{orderMes.pay_status == 1}}">
-                <text>实付平台费:</text>
-                <text>{{orderMes.pay_money - orderMes.integral}} 元</text>
-              </view>
-            </block>
-            <view wx:if="{{orderMes.pay_status == 1}}">
-              <text>完成时间:</text>
+            <view wx:if="{{orderMes.pay_time}}">
+              <text>接单时间:</text>
               <text>{{orderMes.pay_time}}</text>
+            </view>
+            <view wx:if="{{orderMes.cancel_time}}">
+              <text>取消时间:</text>
+              <text>{{orderMes.cancel_time}}</text>
             </view>
           </view>
         </view>
@@ -101,6 +93,6 @@
     <!-- 操作按钮 -->
     <view class="main-action  flex-center-end" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
       <button bindtap="cancelOrder" class="main-btn default">取消订单</button>
-      <button bindtap="confirmOrder" class="main-btn plain" style="margin-left: 10rpx">确认订单</button>
+      <button bindtap="confirmOrder" class="main-btn plain" style="margin-left: 10rpx">确认接单</button>
     </view>
 </view>

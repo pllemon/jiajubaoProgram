@@ -184,6 +184,7 @@ Page({
       ],
       success (res) {
         app.request({
+          loadText: '提交中',
           url: '/usergetwxpayinfo',
           data: {
             order_id: that.data.order_id,
@@ -216,6 +217,7 @@ Page({
   networkpayment() {
     let that = this;
     app.request({
+      loadText: '提交中',
       url: '/networkpayment',
       data: {
         order_id: this.data.order_id,
@@ -250,6 +252,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
+            loadText: '提交中',
             url: '/userconfirmorder',
             data: {
               order_id: that.data.order_id,
@@ -274,6 +277,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
+            loadText: '提交中',
             url: '/networkconfirmorder',
             data: {
               order_id: that.data.order_id,
@@ -314,6 +318,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
+            loadText: '提交中',
             url: '/craftsmanconfirmorder',
             data: {
               order_id: that.data.order_id
@@ -349,6 +354,7 @@ Page({
     let that = this
     that.closePopup()
     app.request({
+      loadText: '提交中',
       url: '/usercancelorder',
       data: {
         order_id: that.data.order_id,
@@ -369,6 +375,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
+            loadText: '提交中',
             url: '/craftsmanCancelOrder',
             data: {
               order_id: that.data.order_id

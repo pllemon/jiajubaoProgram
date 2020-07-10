@@ -8,14 +8,18 @@ Page({
     maxintegral: 0, // 可使用最大积分
     sumintegral: 0, // 总积分
     business_id: '', // 商家id
+
+    requestUrl: '',
+    query: {}
   },
   
   onLoad(params) {
     this.setData({
-      business_id: params.id
+      business_id: params.id,
+      requestUrl: '/businessallgoodslist?business_id=' + params.id
     })
-    this.getList(params.id)
     this.getSumintegral()
+    this.selectComponent("#list").getData(1);
   },
 
   onChange(e) {
@@ -26,19 +30,13 @@ Page({
     })
     this.getSum()
   },
-
-  getList(id) {
-    let that = this
-    app.request({
-      url: '/businessallgoodslist?business_id=' + id,
-      success: function(data) {
-        data.forEach(item => {
-          item.number = 0
-        })
-        that.setData({
-          list: data
-        })
-      }
+  
+  changeList(e) {
+    e.detail.forEach(item => {
+      item.number = 0
+    })
+    this.setData({
+      list: e.detail
     })
   },
 

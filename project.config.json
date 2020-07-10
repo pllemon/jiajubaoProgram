@@ -451,6 +451,20 @@
 					"pathName": "pages/personal/wages/submitForm/submitForm",
 					"query": "type=1",
 					"scene": null
+				},
+				{
+					"id": 58,
+					"name": "优惠订单详情",
+					"pathName": "pages/offline/details/details",
+					"query": "id=7&personType=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/personal/businessman/goods/goods",
+					"query": "id=7&personType=2",
+					"scene": null
 				}
 			]
 		}

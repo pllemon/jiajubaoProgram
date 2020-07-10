@@ -86,7 +86,10 @@ Page({
             },
             'fail':function(res){
               console.log(res)
-              app.showModal('支付失败')
+              let pages = getCurrentPages();
+              let beforePage = pages[pages.length - 2];
+              beforePage.selectComponent("#list").getData(1);
+              wx.navigateBack();    
             }
           })
         } else {
