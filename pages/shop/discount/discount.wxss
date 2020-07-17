@@ -17,3 +17,10 @@
 .action .money{
   font-size: 38rpx;
 }
+
+.tips{
+  background: rgb(102, 177, 255);
+  color: #fff;
+  padding: 20rpx 0;
+  text-align: center;
+}

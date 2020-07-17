@@ -7,6 +7,7 @@
 
     "pages/shop/list/list",
     "pages/shop/discount/discount",
+    "pages/shop/markDemand/markDemand",
 
     "pages/engineering/list/list",
     "pages/engineering/details/details",

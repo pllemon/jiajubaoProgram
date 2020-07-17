@@ -112,5 +112,11 @@ Page({
         }
       })
     }
+  },
+
+  markDemand() {
+    wx.navigateTo({
+      url: '../markDemand/markDemand?business_id=' + this.data.business_id
+    })
   }
 })

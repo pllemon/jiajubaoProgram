@@ -1,4 +1,5 @@
 <view class="full-layout">
+  <view bindtap="markDemand" class="tips">没有找到合适的商品？可点击这填写你的需求 ></view>
   <common-scroll
     id="list"
     class="scroll-view"
