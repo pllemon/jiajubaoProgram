@@ -1,6 +1,6 @@
 <view class="full-layout">
   <view class="blue-header flex-column-center">
-    <view>您共拥有收益</view>
+    <view>当前收益</view>
     <view class="total">{{sumprofit}}</view>
   </view>
 

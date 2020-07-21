@@ -32,6 +32,7 @@
     "pages/personal/businessman/identity/identity",
     "pages/personal/businessman/addGoods/addGoods",
     "pages/personal/businessman/goods/goods",
+    "pages/personal/shopowner/networkInfo/networkInfo",
     "pages/personal/setting/setting",
     "pages/personal/notice/notice",
     "pages/personal/doc/doc",

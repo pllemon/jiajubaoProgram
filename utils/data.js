@@ -502,8 +502,8 @@ const personType = {
     action: [
       {
         icon: 'cspace',
-        text: '网点信息',
-        url: '/pages/offline/list/list?personType=2'
+        text: '所属网点',
+        url: '/pages/personal/shopowner/networkInfo/networkInfo'
       },
       {
         icon: 'cspace',

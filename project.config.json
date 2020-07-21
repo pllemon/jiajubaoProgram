@@ -465,6 +465,12 @@
 					"pathName": "pages/personal/businessman/goods/goods",
 					"query": "id=7&personType=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "所属网点",
+					"pathName": "pages/personal/shopowner/networkInfo/networkInfo",
+					"scene": null
 				}
 			]
 		}
