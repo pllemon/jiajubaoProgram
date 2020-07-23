@@ -179,7 +179,7 @@ const uploadImg = ( url, file, callback)  => {
     return false
   }
   wx.uploadFile({
-    url: 'http://47.106.100.144/' + url,
+    url: 'https://www.dsfjjwx.com/' + url,
     filePath: file.url,
     name: 'image',
     success: function (res) {
@@ -198,7 +198,7 @@ const uploadImg = ( url, file, callback)  => {
 
 // 补全图片url
 const padUrl = (url) => {
-  return 'http://47.106.100.144/' + url
+  return 'https://www.dsfjjwx.com/' + url
 }
 
 

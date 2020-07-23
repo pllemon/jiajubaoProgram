@@ -36,7 +36,7 @@ Component({
   methods: {
     preview() {
       if (this.properties.preview) {
-        let imgSrc = 'http://47.106.100.144/' + this.properties.src
+        let imgSrc = 'https://www.dsfjjwx.com/' + this.properties.src
         wx.previewImage({
           current: imgSrc,
           urls: [imgSrc]

@@ -3,11 +3,6 @@ const systemData = require('utils/data.js')
 
 App({
   onLaunch: function () {
-    wx.setEnableDebug({
-      enableDebug: true
-    })
-
-    
    let that = this;
 
    let session = wx.getStorageSync('session');
@@ -42,7 +37,7 @@ App({
       })
     }
     wx.request({
-      url: 'http://47.106.100.144' + obj.url,
+      url: 'https://www.dsfjjwx.com' + obj.url,
       method: obj.method || 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',

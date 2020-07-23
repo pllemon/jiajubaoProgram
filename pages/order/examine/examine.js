@@ -106,7 +106,7 @@ Page({
           title: '上传中',
         })
         wx.uploadFile({
-          url: 'http://47.106.100.144/networkorderexamine',
+          url: 'https://www.dsfjjwx.com/networkorderexamine',
           filePath: that.data.imgArr[0].url,
           name: 'bjimg',
           formData: form,

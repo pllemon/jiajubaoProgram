@@ -37,7 +37,7 @@ Page({
     return {
       title: '我在多师傅发现了一家好店：' + obj.name + '，进来看看吧',
       path: '/pages/shop/list/list?id=' + obj.id,
-      imageUrl: 'http://47.106.100.144/' + obj.shopimg
+      imageUrl: 'https://www.dsfjjwx.com/' + obj.shopimg
     }
   },
 

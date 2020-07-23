@@ -2,7 +2,7 @@
   <common-scroll
     id="list"
     class="scroll-view"
-    request-url="/networkinfo"
+    request-url="/networklist"
     query="{{query}}"
     isPaging="{{false}}"
     bind:change = "changeList"

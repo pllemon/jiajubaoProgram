@@ -58,7 +58,7 @@ Page({
       title: '上传中',
     })
     wx.uploadFile({
-      url: 'http://47.106.100.144/businessuploadgoods',
+      url: 'https://www.dsfjjwx.com/businessuploadgoods',
       filePath: this.data.imgArr[0].url,
       name: 'goods_image',
       formData: form,

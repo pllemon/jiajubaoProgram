@@ -9,7 +9,7 @@ Page({
 
   onLoad() {
     let that = this;
-    let ewmImg = 'http://47.106.100.144/uploads/richtext/20191021/9b5689a30d38044eb31b7196a8d07ae1.jpg';
+    let ewmImg = 'https://www.dsfjjwx.com/uploads/richtext/20191021/9b5689a30d38044eb31b7196a8d07ae1.jpg';
 
     wx.showLoading({
       title: '加载中',

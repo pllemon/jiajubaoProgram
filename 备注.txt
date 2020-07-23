@@ -93,7 +93,7 @@
 
 2019/12/30
 用户默认头像路径错误
-http://47.106.100.144/public/uploads/user/headerimg/default.png
+https://www.dsfjjwx.com/public/uploads/user/headerimg/default.png
 
 /admin/userlist 搜索条件无效
 /admin/userinfo 返回上级推荐人名称，下级推荐数量
@@ -308,5 +308,7 @@ craftsmanorderlist 搜索条件有问题 订单列表都返回网点名
 
 
 
-0721
-/networkinfo 报错
+0723
+订单编号的生成规则：区号+年月日+6位数的单号
+店主-网点列表
+给后台推送消息（）
