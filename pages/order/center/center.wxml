@@ -37,6 +37,10 @@
           <icon class="iconfont iconicon_calendar"></icon>
           <text class="content">{{item.appo_time ? item.appo_time : '上门时间待沟通'}}</text>
         </view>
+        <view class="mes" wx:if="{{item.remark}}">
+          <icon class="iconfont iconicon_community_line"></icon>
+          <text class="content">{{item.remark}}</text>
+        </view>
         <view class="other">
           <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
           <view class="label red" wx:if="{{item.urgent}}">加急</view>

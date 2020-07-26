@@ -94,7 +94,7 @@ Page({
               orderStatus = personMessage[1].orderStatus[1]; // 已报名
             }
           } else {
-            if (data.craftsmaninfo.craftsman_id == data.craftsmanorderinfo.craftsman_id) {
+            if (data.craftsmaninfo && data.craftsmaninfo.craftsman_id == data.craftsmanorderinfo.craftsman_id) {
               if (data.info.status == 5) {
                 orderStatus = personMessage[1].orderStatus[2]; // 已承接
               } else if (data.info.status == 6) {

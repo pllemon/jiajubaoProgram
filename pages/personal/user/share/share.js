@@ -3,33 +3,37 @@ const app = getApp()
 Page({
   data: {
     bgImg: '/image/example/share.jpg',
-    ewmImg: '',
-    shareImg: ''
+    shareImg: '',
+    ewmImg: ''
   },
 
   onLoad() {
     let that = this;
-    let ewmImg = 'https://www.dsfjjwx.com/uploads/richtext/20191021/9b5689a30d38044eb31b7196a8d07ae1.jpg';
 
     wx.showLoading({
       title: '加载中',
     })    
-    wx.downloadFile({
-      url: ewmImg,
-      success: function (res2) {
-        console.log(res2)
-        that.setData({
-          ewmImg: res2.tempFilePath
+    app.request({
+      url: '/userqrcode',
+      success: function(data) {
+        wx.downloadFile({
+          url: data,
+          success: function (res2) {
+            console.log(res2)
+            that.setData({
+              ewmImg: res2.tempFilePath
+            })
+            setTimeout(function(){
+              that.drawImage()
+              setTimeout(function () {
+                that.canvasToImage()
+              }, 1000)
+            },1000)
+          },
+          complete: function(){
+            wx.hideLoading()
+          }
         })
-        setTimeout(function(){
-          that.drawImage()
-          setTimeout(function () {
-            that.canvasToImage()
-          }, 1000)
-        },1000)
-      },
-      complete: function(){
-        wx.hideLoading()
       }
     })
   },

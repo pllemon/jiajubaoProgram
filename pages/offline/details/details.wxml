@@ -76,7 +76,7 @@
             </view>
             <view>
               <text>下单时间:</text>
-              <text>{{orderMes.creat_time}}</text>
+              <text>{{orderMes.create_time}}</text>
             </view>
             <view wx:if="{{orderMes.pay_time}}">
               <text>接单时间:</text>

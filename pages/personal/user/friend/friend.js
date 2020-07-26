@@ -2,23 +2,13 @@ const app = getApp()
 
 Page({
   data: {
-    list: []
+    list: [],
+    query: {}
   },
 
-  onLoad() {
-    this.getList()
-  },
-
-  getList() {
-    let that = this;
-    app.request({
-      url: '/usersharelist',
-      data: {},
-      success: function(data) {
-        that.setData({
-          list: data
-        })
-      }
+  changeList(e) {
+    this.setData({
+      list: e.detail
     })
-  }
+  },
 })

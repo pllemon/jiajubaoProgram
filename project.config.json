@@ -482,6 +482,20 @@
 					"id": -1,
 					"name": "所属网点",
 					"pathName": "pages/personal/shopowner/networkInfo/networkInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请记录",
+					"pathName": "pages/personal/wages/applyRecord/applyRecord",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "下单",
+					"pathName": "pages/demand/applyForm/applyForm",
 					"scene": null
 				}
 			]

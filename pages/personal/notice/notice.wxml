@@ -1,15 +1,14 @@
 <view class="full-layout">
-  <common-scroll
-    class="scroll-view"
-    load-status="{{loadStatus}}"
-    page = "{{page}}"
-    last-page = "{{lastPage}}"
-    data = "{{list}}"
-    bind:change = "changeList"
-  >
-    <navigator wx:for="{{list}}" wx:key="index" url="/pages/personal/doc/doc?type=pttz&id={{item.id}}" class="notice-single">
-      <view class="title">{{item.title}}</view>
-      <view class="time">{{item.time}}</view>
-    </navigator>
-  </common-scroll>
+    <common-scroll
+        id="list"
+        class="scroll-view"
+        request-url="{{requestUrl}}"
+        query="{{query}}"
+        bind:change = "changeList"
+    >
+      <navigator wx:for="{{list}}" wx:key="index" url="/pages/personal/doc/doc?type=pttz&id={{item.id}}" class="notice-single">
+        <view class="title">{{item.title}}</view>
+        <view class="time">{{item.time}}</view>
+      </navigator>
+    </common-scroll>
 </view>

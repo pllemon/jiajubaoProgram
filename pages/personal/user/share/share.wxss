@@ -33,6 +33,7 @@ page{
     color: #4d5ef4;
     padding: 0;
     margin: 0;
+    background: #fff;
 }
 .down-btn{
     width: 90rpx;

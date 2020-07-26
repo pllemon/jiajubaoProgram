@@ -83,12 +83,13 @@ Page({
       },
       loadText: '提交中',
       success: function(data) {
+        let payinfo = data.payinfo
         wx.requestPayment({
-          'nonceStr': data.nonceStr,
-          'package': data.package,
-          'signType': data.signType,
-          'timeStamp': data.timeStamp.toString(),
-          'paySign': data.sign,
+          'nonceStr': payinfo.nonceStr,
+          'package': payinfo.package,
+          'signType': payinfo.signType,
+          'timeStamp': payinfo.timeStamp.toString(),
+          'paySign': payinfo.sign,
           'success':function(res){
             app.successToast('支付成功', function(){
               that.getInfo();

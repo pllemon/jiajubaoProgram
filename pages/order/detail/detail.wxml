@@ -132,8 +132,8 @@
           <view style="align-items:flex-start">
             <text>施工图片:</text>
             <view class="img-list">
-              <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" style="margin-right:20rpx" width="220rpx" height="180rpx" src="{{ orderMes.ordersshow.imgurl1 }}" preview label2="开工图"></gdImage>
-              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="220rpx" height="180rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label2="竣工图"></gdImage>
+              <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" style="margin-right:20rpx" width="220rpx" height="180rpx" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="开工图"></gdImage>
+              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="220rpx" height="180rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="竣工图"></gdImage>
             </view>
           </view>
         </view>

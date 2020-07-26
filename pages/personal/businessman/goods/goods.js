@@ -73,9 +73,13 @@ Page({
         status: status
       },
       success: function(data) {
-        that.setData({
-          ['list[' + idx + '].status']: status
-        })
+        if (status == 3) {
+          that.selectComponent("#list").getData(1);
+        } else {
+          that.setData({
+            ['list[' + idx + '].status']: status
+          })
+        }
       }
     })
   }

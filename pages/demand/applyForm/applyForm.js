@@ -74,6 +74,7 @@ Page({
     let that = this;
     let form = this.data.form;
     let addressInfo = this.data.addressInfo;
+    console.log(addressInfo)
 
     if (this.data.categroyIdx === '') {
       app.showModal('请选择服务需求');
@@ -93,7 +94,7 @@ Page({
     form.address = addressInfo.address + form.address;
     form.urgent = this.data.checked ? 1 : 0;
     form.province = addressInfo.ad_info.provincecode;
-    form.city = addressInfo.ad_info.city_code;
+    form.city = addressInfo.ad_info.citycode;
     form.district = addressInfo.ad_info.adcode;
 
     wx.requestSubscribeMessage({
