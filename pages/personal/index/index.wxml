@@ -36,7 +36,7 @@
           url="{{item.url}}"
         >
           <view slot="title" class="action-item">
-            <icon class="iconfont iconicon_{{item.icon}}"></icon>
+            <icon class="iconfont2 {{item.icon}}"></icon>
             <view class="van-cell-text">{{item.text}}</view>
           </view>
         </van-cell>
@@ -47,7 +47,7 @@
           bind:click="bindAction"
         >
           <view slot="title" class="action-item">
-            <icon class="iconfont iconicon_{{item.icon}}"></icon>
+            <icon class="iconfont2 {{item.icon}}"></icon>
             <view class="van-cell-text">{{item.text}}</view>
           </view>
         </van-cell>

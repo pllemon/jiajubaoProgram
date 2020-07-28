@@ -44,7 +44,7 @@
             <text>分享</text>
           </button> -->
           <button size="mini" data-id="{{item.id}}" bindtap="makeOffline">
-            <icon class="iconfont iconicon_share"></icon>
+            <icon class="iconfont2 icon-assessedbadge"></icon>
             <text>优惠</text>
           </button>
         </view>

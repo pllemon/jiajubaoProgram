@@ -8,7 +8,7 @@
     bind:change = "changeList"
   >
     <view wx:for="{{list}}" wx:key="index" class="goods-single" data-id="{{item.goods_id}}">
-      <gdImage class="goods-image" src="{{ item.goods_image }}"></gdImage>
+      <gdImage class="goods-image" src="{{ item.goods_image }}" preview></gdImage>
       <view class="flex1">
         <view class="name">{{item.goods_name}}</view>
         <view class="flex-center-between">
@@ -16,7 +16,7 @@
             <text>￥{{item.price}}</text>
           </view>
           <view>
-            <button class="main-btn inline plain" size="mini" bindtap="payAgain" data-idx="{{index}}" data-id="{{item.goods_id}}" wx:if="{{item.status == 0}}">继续支付</button>
+            <button class="main-btn inline plain" size="mini" bindtap="payAgain" data-idx="{{index}}" data-id="{{item.goods_id}}" wx:if="{{item.status == 0}}">支付</button>
             <button class="main-btn inline default" size="mini" data-idx="{{index}}" data-id="{{item.goods_id}}" data-status="3" bindtap="changeStatus" wx:if="{{item.status == 0}}">删除</button>
             <button class="main-btn inline plain" size="mini" data-idx="{{index}}" data-id="{{item.goods_id}}" data-status="1" bindtap="changeStatus" wx:if="{{item.status == 2}}">上架</button>
             <button class="main-btn inline default" size="mini" data-idx="{{index}}" data-id="{{item.goods_id}}" data-status="2" bindtap="changeStatus" wx:if="{{item.status == 1}}">下架</button>

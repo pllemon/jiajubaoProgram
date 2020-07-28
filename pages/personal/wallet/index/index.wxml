@@ -1,6 +1,6 @@
 <view>
   <view class="blue-header flex-column-center">
-    <view>您共拥有积分</view>
+    <view>当前积分</view>
     <view class="total">{{sumintegral}}</view>
   </view>
 

@@ -54,8 +54,9 @@
 }
 .action-item icon{
 	margin-right: 20rpx;
-	font-size: 20px;
+	font-size: 18px;
 	top: -4px;
+	position: relative;
 }
 
 

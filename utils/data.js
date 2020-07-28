@@ -408,47 +408,47 @@ const personType = {
     icon: '/image/icon/vip.svg',
     action: [
       {
-        icon: 'affiliations_li',
+        icon: 'icon-form',
         text: '维修订单',
         url: '/pages/order/list/list?personType=0'
       },
       {
-        icon: 'cspace',
+        icon: 'icon-similarproduct',
         text: '优惠订单',
         url: '/pages/offline/list/list?personType=0'
       },
       {
-        icon: 'coinpurse_line',
+        icon: 'icon-trade',
         text: '我的收益',
         url: '/pages/personal/wages/settlement/settlement'
       },
       {
-        icon: 'coinpurse_line',
+        icon: 'icon-jifen',
         text: '我的积分',
         url: '/pages/personal/wallet/integralRecord/integralRecord'
       },
       {
-        icon: 'group',
+        icon: 'icon-trust1',
         text: '我的朋友',
         url: '/pages/personal/user/friend/friend'
       },
       {
-        icon: 'link',
+        icon: 'icon-link1',
         text: '邀请朋友',
         url: '/pages/personal/user/share/share'
       },
       {
-        icon: 'service',
+        icon: 'icon-comments',
         text: '意见反馈',
         url: '/pages/personal/feedback/feedback'
       },
       {
-        icon: 'notice',
+        icon: 'icon-remind1',
         text: '系统公告',
         url: '/pages/personal/notice/notice'
       },
       {
-        icon: 'setting',
+        icon: 'icon-set1',
         text: '我要设置',
         url: '/pages/personal/setting/setting'
       }
@@ -459,17 +459,17 @@ const personType = {
     icon: '/image/icon/master.svg',
     action: [
       {
-        icon: 'affiliations_li',
+        icon: 'icon-form',
         text: '接单记录',
         url: '/pages/order/list/list?personType=1'
       },
       {
-        icon: 'coinpurse_line',
+        icon: 'icon-trade',
         text: '订单佣金',
         url: '/pages/personal/wages/applyRecord/applyRecord'
       },
       // {
-      //   icon: 'affiliations_li',
+      //   icon: 'icon-bussinesscard',
       //   text: '我的资料',
       //   url: '/pages/personal/master/identity/identity?readonly=1'
       // }
@@ -480,19 +480,19 @@ const personType = {
     icon: '/image/icon/business.svg',
     action: [
       {
-        icon: 'cspace',
+        icon: 'icon-form',
         text: '优惠订单',
         url: '/pages/offline/list/list?personType=2'
       },
       {
-        icon: 'cspace',
+        icon: 'icon-similarproduct',
         text: '优惠商品',
         url: '/pages/personal/businessman/goods/goods'
       },
       // {
-      //   icon: 'affiliations_li',
+      //   icon: 'icon-bussinesscard',
       //   text: '我的资料',
-      //   url: '/pages/personal/master/identity/identity?readonly=1'
+      //   url: '/pages/personal/businessman/identity/identity?readonly=1'
       // }
     ]
   },
@@ -501,12 +501,12 @@ const personType = {
     icon: '/image/icon/business.svg',
     action: [
       {
-        icon: 'cspace',
+        icon: 'icon-logistic',
         text: '所属网点',
         url: '/pages/personal/shopowner/networkInfo/networkInfo'
       },
       {
-        icon: 'cspace',
+        icon: 'icon-form',
         text: '网点订单',
         url: '/pages/order/list/list?personType=3'
       },

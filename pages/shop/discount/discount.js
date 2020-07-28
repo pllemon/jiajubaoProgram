@@ -49,7 +49,7 @@ Page({
         page: 0,
         limit: 20
       },
-      hideLoading: false,
+      hideLoading: true,
       success: function(data) {
         that.setData({
           sumintegral: data.sumintegral

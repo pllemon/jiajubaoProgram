@@ -95,45 +95,54 @@ Page({
       return false;
     }
 
-    wx.requestSubscribeMessage({
-      tmplIds: [
-        'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI', // 订单状态通知
-        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
-        'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅维修完成通知
-      ],
-      success (res) {
-        wx.showLoading({
-          title: '上传中',
-        })
-        wx.uploadFile({
-          url: 'https://www.dsfjjwx.com/networkorderexamine',
-          filePath: that.data.imgArr[0].url,
-          name: 'bjimg',
-          formData: form,
-          header: {
-            'content-type': 'multipart/form-data',
-            'cookie': app.globalData.session
-          },
-          success: function(data) {
-            let odata = JSON.parse(data.data)
-            if (odata.success) {
-              app.successToast('提交成功', function(){
-                let pages = getCurrentPages();
-                let beforePage = pages[pages.length - 2];
-                beforePage.getInfo();
-                wx.navigateBack();        
-              })
-            } else {
-              app.showModal(odata.message);
-            }
-          },
-          fail: function(err) {
-            console.log(err)
-          },
-          complete: function() {
-            wx.hideLoading();
-          }
-        })
+    if (form.status == 'TG') {
+      wx.requestSubscribeMessage({
+        tmplIds: [
+          'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI', // 订单状态通知
+          'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+          'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅维修完成通知
+        ],
+        success () {
+          that.requestForm(form)
+        }
+      })
+    } else {
+      that.requestForm(form)
+    }
+  },
+
+  requestForm(form) {
+    let that = this
+    wx.showLoading({
+      title: '上传中',
+    })
+    wx.uploadFile({
+      url: 'https://www.dsfjjwx.com/networkorderexamine',
+      filePath: that.data.imgArr[0].url,
+      name: 'bjimg',
+      formData: form,
+      header: {
+        'content-type': 'multipart/form-data',
+        'cookie': app.globalData.session
+      },
+      success: function(data) {
+        let odata = JSON.parse(data.data)
+        if (odata.success) {
+          app.successToast('提交成功', function(){
+            let pages = getCurrentPages();
+            let beforePage = pages[pages.length - 2];
+            beforePage.getInfo();
+            wx.navigateBack();        
+          })
+        } else {
+          app.showModal(odata.message);
+        }
+      },
+      fail: function(err) {
+        console.log(err)
+      },
+      complete: function() {
+        wx.hideLoading();
       }
     })
   },

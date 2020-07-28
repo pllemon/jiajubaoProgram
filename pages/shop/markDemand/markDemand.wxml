@@ -1,4 +1,4 @@
 <form bindsubmit="formSubmit" class="form">
-    <textarea placeholder="请输入您的需求" name="feedback"/>
+    <textarea placeholder="请输入您的需求" name="feedback" auto-focus/>
     <button form-type="submit" class="main-btn">提交</button>
 </form>
