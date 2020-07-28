@@ -1,7 +1,7 @@
 {
 	"navigationBarTitleText": "商家优惠",
 	"usingComponents": {
-		"van-search": "../../miniprogram_npm/vant-weapp/search",
-		"van-stepper": "../../miniprogram_npm/vant-weapp/stepper"
+		"van-search": "../../miniprogram_npm/@vant/weapp/search",
+		"van-stepper": "../../miniprogram_npm/@vant/weapp/stepper"
 	}
 }

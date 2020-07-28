@@ -1,8 +1,4 @@
 {
 	"navigationBarTitleText": "案例广场",
-	"navigationStyle": "custom",
-	"usingComponents": {
-		"van-search": "../../miniprogram_npm/vant-weapp/search",
-		"van-rate": "../../miniprogram_npm/vant-weapp/rate"
-	}
+	"navigationStyle": "custom"
 }

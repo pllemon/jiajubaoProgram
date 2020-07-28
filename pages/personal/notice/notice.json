@@ -1,6 +1,6 @@
 {
 	"navigationBarTitleText": "系统公告",
 	"usingComponents": {
-		"van-cell": "../../miniprogram_npm/vant-weapp/cell"
+		"van-cell": "../../miniprogram_npm/@vant/weapp/cell"
 	}
 }

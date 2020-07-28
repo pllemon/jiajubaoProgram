@@ -1,7 +1,7 @@
 {
 	"navigationBarTitleText": "我的积分",
 	"usingComponents": {
-		"van-dialog": "../../miniprogram_npm/vant-weapp/dialog",
-		"van-cell": "../../miniprogram_npm/vant-weapp/cell"
+		"van-dialog": "../../miniprogram_npm/@vant/weapp/dialog",
+		"van-cell": "../../miniprogram_npm/@vant/weapp/cell"
 	}
 }

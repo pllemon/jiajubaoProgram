@@ -1,12 +1,12 @@
 {
 	"navigationBarTitleText": "佣金提现",
 	"usingComponents": {
-		"van-cell": "../../miniprogram_npm/vant-weapp/cell",
-		"van-field": "../../miniprogram_npm/vant-weapp/field",
-		"van-popup": "../../miniprogram_npm/vant-weapp/popup",
-		"van-radio": "../../miniprogram_npm/vant-weapp/radio",
-		"van-radio-group": "../../miniprogram_npm/vant-weapp/radio-group",
-		"van-checkbox": "../../miniprogram_npm/vant-weapp/checkbox",
-		"van-checkbox-group": "../../miniprogram_npm/vant-weapp/checkbox-group"
+		"van-cell": "../../miniprogram_npm/@vant/weapp/cell",
+		"van-field": "../../miniprogram_npm/@vant/weapp/field",
+		"van-popup": "../../miniprogram_npm/@vant/weapp/popup",
+		"van-radio": "../../miniprogram_npm/@vant/weapp/radio",
+		"van-radio-group": "../../miniprogram_npm/@vant/weapp/radio-group",
+		"van-checkbox": "../../miniprogram_npm/@vant/weapp/checkbox",
+		"van-checkbox-group": "../../miniprogram_npm/@vant/weapp/checkbox-group"
 	}
 }

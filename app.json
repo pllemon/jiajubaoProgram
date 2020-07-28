@@ -69,7 +69,24 @@
 		"common-scroll": "/components/scrollList/scrollList",
     "ad-swiper": "/components/adSwiper/adSwiper",
     "date-time-picker": "/components/dateTimePicker/dateTimePicker",
-    "header": "/components/header/header"
+    "header": "/components/header/header",
+
+    "van-uploader": "@vant/weapp/uploader",
+		"van-field": "@vant/weapp/field",
+		"van-cell-group": "@vant/weapp/cell-group",
+		"van-cell": "@vant/weapp/cell",
+    "van-switch": "@vant/weapp/switch",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-loading": "@vant/weapp/loading",
+    "van-divider": "@vant/weapp/divider",
+    "van-icon": "@vant/weapp/icon",
+    "van-search": "@vant/weapp/search",
+    "van-rate": "@vant/weapp/rate",
+    "van-stepper": "@vant/weapp/stepper",
+		"van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+		"van-dropdown-item": "@vant/weapp/dropdown-item"
   },
   "plugins": {
     "routePlan": {

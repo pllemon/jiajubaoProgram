@@ -2,8 +2,8 @@
 	"navigationBarTitleText": "我的订单",
 	"usingComponents": {
 		"search": "/components/search/search",
-		"van-tab": "../../miniprogram_npm/vant-weapp/tab",
-		"van-tabs": "../../miniprogram_npm/vant-weapp/tabs",
-		"van-search": "../../miniprogram_npm/vant-weapp/search"
+		"van-tab": "../../miniprogram_npm/@vant/weapp/tab",
+		"van-tabs": "../../miniprogram_npm/@vant/weapp/tabs",
+		"van-search": "../../miniprogram_npm/@vant/weapp/search"
 	}
 }

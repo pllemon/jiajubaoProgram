@@ -2,6 +2,6 @@
 	"navigationBarTitleText": "订单详情",
 	"enablePullDownRefresh": true,
 	"usingComponents": {
-		"van-popup": "../../miniprogram_npm/vant-weapp/popup"
+		"van-popup": "../../miniprogram_npm/@vant/weapp/popup"
 	}
 }

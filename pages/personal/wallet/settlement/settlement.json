@@ -1,6 +1,6 @@
 {
 	"navigationBarTitleText": "积分提现",
   "usingComponents": {
-		"van-stepper": "../../miniprogram_npm/vant-weapp/stepper"
+		"van-stepper": "../../miniprogram_npm/@vant/weapp/stepper"
   }
 }

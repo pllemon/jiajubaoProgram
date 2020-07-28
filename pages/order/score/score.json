@@ -1,6 +1,6 @@
 {
 	"navigationBarTitleText": "订单评价",
 	"usingComponents": {
-		"van-rate": "../../miniprogram_npm/vant-weapp/rate"
+		"van-rate": "../../miniprogram_npm/@vant/weapp/rate"
 	}
 }
