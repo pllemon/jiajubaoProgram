@@ -1,5 +1,6 @@
 const app = getApp();
 const validate = require('../../utils/validate.js');
+import { hexMD5 } from "../../utils/md5.js";
 
 Page({
   data: {
@@ -85,17 +86,26 @@ Page({
       return false;
     }
 
-    let countDown = 60;
-    let timer = setInterval(() => {
-      if (countDown == 0) {
-        clearInterval(timer);
-        return false;
+    app.request({
+      url: '/sendphonecode',
+      data: {
+        phone: this.data.phone,
+        sign: hexMD5(this.data.phone + '9649!432%#$^$%^&ddgd')
+      },
+      success: function(data) {
+        let countDown = 60;
+        let timer = setInterval(() => {
+          if (countDown == 0) {
+            clearInterval(timer);
+            return false;
+          }
+          countDown--;
+          this.setData({
+            countDown: countDown
+          })
+        }, 1000)
       }
-      countDown--;
-      this.setData({
-        countDown: countDown
-      })
-    }, 1000)
+    })
   },
 
   // 重置表单

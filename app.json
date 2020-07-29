@@ -86,7 +86,12 @@
 		"van-tab": "@vant/weapp/tab",
     "van-tabs": "@vant/weapp/tabs",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu",
-		"van-dropdown-item": "@vant/weapp/dropdown-item"
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-popup": "@vant/weapp/popup",
+    "van-radio": "@vant/weapp/radio",
+		"van-radio-group": "@vant/weapp/radio-group",
+		"van-checkbox": "@vant/weapp/checkbox",
+    "van-checkbox-group": "@vant/weapp/checkbox-group"
   },
   "plugins": {
     "routePlan": {

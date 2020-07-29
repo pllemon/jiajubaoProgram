@@ -1,7 +1,3 @@
 {
-	"navigationBarTitleText": "优惠商品",
-	"usingComponents": {
-		"van-search": "../../miniprogram_npm/@vant/weapp/search",
-		"van-stepper": "../../miniprogram_npm/@vant/weapp/stepper"
-	}
+	"navigationBarTitleText": "优惠商品"
 }

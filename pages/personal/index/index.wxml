@@ -59,7 +59,7 @@
   <block wx:if="{{currType == 1}}">
     <view class="apply-view" wx:if="{{userInfo.is_criaftsman != 1}}">
       <view class="flex-center">
-        <icon class="iconfont iconmaster"></icon>
+        <icon class="iconfont2 icon-caifang-renyuan"></icon>
         <view class="flex1">
           <text>{{status[userInfo.is_criaftsman].text}}</text>
           <text wx:if="{{userInfo.craftsmannfo.reject_reason && userInfo.craftsmannfo.status == 3}}">，驳回原因是：{{userInfo.craftsmannfo.reject_reason}}</text>
@@ -76,7 +76,7 @@
   <block wx:if="{{currType == 2}}">
     <view class="apply-view" wx:if="{{userInfo.is_business != 1}}">
       <view class="flex-center">
-        <icon class="iconfont iconbusiness"></icon>
+        <icon class="iconfont2 icon-caifang-renyuan"></icon>
         <view class="flex1">
           <text>{{status[userInfo.is_business].text2}}</text>
           <text wx:if="{{userInfo.businessinfo.bhremark && userInfo.businessinfo.status == 3}}">，驳回原因是：{{userInfo.businessinfo.bhremark}}</text>

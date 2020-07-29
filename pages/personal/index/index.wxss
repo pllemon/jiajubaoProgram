@@ -28,16 +28,15 @@
 	font-size: 16px;
 	line-height: 1.8;
 	color: #666;
+	padding-bottom: 50rpx;
 }
-.apply-view .iconfont{
+.apply-view .iconfont2{
 	margin: 0 auto;
-	color: #999;
+	color: #888;
 	display: inline-block;
-	padding: 0 20rpx;
-	font-size: 36px;
+	font-size: 50px;
 	position: relative;
-	left: -10px;
-	top: 0;
+	margin-right: 10px;
 }
 .apply-view button{
 	margin: 0;

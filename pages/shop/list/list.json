@@ -1,7 +1,4 @@
 {
 	"navigationBarTitleText": "商家",
-	"navigationStyle": "custom",
-	"usingComponents": {
-		"van-search": "../../miniprogram_npm/@vant/weapp/search"
-	}
+	"navigationStyle": "custom"
 }

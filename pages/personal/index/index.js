@@ -12,6 +12,7 @@ Page({
 
     showEwm: false,
     ewmURL: '',
+    finish: false,
 
     status: {
       0: {
@@ -50,12 +51,10 @@ Page({
   },
 
   onLoad(params) {
-    let that = this;
-    let type = params.type || 0;
+    let type = params.type || '0';
     this.setData({
       currType: type
     })
-
     this.getInfo();
   },
 

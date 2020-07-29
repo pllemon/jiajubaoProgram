@@ -5,3 +5,12 @@
 .gd-tab-active{
   color: #4c5ce3 !important;
 }
+
+.van-cell__title,
+.van-cell__value{
+  margin-right: 0 !important;
+}
+
+.form .van-cell__title{
+  color: #646566 !important;
+}

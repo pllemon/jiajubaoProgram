@@ -26,7 +26,8 @@ Page({
     list: [],
     query: {},
 
-    tabList: {}
+    tabList: {},
+    currType: 0
   },
   onLoad(params) {
     let personType = params.personType
@@ -39,6 +40,8 @@ Page({
         tabList[i] = orderStatus[i]
       }
     }
+
+    console.log(tabList)
 
     this.setData({
       showNav: params.showNav || 0,

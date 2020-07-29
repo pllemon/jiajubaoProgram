@@ -3,5 +3,5 @@
 }
 
 .gd-tab{
-    flex-basis: 26% !important;
+    flex-basis: 24% !important;
 }
