@@ -498,6 +498,20 @@
 					"pathName": "pages/demand/applyForm/applyForm",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请记录",
+					"pathName": "pages/personal/wages/applyRecord/applyRecord",
+					"query": "type=0",
+					"scene": null
 				}
 			]
 		}

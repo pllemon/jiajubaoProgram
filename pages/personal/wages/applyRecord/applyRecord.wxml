@@ -1,4 +1,17 @@
 <view class="full-layout">
+  <van-tabs 
+      color="#4c5ce3"
+      active="{{currType}}"
+      custom-class="gd-tabs"
+      tab-class="gd-tab"
+      tab-active-class="gd-tab-active"
+      bind:change="changeType"
+    >
+    <block wx:for="{{applyStatus}}" wx:key="index">
+      <van-tab title="{{item.text}}" name="{{ item.value }}"/>
+    </block>
+  </van-tabs>
+
   <common-scroll
     id="list"
     class="scroll-view"
@@ -11,15 +24,15 @@
     <view class="order-list">
       <view wx:for="{{list}}" wx:key="index" class="order-single">
           <view class="category">{{item.service_demand}}</view>
-          <view class="status cGray" wx:if="{{item.status == 0}}">待处理</view>
-          <view class="status cGreen" wx:if="{{item.status == 1}}">已发放</view>
-          <view class="status cRed" wx:if="{{item.status == 3}}">已驳回</view>
+          <view class="status cGray" wx:if="{{item.status == 0}}"><text></text>待处理</view>
+          <view class="status cGreen" wx:if="{{item.status == 1}}"><text></text>已发放</view>
+          <view class="status cRed" wx:if="{{item.status == 3}}"><text></text>已驳回</view>
           <view class="mes">订单编号：{{item.order_sn}}</view>
-          <view class="mes">{{item.number == 1? '一期' : '二期'}}佣金：<text class="money">￥{{item.money}}</text></view>
           <view class="mes">申请时间：{{item.time}}</view>
           <view class="mes">提现账号：{{item.pay_name}}</view>
-          <view class="mes">真实姓名：{{item.pay_username}}</view>
+          <view class="mes">真实姓名：{{item.pay_username}}（{{item.pay_type == 2?'银行卡':'支付宝'}}）</view>
           <view class="mes" wx:if="{{item.shremark}}">审核备注：{{item.shremark}}</view>
+          <view class="money">{{item.number == 1? '一期' : '二期'}} <text>￥{{item.money}}</text></view>
       </view>
     </view>
   </common-scroll>

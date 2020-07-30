@@ -80,6 +80,7 @@ Page({
 
   // 获取手机验证码
   getCode() {
+    let that = this;
     let validateRes = validate.phone(this.data.phone);
     if (!validateRes) {
       app.showModal('请输入正确的手机号');
@@ -89,18 +90,26 @@ Page({
     app.request({
       url: '/sendphonecode',
       data: {
-        phone: this.data.phone,
-        sign: hexMD5(this.data.phone + '9649!432%#$^$%^&ddgd')
+        phone: that.data.phone,
+        sign: hexMD5(that.data.phone + '9649!432%#$^$%^&ddgd')
       },
+      loadText: '发送中',
       success: function(data) {
+        wx.showToast({
+          title: '已发送',
+          icon: 'success'
+        })
         let countDown = 60;
+        that.setData({
+          countDown: countDown
+        })
         let timer = setInterval(() => {
           if (countDown == 0) {
             clearInterval(timer);
             return false;
           }
           countDown--;
-          this.setData({
+          that.setData({
             countDown: countDown
           })
         }, 1000)

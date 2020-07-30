@@ -109,6 +109,12 @@ van-icon{
 	font-size: 20px;
 	top: -4px;
 }
+.action-item .icon-trust1,
+.action-item .icon-remind1{
+  font-size: 20px;
+  margin-right: 14rpx;
+  
+}
 
 /* 蓝色顶部 */
 .blue-header{

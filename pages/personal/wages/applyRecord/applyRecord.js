@@ -6,9 +6,30 @@ Page({
     
     requestUrl: '/craftsmancashoutlist',
     list: [],
-    query: {
-      
-    },
+    query: {},
+
+    currType: -1,
+    applyStatus: [
+      {text: '全部', value: -1},
+      {text: '待处理', value: 0},
+      {text: '已发放', value: 1},
+      {text: '已驳回', value: 3},
+    ]
+  },
+
+  changeType(e) {
+    if (e.detail.name == -1) {
+      this.setData({
+        query: {}
+      })
+    } else {
+      this.setData({
+        query: {
+          status: e.detail.name
+        }
+      })
+    }
+    this.selectComponent("#list").getData(1);
   },
 
   changeList(e) {
