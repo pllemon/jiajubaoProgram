@@ -55,9 +55,12 @@
             <icon class="iconfont iconicon_community_line"></icon>
             <text class="content">{{item.remark}}</text>
           </view>
-          <view class="other">
-            <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
-            <view class="label red" wx:if="{{item.urgent}}">加急</view>
+          <view class="other flex-center-between">
+            <view>
+              <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
+              <view class="label red" wx:if="{{item.urgent}}">加急</view>
+            </view>
+            <view class="money">￥{{item.craftsman_price}}</view>
           </view>
         </navigator>
       </block>

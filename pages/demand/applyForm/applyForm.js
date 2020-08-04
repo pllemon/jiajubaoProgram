@@ -41,7 +41,6 @@ Page({
       method: 'GET',
       data: {},
       success: function(data) {
-        console.log(data)
         that.setData({
           categroyArr: data
         })

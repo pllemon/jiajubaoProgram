@@ -76,7 +76,7 @@
 					"id": 2,
 					"name": "订单列表",
 					"pathName": "pages/order/list/list",
-					"query": "personType=0",
+					"query": "personType=1",
 					"scene": null
 				},
 				{
@@ -511,6 +511,20 @@
 					"name": "申请记录",
 					"pathName": "pages/personal/wages/applyRecord/applyRecord",
 					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抢单中心",
+					"pathName": "pages/order/center/center",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/detail",
+					"query": "id=73&personType=1",
 					"scene": null
 				}
 			]

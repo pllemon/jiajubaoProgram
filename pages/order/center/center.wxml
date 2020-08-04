@@ -1,22 +1,9 @@
 <view  class="full-layout">
   <!-- 筛选 -->
-  <!-- <van-dropdown-menu active-color="#4c5ce3">
-    <van-dropdown-item id="categorySelect" title="{{ categoryTitle }}">
-      <view class="category-list">
-        <view class="section">
-          <block wx:for="{{categoryList}}" wx:key="index">
-            <text class="{{item.id == categoryPid ?'active':''}}" data-pid="{{item.id}}" bindtap="chooseCategory">{{item.type_name}}</text>
-          </block>
-        </view>
-        <view class="section">
-          <block wx:for="{{subcategoryList}}" wx:key="index">
-            <text class="{{item.id == subcategoryPid ?'active':''}}" data-pid="{{item.id}}" data-name="{{item.type_name}}" bindtap="chooseSubcategory">{{item.type_name}}</text>
-          </block>
-        </view>
-      </view>
-    </van-dropdown-item>
+  <van-dropdown-menu active-color="#4c5ce3">
+    <van-dropdown-item value="{{ typeValue }}" options="{{ typeOptions }}"  bind:change="chooseType"/>
     <van-dropdown-item value="{{ sortValue }}" options="{{ sortOptions }}"  bind:change="changeSort"/>
-  </van-dropdown-menu> -->
+  </van-dropdown-menu>
 
   <common-scroll
     id="list"
@@ -41,9 +28,12 @@
           <icon class="iconfont iconicon_community_line"></icon>
           <text class="content">{{item.remark}}</text>
         </view>
-        <view class="other">
-          <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
-          <view class="label red" wx:if="{{item.urgent}}">加急</view>
+        <view class="other flex-center-between">
+          <view>
+            <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
+            <view class="label red" wx:if="{{item.urgent}}">加急</view>
+          </view>
+          <view class="money">￥{{item.craftsman_price}}</view>
         </view>
       </navigator>
     </view>

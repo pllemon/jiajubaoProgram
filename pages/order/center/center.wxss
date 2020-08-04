@@ -1,29 +1,3 @@
-.category-list{
-    display: flex;
-}
-.category-list .section{
-    box-sizing: border-box;
-}
-.category-list .section:nth-of-type(1){
-    width: 40%;
-    background: #f8f8f8;
-}
-.category-list .section:nth-of-type(2){
-    width: 60%;
-    height: 600rpx;
-    overflow: auto;
-}
-.category-list text{
-    display: block;
-    padding: 10px 16px;
-    font-size: 14px;
-    text-align: center;
-}
-.category-list text.active{
-    color: #4c5ce3;
-    background: #fff;
-}
-
 .common-section{
     margin-top: 0;
 }

@@ -213,8 +213,11 @@ van-icon{
   padding-left: 40rpx;
 }
 .order-single .other{
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   display: flex;
+}
+.order-single .money{
+  font-size: 18px;
 }
 /* —————————————————— */
 

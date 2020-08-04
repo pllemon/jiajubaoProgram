@@ -64,7 +64,7 @@
 
 
 .money{
-    font-size: 22px;
+    font-size: 22px !important;
     color:#4d5ef4;
     font-weight: 500;
 }
@@ -101,4 +101,28 @@ textarea{
 
 .scroll-view{
     overflow: auto;
+}
+
+.message .img-list view{
+    margin-bottom: 0;
+}
+
+.order-imgs{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.order-imgs gdImage{
+    margin-top: 20rpx;
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 16rpx;
+}
+.order-imgs gdImage:last-child{
+    margin-right: 0;
+}
+
+.contact{
+    margin: 0;
+    padding: 0;
 }
