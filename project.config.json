@@ -521,10 +521,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 66,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "id=73&personType=1",
+					"query": "id=73&personType=0",
 					"scene": null
 				}
 			]

@@ -59,7 +59,7 @@
         </view>
         <view wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}" style="text-align:right;border-top: 1px solid #f2f2f2;margin-top: 20rpx;padding-top:20rpx">
           <text wx:if="{{personType!=1}}">订单金额 </text>
-          <text wx:if="{{personType!=1}}" class="money">￥{{orderMes.pay.total_price}}</text>
+          <text wx:if="{{personType!=1}}" class="money">￥{{orderMes.pay.total_price || '---'}}</text>
           <text wx:if="{{personType==1}}">订单佣金 </text>
           <text wx:if="{{personType==1}}" class="money">￥{{orderMes.pay.craftsman_price}}</text>
         </view>
@@ -98,10 +98,6 @@
             <text>支付时间:</text>
             <text>{{orderMes.pay.pay_time}}</text>
           </view>
-          <view wx:if="{{orderMes.info.status == 12}}">
-            <text>过期时间:</text>
-            <text>{{orderMes.info.cancel_time}}</text>
-          </view>
         </view>
       </view>
 
@@ -119,8 +115,8 @@
           <view style="align-items:flex-start">
             <text>施工图片:</text>
             <view class="img-list">
-              <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" style="margin-right:20rpx" width="240rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="开工图"></gdImage>
-              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="240rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="竣工图"></gdImage>
+              <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" style="margin-right:20rpx" width="160rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="开工图"></gdImage>
+              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="160rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="竣工图"></gdImage>
             </view>
           </view>
         </view>
@@ -146,7 +142,7 @@
         </view>
       </view>
 
-      <view class="common-section" wx:if="{{orderMes.craftsmanlist && personType == 3}}">
+      <view class="common-section" wx:if="{{orderMes.info.status >= 4 && orderMes.info.status <= 8 && orderMes.craftsmanlist && personType == 3}}">
         <view class="title">报名情况({{orderMes.craftsmanlist.length}})</view>
         <view class="sign-list" wx:if="{{orderMes.craftsmanlist.length>0}}">
           <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
@@ -170,8 +166,9 @@
 
     <!-- 操作按钮 -->
     <view class="main-action">
-      <!-- <button open-type="contact" class="contact">
-        <image src="/image/icon/zx.png" style="width:46rpx;height:46rpx;"/>
+      <!-- <button open-type="contact" class="contact flex-center">
+        <image src="/image/icon/kf.png" style="width:44rpx;height:44rpx;"/>
+        <van-icon name="service-o" size="22px" color="#fff"/>
       </button> -->
 
       <view class="flex-center-end" wx:if="{{personType == 0}}">

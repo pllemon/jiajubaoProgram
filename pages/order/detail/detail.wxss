@@ -125,4 +125,8 @@ textarea{
 .contact{
     margin: 0;
     padding: 0;
+    background: rgba(255,69,0,0.6);
+    width: 74rpx;
+    height: 74rpx;
+    border-radius: 50%;
 }
