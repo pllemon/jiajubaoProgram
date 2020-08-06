@@ -3,7 +3,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: -webkit-linear-gradient(left, #7889f1, #4d5ef4);
+	background: -webkit-linear-gradient(left, #d82930, #e74950);
 	display: flex;
 	align-items: center;
 	padding: 20rpx;

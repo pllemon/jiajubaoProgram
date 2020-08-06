@@ -3,7 +3,7 @@
 }
 
 .gd-tab-active{
-  color: #4c5ce3 !important;
+  color: #d82930 !important;
 }
 
 .van-cell__title,

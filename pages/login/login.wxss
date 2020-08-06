@@ -1,5 +1,9 @@
+page{
+  background: #fff;
+}
+
 .title{
-  color: #4d5ef4;
+  color: #d82930;
   margin: 30rpx;
   text-align: center;
   font-size: 26px;
@@ -16,7 +20,7 @@
 }
 
 .section{
-  padding: 10rpx 30rpx;
+  padding: 0rpx 30rpx;
   background: #fff;
   border-bottom: 1px solid #f8f8f8;
   display: flex;
@@ -27,7 +31,7 @@
   line-height: 100rpx;
   margin-left: 20rpx;
   flex: 1;
-  font-size: 18px;
+  font-size: 16px;
 }
 .section .iconfont{
   font-size: 22px;
@@ -36,19 +40,41 @@
 .form-tips{
   margin: 30rpx;
   font-size: 16px;
-  color: #4c5ce3;
+  color: #d82930;
 }
 
 form{
-  margin: 30rpx;
+  margin: 30rpx 30rpx;
   display: block;
   background: #fff;
-  padding: 50rpx 30rpx;
+  padding: 30rpx 30rpx;
   border-radius: 10rpx;
   overflow: hidden;
+  border-radius: 20rpx;
+  margin-top: 120rpx;
 }
 
 .form-tips{
   margin: 0;
-  padding: 0;
+  padding: 0 30rpx;
+}
+
+.main-btn{
+  margin: 40rpx 20rpx;
+}
+
+.bg{
+  position: fixed;
+  left: 0;
+  bottom:0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.logo{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 .money text{
     font-size: 40rpx;
-    color: #4d5ef4;
+    color: #d82930;
 }
 .money{
     text-align: right;

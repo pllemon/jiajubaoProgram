@@ -12,7 +12,7 @@
     </view>
 
     <van-tabs 
-      color="#4c5ce3"
+      color="#d82930"
       active="{{currType}}"
       custom-class="gd-tabs"
       tab-class="gd-tab"

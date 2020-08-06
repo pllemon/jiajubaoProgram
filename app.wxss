@@ -67,7 +67,7 @@ view{
     color: rgb(230, 162, 60) !important;
 }
 .cPurple{
-    color: #4d5ef4 !important;
+    color: #d82930 !important;
 }
 .cBlack{
     color: #333 !important;
@@ -82,7 +82,7 @@ view{
 .main-btn{
     margin: 60rpx 30rpx;
     color: #fff;
-    background: -webkit-linear-gradient(45deg, #7889f1, #4d5ef4);
+    background: -webkit-linear-gradient(45deg, #d82930, #e74950);
     border-radius: 50rpx;
 }
 .main-btn.default{
@@ -96,8 +96,8 @@ view{
 }
 .main-btn.plain{
     background: #fff;
-    border: 1px solid #4d5ef4;
-    color: #4d5ef4;
+    border: 1px solid #d82930;
+    color: #d82930;
 }
 .main-btn.disable{
     border: 1px solid #f2f2f2;

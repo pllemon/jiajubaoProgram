@@ -5,8 +5,8 @@
 
 .button-plain{
   background: none;
-  border: 1px solid #4d5ef4;
-  color: #4d5ef4;
+  border: 1px solid #d82930;
+  color: #d82930;
   margin: 0;
 }
 
@@ -55,7 +55,7 @@ van-icon{
   color: #888;
 }
 .fcBlue{
-  color: #4d5ef4;
+  color: #d82930;
 }
 
 /* 满页布局 */
@@ -79,7 +79,7 @@ van-icon{
   line-height: 1.5;
 }
 .common-section .title{
-  color: #4d5ef4;
+  color: #d82930;
   padding-left: 30rpx;
   position: relative;
   margin-bottom: 30rpx;
@@ -92,7 +92,7 @@ van-icon{
   left: 0;
   top: 5rpx;
   border-radius: 2px;
-  background: #4d5ef4;
+  background: #d82930;
 }
 
 
@@ -118,7 +118,7 @@ van-icon{
 
 /* 蓝色顶部 */
 .blue-header{
-	background: -webkit-linear-gradient(#7889f1, #4d5ef4);
+	background: -webkit-linear-gradient(#d82930, #e74950);
 	padding: 40rpx;
 	color: #fff;
 	display: flex;
@@ -194,7 +194,7 @@ van-icon{
   position: absolute;
   top: 20rpx;
   right: 30rpx;
-  color: #4d5ef4;
+  color: #d82930;
 }
 .order-single .mes{
   display: flex;
@@ -315,5 +315,5 @@ van-icon{
   color: #333;
 }
 .concat-mes .concat-single .phone{
-  color: #4d5ef4;
+  color: #d82930;
 }
