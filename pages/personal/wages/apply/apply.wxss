@@ -1,6 +1,6 @@
 .money{
     font-size: 34rpx;
-    color: #d82930;
+    color: #ff5643;
 }
 
 .main-btn{

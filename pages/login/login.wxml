@@ -1,6 +1,9 @@
-
+<image src="/image/example/bg.jpg" class="bg" mode="aspectFill"></image>
+<view class="header">
+  <view class="name">多师傅连锁</view>
+  <view>在您身边 为您服务</view>
+</view>
 <form bindsubmit="formSubmit">
-  <image src="/image/example/logo.png" class="logo" mode="aspectFill"></image>
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_boss"></icon>
     <input placeholder="请输入用户名" name="username" value="{{formData.username}}"/>
@@ -29,7 +32,7 @@
     <input placeholder="推荐人" type="text" name="invitation_code" value="{{formData.invitation_code}}"/>
   </view>
   <checkbox-group class="agree flex-center-start" wx:if="{{formType==0}}" bindchange="checkboxChange">
-    <checkbox value="1" checked="{{false}}" color="#d82930"/>
+    <checkbox value="1" checked="{{false}}" color="#ff5643"/>
     <view>我已认真阅读并同意<text class="text" bindtap="readDoc">用户协议</text></view>
   </checkbox-group>
   
@@ -46,5 +49,3 @@
   </view>
 </form>
 <!-- <empower show="{{ showEmpowerDialog }}" bindupDate="upDateUserInfo"></empower> -->
-
-<image src="/image/example/bg.jpg" class="bg" mode="aspectFill"></image>

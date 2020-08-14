@@ -1,10 +1,10 @@
 <view class="place" wx:if="{{place}}"></view>
 <view class="navigation">
-	<navigator url="/pages/index/index" open-type="reLaunch" class="nav-single {{currentIdx==0?'active':''}}">
-		<image src="/image/icon/home5.svg" mode="aspectFit"></image>
-		<image src="/image/icon/home4.svg" mode="aspectFit"></image>
+	<view class="nav-single {{currentIdx==0?'active':''}}" bindtap="goHome">
+		<image src="/image/example/home2.png" mode="aspectFit"></image>
+		<image src="/image/example/home.png" mode="aspectFit"></image>
 		<text>首页</text>
-	</navigator>
+	</view>
 	<view class="nav-single {{currentIdx==1?'active':''}}">
 		<navigator url="/pages/demand/applyForm/applyForm" class="nav-circle">
 			<image src="/image/icon/order.svg" mode="aspectFit"></image>
@@ -13,8 +13,8 @@
 		</navigator>
 	</view>
 	<view class="nav-single {{currentIdx==2?'active':''}}" bindtap="goPersonal">
-		<image src="/image/icon/person2.svg" mode="aspectFit"></image>
-		<image src="/image/icon/person.svg" mode="aspectFit"></image>
+		<image src="/image/example/user2.png" mode="aspectFit"></image>
+		<image src="/image/example/user.png" mode="aspectFit"></image>
 		<text>我的</text>
 	</view>
 </view>

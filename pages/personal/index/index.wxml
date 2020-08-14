@@ -10,9 +10,17 @@
         <view>{{userInfo.phone}}</view>
       </view>
     </view>
-
+    <view class="invitation">
+      <view class="flex-center-between content">
+        <view class="flex-center-between">
+          <image src="/image/example/vip.png" mode="aspectFit" style="width:30rpx;height:30rpx;margin-right:10rpx"></image>
+          <text>平台专属邀请码 {{userInfo.invitation_code}}</text>
+        </view>
+        <text class="sign">立即邀请</text>
+      </view>
+    </view>
     <van-tabs 
-      color="#d82930"
+      color="#ff5643"
       active="{{currType}}"
       custom-class="gd-tabs"
       tab-class="gd-tab"

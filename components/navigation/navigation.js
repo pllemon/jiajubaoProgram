@@ -11,6 +11,12 @@ Component({
   data: {
   },
   methods: {
+    goHome() {
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    },
+
     goPersonal() {
       common.checkLogin(function() {
         wx.reLaunch({

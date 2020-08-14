@@ -3,7 +3,7 @@ page{
 }
 
 .title{
-  color: #d82930;
+  color: #ff5643;
   margin: 30rpx;
   text-align: center;
   font-size: 26px;
@@ -25,6 +25,7 @@ page{
   border-bottom: 1px solid #f8f8f8;
   display: flex;
   align-items: center;
+  color: #333;
 }
 .section input{
   height: 100rpx;
@@ -40,7 +41,7 @@ page{
 .form-tips{
   margin: 30rpx;
   font-size: 16px;
-  color: #d82930;
+  color: #666;
 }
 
 form{
@@ -51,7 +52,6 @@ form{
   border-radius: 10rpx;
   overflow: hidden;
   border-radius: 20rpx;
-  margin-top: 120rpx;
 }
 
 .form-tips{
@@ -64,17 +64,25 @@ form{
 }
 
 .bg{
-  position: fixed;
-  left: 0;
-  bottom:0;
-  z-index: -1;
   width: 100%;
-  height: 100%;
-  display: none;
+  height: 360rpx;
 }
 
 .logo{
-  width: 180rpx;
-  height: 180rpx;
+  width: 160rpx;
+  height: 160rpx;
   margin: 0 auto;
+  margin-bottom: 40rpx;
+}
+
+.header{
+  position: absolute;
+  top: 180rpx;
+  left: 80rpx;
+  color: #fff;
+  font-size: 14px;
+}
+.header .name{
+  font-size: 24px;
+  font-weight: bold;
 }

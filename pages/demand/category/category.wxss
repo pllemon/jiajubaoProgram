@@ -19,7 +19,7 @@ page{
 }
 .category-list view.active{
   background: #fff;
-  border-left: 4px solid #d82930;
+  border-left: 4px solid #ff5643;
 }
 
 .subcategory-list{

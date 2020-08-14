@@ -1,10 +1,37 @@
 .blue-header{
 	padding-top: 120rpx;
+	border-radius: 0;
+	position: relative;
+}
+.invitation{
+	position: relative;
+	background: #fd5240;
+	border-radius: 0 0 42% 42%;
+	overflow: hidden;
+}
+.invitation .content{
+	width: 90%;
+	background: -webkit-linear-gradient(45deg,#313131, #4e4f4f, #676b69);
+	color: #e1c68c;
+	border-radius: 20rpx 20rpx 0 0; 
+	margin-left: 5%;
+	padding: 20rpx 30rpx 30rpx 30rpx;
+}
+.invitation .content .sign{
+	background: -webkit-linear-gradient(-45deg,#f4edcc, #f3dca5);
+	color: #3c2608;
+	font-size: 13px;
+	border-radius: 20rpx;
+	padding: 4rpx 20rpx;
+}
+.personal-header{
+	background: #fff;
+	margin-bottom: 30rpx;
 }
 
 .personal-img{
-	width: 140rpx;
-	height: 140rpx;
+	width: 100rpx;
+	height: 100rpx;
 	border-radius: 50%;
 	overflow: hidden;
 	margin-right: 20rpx;
@@ -12,11 +39,12 @@
 	box-sizing: border-box;
 }
 .personal-name{
-	font-size: 22px;
+	font-size: 18px;
 }
 
 .gd-tabs{
-	margin-bottom: 30rpx;
+	margin-bottom: 0;
+	border-top: none;
 }
 
 
@@ -67,8 +95,9 @@
 	background: rgba(255,69,0,0.6);
 	color: #fff;
 	overflow: hidden;
-	top: 30%;
+	top: 35%;
 	left: 650rpx;
+	z-index: 99;
 }
 .customer-service button{
 	width: 100rpx;

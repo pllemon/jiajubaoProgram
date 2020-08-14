@@ -13,5 +13,5 @@
 
 .record-single .points{
   font-size: 20px;
-  color: #d82930;
+  color: #ff5643;
 }

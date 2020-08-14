@@ -24,7 +24,7 @@
 }
 .main-action .service{
     margin-right: 30rpx;
-    color: #d82930;
+    color: #ff5643;
 }
 .main-action .service .iconfont{
     font-size: 26px;
@@ -65,7 +65,7 @@
 
 .money{
     font-size: 22px !important;
-    color:#d82930;
+    color:#ff5643;
     font-weight: 500;
 }
 

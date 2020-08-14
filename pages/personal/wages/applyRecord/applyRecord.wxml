@@ -1,6 +1,6 @@
 <view class="full-layout">
   <van-tabs 
-      color="#d82930"
+      color="#ff5643"
       active="{{currType}}"
       custom-class="gd-tabs"
       tab-class="gd-tab"

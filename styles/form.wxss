@@ -10,7 +10,7 @@
   background: #fff;
 }
 .form-section .form-title{
-  color: #d82930;
+  color: #ff5643;
   padding-left: 30rpx;
   position: relative;
   margin-bottom: 30rpx;
@@ -23,7 +23,7 @@
   left: 0;
   top: 5rpx;
   border-radius: 2px;
-  background: #d82930;
+  background: #ff5643;
 }
 .form-item{
   display: flex;
@@ -64,15 +64,15 @@
   width: 80px;
   color: #353535;
   background-color: #fff;
-  border: 1px solid #7889f1;
+  border: 1px solid #fd5240;
   font-size: 16px;
 }
 .form-item .stepper-plus, .form-item .stepper-minus{
   height: 36px;
   width: 36px;
   background-color: #fff;
-  color: #7889f1;
-  border: 1px solid #7889f1;
+  color: #fd5240;
+  border: 1px solid #fd5240;
 }
 
 .form-item.upload{
@@ -106,7 +106,7 @@
   color: #666;
 }
 .agree .text{
-  color: #d82930;
+  color: #ff5643;
 }
 
 
@@ -126,11 +126,11 @@
 
 .address-btn{
   background: none !important;
-  border: 1px solid #d82930 !important;
+  border: 1px solid #ff5643 !important;
   outline: none !important;
   padding: 0px 10px !important;
   font-size: 16px;
-  color: #d82930;
+  color: #ff5643;
   width: 250rpx;
 }
 .address-btn.button-hover{
@@ -142,7 +142,7 @@
 
 .form .van-cell-group__title{
   font-size: 16px !important;
-  color: #d82930 !important;
+  color: #ff5643 !important;
   padding: 16px !important;
 }
 .form .van-cell{

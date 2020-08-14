@@ -32,8 +32,8 @@
         <van-cell-group title="基础资料">
             <van-cell title="提现方式" title-width="100px" required>
                 <van-radio-group value="{{ radio }}" bind:change="changeType">
-                    <van-radio name="2" checked-color="#d82930" custom-class="radio-single">银行卡</van-radio>
-                    <van-radio name="1" checked-color="#d82930" custom-class="radio-single">支付宝</van-radio>
+                    <van-radio name="2" checked-color="#ff5643" custom-class="radio-single">银行卡</van-radio>
+                    <van-radio name="1" checked-color="#ff5643" custom-class="radio-single">支付宝</van-radio>
                 </van-radio-group>
             </van-cell>
             <van-field

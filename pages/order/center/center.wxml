@@ -1,6 +1,6 @@
 <view  class="full-layout">
   <!-- 筛选 -->
-  <van-dropdown-menu active-color="#d82930">
+  <van-dropdown-menu active-color="#ff5643">
     <van-dropdown-item value="{{ typeValue }}" options="{{ typeOptions }}"  bind:change="chooseType"/>
     <van-dropdown-item value="{{ sortValue }}" options="{{ sortOptions }}"  bind:change="changeSort"/>
   </van-dropdown-menu>

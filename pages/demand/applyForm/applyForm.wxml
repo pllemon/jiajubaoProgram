@@ -23,7 +23,7 @@
             </block>
         </van-cell>
         <van-cell title="订单加急" title-width="100px">
-            <van-switch checked="{{ checked }}" size="24px" active-color="#7889f1" bind:change="changeSwitch" />
+            <van-switch checked="{{ checked }}" size="24px" active-color="#fd5240" bind:change="changeSwitch" />
         </van-cell>
         <van-field
             value="{{ form.remark }}"

@@ -26,11 +26,11 @@ page{
 }
 .share-btn{
     display: flex;
-    border: 1px solid #d82930;
+    border: 1px solid #ff5643;
     width: 380rpx;
     height: 90rpx;
     border-radius: 20rpx;
-    color: #d82930;
+    color: #ff5643;
     padding: 0;
     margin: 0;
     background: #fff;
@@ -39,7 +39,7 @@ page{
     width: 90rpx;
     height: 90rpx;
     border-radius: 50%;
-    background: -webkit-linear-gradient(45deg, #d82930, #e74950);
+    background: -webkit-linear-gradient(45deg, #ff5643, #fd5240);
     font-size: 40rpx;
     color: #fff;
     margin-top: 0;

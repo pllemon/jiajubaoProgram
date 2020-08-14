@@ -23,7 +23,7 @@
                         disable-input 
                         bind:change="onChange"
                     /> -->
-                    <van-switch checked="{{ checked }}" size="24px" active-color="#7889f1" bind:change="changeSwitch" />
+                    <van-switch checked="{{ checked }}" size="24px" active-color="#fd5240" bind:change="changeSwitch" />
                 </view>
             </view>
         </view>
