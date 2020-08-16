@@ -33,6 +33,10 @@
     margin-right: 2px;
 }
 
+.money{
+    color: #ff5643 !important;
+}
+
 /* 以下 */
 .sign-single{
     background: #fff;
@@ -48,6 +52,7 @@
     justify-content: space-between;
     margin-bottom: 10rpx;
     color: #888;
+    font-size: 14px;
 }
 
 

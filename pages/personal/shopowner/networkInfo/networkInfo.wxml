@@ -2,25 +2,17 @@
   <common-scroll
     id="list"
     class="scroll-view"
-    request-url="/networklist"
+    request-url="/usernetworklist"
     query="{{query}}"
     isPaging="{{false}}"
     bind:change = "changeList"
   >
     <view class="order-list">
       <navigator wx:for="{{list}}" wx:key="index" class="order-single" url="../detail/detail?id={{item.order_id}}&personType=1">
-        <view class="category">{{item.service_demand}}</view>
+        <view class="category">{{item.name}}</view>
         <view class="mes">
           <icon class="iconfont iconicon_GPS"></icon>
           <text class="content ellipsis">{{item.address}}</text>
-        </view>
-        <view class="mes">
-          <icon class="iconfont iconicon_calendar"></icon>
-          <text class="content">{{item.appo_time ? item.appo_time : '上门时间待沟通'}}</text>
-        </view>
-        <view class="other">
-          <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
-          <view class="label red" wx:if="{{item.urgent}}">加急</view>
         </view>
       </navigator>
     </view>

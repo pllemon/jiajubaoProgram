@@ -10,7 +10,7 @@
 
       <view class="concat-mes">
         <view wx:if="{{orderStatus.showUser}}" class="flex-center-between concat-single" style="border-bottom: 1px solid #f2f2f2;">
-          <gdImage src="{{orderMes.info.userheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+          <gdImage src="{{orderMes.info.userheaderurl}}" class="personal-img" width="70rpx" height="70rpx"></gdImage>
           <view class="flex1">
             <view class="name">{{orderMes.info.username}}</view>
             <view>{{orderMes.info.phone}}</view>
@@ -20,8 +20,8 @@
             <text>联系</text>
           </view>
         </view>
-        <view wx:if="{{orderStatus.showMaster}}" class="flex-center-between concat-single">
-          <gdImage src="{{orderMes.craftsmaninfo.cmheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+        <view wx:if="{{orderStatus.showMaster && personType != 1}}" class="flex-center-between concat-single">
+          <gdImage src="{{orderMes.craftsmaninfo.cmheaderurl}}" class="personal-img" width="70rpx" height="70rpx"></gdImage>
           <view class="flex1">
             <view class="name">{{orderMes.craftsmaninfo.name}}（{{orderMes.craftsmaninfo.sn}}）</view>
             <view>{{orderMes.craftsmaninfo.phone}}</view>
@@ -54,8 +54,8 @@
           <view class="label red" wx:if="{{orderMes.info.urgent}}">加急</view>
         </view>
         <view class="order-imgs">
-          <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="订单图"></gdImage>
-          <gdImage wx:if="{{orderMes.pay && personType!=1}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
+          <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ item }}" preview label="订单图"></gdImage>
+          <gdImage wx:if="{{orderMes.pay.bjimg && personType!=1}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
         </view>
         <view wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}" style="text-align:right;border-top: 1px solid #f2f2f2;margin-top: 20rpx;padding-top:20rpx">
           <text wx:if="{{personType!=1}}">订单金额 </text>
@@ -148,10 +148,10 @@
           <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
             <view class="sign-single flex-center-between">
               <view class="flex-center-start">
-                <gdImage src="{{ item.cmheaderurl }}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
+                <gdImage src="{{ item.cmheaderurl }}" class="personal-img" width="70rpx" height="70rpx"></gdImage>
                 <view>
-                  <view style="color:#353535">{{item.name}}（{{item.sn}}）</view>
-                  <view style="font-size:26rpx">{{item.bmtime}}</view>
+                  <view style="color:#353535;font-size:14px">{{item.name}}（{{item.sn}}）</view>
+                  <view style="font-size:13px">{{item.bmtime}}</view>
                 </view>
               </view>
               <button wx:if="{{personType == 0 && orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
@@ -187,7 +187,7 @@
       </view>
 
       <view class="flex-center-end" wx:if="{{personType == 1 && orderStatus.status != 3}}">
-        <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="cancelOrder2" class="main-btn default">取消订单</button>
+        <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="cancelOrder2" class="main-btn default">取消接单</button>
         <button wx:if="{{orderMes.info.status == 5 && !orderMes.ordersshow}}" bindtap="beginWork" class="main-btn plain">开始施工</button>
         <button wx:if="{{orderMes.info.status == 5 && orderMes.ordersshow}}" bindtap="endWork" class="main-btn plain">结束施工</button>
         <button wx:if="{{orderMes.info.status == 6}}" class="main-btn disable">待客户验收</button>

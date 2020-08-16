@@ -90,6 +90,8 @@
         </view>
     </view>
     
+      <button bindtap="setMoney" class="main-btn default">报价</button>
+      <button bindtap="userCancel" class="main-btn default">用户确认</button>
     <!-- 操作按钮 -->
     <view class="main-action  flex-center-end" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
       <button bindtap="cancelOrder" class="main-btn default">取消订单</button>

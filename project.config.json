@@ -22,7 +22,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": []
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.2",
@@ -111,7 +116,7 @@
 					"id": 7,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "id=113&personType=0",
+					"query": "id=1&personType=1",
 					"scene": null
 				},
 				{
@@ -525,6 +530,27 @@
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
 					"query": "id=73&personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "下单需求",
+					"pathName": "pages/shop/markDemand/markDemand",
+					"query": "id=1&personType=1",
+					"scene": null
+				},
+				{
+					"id": 68,
+					"name": "优惠订单列表",
+					"pathName": "pages/offline/list/list",
+					"query": "id=1&personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠订单详情",
+					"pathName": "pages/offline/details/details",
+					"query": "id=3&personType=2",
 					"scene": null
 				}
 			]

@@ -79,12 +79,13 @@ van-icon{
   line-height: 1.5;
 }
 .common-section .title{
-  color: #ff5643;
-  padding-left: 30rpx;
+  color: #353535;
+  /* padding-left: 30rpx; */
   position: relative;
   margin-bottom: 30rpx;
+  font-size: 16px;
 }
-.common-section .title:after{
+/* .common-section .title:after{
   content: '';
   position: absolute;
   width: 4px;
@@ -93,7 +94,7 @@ van-icon{
   top: 5rpx;
   border-radius: 2px;
   background: #ff5643;
-}
+} */
 
 
 /* 操作列表 */
@@ -192,7 +193,7 @@ van-icon{
 }
 .order-single .status{
   position: absolute;
-  top: 20rpx;
+  top: 35rpx;
   right: 30rpx;
   color: #ff5643;
 }
@@ -217,7 +218,8 @@ van-icon{
   display: flex;
 }
 .order-single .money{
-  font-size: 18px;
+  font-size: 16px;
+  color: #353535;
 }
 /* —————————————————— */
 
@@ -308,12 +310,12 @@ van-icon{
   padding: 24rpx 30rpx;
   background: #fff;
   color: #888;
-  font-size: 14px;
+  font-size: 13px;
 }
 .concat-mes .concat-single .name{
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
 }
 .concat-mes .concat-single .phone{
-  color: #ff5643;
+  color: #409EFF;
 }

@@ -39,7 +39,7 @@ const personMessage = {
       3: {
         status: 3,
         label: '待派单',
-        desc: '已支付，订单等待后台派单',
+        desc: '订单已支付，等待后台派单',
         show: false,
         icon: 'icondengdai',
         showUser: true,
@@ -293,7 +293,7 @@ const personMessage = {
       3: {
         status: 3,
         label: '待派单',
-        desc: '已支付，订单等待后台派单',
+        desc: '订单已支付，等待后台派单',
         show: true,
         icon: 'icondengdai',
         showUser: true,

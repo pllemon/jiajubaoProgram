@@ -43,6 +43,7 @@ view{
     padding: 2px 6px;
     border-radius: 4rpx;
     margin-right: 10rpx;
+    font-size: 13px;
 }
 .label.green{
     background: rgb(240, 249, 235);

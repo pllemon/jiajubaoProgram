@@ -65,6 +65,39 @@ Page({
     })
   },
 
+  // 报价，改
+  setMoney() {
+    let that = this
+    app.request({
+      url: '/busofferorder',
+      data: {
+        total_price: 400,
+        offer_remark: '44333',
+        order_sn: that.data.orderMes.order_sn
+      },
+      loadText: '提交中',
+      success: function(data) {
+
+      }
+    })
+  },
+
+  // 用户取消，改
+  userCancel() {
+    let that = this
+    app.request({
+      url: '/userhandleneedorder',
+      data: {
+        status: 1, // 1 确认，6取消
+        order_sn: that.data.orderMes.order_sn
+      },
+      loadText: '提交中',
+      success: function(data) {
+
+      }
+    })
+  },
+
   // 打电话
   makePhoneCall(e) {
     let phone = e.currentTarget.dataset.phone;

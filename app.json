@@ -37,7 +37,6 @@
     "pages/personal/notice/notice",
     "pages/personal/doc/doc",
     "pages/personal/feedback/feedback",
-    "pages/personal/message/message",
 
     "pages/personal/wages/index/index",
     "pages/personal/wages/applyRecord/applyRecord",
