@@ -19,7 +19,7 @@
 }
 .main-action .main-btn{
     margin: 20rpx 0;
-    margin-left: 10rpx;
+    margin-left: 14rpx;
     font-size: 28rpx;
 }
 .main-action .service{

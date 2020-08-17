@@ -232,6 +232,13 @@ const changeInput = (target, el) => {
     form
   })
 }
+const changeTextarea = (target, el ) => {
+  let form = target.data.form;
+  form[el.currentTarget.dataset.name] = el.detail.value;
+  target.setData({
+    form
+  })
+}
 
 module.exports = {
   checkLogin,
@@ -246,5 +253,6 @@ module.exports = {
 
   readImage,
   deleteImage,
-  changeInput
+  changeInput,
+  changeTextarea
 }

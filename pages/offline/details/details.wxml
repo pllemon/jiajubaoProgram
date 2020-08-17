@@ -2,11 +2,10 @@
     <view class="scroll-view">
         <view class="blue-header flex-center-between">
           <view>
-            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">待商家接单</view>
-            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 1}}">商家已接单</view>
-            <view class="title" wx:if="{{orderMes.status == 2 }}">已取消</view>
+            <view class="title" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">{{personType == 0 ? '待商家接单' : '待确认'}}</view>
+            <view class="title" wx:elif="{{orderMes.status == 1 && orderMes.pay_status == 1}}">{{personType == 0 ? '商家已接单' : '已接单'}}</view>
+            <view class="title" wx:else>{{offlineStatus[orderMes.status][personType]}}</view>
           </view>
-          <icon class="iconfont {{orderStatus.icon}}"></icon>
         </view>
 
         <view class="concat-mes">
@@ -14,9 +13,9 @@
             <gdImage src="{{orderMes.userheaderurl}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
             <view class="flex1">
               <view class="name">{{orderMes.user_name}}</view>
-              <view>{{orderMes.user_phone}}</view>
+              <view>{{orderMes.pay_status==1 ? orderMes.user_phone : '***********'}}</view>
             </view>
-            <view class="flex-center phone" data-phone="{{orderMes.user_phone}}" bindtap="makePhoneCall">
+            <view wx:if="{{orderMes.pay_status == 1}}" class="flex-center phone" data-phone="{{orderMes.user_phone}}" bindtap="makePhoneCall">
               <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
               <text>联系</text>
             </view>
@@ -37,6 +36,14 @@
         
         <view class="common-section">
           <view class="title">订单商品</view>
+          <view class="need-remark" wx:if="{{orderMes.type == 2}}">
+            <view class="goods-single">
+              <view class="image-place">
+                <icon class="iconfont2 icon-gouwudai"></icon>
+              </view>
+              <view class="name">{{orderMes.goods_need_remark}}</view>
+            </view>
+          </view>
           <view wx:for="{{orderMes.goodslst}}" wx:key="index" wx:for-item="item2" class="goods-single">
             <gdImage src="{{ item2.goods_image }}" class="goods-image"></gdImage>
             <view class="flex1">
@@ -46,7 +53,7 @@
               </view>
             </view>
           </view>
-          <view class="message" style="margin-top: 20rpx;">
+          <view class="message" style="margin-top: 20rpx;" wx:if="{{orderMes.money>0}}">
             <view>
               <text>合计:</text>
               <text>￥{{orderMes.money}}</text>
@@ -90,11 +97,14 @@
         </view>
     </view>
     
-      <button bindtap="setMoney" class="main-btn default">报价</button>
-      <button bindtap="userCancel" class="main-btn default">用户确认</button>
     <!-- 操作按钮 -->
-    <view class="main-action  flex-center-end" wx:if="{{personType == 2 && orderMes.status == 1 && orderMes.pay_status == 0}}">
-      <button bindtap="cancelOrder" class="main-btn default">取消订单</button>
-      <button bindtap="confirmOrder" class="main-btn plain" style="margin-left: 10rpx">确认接单</button>
+    <view class="main-action  flex-center-end" wx:if="{{personType == 0}}">
+      <button data-type="6" bindtap="userChoose" class="main-btn default" wx:if="{{orderMes.status == 5}}">取消订单</button>
+      <button data-type="1" bindtap="userChoose" class="main-btn plain" wx:if="{{orderMes.status == 5}}">确认报价</button>
+    </view>
+    <view class="main-action  flex-center-end" wx:if="{{personType == 2}}">
+      <button bindtap="cancelOrder" class="main-btn default"  wx:if="{{orderMes.status == 4 || (orderMes.status == 1 && orderMes.pay_status == 0)}}">取消订单</button>
+      <button bindtap="setMoney" class="main-btn plain" wx:if="{{orderMes.status == 4}}">报价</button>
+      <button bindtap="confirmOrder" class="main-btn plain" wx:if="{{orderMes.status == 1 && orderMes.pay_status == 0}}">确认接单</button>
     </view>
 </view>

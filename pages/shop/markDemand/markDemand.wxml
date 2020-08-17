@@ -1,4 +1,9 @@
-<form bindsubmit="formSubmit" class="form">
-    <textarea placeholder="请输入您的需求" name="goods_need_remark" auto-focus/>
-    <button form-type="submit" class="main-btn">提交</button>
+<form class="form">
+    <textarea 
+        placeholder="请输入您的需求" 
+        auto-focus
+        data-name="goods_need_remark"
+        bindinput="onChange"
+    />
+    <button bindtap="formSubmit" class="main-btn">提交</button>
 </form>

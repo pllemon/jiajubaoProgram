@@ -7,8 +7,7 @@ Page({
     personType: 0,
     order_id: '',
     orderMes: {},
-    masterList: [],
-    orderStatus: {},
+    offlineStatus: {}
   },
 
   onLoad(params) {
@@ -17,7 +16,8 @@ Page({
     let personType = params.personType || 0;
     that.setData({
       order_id,
-      personType
+      personType,
+      offlineStatus: app.globalData.offlineStatus,
     })
     that.getInfo();
   },
@@ -77,23 +77,29 @@ Page({
       },
       loadText: '提交中',
       success: function(data) {
-
+        app.successToast('报价成功', function(){
+          that.getInfo()
+        })
       }
     })
   },
 
-  // 用户取消，改
-  userCancel() {
+  // 用户取消
+  userChoose(e) {
     let that = this
+    let type = e.target.dataset.type
+    let mes = type == 1 ? '已确认' : '已取消'
     app.request({
       url: '/userhandleneedorder',
       data: {
-        status: 1, // 1 确认，6取消
+        status: type, // 1 确认，6取消
         order_sn: that.data.orderMes.order_sn
       },
       loadText: '提交中',
       success: function(data) {
-
+        app.successToast(mes, function(){
+          that.getInfo()
+        })
       }
     })
   },

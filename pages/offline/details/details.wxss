@@ -11,7 +11,6 @@
 }
 
 
-
 .main-action{
     padding: 0 30rpx;
     background: #f8f8f8;
@@ -19,7 +18,7 @@
 }
 .main-action .main-btn{
     margin: 20rpx 0;
-    margin-left: 10rpx;
+    margin-left: 14rpx;
     font-size: 28rpx;
 }
 .main-action .service{
@@ -81,4 +80,23 @@
 
 .scroll-view{
     overflow: auto;
+}
+
+
+.need-remark .goods-single{
+    align-items: center;
+}
+.need-remark .image-place{
+    width: 100rpx;
+    height: 100rpx;
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-right: 20rpx;
+    flex-direction: column;
+}
+.need-remark .image-place .iconfont2{
+    font-size: 30px;
+    color: #ccc;
 }

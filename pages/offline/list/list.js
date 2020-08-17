@@ -6,13 +6,15 @@ Page({
     query: {},
     requestUrl: '',
 
-    personType: 0
+    personType: 0,
+    offlineStatus: {}
   },
   onLoad(params) {
     let personType = params.personType || 0;
     let url = personType == 0 ? '/userunlinkorderlist' : '/businessorderlist';
-
+    
     this.setData({
+      offlineStatus: app.globalData.offlineStatus,
       personType: personType,
       requestUrl: url
     })

@@ -514,7 +514,32 @@ const personType = {
   }
 }
 
+
+const offlineStatus = {
+  1: {
+    0: '正常订单',
+    2: '正常订单'
+  },
+  2: {
+    0: '商家已取消',
+    2: '已取消'
+  },
+  3: {
+    0: '删除',
+    2: '删除'
+  },
+  4: {
+    0: '待商家报价',
+    2: '待报价'
+  },
+  5: {
+    0: '待确认',
+    2: '待用户确认'
+  }
+}
+
 module.exports = {
   personMessage,
-  personType
+  personType,
+  offlineStatus
 }
