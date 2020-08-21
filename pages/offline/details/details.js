@@ -42,6 +42,7 @@ Page({
     })
   },
 
+  // 商家取消
   cancelOrder() {
     let that = this
     wx.showModal({
@@ -71,7 +72,7 @@ Page({
     app.request({
       url: '/busofferorder',
       data: {
-        total_price: 400,
+        total_price: 1,
         offer_remark: '44333',
         order_sn: that.data.orderMes.order_sn
       },

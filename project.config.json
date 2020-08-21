@@ -81,7 +81,7 @@
 					"id": 2,
 					"name": "优惠订单详情",
 					"pathName": "pages/offline/details/details",
-					"query": "id=11&personType=2",
+					"query": "id=18&personType=2",
 					"scene": null
 				},
 				{
@@ -89,6 +89,34 @@
 					"name": "商家下单",
 					"pathName": "pages/shop/discount/discount",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠下单",
+					"pathName": "pages/shop/discount/discount",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/order/list/list",
+					"query": "personType=0&showNav=1",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/detail",
+					"query": "id=8&personType=0",
 					"scene": null
 				}
 			]

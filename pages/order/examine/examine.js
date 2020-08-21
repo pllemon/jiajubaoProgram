@@ -96,16 +96,16 @@ Page({
     }
 
     if (form.status == 'TG') {
-      wx.requestSubscribeMessage({
-        tmplIds: [
-          'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI', // 订单状态通知
-          'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
-          'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅维修完成通知
-        ],
-        success () {
+      // wx.requestSubscribeMessage({
+      //   tmplIds: [
+      //     'PCshYOrhnVT6H3pDkcIXFrAJlGzAy8f4Gwat7y54bCI', // 订单状态通知
+      //     'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+      //     'yNr9z5sKxSjBw0H_soe2irpPPu1dSRxjwn0bQ2sUjCE' // 师傅维修完成通知
+      //   ],
+      //   success () {
           that.requestForm(form)
-        }
-      })
+      //  }
+      // })
     } else {
       that.requestForm(form)
     }

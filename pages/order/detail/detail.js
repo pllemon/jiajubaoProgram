@@ -151,13 +151,13 @@ Page({
   // 师傅报名
   masterSignUp() {
     let that = this;
-    wx.requestSubscribeMessage({
-      tmplIds: [
-        'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
-        '5cJNI23NK0uABlWJ3gQ4zoOH6S3snrXYt9TFJSlEa-M', // 客户验收
-        'VAkPVlDzT7OFLDSuaDpocrf8PHT_eS9wCQSVPtehie0', // 店长验收
-      ],
-      success (res) {
+    // wx.requestSubscribeMessage({
+    //   tmplIds: [
+    //     'licae_GE4-PdJSQGH4xnYcfym-xU9FoSBwsRROKfYfI', // 上门服务通知
+    //     '5cJNI23NK0uABlWJ3gQ4zoOH6S3snrXYt9TFJSlEa-M', // 客户验收
+    //     'VAkPVlDzT7OFLDSuaDpocrf8PHT_eS9wCQSVPtehie0', // 店长验收
+    //   ],
+    //   success (res) {
         app.request({
           url: '/craftsmansignup',
           data: {
@@ -169,8 +169,8 @@ Page({
             })
           }
         })
-      }
-    })
+    //   }
+    // })
   },
 
   // 客户支付

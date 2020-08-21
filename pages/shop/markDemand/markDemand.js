@@ -37,7 +37,7 @@ Page({
         app.request({
           url: '/markbusinessorder',
           data: formData,
-          loadText: '提交中',
+          loadText: '下单中',
           success: function(data) {
             app.successToast('下单成功', function(){
               wx.redirectTo({

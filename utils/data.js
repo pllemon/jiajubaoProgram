@@ -239,7 +239,7 @@ const personMessage = {
       7: {
         status: 7,
         label: '未报名',
-        desc: '订单正接受报名，需要请尽快报名哦',
+        desc: '订单正接受报名，请及时报名哦',
         show: false,
         icon: 'icongongcheng-',
         showUser: false,
@@ -269,7 +269,7 @@ const personMessage = {
       1: {
         status: 1,
         label: '待审核',
-        desc: '请尽快联系用户并处理订单',
+        desc: '请及时联系用户并处理订单',
         show: true,
         icon: 'iconshenhe',
         showUser: true,
@@ -535,7 +535,11 @@ const offlineStatus = {
   5: {
     0: '待确认',
     2: '待用户确认'
-  }
+  },
+  6: {
+    0: '已取消',
+    2: '用户已取消'
+  },
 }
 
 module.exports = {

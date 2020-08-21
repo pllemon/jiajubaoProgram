@@ -137,6 +137,7 @@ Page({
     app.request({
       url: '/markorder',
       data: this.data.form,
+      loadText: '提交中',
       success: function(data) {
         app.successToast('创建订单成功', function(){
           wx.reLaunch({

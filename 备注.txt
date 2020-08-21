@@ -357,3 +357,10 @@ admin/networkuserlist 创建时间格式错误
 4. 指派师傅要给师傅发信息
 5. 店长所属网点列表
 6. 
+
+1. 商家取消订单报错(type=2) /businessancelorder   加多个取消原因字段
+4. 用户取消加多个取消原因 /userhandleneedorder
+2. 商家订单加多个状态 1 是商家已接单
+3. 平台费计算错误(id=15,id=16)
+4. 下单成功通知:  你已成功下单,工作人员将与你联系
+5.htremark 审核备注没保存 /networkorderexamine

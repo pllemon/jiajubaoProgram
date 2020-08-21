@@ -136,7 +136,7 @@ Page({
       return false;
     }
     if (!this.data.businessimg.length) {
-      app.showModal('请上传营业执照');
+      app.showModal('请上传宣传图片');
       return false;
     }
     if (this.data.agree.length == 0) {
