@@ -364,3 +364,7 @@ admin/networkuserlist 创建时间格式错误
 3. 平台费计算错误(id=15,id=16)
 4. 下单成功通知:  你已成功下单,工作人员将与你联系
 5.htremark 审核备注没保存 /networkorderexamine
+
+
+商家收不到信息
+选了师傅店长没收到信息
