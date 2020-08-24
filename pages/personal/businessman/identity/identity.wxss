@@ -1,0 +1,5 @@
+.mes-image{
+    width: 180px;
+    height: 120px;
+    display: block;
+}

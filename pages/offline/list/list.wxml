@@ -39,8 +39,8 @@
               </view>
             </view>
           </view>
-          <view class="flex-center-end" wx:if="{{item.type==2 && item.money > 0}}"><text class="cBlack">{{'实付款￥' + item.money}}</text></view>
-          <view class="flex-center-end" wx:if="{{item.type!=2}}">合计￥{{item.money}}，积分抵扣￥{{item.integral}}，<text class="cBlack">实付款￥{{item.money - item.integral}}</text></view>
+          <view class="flex-center-end" wx:if="{{item.type==2 && item.money > 0}}"><text class="cBlack">合计￥{{item.money}}</text></view>
+          <view class="flex-center-end" wx:if="{{item.type!=2}}"><text class="cBlack">合计￥{{item.money}}</text></view>
         </navigator>
       </block>
     </view>

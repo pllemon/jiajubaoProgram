@@ -108,7 +108,7 @@ view{
     background: #f2f2f2;
 }
 .main-btn.danger{
-    background: -webkit-linear-gradient(45deg, #ea5514, #e83828);
+    background: -webkit-linear-gradient(45deg, #ff5643, #fd5240);
 }
 button:after{
     display: none;

@@ -66,22 +66,10 @@ Page({
     })
   },
 
-  // 报价，改
+  // 报价
   setMoney() {
-    let that = this
-    app.request({
-      url: '/busofferorder',
-      data: {
-        total_price: 1,
-        offer_remark: '44333',
-        order_sn: that.data.orderMes.order_sn
-      },
-      loadText: '提交中',
-      success: function(data) {
-        app.successToast('报价成功', function(){
-          that.getInfo()
-        })
-      }
+    wx.navigateTo({
+      url: '/pages/offline/examine/examine?order_sn=' + this.data.orderMes.order_sn
     })
   },
 

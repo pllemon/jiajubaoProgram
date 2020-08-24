@@ -1,0 +1,8 @@
+var fnToFixed = function(num){
+  num = parseFloat(num).toFixed(2);
+  return num;
+};
+
+module.exports = {
+  fnToFixed : fnToFixed
+}

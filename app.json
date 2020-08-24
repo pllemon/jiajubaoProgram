@@ -23,6 +23,7 @@
     "pages/offline/confirm/confirm",
     "pages/offline/list/list",
     "pages/offline/details/details",
+    "pages/offline/examine/examine",
     
     "pages/personal/index/index",
     "pages/personal/user/share/share",

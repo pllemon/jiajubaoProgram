@@ -28,6 +28,10 @@ Component({
     label2: {
       type: String,
       value: ''
+    },
+    needPad: {
+      type: Boolean,
+      value: true 
     }
   },
   data: {
@@ -36,7 +40,7 @@ Component({
   methods: {
     preview() {
       if (this.properties.preview) {
-        let imgSrc = 'https://www.dsfjjwx.com/' + this.properties.src
+        let imgSrc = this.properties.needPad ? 'https://www.dsfjjwx.com/' + this.properties.src : this.properties.src
         wx.previewImage({
           current: imgSrc,
           urls: [imgSrc]

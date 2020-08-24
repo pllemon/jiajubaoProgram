@@ -459,6 +459,11 @@ const personType = {
     icon: '/image/icon/master.svg',
     action: [
       {
+        icon: 'icon-bussinesscard',
+        text: '我的资料',
+        url: '/pages/personal/master/identity/identity?readonly=1'
+      },
+      {
         icon: 'icon-form',
         text: '接单记录',
         url: '/pages/order/list/list?personType=1'
@@ -467,18 +472,18 @@ const personType = {
         icon: 'icon-trade',
         text: '订单佣金',
         url: '/pages/personal/wages/applyRecord/applyRecord'
-      },
-      // {
-      //   icon: 'icon-bussinesscard',
-      //   text: '我的资料',
-      //   url: '/pages/personal/master/identity/identity?readonly=1'
-      // }
+      }
     ]
   },
   2: {
     text: '我是商家',
     icon: '/image/icon/business.svg',
     action: [
+      {
+        icon: 'icon-bussinesscard',
+        text: '我的资料',
+        url: '/pages/personal/businessman/identity/identity?readonly=1'
+      },
       {
         icon: 'icon-form',
         text: '优惠订单',
@@ -488,12 +493,7 @@ const personType = {
         icon: 'icon-similarproduct',
         text: '优惠商品',
         url: '/pages/personal/businessman/goods/goods'
-      },
-      // {
-      //   icon: 'icon-bussinesscard',
-      //   text: '我的资料',
-      //   url: '/pages/personal/businessman/identity/identity?readonly=1'
-      // }
+      }
     ]
   },
   3: {
@@ -517,8 +517,8 @@ const personType = {
 
 const offlineStatus = {
   1: {
-    0: '正常订单',
-    2: '正常订单'
+    0: '待商家接单',
+    2: '待接单'
   },
   2: {
     0: '商家已取消',
@@ -540,6 +540,10 @@ const offlineStatus = {
     0: '已取消',
     2: '用户已取消'
   },
+  7: {
+    0: '商家已接单',
+    2: '已接单'
+  }
 }
 
 module.exports = {

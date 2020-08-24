@@ -14,16 +14,32 @@ Page({
 
     form: {
       name: '',
-      phone: ''
+      phone: '',
+      address: ''
     },
 
     addressInfo: null,
     showLocationDialog: false,
+    readonly: 0
   },
 
-  onLoad () {
+  onLoad (params) {
     let that = this;
-    common.getLocation(that);
+
+    this.setData({
+      readonly: params.readonly || 0
+    })
+
+    if (params.readonly) {
+      wx.setNavigationBarTitle({
+        title: '我的资料'
+      })
+    } else {
+      common.getLocation(that);
+      wx.setNavigationBarTitle({
+        title: '商家申请'
+      })
+    }
 
     const businessinfo = app.globalData.loginInfo.businessinfo
     if (businessinfo) {

@@ -15,17 +15,34 @@ Page({
       sfz: '',
       phone: '',
       enter_time: '',
-      desc: ''
+      desc: '',
+      address: ''
     },
 
     caridimg: [],
     caridzimg: [],
-    caridfimg: []
+    caridfimg: [],
+    
+    readonly: 0
   },
 
-  onLoad () {
+  onLoad (params) {
     let that = this;
-    common.getLocation(that);
+    this.setData({
+      readonly: params.readonly || 0
+    })
+
+    
+    if (params.readonly) {
+      wx.setNavigationBarTitle({
+        title: '我的资料'
+      })
+    } else {
+      common.getLocation(that);
+      wx.setNavigationBarTitle({
+        title: '师傅申请'
+      })
+    }
 
     const craftsmannfo = app.globalData.loginInfo.craftsmannfo
     console.log(craftsmannfo)

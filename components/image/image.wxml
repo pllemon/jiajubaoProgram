@@ -1,7 +1,7 @@
 <view class="gd-image" style="width:{{width}};height:{{height}}">
     <image 
         wx:if="{{src}}" 
-        src="https://www.dsfjjwx.com/{{src}}" 
+        src="{{needPad ? 'https://www.dsfjjwx.com/' + src : src}}" 
         mode="{{mode}}" 
         lazy-load="{{true}}"
         bindtap="preview"

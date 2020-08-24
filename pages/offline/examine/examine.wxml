@@ -1,0 +1,29 @@
+<form class="form" style="padding-bottom: 50rpx">
+    <van-cell-group>
+        <van-field
+            type="number"
+            input-class="input-field"
+            value="{{ form.total_price }}"
+            required
+            label="订单总价"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="form.total_price"
+            bind:change="onChange"
+        />
+        <van-field
+            value="{{ form.offer_remark }}"
+            label="报价说明"
+            type="textarea"
+            placeholder="请输入"
+            title-width="100px"
+            required
+            autosize
+            border="{{ false }}"
+            data-name="form.offer_remark"
+            bind:change="onChange"
+        />
+    </van-cell-group>
+
+    <button bindtap="formSubmit" class="main-btn">提交</button>
+</form>

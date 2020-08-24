@@ -8,6 +8,7 @@
             placeholder="请输入"
             title-width="100px"
             data-name="name"
+            readonly="{{readonly}}"
             bind:change="onChange"
         />
         <van-field
@@ -18,6 +19,7 @@
             title-width="100px"
             data-name="sfz"
             type="idcard"
+            readonly="{{readonly}}"
             bind:change="onChange"
         />
         <van-field
@@ -28,6 +30,7 @@
             title-width="100px"
             data-name="phone"
             type="number"
+            readonly="{{readonly}}"
             bind:change="onChange"
         />
         <van-field
@@ -38,9 +41,20 @@
             title-width="100px"
             data-name="enter_time"
             type="number"
+            readonly="{{readonly}}"
             bind:change="onChange"
         />
-        <van-cell title="联系地址" title-width="100px" required>
+        <van-field
+            value="{{ form.address }}"
+            required
+            label="联系地址"
+            title-width="100px"
+            readonly
+            type="textarea"
+            autosize
+            wx:if="{{readonly}}"
+        />
+        <van-cell title="联系地址" title-width="100px" required  wx:if="{{!readonly}}">
             <block wx:if="{{addressInfo}}">
                 <view class="flex" style="color:#323233;align-items:flex-start" bindtap="chooseAddress">
                     <text class="flex1">{{addressInfo.address}}</text>
@@ -58,15 +72,16 @@
             value="{{ form.desc }}"
             label="个人简介"
             type="textarea"
-            placeholder="请输入"
+            placeholder="{{readonly ?'' : '请输入'}}"
             title-width="100px"
             autosize
             border="{{ false }}"
             data-name="desc"
+            readonly="{{readonly}}"
             bind:change="onChange"
         />
     </van-cell-group>
-    <van-cell-group title="身份证图片" class="upload-content">
+    <van-cell-group title="身份证图片" class="upload-content" wx:if="{{!readonly}}">
         <van-cell title="手持证件照" title-width="100px" required>
             <van-uploader data-type="caridimg" file-list="{{ caridimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </van-cell>
@@ -78,10 +93,10 @@
         </van-cell>
     </van-cell-group>
 
-    <checkbox-group class="agree flex-center-start"  bindchange="checkboxChange">
+    <checkbox-group class="agree flex-center-start"  bindchange="checkboxChange"  wx:if="{{!readonly}}">
         <checkbox value="1" checked="{{false}}" color="#ff5643"/>
         <view>我已认真阅读并同意<text class="text" bindtap="readDoc">师傅入驻协议书</text></view>
     </checkbox-group>
 
-    <button form-type="submit" class="main-btn">提交</button>
+    <button form-type="submit" class="main-btn"  wx:if="{{!readonly}}">提交</button>
 </form>

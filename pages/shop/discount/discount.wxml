@@ -1,3 +1,5 @@
+<wxs src="../../../utils/filter.wxs" module="filters"></wxs>
+
 <view class="full-layout">
   <view bindtap="markDemand" class="tips">没有找到合适的商品？可点击这填写你的需求 ></view>
   <common-scroll
@@ -37,10 +39,10 @@
       <view class="money">
         <text wx:if="{{!maxintegral}}">合计：</text>
         <text wx:if="{{maxintegral}}">优惠价：</text>
-        <text style="color: #ff5643">￥{{sum - maxintegral}}</text>
-        <text wx:if="{{maxintegral}}" style="color: #868686;font-size:26rpx;text-decoration:line-through;margin-left:10rpx">￥{{sum}}</text>
+        <text style="color: #ff5643">￥{{filters.fnToFixed(sum - maxintegral)}}</text>
+        <text wx:if="{{maxintegral}}" style="color: #868686;font-size:26rpx;text-decoration:line-through;margin-left:10rpx">￥{{filters.fnToFixed(sum)}}</text>
       </view>
-      <view wx:if="{{maxintegral}}" class="jf">共{{sumintegral}}积分，已使用{{maxintegral}}积分抵扣{{maxintegral}}元</view>
+      <view wx:if="{{maxintegral}}" class="jf">共{{sumintegral}}积分，已使用{{maxintegral}}积分抵扣{{filters.fnToFixed(maxintegral)}}元</view>
     </view>
     <button class="main-btn {{!sum?'disable':''}}" bindtap="makeOrder">下单</button>
   </view>

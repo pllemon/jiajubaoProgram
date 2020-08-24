@@ -142,7 +142,7 @@
 
 .form .van-cell-group__title{
   font-size: 16px !important;
-  color: #ff5643 !important;
+  color: #353535 !important;
   padding: 16px !important;
 }
 .form .van-cell{

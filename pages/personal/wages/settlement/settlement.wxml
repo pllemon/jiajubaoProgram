@@ -25,8 +25,8 @@
   </common-scroll>
   
   <view class="page-action">
-    <button bindtap="goRecord" class="main-btn flex1 plain" data-type="1" bindtap="applyRecord">提现记录</button>
-    <button bindtap="applyNow" class="main-btn flex1 disable" data-type="2">立即提现</button>
+    <button bindtap="goRecord" class="main-btn flex1 default" data-type="1" bindtap="applyRecord">提现记录</button>
+    <button bindtap="applyNow" class="main-btn flex1 {{sumprofit>20?'default':'disable'}}" data-type="2">立即提现</button>
   </view>
 </view>
 
