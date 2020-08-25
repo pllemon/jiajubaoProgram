@@ -21,7 +21,7 @@ Page({
         let sumprofit = param.sumprofit || 0
         let maxPoint = 0
         if (personType == 0) {
-            maxPoint = parseInt(sumprofit/10)
+            maxPoint = parseInt(sumprofit/10) * 10
         }
         this.setData({
             personType,
@@ -109,20 +109,27 @@ Page({
 
     userApply() {
         let that = this;
-        let data = that.data.form;
-        data.pay_type = this.data.radio;
-        data.money = this.data.point;
-        app.request({
-          url: '/userwithdrawal',
-          data,
-          loadText: '提交中',
-          success: function() {
-            app.successToast('提交成功', function(){
-                wx.redirectTo({
-                    url: '/pages/personal/wages/settlementRecord/settlementRecord'
+        wx.requestSubscribeMessage({
+            tmplIds: [
+              'bjdKRflGQS_3FMLZaXCksHQrU_hr5humjNZe_tpqGU4',
+            ],
+            success (res) {
+                let data = that.data.form;
+                data.pay_type = this.data.radio;
+                data.money = this.data.point;
+                app.request({
+                  url: '/userwithdrawal',
+                  data,
+                  loadText: '提交中',
+                  success: function() {
+                    app.successToast('提交成功', function(){
+                        wx.redirectTo({
+                            url: '/pages/personal/wages/settlementRecord/settlementRecord'
+                        })
+                    })
+                  }
                 })
-            })
-          }
+            }
         })
     }
 })

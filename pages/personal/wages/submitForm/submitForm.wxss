@@ -2,3 +2,6 @@
     margin-top: 14rpx;
     margin-right: 30rpx;
 }
+.stepper-input{
+    width: 80px !important;
+}

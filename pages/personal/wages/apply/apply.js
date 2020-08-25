@@ -16,6 +16,13 @@ Page({
       this.setData({
         query
       })
+      wx.setNavigationBarTitle({
+        title: '二期佣金申请'
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '一期佣金申请'
+      })
     }
     this.selectComponent("#list").getData(1);
   },

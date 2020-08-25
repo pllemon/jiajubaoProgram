@@ -105,8 +105,9 @@ Page({
     app.request({
       url: url,
       data: form,
+      loadText: '提交中',
       success: function(data) {
-        app.successToast('上传成功', function(){
+        app.successToast('提交成功', function(){
           let pages = getCurrentPages();
           let beforePage = pages[pages.length - 2];
           beforePage.getInfo();

@@ -368,3 +368,11 @@ admin/networkuserlist 创建时间格式错误
 
 商家收不到信息
 选了师傅店长没收到信息
+
+
+
+
+
+0825
+/admin/craftsmansettlement  添加流水号字段
+/admin/userprofit 字段修改

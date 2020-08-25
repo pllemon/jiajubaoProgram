@@ -19,6 +19,6 @@
         </view>
     </common-scroll>
     <view class="page-action flex-center-end" wx:if="{{list.length}}">
-        <button bindtap="applyNow" class="main-btn flex1">一键申请</button>
+        <button bindtap="applyNow" class="main-btn flex1">一键申请（{{query.pay_status_code == 'GETTOW'?'二期占比20%':'一期占比80%'}}）</button>
     </view>
 </view>

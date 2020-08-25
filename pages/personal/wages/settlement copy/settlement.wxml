@@ -19,8 +19,8 @@
         </view>
     </common-scroll>
     <view class="page-action flex-center-end" wx:if="{{list.length}}">
-        <button bindtap="openPopup" class="main-btn" wx:if="{{query.pay_status_code == 'GETONE'}}">申请一期</button>
-        <button bindtap="openPopup" class="main-btn" wx:else>申请二期</button>
+        <button bindtap="openPopup" class="main-btn default" wx:if="{{query.pay_status_code == 'GETONE'}}">申请一期</button>
+        <button bindtap="openPopup" class="main-btn default" wx:else>申请二期</button>
     </view>
 </view>
 <van-popup
