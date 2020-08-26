@@ -16,7 +16,9 @@
           <image src="/image/example/vip.png" mode="aspectFit" style="width:30rpx;height:30rpx;margin-right:10rpx"></image>
           <text>平台专属邀请码 {{userInfo.invitation_code}}</text>
         </view>
-        <text class="sign">立即邀请</text>
+        <button class="sign" open-type="share">
+          <text>立即邀请</text>
+        </button>
       </view>
     </view>
     <van-tabs 
@@ -36,6 +38,21 @@
   <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1) || currType == 3}}">
     <!-- 操作列表 -->
     <view class="action-list">
+      <!-- <view class="type-number">
+        <view>
+          <text class="number">152</text>
+          <text>所有</text>
+        </view>
+        <view>
+          <text class="number">20</text>
+          <text>待审核</text>
+        </view>
+        <view>
+          <text class="number">48</text>
+          <text>待验收</text>
+        </view>
+      </view> -->
+
       <block wx:for="{{personType[currType].action}}" wx:key="index">
         <van-cell 
           wx:if="{{item.url}}"

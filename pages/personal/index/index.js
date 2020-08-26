@@ -165,5 +165,14 @@ Page({
   bindAction(e) {
     let action = e.currentTarget.dataset.action;
     this[action]();
+  },
+
+  // 分享
+  onShareAppMessage: function (res) {
+    return {
+      title: '多师傅，专业维修平台',
+      path: '/pages/login/login?invitation_code=' + app.globalData.loginInfo.invitation_code,
+      imageUrl: ''
+    }
   }
 })

@@ -376,3 +376,7 @@ admin/networkuserlist 创建时间格式错误
 0825
 /admin/craftsmansettlement  添加流水号字段
 /admin/userprofit 字段修改
+/userwithdrawal 报错
+立即邀请的分享图
+/craftsmanorderlist 数据错误
+待分配1、待发布3、待派单4、待审核一期0、待审核二期0、待审核客户提现1、师傅待审核2、商家待审核2

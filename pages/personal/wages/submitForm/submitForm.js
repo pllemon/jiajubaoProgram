@@ -115,8 +115,8 @@ Page({
             ],
             success (res) {
                 let data = that.data.form;
-                data.pay_type = this.data.radio;
-                data.money = this.data.point;
+                data.pay_type = that.data.radio;
+                data.money = that.data.point;
                 app.request({
                   url: '/userwithdrawal',
                   data,

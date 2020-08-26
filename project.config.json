@@ -92,10 +92,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
-					"query": "",
+					"query": "type=3",
 					"scene": null
 				},
 				{
