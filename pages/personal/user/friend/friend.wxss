@@ -14,5 +14,5 @@
     margin-right: 10rpx;
     font-size: 34rpx;
     color: #353535;
-    font-weight: 500;
+    font-weight: bold;
 }

@@ -1,7 +1,10 @@
+<wxs src="../../../../utils/filter.wxs" module="filters"></wxs>
+
 <view class="full-layout">
   <view class="blue-header flex-column-center">
-    <view>当前收益</view>
-    <view class="total">{{sumprofit}}</view>
+    <view>当前可提现收益</view>
+    <view class="total">￥{{filters.fnToFixed(canusemoney)}}</view>
+    <!-- <view>冻结收益 ￥{{filters.fnToFixed(sumprofit - canusemoney)}}</view> -->
   </view>
 
   <common-scroll
@@ -14,67 +17,19 @@
     specialData="{{true}}"
     bind:change = "changeList"
   >
-    <view class="order-list">
-      <view wx:for="{{list}}" wx:key="index" class="order-single">
-          <view class="category">{{item.service_demand}}</view>
-          <view>申请时间：{{item.address}}</view>
-          <view>申请金额：{{item.success_time}}</view>
-          <view>申请状态：{{item.craftsman_price}}</view>
+    <view class="record-list">
+      <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
+        <view>
+          <view>完成订单</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+        <view class="points">{{'+' + item.money}}</view>
       </view>
     </view>
   </common-scroll>
   
   <view class="page-action">
-    <button bindtap="goRecord" class="main-btn flex1 default" data-type="1" bindtap="applyRecord">提现记录</button>
-    <button bindtap="applyNow" class="main-btn flex1 {{sumprofit>20?'default':'disable'}}" data-type="2">立即提现</button>
+    <button bindtap="applyRecord" class="main-btn flex1 default" style="margin-left:0">提现记录</button>
+    <button bindtap="applyNow" class="main-btn flex1 {{canusemoney>20?'default':'disable'}}">立即提现</button>
   </view>
 </view>
-
-
-<van-popup
-  show="{{ isPopup }}"
-  position="top"
-  bind:close="closePopup"
->
-    <form bindsubmit="apply" class="form" style="padding: 30rpx">
-        <van-cell-group title="基础资料">
-            <van-cell title="提现方式" title-width="100px" required>
-                <van-radio-group value="{{ radio }}" bind:change="changeType">
-                    <van-radio name="2" checked-color="#ff5643" custom-class="radio-single">银行卡</van-radio>
-                    <van-radio name="1" checked-color="#ff5643" custom-class="radio-single">支付宝</van-radio>
-                </van-radio-group>
-            </van-cell>
-            <van-field
-                input-class="input-field"
-                value="{{ form.pay_name }}"
-                required
-                label="提现账号"
-                placeholder="请输入"
-                title-width="100px"
-                data-name="pay_name"
-                bind:change="onChange"
-            />
-            <van-field
-                input-class="input-field"
-                value="{{ form.pay_username }}"
-                required
-                label="真实姓名"
-                placeholder="请输入"
-                title-width="100px"
-                data-name="pay_username"
-                bind:change="onChange"
-            />
-            <van-field
-                input-class="input-field"
-                value="{{ form.pay_name }}"
-                required
-                label="提现金额"
-                placeholder="请输入"
-                title-width="100px"
-                data-name="pay_name"
-                bind:change="onChange"
-            />
-        </van-cell-group>
-        <button form-type="submit" class="main-btn">提交</button>
-    </form>
-</van-popup>

@@ -39,8 +39,7 @@
               </view>
             </view>
           </view>
-          <view class="flex-center-end" wx:if="{{item.type==2 && item.money > 0}}"><text class="cBlack">合计￥{{item.money}}</text></view>
-          <view class="flex-center-end" wx:if="{{item.type!=2}}"><text class="cBlack">合计￥{{item.money}}</text></view>
+          <view class="flex-center-end" wx:if="{{item.money > 0}}"><text class="money">￥{{item.money}}</text></view>
         </navigator>
       </block>
     </view>

@@ -186,9 +186,9 @@ van-icon{
   margin: 20rpx;
 }
 .order-single .category{
-  font-size: 17px;
+  font-size: 16px;
   color: #353535;
-  font-weight: 500;
+  font-weight: bold;
   margin-bottom: 6rpx;
 }
 .order-single .status{
@@ -301,7 +301,7 @@ van-icon{
 
 .goods-single .name{
   color: #353535;
-  font-size: 32rpx;
+  font-size: 16px;
   margin-bottom: 10rpx;
 }
 /*  ———————————————————— */

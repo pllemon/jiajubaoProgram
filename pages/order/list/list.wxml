@@ -60,7 +60,8 @@
               <view class="label green" wx:if="{{item.networkname}}">{{item.networkname}}</view>
               <view class="label red" wx:if="{{item.urgent}}">加急</view>
             </view>
-            <view class="money">￥{{item.craftsman_price}}</view>
+            <view class="money" wx:if="{{personType == 1 && item.craftsman_price > 0}}">￥{{item.craftsman_price}}</view>
+            <view class="money" wx:if="{{personType != 1 && item.total_price > 0}}">￥{{item.total_price}}</view>
           </view>
         </navigator>
       </block>

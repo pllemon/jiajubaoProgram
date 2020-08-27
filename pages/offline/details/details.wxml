@@ -54,6 +54,10 @@
             </view>
           </view>
           <view class="message" style="margin-top: 20rpx;" wx:if="{{orderMes.money>0}}">
+            <view wx:if="{{orderMes.offer_remark}}">
+              <text style="flex-shrink:0">报价说明：</text>
+              <text>{{orderMes.offer_remark}}</text>
+            </view>
             <view>
               <text>合计:</text>
               <text>￥{{orderMes.money}}</text>
@@ -89,9 +93,13 @@
               <text>接单时间:</text>
               <text>{{orderMes.pay_time}}</text>
             </view>
-            <view wx:if="{{orderMes.cancel_time}}">
+            <view wx:if="{{orderMes.status == 2 && orderMes.cancel_time}}">
               <text>取消时间:</text>
               <text>{{orderMes.cancel_time}}</text>
+            </view>
+            <view wx:if="{{orderMes.status == 6 && orderMes.handle_time}}">
+              <text>取消时间:</text>
+              <text>{{orderMes.handle_time}}</text>
             </view>
           </view>
         </view>

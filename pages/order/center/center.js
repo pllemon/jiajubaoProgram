@@ -3,13 +3,16 @@ const app = getApp();
 Page({
   data: {
     list: [],
-    query: {},
+    query: {
+      service_id: '',
+      release_time: 'desc'
+    },
     tabIndex: -1,
 
     sortOptions: [
-      { text: '默认排序', value: 0 },
-      { text: '上门时间排序', value: 2 },
-      { text: '佣金排序', value: 3 },
+      { text: '按发布时间排序', value: 0 },
+      { text: '按上门时间排序', value: 1 },
+      { text: '佣金从多到少', value: 2 },
     ],
     typeOptions: [
       { text: '全部服务类目', value: 0 }
@@ -53,16 +56,26 @@ Page({
 
   // 改变排序条件
   changeSort(value) {
-    // this.setData({
-    //   sortValue: value
-    // })
+    let idx = value.detail
+    let sortName = [
+      {name: 'release_time', value: 'desc'},
+      {name: 'appo_time', value: 'desc'},
+      {name: 'craftsman_price', value: 'desc'},
+    ]
+    let query = {
+      service_id: this.data.query.service_id,
+    }
+    query[sortName[idx].name] = sortName[idx].value
+    this.setData({
+      query
+    })
     this.selectComponent("#list").getData(1);
   },
 
   chooseType(value) {
-    // this.setData({
-    //   typeValue: value
-    // })
+    this.setData({
+      'query.service_id': value.detail || ''
+    })
     this.selectComponent("#list").getData(1);
   }
 })

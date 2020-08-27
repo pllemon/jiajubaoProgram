@@ -2,11 +2,11 @@
     font-size: 13px;
 }
 .blue-header .iconfont{
-    font-size: 46px;
+    font-size: 40px;
     top: 0px;
 }
 .blue-header .title{
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 2px;
 }
 
@@ -54,9 +54,9 @@
 
 
 .money{
-    font-size: 22px;
+    font-size: 20px;
     color:#ff5643;
-    font-weight: 500;
+    /* font-weight: bold; */
 }
 
 /* 0218 */

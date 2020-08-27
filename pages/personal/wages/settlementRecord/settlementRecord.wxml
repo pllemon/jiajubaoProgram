@@ -5,14 +5,21 @@
     request-url="{{requestUrl}}"
     query="{{query}}"
     isPaging="{{true}}"
+    specialData="{{true}}"
+    auto="{{true}}"
     bind:change = "changeList"
   >
     <view class="order-list">
       <view wx:for="{{list}}" wx:key="index" class="order-single">
-          <view class="category">{{item.service_demand}}</view>
-          <view>申请时间：{{item.address}}</view>
-          <view>申请金额：{{item.success_time}}</view>
-          <view>申请状态：{{item.craftsman_price}}</view>
+          <view class="category">收益提现</view>
+          <view class="status cGray" wx:if="{{item.status == 1}}"><text></text>待处理</view>
+          <view class="status cGreen" wx:if="{{item.status == 2}}"><text></text>已发放</view>
+          <view class="status cRed" wx:if="{{item.status == 3}}"><text></text>已驳回</view>
+          <view class="mes">申请时间：{{item.createtime}}</view>
+          <view class="mes">提现金额：{{item.money}}</view>
+          <view class="mes">提现账号：{{item.pay_name}}</view>
+          <view class="mes">真实姓名：{{item.pay_username}}（{{item.pay_type == 2?'银行卡':'支付宝'}}）</view>
+          <view class="mes" wx:if="{{item.shremark}}">审核备注：{{item.shremark}}</view>
       </view>
     </view>
   </common-scroll>

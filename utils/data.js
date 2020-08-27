@@ -117,7 +117,7 @@ const personMessage = {
       10: {
         status: 10,
         label: '审核不通过',
-        desc: '订单审核不通过，欢迎再次下单',
+        desc: '订单审核不通过，已关闭',
         show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
@@ -130,7 +130,7 @@ const personMessage = {
       11: {
         status: 11,
         label: '已取消',
-        desc: '订单已取消，欢迎再次下单',
+        desc: '订单已取消',
         show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
@@ -142,8 +142,21 @@ const personMessage = {
       },
       12: {
         status: 12,
-        label: '已过期',
-        desc: '订单已过期，欢迎再次下单',
+        label: '超时未付款',
+        desc: '订单超时未付款，已关闭',
+        show: false,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: false,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false,
+        color: 'cGray'
+      },
+      14: {
+        status: 14,
+        label: '超时未审核',
+        desc: '订单超时未审核，已关闭',
         show: false,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,
@@ -329,7 +342,7 @@ const personMessage = {
       6: {
         status: 6,
         label: '待客户验收',
-        desc: '师傅已完成施工，待客户检查验收',
+        desc: '师傅已完成施工，待客户验收',
         show: true,
         icon: 'iconqianbao',
         showUser: true,
@@ -388,8 +401,20 @@ const personMessage = {
       },
       12: {
         status: 12,
-        label: '已过期',
-        desc: '订单已过期',
+        label: '超时未付款',
+        desc: '订单超时未付款，已关闭',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      14: {
+        status: 14,
+        label: '超时未审核',
+        desc: '订单超时未审核，已关闭',
         show: true,
         icon: 'iconiconfontzhizuobiaozhun0262',
         showUser: true,

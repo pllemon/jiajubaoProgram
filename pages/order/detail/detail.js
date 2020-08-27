@@ -352,18 +352,26 @@ Page({
   },
   cancelOrder() {
     let that = this
-    that.closePopup()
-    app.request({
-      loadText: '提交中',
-      url: '/usercancelorder',
-      data: {
-        order_id: that.data.order_id,
-        cancelremark: that.data.cancelremark
-      },
-      success: function(data) {
-        app.successToast('取消成功', function(){
-          that.getInfo();
-        })
+    // that.closePopup()
+    wx.showModal({
+      content: '确定取消该订单？',
+      success (res) {
+        if (res.confirm) {
+          app.request({
+            loadText: '提交中',
+            url: '/usercancelorder',
+            data: {
+              order_id: that.data.order_id,
+              cancelremark: ''
+              // cancelremark: that.data.cancelremark
+            },
+            success: function(data) {
+              app.successToast('取消成功', function(){
+                that.getInfo();
+              })
+            }
+          })
+        }
       }
     })
   },

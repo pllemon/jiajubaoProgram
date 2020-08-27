@@ -11,7 +11,7 @@ Page({
 
   changeList(e) {
     this.setData({
-      list: e.detail
+      list: e.detail.list || []
     })
   }
 })

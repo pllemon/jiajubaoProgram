@@ -95,7 +95,7 @@
 					"id": 4,
 					"name": "个人中心",
 					"pathName": "pages/personal/index/index",
-					"query": "type=3",
+					"query": "type=0",
 					"scene": null
 				},
 				{
@@ -145,6 +145,27 @@
 					"name": "我的收益",
 					"pathName": "pages/personal/wages/settlement/settlement",
 					"query": "id=34&personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/center/center",
+					"pathName": "抢单中心",
+					"query": "type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抢单中心",
+					"pathName": "pages/order/center/center",
+					"query": "type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抢单中心",
+					"pathName": "pages/order/center/center",
+					"query": "type=0",
 					"scene": null
 				}
 			]
