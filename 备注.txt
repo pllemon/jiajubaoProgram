@@ -390,3 +390,25 @@ admin/networkuserlist 创建时间格式错误
 /graborderlist 添加搜索条件（服务类目、排序->发布时间、上门时间、佣金从大到小）、返回网点名称
 我的积分去掉购买获得积分这一项
 /userorderlist 返回订单金额
+
+
+
+0828
+/admin/savecraftsmanstatus 禁用错把is_business改了
+/admin/craftsmanexamine 自己填工号sn（不用自动生成了）
+/admin/userinfo 返回钱和积分数
+/admin/userprofit 返回下级的姓名
+/userwithdrawallist 报错，加状态搜索
+/craftsmancashoutlist 加状态搜索
+
+/admin/businesslist 返回商品数量
+/admin/businessgoodslist 返回店铺名、搜索条件：店铺名、状态
+/admin/businessorderlist    status搜索无效
+/admin/craftsmansettlementlist 搜索添加收款账号
+/admin/userwithdrawallist 搜索条件：姓名、手机号、结算状态、收款账号 
+/admin/transactionlog 搜索条件：流水号、类型、时间范围、网点，   返回网点名称
+/admin/expendituretransaction 搜索条件：流水号、类型、时间范围、网点、订单编号，   返回网点名称
+
+
+
+看看后台账号分配怎么搞才好

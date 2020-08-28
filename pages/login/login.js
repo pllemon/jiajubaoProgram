@@ -184,6 +184,7 @@ Page({
         app.request({
           url,
           data: formData,
+          loadText: '提交中',
           success: function(data) {
             that.formReset();
             if (that.data.formType == 0) {
