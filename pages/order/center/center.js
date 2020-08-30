@@ -39,6 +39,7 @@ Page({
     app.request({
       url: '/getconfig',
       method: 'GET',
+      hideLoading: true,
       data: {},
       success: function(data) {
         console.log(data)

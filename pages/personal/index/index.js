@@ -172,7 +172,7 @@ Page({
     return {
       title: '多师傅，专业维修平台',
       path: '/pages/login/login?invitation_code=' + app.globalData.loginInfo.invitation_code,
-      imageUrl: ''
+      imageUrl: '/image/example/cx.jpg'
     }
   }
 })

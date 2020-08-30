@@ -532,7 +532,7 @@ const personType = {
       },
       {
         icon: 'icon-form',
-        text: '网点订单',
+        text: '本店订单',
         url: '/pages/order/list/list?personType=3'
       },
     ]

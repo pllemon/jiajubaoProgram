@@ -394,10 +394,10 @@ admin/networkuserlist 创建时间格式错误
 
 
 0828
-/admin/savecraftsmanstatus 禁用错把is_business改了
-/admin/craftsmanexamine 自己填工号sn（不用自动生成了）
-/admin/userinfo 返回钱和积分数
-/admin/userprofit 返回下级的姓名
+/admin/savecraftsmanstatus 禁用错把is_business改了 ok
+/admin/craftsmanexamine 自己填工号sn（不用自动生成了）ok
+/admin/userinfo 返回钱和积分数 ok
+/admin/userprofit 返回下级的姓名 ok
 /userwithdrawallist 报错，加状态搜索
 /craftsmancashoutlist 加状态搜索
 
@@ -409,6 +409,44 @@ admin/networkuserlist 创建时间格式错误
 /admin/transactionlog 搜索条件：流水号、类型、时间范围、网点，   返回网点名称
 /admin/expendituretransaction 搜索条件：流水号、类型、时间范围、网点、订单编号，   返回网点名称
 
+商家取消订单没有给用户发，确认接单也没有发
+类型为2的商家订单，商家没报价前取消会报错
 
 
-看看后台账号分配怎么搞才好
+--------------------------------------
+20200829
+案例广场
+开工图 -》时间
+竣工图 -> 时间
+
+
+师傅
+订单佣金 =〉施工报价（改文字）
+师傅能看到报价单（两个）
+
+
+师傅完工要上传一张照片（加）
+上传完工图、报价单、增项费用、增项说明
+用户验收有增项则支付
+增项加入到总价中
+ 
+
+网点月统计：某个网点 按月统计  一共接了多少个单
+
+
+
+师傅月统计：一期单和二期单（结算时间为止）
+公告加多个跳转链接
+轮播图加多个跳转链接
+
+
+每个店最多10个商品，可以删除可以下架
+申请时多填个链接
+
+
+
+
+后台可以修改项目
+如果一周内无回复，订单自动取消
+商家关联网点
+----------------------------------------------

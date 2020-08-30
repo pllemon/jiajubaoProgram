@@ -6,8 +6,7 @@
 	height: 100%;
 	background: #fff;
 }
-.gd-image .label,
-.gd-image .label2{
+.gd-image .label{
 	position: absolute;
 	bottom: 6rpx;
 	right: 6rpx;
@@ -18,5 +17,12 @@
 	border-radius: 4rpx;
 }
 .gd-image .label2{
-	background: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	font-size: 12px;
+	background: rgba(0, 0, 0, 0.7);
+	text-align: center;
 }

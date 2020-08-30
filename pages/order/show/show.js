@@ -16,7 +16,8 @@ Page({
       imgurl4: ''
     },
     maxCount: 1,
-    title: '添加施工前图片'
+    title: '开工图',
+    number: 1
   },
 
   onLoad(params) {
@@ -24,18 +25,21 @@ Page({
     let form = this.data.form
     let maxCount = this.data.form
     let title = this.data.title
+    let number = this.data.number
     form.order_id = params.order_id
     if (params.number == 2) {
       form.number = params.number
+      number = 2
       id = params.id
       maxCount = 1
-      title = "添加施工后图片"
+      title = "完工图"
     }
     this.setData({
       form,
       id,
       maxCount,
-      title
+      title,
+      number
     })
     if (form.number) {
       this.getDetails()

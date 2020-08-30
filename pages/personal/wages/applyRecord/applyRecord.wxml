@@ -1,5 +1,5 @@
 <view class="full-layout">
-  <van-tabs 
+  <!-- <van-tabs 
       color="#ff5643"
       active="{{currType}}"
       custom-class="gd-tabs"
@@ -10,7 +10,7 @@
     <block wx:for="{{applyStatus}}" wx:key="index">
       <van-tab title="{{item.text}}" name="{{ item.value }}"/>
     </block>
-  </van-tabs>
+  </van-tabs> -->
 
   <common-scroll
     id="list"

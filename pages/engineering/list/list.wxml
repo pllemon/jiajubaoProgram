@@ -14,8 +14,8 @@
     <view>
       <view wx:for="{{list}}" wx:key="index" class="show-single">
         <view class="img-list">
-          <gdImage src="{{ item.imgurl1 }}" preview label2="开工图"></gdImage>
-          <gdImage src="{{ item.imgurl3 }}" preview label2="竣工图"></gdImage>
+          <gdImage src="{{ item.imgurl1 }}" preview label2="{{item.time}}" style="width:260rpx"></gdImage>
+          <gdImage src="{{ item.imgurl3 }}" preview label2="{{item.secctime}}" style="width:260rpx"></gdImage>
         </view>
         <view class="show-dec">
           <view class="flex" style="align-items: center">
