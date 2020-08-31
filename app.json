@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
+    "pages/webView/webView",
 
     "pages/demand/applyForm/applyForm",
 
@@ -91,11 +92,12 @@
     "van-radio": "@vant/weapp/radio",
 		"van-radio-group": "@vant/weapp/radio-group",
 		"van-checkbox": "@vant/weapp/checkbox",
-    "van-checkbox-group": "@vant/weapp/checkbox-group"
+    "van-checkbox-group": "@vant/weapp/checkbox-group",
+    "van-sticky": "@vant/weapp/sticky"
   },
   "plugins": {
     "routePlan": {
-      "version": "1.0.7",
+      "version": "1.0.8",
       "provider": "wx50b5593e81dd937a"
     }
   },

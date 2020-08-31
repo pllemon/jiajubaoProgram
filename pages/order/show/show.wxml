@@ -25,26 +25,27 @@
         <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
     </van-cell>
     <van-cell title="施工单" title-width="100px" required wx:if="{{number == 2}}">
-        <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        <van-uploader data-type="caridimg" file-list="{{ caridimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
     </van-cell>
     <van-field
         wx:if="{{number == 2}}"
         input-class="input-field"
-        value="{{ form.pay_username }}"
+        value="{{ form.zx }}"
+        type="number"
         label="增项费用"
         placeholder="请输入"
         title-width="100px"
-        data-name="pay_username"
+        data-name="zx"
         bind:change="onChange"
     />
     <van-field
         wx:if="{{number == 2}}"
         input-class="input-field"
-        value="{{ form.pay_username }}"
+        value="{{ form.zxremark }}"
         label="增项说明"
         placeholder="请输入"
         title-width="100px"
-        data-name="pay_username"
+        data-name="zxremark"
         bind:change="onChange"
     />
 

@@ -21,11 +21,6 @@ Page({
   },
 
   onLoad(params) {
-    // 删
-    let pages = getCurrentPages();
-    let aa = pages[pages.length - 1];
-    console.log(aa)
-
     let that = this
 
     let order_id = params.id;

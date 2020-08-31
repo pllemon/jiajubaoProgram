@@ -6,7 +6,6 @@ App({
    let that = this;
 
    let session = wx.getStorageSync('session');
-   console.log('session=' + session)
    if (session) {
     that.globalData.session = session;
     wx.login({

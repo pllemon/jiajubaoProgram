@@ -169,9 +169,31 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "工程秀",
 					"pathName": "pages/order/show/show",
+					"query": "number=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "实体店",
+					"pathName": "pages/shop/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/detail",
+					"query": "id=24&personType=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
 					"scene": null
 				}
 			]

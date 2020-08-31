@@ -55,7 +55,7 @@
         </view>
         <view class="order-imgs">
           <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ item }}" preview label="订单图"></gdImage>
-          <gdImage wx:if="{{orderMes.pay.bjimg && personType!=1}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
+          <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
         </view>
         <view wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}" style="text-align:right;border-top: 1px solid #f2f2f2;margin-top: 20rpx;padding-top:20rpx">
           <text wx:if="{{personType!=1}}">订单金额 </text>
@@ -97,6 +97,14 @@
           <view wx:if="{{orderMes.pay && orderMes.pay.pay_time}}">
             <text>支付时间:</text>
             <text>{{orderMes.pay.pay_time}}</text>
+          </view>
+          <view wx:if="{{orderMes.info.user_confirm_time}}">
+            <text>{{personType == 0 ? '验收时间:' : '用户验收时间:'}}</text>
+            <text>{{orderMes.info.user_confirm_time}}</text>
+          </view>
+          <view wx:if="{{personType != 0 && orderMes.info.success_time}}">
+            <text>店长验收时间:</text>
+            <text>{{orderMes.info.success_time}}</text>
           </view>
         </view>
       </view>

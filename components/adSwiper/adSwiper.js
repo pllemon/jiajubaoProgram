@@ -40,7 +40,9 @@ Component({
           url: obj.url
         })
       } else if (obj.type == 2){
-  
+        // wx.navigateTo({
+        //   url: '/pages/webView/webView'
+        // })
       }
     }
   }

@@ -1,6 +1,7 @@
 const app = getApp();
 const validate = require('../../utils/validate.js');
 import { hexMD5 } from "../../utils/md5.js";
+const common = require('../../utils/common.js');
 
 Page({
   data: {
@@ -32,14 +33,7 @@ Page({
   },
 
   onLoad(params) {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          
-        }
-      }
-    })
-
+    let that = this
     let formType = params.type || 0;
     let invitation_code = params.invitation_code || '';
     let formData = this.data.formData;
@@ -48,6 +42,24 @@ Page({
       formType,
       formData
     })
+
+    
+    let session = wx.getStorageSync('session');
+    if (session) {
+      common.checkLogin(function(){
+        if (app.globalData.loginInfo) {
+          wx.reLaunch({
+            url: '/pages/index/index'
+          })
+        } else {
+          app.loginCallback = function() {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }
+        }
+      })
+    }
   },
 
   upDateUserInfo() {
