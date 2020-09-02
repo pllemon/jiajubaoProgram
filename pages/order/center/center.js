@@ -12,7 +12,7 @@ Page({
     sortOptions: [
       { text: '按发布时间排序', value: 0 },
       { text: '按上门时间排序', value: 1 },
-      { text: '佣金从多到少', value: 2 },
+      { text: '按施工报价排序', value: 2 },
     ],
     typeOptions: [
       { text: '全部服务类目', value: 0 }

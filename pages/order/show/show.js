@@ -28,7 +28,7 @@ Page({
   onLoad(params) {
     let id = this.data.id
     let form = this.data.form
-    let maxCount = this.data.form
+    let maxCount = this.data.maxCount
     let title = this.data.title
     let number = this.data.number
     form.order_id = params.order_id
@@ -62,7 +62,7 @@ Page({
       success: function(data) {
         console.log(data)
         let form = that.data.form
-        form.title = data.title
+        form.title = that.data.title
         form.dec = data.dec
         form.imgurl1 = data.imgurl1
         that.setData({

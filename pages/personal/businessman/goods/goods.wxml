@@ -25,5 +25,6 @@
       </view>
     </view>
   </common-scroll>
-  <button class="main-btn" bindtap="addGoods" wx:if="{{list.length < 10}}">添加商品</button>
+  <button class="main-btn" bindtap="addGoods" wx:if="{{finish && list.length < 10}}">添加商品</button>
+  <button class="main-btn disable" wx:if="{{finish && list.length >= 10}}">最多只能添加10个商品</button>
 </view>

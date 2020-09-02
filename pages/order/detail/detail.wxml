@@ -56,12 +56,21 @@
         <view class="order-imgs">
           <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ item }}" preview label="订单图"></gdImage>
           <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
+          <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="施工单"></gdImage>
         </view>
-        <view wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}" style="text-align:right;border-top: 1px solid #f2f2f2;margin-top: 20rpx;padding-top:20rpx">
-          <text wx:if="{{personType!=1}}">订单金额 </text>
-          <text wx:if="{{personType!=1}}" class="money">￥{{orderMes.pay.total_price || '---'}}</text>
-          <text wx:if="{{personType==1}}">订单佣金 </text>
-          <text wx:if="{{personType==1}}" class="money">￥{{orderMes.pay.craftsman_price}}</text>
+        <view class="moneys" wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}">
+          <view>
+            <text>{{personType == 1 ? '施工报价:' : '订单报价:'}}</text>
+            <text>￥{{personType == 1 ? orderMes.pay.craftsman_price : orderMes.pay.total_price}}</text>
+          </view>
+          <view>
+            <text>增项费用:</text>
+            <text>￥{{personType == 1 ? orderMes.pay.craftsman_price : orderMes.pay.total_price}}</text>
+          </view>
+          <view>
+            <text>合计费用:</text>
+            <text class="total">￥{{personType == 1 ? orderMes.pay.craftsman_price : orderMes.pay.total_price}}</text>
+          </view>
         </view>
       </view>
 
@@ -124,7 +133,7 @@
             <text>施工图片:</text>
             <view class="img-list">
               <gdImage wx:if="{{orderMes.ordersshow.imgurl1}}" style="margin-right:20rpx" width="160rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl1 }}" preview label="开工图"></gdImage>
-              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="160rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="竣工图"></gdImage>
+              <gdImage wx:if="{{orderMes.ordersshow.imgurl3}}" width="160rpx" height="160rpx" src="{{ orderMes.ordersshow.imgurl3 }}" preview label="完工图"></gdImage>
             </view>
           </view>
         </view>

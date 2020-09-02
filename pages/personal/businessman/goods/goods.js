@@ -6,12 +6,18 @@ Page({
     list: [],
     requestUrl: '/businessgoodslist',
     query: {},
+    finish: false
   },
 
   changeList(e) {
     this.setData({
       list: e.detail
     })
+    setTimeout(() => {
+      this.setData({
+        finish: true
+      })
+    }, 2000)
   },
 
   addGoods() {

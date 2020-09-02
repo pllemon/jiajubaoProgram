@@ -33,10 +33,6 @@
     margin-right: 2px;
 }
 
-.money{
-    color: #ff5643 !important;
-}
-
 /* 以下 */
 .sign-single{
     background: #fff;
@@ -67,12 +63,6 @@
 }
 
 
-
-.money{
-    font-size: 20px !important;
-    color:#ff5643;
-    /* font-weight: bold; */
-}
 
 /* 0218 */
 .order-single{
@@ -134,4 +124,22 @@ textarea{
     width: 74rpx;
     height: 74rpx;
     border-radius: 50%;
+}
+
+
+.moneys{
+    text-align: right;
+    border-top: 1px solid #f2f2f2;
+    margin-top: 20rpx;
+    padding-top:20rpx;
+}
+.moneys view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.moneys .total{
+    font-size: 20px !important;
+    color:#ff5643;
 }
