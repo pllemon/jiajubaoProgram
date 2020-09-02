@@ -243,7 +243,7 @@ Page({
   paytailprice() {
     let that = this;
     wx.showModal({
-      content: '确认工程已经完成？',
+      content: '确认工程已经完成并支付增项费用' + that.data.orderMes.pay.add_money + '元？',
       success (res) {
         if (res.confirm) {
           app.request({
@@ -254,8 +254,21 @@ Page({
               order_sn: that.data.orderMes.info.order_sn
             },
             success: function(data) {
-              app.successToast('确认成功', function(){
-                that.getInfo();
+              wx.requestPayment({
+                'nonceStr': data.nonceStr,
+                'package': data.package,
+                'signType': data.signType,
+                'timeStamp': data.timeStamp.toString(),
+                'paySign': data.sign,
+                'success':function(res){
+                  app.successToast('支付成功', function(){
+                    that.getInfo();
+                  })
+                },
+                'fail':function(res){
+                  console.log(res)
+                  app.showModal('支付失败')
+                }
               })
             }
           })
