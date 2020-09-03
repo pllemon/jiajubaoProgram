@@ -116,7 +116,7 @@
 					"id": 7,
 					"name": "订单详情",
 					"pathName": "pages/order/detail/detail",
-					"query": "id=34&personType=0",
+					"query": "id=31&personType=0",
 					"scene": null
 				},
 				{
@@ -201,6 +201,13 @@
 					"name": "添加商品",
 					"pathName": "pages/personal/businessman/goods/goods",
 					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "案例广场",
+					"pathName": "pages/engineering/list/list",
+					"query": "id=31&personType=0",
 					"scene": null
 				}
 			]

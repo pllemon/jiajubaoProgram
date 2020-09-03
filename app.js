@@ -89,10 +89,15 @@ App({
     })
   },
 
-  showModal(text) {
+  showModal(text, callback) {
     wx.showModal({
       showCancel: false,
-      content: text
+      content: text,
+      success (res) {
+        if (res.confirm && callback) {
+          callback()
+        }
+      }
     })
   },
 

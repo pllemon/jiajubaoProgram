@@ -68,8 +68,10 @@ Page({
       },
       success: function(data) {
         let odata = JSON.parse(data.data)
+        console.log(odata)
         if (odata.success) {
           let payInfo = odata.data.payinfo
+          let goods_id = odata.data.goods_id
           wx.requestPayment({
             'nonceStr': payInfo.nonceStr,
             'package': payInfo.package,
@@ -85,11 +87,10 @@ Page({
               })
             },
             'fail':function(res){
-              console.log(res)
-              let pages = getCurrentPages();
-              let beforePage = pages[pages.length - 2];
-              beforePage.selectComponent("#list").getData(1);
-              wx.navigateBack();    
+              that.removeRecord(goods_id)
+              app.showModal('添加失败', function() {
+                wx.navigateBack(); 
+              })
             }
           })
         } else {
@@ -101,6 +102,20 @@ Page({
       },
       complete: function() {
         wx.hideLoading();
+      }
+    })
+  },
+
+  removeRecord(id) {
+    app.request({
+      hideLoading: true,
+      url: '/businesssavegoodsstatus',
+      data: {
+        goods_id: id,
+        status: 3
+      },
+      success: function(data) {
+        
       }
     })
   },

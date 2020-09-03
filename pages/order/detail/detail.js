@@ -242,8 +242,12 @@ Page({
   // 用户确认工程已经完成
   paytailprice() {
     let that = this;
+    let tips = '确认工程已经完成？'
+    if (that.data.orderMes.pay.add_money > 0) {
+      tips = '确认工程已经完成并支付增项费用' + that.data.orderMes.pay.add_money + '元？'
+    }
     wx.showModal({
-      content: '确认工程已经完成并支付增项费用' + that.data.orderMes.pay.add_money + '元？',
+      content: tips,
       success (res) {
         if (res.confirm) {
           app.request({
@@ -254,22 +258,31 @@ Page({
               order_sn: that.data.orderMes.info.order_sn
             },
             success: function(data) {
-              wx.requestPayment({
-                'nonceStr': data.nonceStr,
-                'package': data.package,
-                'signType': data.signType,
-                'timeStamp': data.timeStamp.toString(),
-                'paySign': data.sign,
-                'success':function(res){
-                  app.successToast('支付成功', function(){
-                    that.getInfo();
-                  })
-                },
-                'fail':function(res){
-                  console.log(res)
-                  app.showModal('支付失败')
-                }
-              })
+              console.log('-----------------------------')
+              console.log(data)
+              console.log('-----------------------------')
+              if (that.data.orderMes.pay.add_money) {
+                wx.requestPayment({
+                  'nonceStr': data.nonceStr,
+                  'package': data.package,
+                  'signType': data.signType,
+                  'timeStamp': data.timeStamp.toString(),
+                  'paySign': data.sign,
+                  'success':function(res){
+                    app.successToast('支付成功', function(){
+                      that.getInfo();
+                    })
+                  },
+                  'fail':function(res){
+                    console.log(res)
+                    app.showModal('支付失败')
+                  }
+                })
+              } else {
+                app.successToast('已确认', function(){
+                  that.getInfo();
+                })
+              }
             }
           })
         }

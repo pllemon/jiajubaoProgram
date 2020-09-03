@@ -1,3 +1,4 @@
+<wxs src="../../../utils/filter.wxs" module="filters"></wxs>
 <view wx:if="{{finish}}" class="full-layout">
     <view class="scroll-view">
       <view class="blue-header flex-center-between">
@@ -56,16 +57,16 @@
         <view class="order-imgs">
           <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ item }}" preview label="订单图"></gdImage>
           <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
-          <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="施工单"></gdImage>
+          <gdImage wx:if="{{orderMes.pay.add_bjimg}}" src="{{ orderMes.pay.add_bjimg }}" preview label="施工单"></gdImage>
         </view>
         <view class="moneys" wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}">
           <view>
             <text>{{personType == 1 ? '施工报价:' : '订单报价:'}}</text>
-            <text>￥{{personType == 1 ? orderMes.pay.craftsman_price : orderMes.pay.total_price}}</text>
+            <text>￥{{personType == 1 ? filters.fnToFixed((orderMes.pay.total_price - orderMes.pay.add_money)*0.65) : filters.fnToFixed(orderMes.pay.total_price - orderMes.pay.add_money)}}</text>
           </view>
           <view>
             <text>增项费用:</text>
-            <text>￥{{personType == 1 ? orderMes.pay.craftsman_price : orderMes.pay.total_price}}</text>
+            <text>￥{{personType == 1 ? filters.fnToFixed(orderMes.pay.add_money*0.65) : filters.fnToFixed(orderMes.pay.add_money - 0)}}</text>
           </view>
           <view>
             <text>合计费用:</text>
@@ -114,6 +115,10 @@
           <view wx:if="{{personType != 0 && orderMes.info.success_time}}">
             <text>店长验收时间:</text>
             <text>{{orderMes.info.success_time}}</text>
+          </view>
+          <view wx:if="{{orderMes.pay && orderMes.pay.add_remark}}">
+            <text>增项说明:</text>
+            <text>{{orderMes.pay.add_remark}}</text>
           </view>
         </view>
       </view>

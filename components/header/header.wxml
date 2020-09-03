@@ -1,6 +1,9 @@
 <view class='nav' style='height: {{status + navHeight}}px'> 
     <view class='status' style='height: {{status}}px'></view>    
     <view class='navbar' style='height:{{navHeight}}px'> 
+        <view class='nav-title'>
+            <text>{{title}}</text>
+        </view>
         <view class="action">
             <view class='icon back-icon' wx:if="{{back}}" bindtap='back'>   
                 <image src="/image/icon/back.svg"></image>
@@ -23,16 +26,27 @@
                 custom-item="{{customItem}}"
             >
                 <view class="picker">
-                    <icon class="iconfont iconicon_GPS"></icon> 
+                    <!-- <icon class="iconfont iconicon_GPS"></icon>  -->
                     <text wx:if="{{regionInfo.code[2]}}">{{regionInfo.name[2]}}</text>
                     <text wx:elif="{{regionInfo.code[1]}}">{{regionInfo.name[1]}}</text>
                     <text wx:else>{{regionInfo.name[0]}}</text>
+                    <icon class="iconfont2 icon-xiala"></icon> 
+                </view>
+            </picker>
+
+            <picker 
+                wx:if="{{network && addressInfo && networkList.length}}"
+                bindchange="bindNetworkChange" 
+                value="{{networkIdx}}" 
+                range="{{networkList}}" 
+                range-key="name"
+            >
+                <view class="picker">
+                    <text>{{networkList[networkIdx].name}}</text>
+                    <icon class="iconfont2 icon-xiala"></icon> 
                 </view>
             </picker>
         </view>
 
-        <view class='nav-title'>
-            <text>{{title}}</text>
-        </view>
     </view>
 </view>

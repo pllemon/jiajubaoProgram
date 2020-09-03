@@ -115,7 +115,7 @@ button:after{
 }
 
 swiper{
-    height: 360rpx;
+    height: 350rpx;
 }
 .slide-image{
     width: 100%;

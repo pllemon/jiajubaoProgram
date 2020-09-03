@@ -19,6 +19,10 @@ Component({
         area: {  
             type: Boolean,  
             value: false
+        },
+        network: {  
+            type: Boolean,  
+            value: false
         }
     }, 
     attached: function(){ 
@@ -32,7 +36,9 @@ Component({
         districtCode: '',
         customItem: '全部',
         regionInfo: null,
-        addressInfo: null
+        addressInfo: null,
+        networkList: [],
+        networkIdx: 0
     }, 
     methods: { 
         // 通过获取系统信息计算导航栏高度 
@@ -71,6 +77,7 @@ Component({
                     regionInfo: app.globalData.regionInfo,
                     addressInfo: app.globalData.addressInfo
                 })
+                that.getNetwork();
                 that.triggerEvent('updateArea', {regionInfo: app.globalData.regionInfo}); 
             } else {
                 common.getLocation(that, function(res){
@@ -85,6 +92,7 @@ Component({
                         that.setData({
                             regionInfo
                         });
+                        that.getNetwork();
                         that.triggerEvent('updateArea', {regionInfo}); 
                     } else {
                         const regionInfo = {
@@ -95,9 +103,9 @@ Component({
                         that.setData({
                             regionInfo
                         });
+                        that.getNetwork();
                         that.triggerEvent('updateArea', {regionInfo}); 
                     }
-                    
                 })
             }
         },
@@ -111,7 +119,39 @@ Component({
             this.setData({
                 regionInfo
             });
+            this.getNetwork();
             this.triggerEvent('updateArea', {regionInfo}); 
+        },
+
+        getNetwork: function () {
+            let that = this;
+            console.log(that.data.regionInfo)
+            app.request({
+                url: '/networklist',
+                hideLoading: true,
+                data: {
+                    province: that.data.regionInfo.code[0] || '',
+                    city: that.data.regionInfo.code[1] || '',
+                    district: that.data.regionInfo.code[2] || ''
+                },
+                success: function(data) {
+                    data.unshift({
+                        name: '全部网点',
+                        id: '',
+                    })
+                    that.setData({
+                        networkIdx: 0,
+                        networkList: data
+                    })
+                }
+            })
+        },
+        bindNetworkChange: function(e) {
+            let value = e.detail.value
+            this.setData({
+                networkIdx: value
+            })
+            this.triggerEvent('updateNetwork', this.data.networkList[value]); 
         },
 
         onOpenSetting() {

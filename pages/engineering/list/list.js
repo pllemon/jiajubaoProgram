@@ -26,5 +26,14 @@ Page({
       }
     })
     this.selectComponent("#list").getData(1);
-  }
+  },
+
+  updateNetwork(e) {
+    let query = this.data.query
+    query.network_id = e.detail.id || ''
+    this.setData({
+      query
+    })
+    this.selectComponent("#list").getData(1);
+  },
 })

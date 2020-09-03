@@ -1,6 +1,6 @@
 <view class="full-layout">
 
-  <header title="实体店" area bind:updateArea="updateArea"></header>
+  <header title="实体店" area network bind:updateArea="updateArea" bind:updateNetwork="updateNetwork"></header>
 
   <common-scroll
     id="list"
