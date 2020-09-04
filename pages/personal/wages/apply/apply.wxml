@@ -14,7 +14,7 @@
                 <view class="mes">订单编号：{{item.order_sn}}</view>
                 <view class="mes">服务地址：{{item.address}}</view>
                 <view class="mes">验收时间：{{item.success_time}}</view>
-                <view class="mes">订单佣金：<text class="money">￥{{item.craftsman_price}}</text></view>
+                <view class="mes">施工报价：<text class="money">￥{{item.craftsman_price}}</text></view>
             </navigator>
         </view>
     </common-scroll>
