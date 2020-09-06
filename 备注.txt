@@ -468,3 +468,8 @@ admin/networkuserlist 创建时间格式错误
 已成交单：pay_status = 1 && examine_time = 8月
 一期完成单：status = 8 && cashout_status = 1 && 发放时间是在8月
 二期完成单：status = 8 && cashout_status = 2 && 发放时间是在8月
+
+
+不成交单分类错误：status = 10 / 14 / 12
+一期完成单分类错误：cashout_status = 1 / 4
+统计的数据格式错误
