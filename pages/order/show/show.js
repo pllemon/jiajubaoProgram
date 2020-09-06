@@ -5,7 +5,7 @@ let uploadNum = 0;
 Page({
   data: {
     imgArr: [],
-    add_bjimg: [],
+    success_img: [],
     info: '',
     id: '',
     form: {
@@ -18,7 +18,7 @@ Page({
       imgurl4: '',
       add_money: 0,
       add_remark: '',
-      add_bjimg: ''
+      success_img: ''
     },
     maxCount: 1,
     title: '开工图',
@@ -77,12 +77,12 @@ Page({
     let form = this.data.form;
     let number = this.data.number;
     let imgArr = this.data.imgArr; 
-    let add_bjimg = this.data.add_bjimg; 
+    let success_img = this.data.success_img; 
     
     if (number == 2) {
       if (!imgArr.length) {
         app.showModal('请上传完工图');
-      } else if (!add_bjimg.length) {
+      } else if (!success_img.length) {
         app.showModal('请上传施工单');
       } else if (form.add_money && !form.add_remark) {
         app.showModal('请填写增项说明');
@@ -94,7 +94,7 @@ Page({
             if (res.confirm) {
               uploadNum = 0;
               that.upload('imgArr', 'uploadordershow', 'imgurl3');
-              that.upload('add_bjimg', 'uploadordershow', 'add_bjimg');
+              that.upload('success_img', 'uploadordershow', 'success_img');
             }
           }
         })

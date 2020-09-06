@@ -57,7 +57,7 @@
         <view class="order-imgs">
           <gdImage  wx:for="{{orderMes.userimglist}}" wx:key="id" src="{{ item }}" preview label="订单图"></gdImage>
           <gdImage wx:if="{{orderMes.pay.bjimg}}" src="{{ orderMes.pay.bjimg }}" preview label="报价单"></gdImage>
-          <gdImage wx:if="{{orderMes.pay.add_bjimg}}" src="{{ orderMes.pay.add_bjimg }}" preview label="施工单"></gdImage>
+          <gdImage wx:if="{{orderMes.info.success_img}}" src="{{ orderMes.info.success_img }}" preview label="施工单"></gdImage>
         </view>
         <view class="moneys" wx:if="{{orderMes.info.status > 1 && orderMes.pay.bjimg}}">
           <view>

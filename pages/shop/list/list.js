@@ -32,10 +32,14 @@ Page({
   },
 
   updateNetwork(e) {
-    let query = this.data.query
-    query.network_id = e.detail.id || ''
     this.setData({
-      query
+      query: {
+        keyword: this.data.keyword,
+        province: '',
+        city: '',
+        district: '',
+        network_id: e.detail.id || ''
+      }
     })
     this.selectComponent("#list").getData(1);
   },

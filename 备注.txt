@@ -401,7 +401,7 @@ admin/networkuserlist 创建时间格式错误
 /userwithdrawallist 报错，加状态搜索
 /craftsmancashoutlist 加状态搜索
 
-/admin/businesslist 返回商品数量
+/admin/businesslist 返回商品数量 ok
 /admin/businessgoodslist 返回店铺名、搜索条件：店铺名、状态
 /admin/businessorderlist    status搜索无效
 /admin/craftsmansettlementlist 搜索添加收款账号
@@ -446,14 +446,14 @@ admin/networkuserlist 创建时间格式错误
 
 
 
-/networklist 添加搜索条件 province、city、district
-/businesslist 添加搜索条件 network_id
-/ordershowlist 添加搜索条件 network_id
+/networklist 添加搜索条件 province、city、district (ok)
+/businesslist 添加搜索条件 network_id (ok)
+/ordershowlist 添加搜索条件 network_id (ok)
 
-没增项的时候没保存那个图片？add_bjimg
-后台添加项目管理：列表、添加项目（项目名称、排序）、删除项目
-商家关联网点：/admin/businessexamine 添加个 network_id、列表返回、搜索添加
-网点月统计：
+没增项的时候没保存那个图片？success_img (ok)
+后台添加项目管理：列表、添加项目（项目名称、排序）、删除项目 (ok)
+商家关联网点：/admin/businessexamine 添加个 network_id、列表返回、搜索添加 (ok)
+网点月统计：（数据不对）
     1. 传个network_id给你，按月统计这个网点的不成交单、已成交单、一期完成单、二期完成单数量
     2. 传个月份给你，统计所有网点这个月的不成交单、已成交单、一期完成单、二期完成单数量
 

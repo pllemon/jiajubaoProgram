@@ -172,7 +172,7 @@ Page({
     })
     app.request({
       url: '/networklist',
-      method: 'GET',
+      method: 'POST',
       data: {
         city: addressInfo.ad_info.citycode
       },
