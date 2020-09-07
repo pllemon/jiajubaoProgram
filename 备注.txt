@@ -402,12 +402,12 @@ admin/networkuserlist 创建时间格式错误
 /craftsmancashoutlist 加状态搜索
 
 /admin/businesslist 返回商品数量 ok
-/admin/businessgoodslist 返回店铺名、搜索条件：店铺名、状态
+
+/admin/businessgoodslist 搜索条件：店铺名、状态
 /admin/businessorderlist    status搜索无效
-/admin/craftsmansettlementlist 搜索添加收款账号
-/admin/userwithdrawallist 搜索条件：姓名、手机号、结算状态、收款账号 
-/admin/transactionlog 搜索条件：流水号、类型、时间范围、网点，   返回网点名称
-/admin/expendituretransaction 搜索条件：流水号、类型、时间范围、网点、订单编号，   返回网点名称
+/admin/transactionlog 搜索条件：流水号
+/admin/expendituretransaction 搜索条件：流水号
+流水号是pay_order_sn? tran_id? 没保存
 
 商家取消订单没有给用户发，确认接单也没有发
 类型为2的商家订单，商家没报价前取消会报错
@@ -473,3 +473,11 @@ admin/networkuserlist 创建时间格式错误
 不成交单分类错误：status = 10 / 14 / 12
 一期完成单分类错误：cashout_status = 1 / 4
 统计的数据格式错误
+
+
+
+
+
+/admin/networktj 不成交单分类：status = 10 / 11 / 14 / 12
+/networkorderexamine 订单审核不通过没保存 bjimg？？
+/networkorderexamine 备注没保存 htremark？？qxremark？？

@@ -1,6 +1,6 @@
 <form class="form" style="padding-bottom: 50rpx">
     <van-cell-group>
-        <van-cell title="是否成单" title-width="100px" required>
+        <van-cell title="沟通结果" title-width="100px" required>
             <picker value="{{statusIdx}}" range="{{statusArr}}" range-key="name" data-label="statusIdx" bindchange="bindChange">
                 <view class="picker">
                     <text>{{statusIdx ? statusArr[statusIdx].name : '请选择'}}</text>

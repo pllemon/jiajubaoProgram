@@ -6,11 +6,11 @@ Page({
     statusArr: [
       {
         id: 'TG',
-        name: '成功'
+        name: '成单'
       },
       {
         id: 'BH',
-        name: '失败'
+        name: '不成单'
       }
     ],
     statusIdx: 0,
