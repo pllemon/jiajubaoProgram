@@ -30,6 +30,11 @@ Page({
     currType: 0
   },
   onLoad(params) {
+    let pageTitle = {
+      0: '用户订单',
+      1: '师傅订单',
+      3: '本店订单'
+    }
     let personType = params.personType
     let url = personMes[personType].url;
     let statusName = personMes[personType].status;
@@ -40,6 +45,10 @@ Page({
         tabList[i] = orderStatus[i]
       }
     }
+
+    wx.setNavigationBarTitle({
+      title: pageTitle[personType]
+    })
 
     console.log(tabList)
 

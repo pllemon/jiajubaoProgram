@@ -24,7 +24,7 @@
     <van-cell title="{{title}}" title-width="100px" required>
         <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
     </van-cell>
-    <van-cell title="施工单" title-width="100px" required wx:if="{{number == 2}}">
+    <van-cell title="结算单" title-width="100px" required wx:if="{{number == 2}}">
         <van-uploader data-type="success_img" file-list="{{ success_img }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
     </van-cell>
     <van-field

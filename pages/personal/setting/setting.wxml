@@ -7,7 +7,7 @@
         url="{{item.url}}"
       >
         <view slot="title" class="action-item">
-          <icon class="iconfont iconicon_{{item.img}}"></icon>
+          <icon class="iconfont {{item.img}}"></icon>
           <view class="van-cell-text">{{item.text}}</view>
         </view>
       </van-cell>

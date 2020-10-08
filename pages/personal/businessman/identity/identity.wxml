@@ -1,5 +1,5 @@
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
-    <van-cell-group title="基础资料">
+    <van-cell-group title="">
         <van-field
             input-class="input-field"
             value="{{ form.name }}"

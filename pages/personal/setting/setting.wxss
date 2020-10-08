@@ -19,3 +19,9 @@
   height: 30rpx;
   margin-right: 0;
 }
+
+.icon-comments{
+  font-size: 17px !important;
+  color: #000 !important;
+  margin-left: 2px !important;
+}

@@ -44,16 +44,16 @@ Page({
     this.selectComponent("#list").getData(1);
   },
 
-  onShareAppMessage: function (e) {
-    let idx = e.target.dataset.idx;
-    let obj = this.data.list[idx];
-    console.log(obj)
-    return {
-      title: '我在多师傅发现了一家好店：' + obj.name + '，进来看看吧',
-      path: '/pages/shop/list/list?id=' + obj.id,
-      imageUrl: 'https://www.dsfjjwx.com/' + obj.shopimg
-    }
-  },
+  // onShareAppMessage: function (e) {
+  //   let idx = e.target.dataset.idx;
+  //   let obj = this.data.list[idx];
+  //   console.log(obj)
+  //   return {
+  //     title: '我在多师傅发现了一家好店：' + obj.name + '，进来看看吧',
+  //     path: '/pages/shop/list/list?id=' + obj.id,
+  //     imageUrl: 'https://www.dsfjjwx.com/' + obj.shopimg
+  //   }
+  // },
 
   // 下单
   makeOffline(e) {
@@ -124,5 +124,14 @@ Page({
       })
       that.updateArea()
     })
+  },
+
+  
+  // 分享
+  onShareAppMessage: function (res) {
+    return {
+      title: '多师傅平台欢迎你',
+      path: '/pages/shop/list/list'
+    }
   }
 })

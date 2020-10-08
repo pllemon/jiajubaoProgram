@@ -4,30 +4,40 @@ Page({
   data: {
     action: [
       {
-        img: 'at',
-        text: '联系我们',
+        img: 'iconicon_at',
+        text: '使用说明',
         url: '/pages/personal/doc/doc?type=lxwm'
       },
       {
-        img: 'wechat',
+        img: 'iconfont2 icon-comments',
+        text: '意见反馈',
+        url: '/pages/personal/feedback/feedback'
+      },
+      {
+        img: 'iconicon_wechat',
         text: '企业文化',
         url: '/pages/personal/doc/doc?type=about'
       },
       {
-        img: 'invite',
+        img: 'iconicon_invite',
+        text: '用户须知',
+        url: '/pages/personal/doc/doc?type=regulations'
+      },
+      {
+        img: 'iconicon_invite',
         text: '用户协议',
         url: '/pages/personal/doc/doc?type=hhxy'
       },
-      {
-        img: 'invite',
-        text: '师傅协议',
-        url: '/pages/personal/doc/doc?type=sfxy'
-      },
-      {
-        img: 'invite',
-        text: '商家协议',
-        url: '/pages/personal/doc/doc?type=sjxy'
-      }
+      // {
+      //   img: 'iconicon_invite',
+      //   text: '师傅协议',
+      //   url: '/pages/personal/doc/doc?type=sfxy'
+      // },
+      // {
+      //   img: 'iconicon_invite',
+      //   text: '商家协议',
+      //   url: '/pages/personal/doc/doc?type=sjxy'
+      // }
     ]
   },
 

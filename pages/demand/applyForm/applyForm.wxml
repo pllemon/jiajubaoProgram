@@ -1,5 +1,5 @@
 <form class="form" style="padding-bottom: 50rpx">
-    <van-cell-group title="基础资料">
+    <van-cell-group title="">
         <van-cell title="服务需求" title-width="100px" required>
             <picker value="{{categroyIdx}}" range="{{categroyArr}}" range-key="type_name" data-label="categroyIdx" bindchange="bindChange">
                 <view class="picker">
@@ -27,7 +27,7 @@
         </van-cell>
         <van-field
             value="{{ form.remark }}"
-            label="订单备注"
+            label="维修详述"
             type="textarea"
             placeholder="请输入"
             title-width="100px"

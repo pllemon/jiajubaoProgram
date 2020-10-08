@@ -83,7 +83,7 @@ Page({
       if (!imgArr.length) {
         app.showModal('请上传完工图');
       } else if (!success_img.length) {
-        app.showModal('请上传施工单');
+        app.showModal('请上传结算单');
       } else if (form.add_money && !form.add_remark) {
         app.showModal('请填写增项说明');
       } else {

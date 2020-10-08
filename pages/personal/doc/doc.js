@@ -5,11 +5,12 @@ Page({
   data: {
     doc: {
       about: '企业文化',
-      lxwm: '联系我们',
+      lxwm: '使用说明',
       hhxy: '用户协议',
       sfxy: '师傅协议',
       sjxy: '商家协议',
-      pttz: '平台消息'
+      pttz: '平台消息',
+      regulations: '用户须知'
     }
   },
   onLoad(params) {

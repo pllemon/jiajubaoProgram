@@ -490,3 +490,6 @@ admin/networkuserlist 创建时间格式错误
 后台添加了商店关联网点功能、小程序支持网点筛选商店
 后台添加了项目管理功能
 后台添加了网点月统计、师傅月统计
+
+后台管理系统 http://www.dsfjjwx.com/dsfadmin/index.html 账号 dsf 密码 123456
+清空了订单数据、商家数据

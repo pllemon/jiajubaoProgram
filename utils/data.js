@@ -463,11 +463,6 @@ const personType = {
         url: '/pages/personal/user/share/share'
       },
       {
-        icon: 'icon-comments',
-        text: '意见反馈',
-        url: '/pages/personal/feedback/feedback'
-      },
-      {
         icon: 'icon-remind1',
         text: '系统公告',
         url: '/pages/personal/notice/notice'
@@ -497,6 +492,11 @@ const personType = {
         icon: 'icon-trade',
         text: '订单佣金',
         url: '/pages/personal/wages/applyRecord/applyRecord'
+      },
+      {
+        icon: 'icon-link1',
+        text: '抢单中心',
+        url: '/pages/order/center/center'
       }
     ]
   },

@@ -17,7 +17,7 @@
           <text>平台专属邀请码 {{userInfo.invitation_code}}</text>
         </view>
         <button class="sign" open-type="share">
-          <text>立即邀请</text>
+          <text>邀请朋友</text>
         </button>
       </view>
     </view>

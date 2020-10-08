@@ -40,5 +40,15 @@ Page({
         })
       }
     })
+  },
+
+  
+  // 分享
+  onShareAppMessage: function (res) {
+    return {
+      title: '多师傅平台欢迎你',
+      path: '/pages/index/index',
+      imageUrl: '/image/example/cx.jpg'
+    }
   }
 })

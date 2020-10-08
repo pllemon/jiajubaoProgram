@@ -24,7 +24,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"packNpmManually": false,
 		"packNpmRelationList": []
@@ -205,7 +205,7 @@
 				},
 				{
 					"id": -1,
-					"name": "案例广场",
+					"name": "施工广场",
 					"pathName": "pages/engineering/list/list",
 					"query": "id=31&personType=0",
 					"scene": null
