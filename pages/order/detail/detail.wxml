@@ -205,9 +205,9 @@
         <button wx:if="{{orderMes.info.status == 1 || orderMes.info.status == 2}}" bindtap="cancelOrder" class="main-btn default">取消订单</button>
         <button wx:if="{{orderMes.info.status == 2}}" bindtap="payearnestprice" class="main-btn plain">立即支付</button>
         <button wx:if="{{orderMes.info.status == 6}}" bindtap="paytailprice" class="main-btn plain">确认完成</button>
-        <button wx:if="{{orderMes.info.status > 6 && orderMes.info.is_comment == 1}}" bindtap="makeOrder" class="main-btn default">再次下单</button>
+        <button wx:if="{{orderMes.info.status > 6 && orderMes.info.is_comment == 1}}" bindtap="feedback" class="main-btn default">我要反馈</button>
         <button wx:if="{{orderMes.info.status > 6 && orderMes.info.status <= 8 && orderMes.info.is_comment == 0}}" bindtap="goComment" class="main-btn default">评价订单</button>
-        <button wx:if="{{orderMes.info.status == 10}}" bindtap="makeOrder" class="main-btn default">再次下单</button>
+        <button wx:if="{{orderMes.info.status == 10}}" bindtap="feedback" class="main-btn default">我要反馈</button>
       </view>
 
       <view class="flex-center-end" wx:if="{{personType == 3}}">

@@ -427,10 +427,10 @@ Page({
     })
   },
 
-  // 再次下单
-  makeOrder() {
+  // 我要反馈
+  feedback() {
     wx.navigateTo({
-      url: '/pages/demand/applyForm/applyForm'
+      url: '/pages/personal/feedback/feedback'
     })
   },
 

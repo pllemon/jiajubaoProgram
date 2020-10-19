@@ -24,3 +24,62 @@
   padding: 20rpx 0;
   text-align: center;
 }
+
+.shop-img{
+  display: flex;
+}
+.shop-img gdimage{
+  width: 50%;
+  height: 240rpx;
+}
+
+.shop-single{
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  background: #fff;
+}
+
+.location-img{
+  width: 300rpx;
+	height: 300rpx;
+  margin: 160rpx auto;
+  margin-bottom: 50rpx;
+}
+
+.shop-action{
+  border-top: 1px solid #f8f8f8;
+}
+
+.shop-action button{
+  border: none;
+  background: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #666;
+  justify-content: center;
+}
+.shop-action button icon{
+  margin-right: 6rpx;
+  position: relative;
+  top: 1px;
+}
+.shop-action button::after{
+  display: none;
+}
+
+.share-btn{
+  display: flex;
+  align-items: center;
+  color: #F56C6C;
+  border: 1px solid #F56C6C;
+  padding: 5rpx 24rpx;
+  border-radius: 30rpx;
+  position: relative;
+  top: -6rpx;
+}
+.share-btn .iconfont{
+  position: relative;
+  top: -7rpx;
+  margin-right: 4rpx;
+}

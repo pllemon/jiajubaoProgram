@@ -10,16 +10,27 @@ Page({
     business_id: '', // 商家id
 
     requestUrl: '',
-    query: {}
+    query: {},
+    info: null,
+    finish: false
   },
   
   onLoad(params) {
-    this.setData({
+    let that = this
+    that.setData({
       business_id: params.id,
       requestUrl: '/businessallgoodslist?business_id=' + params.id
     })
-    this.getSumintegral()
-    this.selectComponent("#list").getData(1);
+    that.selectComponent("#list").getData(1);
+
+    if (app.globalData.loginInfo) {
+      that.getSumintegral()
+    } else {
+      app.loginCallback = function() {
+        that.getSumintegral()
+      }
+    }
+    that.getInfo()
   },
 
   onChange(e) {
@@ -37,6 +48,24 @@ Page({
     })
     this.setData({
       list: e.detail
+    })
+  },
+
+  getInfo() {
+    let that = this;
+    app.request({
+      url: '/businessinfo',
+      method: 'get',
+      data: {
+        business_id: that.data.business_id
+      },
+      hideLoading: true,
+      success: function(data) {
+        that.setData({
+          info: data,
+          finish: true
+        })
+      }
     })
   },
 
