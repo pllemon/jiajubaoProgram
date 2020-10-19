@@ -1,6 +1,38 @@
 <wxs src="../../../utils/filter.wxs" module="filters"></wxs>
 
 <view class="full-layout">
+  <!-- <view class="shop-single">
+    <view class="shop-img">
+      <gdImage src="{{ info.shopimg }}"  preview="true"/>
+      <gdImage src="{{ info.goodsimg }}"  preview="true"/>
+    </view>
+    <view class="unit">
+      <view class="flex-start-between">
+        <view class="title">{{info.name}}</view>
+      </view>   
+      <view class="mes">
+        <text class="content">{{info.address}}</text>
+      </view>
+      <view class="mes">
+        <text class="content">{{info.phone}}</text>
+      </view>
+    </view>
+    <view class="shop-action flex-center-end">
+      <button size="mini" data-phone="{{info.phone}}" bindtap="makePhoneCall">
+        <icon class="iconfont iconicon_phone"></icon>
+        <text>联系</text>
+      </button>
+      <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
+        <icon class="iconfont iconicon_GPS"></icon>
+        <text>路线</text>
+      </button>
+      <button size="mini" data-idx="{{index}}" open-type="share">
+        <icon class="iconfont iconicon_share"></icon>
+        <text>分享</text>
+      </button>
+    </view>
+  </view> -->
+
   <view bindtap="markDemand" class="tips">便民手写下单，点击进入 ></view>
   <common-scroll
     id="list"

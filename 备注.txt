@@ -493,3 +493,8 @@ admin/networkuserlist 创建时间格式错误
 
 后台管理系统 http://www.dsfjjwx.com/dsfadmin/index.html 账号 dsf 密码 123456
 清空了订单数据、商家数据
+
+
+1019
+/craftsmanorderlist  cmorderstatus=1 改成报名中的搜索条件 -》 已报名 还没出结果
+给个商家详情接口

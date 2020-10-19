@@ -75,51 +75,53 @@ Page({
 
   makeOrder() {
     let that = this
-    if (that.data.sum) {
-      wx.showModal({
-        title: '提示',
-        content: '确定下单？',
-        success (res) {
-          if (res.confirm) {
-            wx.requestSubscribeMessage({
-              tmplIds: [
-                '_2qnHOlTzMu_nTiJmamzCqrnhvrfzjh5ijGntI64mEA', // 下单成功通知
-                'PCshYOrhnVT6H3pDkcIXFocq7D9r-kfSAtuVW1pprDo', // 订单状态通知
-              ],
-              success (res) {
-                let goodslist = that.data.list.filter(item => {
-                  return item.number > 0
-                })
-                goodslist = goodslist.map(item => {
-                  return {
-                    goods_id: item.goods_id,
-                    goods_number: item.number
+    common.checkLogin(function() {
+      if (that.data.sum) {
+        wx.showModal({
+          title: '提示',
+          content: '确定下单？',
+          success (res) {
+            if (res.confirm) {
+              wx.requestSubscribeMessage({
+                tmplIds: [
+                  '_2qnHOlTzMu_nTiJmamzCqrnhvrfzjh5ijGntI64mEA', // 下单成功通知
+                  'PCshYOrhnVT6H3pDkcIXFocq7D9r-kfSAtuVW1pprDo', // 订单状态通知
+                ],
+                success (res) {
+                  let goodslist = that.data.list.filter(item => {
+                    return item.number > 0
+                  })
+                  goodslist = goodslist.map(item => {
+                    return {
+                      goods_id: item.goods_id,
+                      goods_number: item.number
+                    }
+                  })
+                  let obj = {
+                    integral: that.data.maxintegral,
+                    money: that.data.sum,
+                    business_id: that.data.business_id,
+                    goodslist: JSON.stringify(goodslist)
                   }
-                })
-                let obj = {
-                  integral: that.data.maxintegral,
-                  money: that.data.sum,
-                  business_id: that.data.business_id,
-                  goodslist: JSON.stringify(goodslist)
-                }
-                app.request({
-                  url: '/markbusinessorder',
-                  data: obj,
-                  loadText: '下单中',
-                  success: function(data) {
-                    app.successToast('提交成功', function(){
-                      wx.redirectTo({
-                        url: '/pages/offline/list/list?personType=0'
+                  app.request({
+                    url: '/markbusinessorder',
+                    data: obj,
+                    loadText: '下单中',
+                    success: function(data) {
+                      app.successToast('提交成功', function(){
+                        wx.redirectTo({
+                          url: '/pages/offline/list/list?personType=0'
+                        })
                       })
-                    })
-                  }
-                })
-              }
-            })
+                    }
+                  })
+                }
+              })
+            }
           }
-        }
-      })
-    }
+        })
+      }
+    })
   },
 
   markDemand() {

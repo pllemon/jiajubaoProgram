@@ -6,8 +6,15 @@
     bind:search="onSearch"
   /> -->
 
+  <!-- 筛选 -->
+  <van-dropdown-menu active-color="#ff5643" wx:if="{{personType != 0}}">
+    <van-dropdown-item value="{{ timeValue }}" options="{{ timeOptions }}"  bind:change="chooseTime"/>
+    <van-dropdown-item value="{{ statusValue }}" options="{{ statusOptions }}"  bind:change="chooseStatus"/>
+  </van-dropdown-menu>
+
   <van-tabs 
     color="#ff5643"
+    wx:if="{{personType == 0}}"
     active="{{currType}}"
     custom-class="gd-tabs"
     tab-class="gd-tab"
