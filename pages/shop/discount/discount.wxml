@@ -79,7 +79,7 @@
         <text style="color: #ff5643">￥{{filters.fnToFixed(sum - maxintegral)}}</text>
         <text wx:if="{{maxintegral}}" style="color: #868686;font-size:26rpx;text-decoration:line-through;margin-left:10rpx">￥{{filters.fnToFixed(sum)}}</text>
       </view>
-      <view wx:if="{{maxintegral}}" class="jf">共{{sumintegral}}积分，已使用{{maxintegral}}积分抵扣{{filters.fnToFixed(maxintegral)}}元</view>
+      <view wx:if="{{maxintegral}}" class="jf">共{{sumintegral}}积分，可使用{{maxintegral}}积分抵扣{{filters.fnToFixed(maxintegral)}}元</view>
     </view>
     <button class="main-btn {{!sum?'disable':''}}" bindtap="makeOrder">下单</button>
   </view>

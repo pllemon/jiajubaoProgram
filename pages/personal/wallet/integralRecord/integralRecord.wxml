@@ -26,6 +26,6 @@
   </common-scroll>
 
   <view class="page-action">
-    <button class="main-btn flex1" bindtap="buyIntegral">1元购买10积分</button>
+    <button class="main-btn flex1" bindtap="buyIntegral">1元换10积分</button>
   </view>
 </view>

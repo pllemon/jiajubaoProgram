@@ -459,7 +459,7 @@ const personType = {
       },
       {
         icon: 'icon-link1',
-        text: '邀请朋友',
+        text: '去朋友圈',
         url: '/pages/personal/user/share/share'
       },
       {

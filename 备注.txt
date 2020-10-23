@@ -500,3 +500,5 @@ admin/networkuserlist 创建时间格式错误
 后台编辑师傅头像无效
 二期申请时上传收据
 /businessinfo 去除登录限制
+100用5积分改成20用1积分
+transactionlog 添加type 区分商家流水和维修流水
