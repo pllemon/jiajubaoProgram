@@ -72,25 +72,42 @@ Page({
     },
 
     masterApply() {
-        let that = this;
-        let data = that.data.form;
-        data.order_id = that.data.order_id;
-        data.pay_type = this.data.radio;
-        data.pay_status_code = this.data.pay_status_code;
-        app.request({
-            url: '/craftsmancashout',
-            data,
-            loadText: '提交中',
-            complete: function() {
-                app.successToast('提交成功', function(){
-                    let pages = getCurrentPages();
-                    let prevPage = pages[pages.length - 3];
-                    prevPage.selectComponent("#list").getData(1);
-                    wx.navigateBack({
-                        delta: 2
-                    })
+        let orders = app.globalData.otherData
+        let promiseArr = []
+        wx.showLoading({
+            title: '提交中',
+            mask: true
+        })
+        orders.forEach(item => {
+            promiseArr.push(this.masterApplySingle(item))
+        })
+        Promise.all(promiseArr).then(() => {
+            app.successToast('提交成功', function(){
+                let pages = getCurrentPages();
+                let prevPage = pages[pages.length - 3];
+                prevPage.selectComponent("#list").getData(1);
+                wx.navigateBack({
+                    delta: 2
                 })
-            }
+            })
+        });
+    },
+
+    masterApplySingle(order_id) {
+        return new Promise((resolve, reject) => {
+            let that = this;
+            let data = that.data.form;
+            data.order_id = order_id;
+            data.pay_type = this.data.radio;
+            data.pay_status_code = this.data.pay_status_code;
+            app.request({
+                url: '/craftsmancashout',
+                data,
+                hideLoading: true,
+                complete: function() {
+                    resolve(true)
+                }
+            })
         })
     },
 

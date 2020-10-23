@@ -3,11 +3,21 @@
     color: #ff5643;
 }
 
+/* 
 .main-btn{
     margin: 0;
     margin-top: 30rpx;
-}
+} */
 
 .page-action{
     justify-content: flex-end;
+}
+
+.action .main-btn{
+    border-radius: 10rpx;
+    font-size: 13px;
+    padding: 0 20rpx;
+    margin: 0;
+    margin-left: 20rpx;
+    line-height: 2.2;
 }

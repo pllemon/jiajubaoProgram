@@ -9,6 +9,7 @@ Page({
     addressInfo: null,
     showLocationDialog: false,
     agree: [],
+    info: null,
 
     form: {
       name: '',
@@ -35,7 +36,7 @@ Page({
     
     if (params.readonly) {
       wx.setNavigationBarTitle({
-        title: '我的资料'
+        title: '师傅资料'
       })
     } else {
       common.getLocation(that);
@@ -53,7 +54,9 @@ Page({
           form[i] = craftsmannfo[i];
         }
       }
+      craftsmannfo.sfz = craftsmannfo.sfz.substring(0,4)+'*'.repeat(craftsmannfo.sfz.length-(8))+craftsmannfo.sfz.substring(craftsmannfo.sfz.length-4)
       this.setData({
+        info: craftsmannfo,
         form,
         caridimg: [{
           url: common.padUrl(craftsmannfo.caridimg),

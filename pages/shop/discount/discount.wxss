@@ -12,7 +12,7 @@
 }
 .action .jf{
   color: #868686;
-  font-size: 24rpx;
+  font-size: 14px;
 }
 .action .money{
   font-size: 38rpx;

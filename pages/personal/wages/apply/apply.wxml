@@ -9,16 +9,20 @@
         bind:change = "changeList"
     >
         <view class="order-list">
-            <navigator wx:for="{{list}}" wx:key="index" class="order-single" url="/pages/order/detail/detail?id={{item.order_id}}&personType=1">
+            <view wx:for="{{list}}" wx:key="index" class="order-single" url="/pages/order/detail/detail?id={{item.order_id}}&personType=1">
                 <view class="category">{{item.service_demand}}</view>
                 <view class="mes">订单编号：{{item.order_sn}}</view>
                 <view class="mes">服务地址：{{item.address}}</view>
                 <view class="mes">验收时间：{{item.success_time}}</view>
                 <view class="mes">施工报价：<text class="money">￥{{item.craftsman_price}}</text></view>
-            </navigator>
+                <view class="flex-center-end action">
+                    <button class="main-btn default" data-id="{{item.order_id}}" bindtap="goDetail">订单详情</button>
+                    <button class="main-btn plain" data-id="{{item.order_id}}" bindtap="singleApply">点击申请</button>
+                </view>
+            </view>
         </view>
     </common-scroll>
-    <view class="page-action flex-center-end" wx:if="{{list.length}}">
+    <!-- <view class="page-action flex-center-end" wx:if="{{list.length}}">
         <button bindtap="applyNow" class="main-btn flex1">一键申请（{{query.pay_status_code == 'GETTOW'?'二期占比20%':'一期占比80%'}}）</button>
-    </view>
+    </view> -->
 </view>

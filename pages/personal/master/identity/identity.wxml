@@ -1,6 +1,12 @@
+<view wx:if="{{readonly}}" class="master-header">
+    <gdImage src="{{ info.headerurl }}" class="personal-img"></gdImage>
+    <view class="name">{{info.name}}</view>
+    <view class="sn">{{info.sn}}</view>
+</view>
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
     <van-cell-group title="">
         <van-field
+            wx:if="{{!readonly}}"
             input-class="input-field"
             value="{{ form.name }}"
             required
@@ -12,7 +18,7 @@
             bind:change="onChange"
         />
         <van-field
-            value="{{ form.sfz }}"
+            value="{{ readonly ? info.sfz : form.sfz }}"
             required
             label="身份证号"
             placeholder="请输入"

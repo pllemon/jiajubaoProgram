@@ -27,6 +27,20 @@ Page({
     this.selectComponent("#list").getData(1);
   },
 
+  goDetail(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/order/detail/detail?id='+ id + '&personType=1'
+    })
+  },
+
+  singleApply(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/personal/wages/submitForm/submitForm?personType=1&pay_status_code=' + this.data.query.pay_status_code + '&order_id=' + id
+    })
+  },
+
   applyNow() {
     app.globalData.otherData = this.data.list.map(item => {
       return item.order_id

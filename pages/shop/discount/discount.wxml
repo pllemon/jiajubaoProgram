@@ -46,7 +46,7 @@
       </view> -->
     </view>
 
-    <view bindtap="markDemand" class="tips">便民手写下单，点击进入 ></view>
+    <view bindtap="markDemand" class="tips" wx:if="{{finish}}">便民手写下单，点击进入 ></view>
 
     <view wx:for="{{list}}" wx:key="index" class="goods-single">
       <gdImage src="{{ item.goods_image }}" class="goods-image"></gdImage>
@@ -74,8 +74,8 @@
   <view class="action" wx:if="{{list.length}}">
     <view>
       <view class="money">
-        <text wx:if="{{!maxintegral}}">合计：</text>
-        <text wx:if="{{maxintegral}}">优惠价：</text>
+        <text wx:if="{{!maxintegral}}">合计: </text>
+        <text wx:if="{{maxintegral}}">优惠价: </text>
         <text style="color: #ff5643">￥{{filters.fnToFixed(sum - maxintegral)}}</text>
         <text wx:if="{{maxintegral}}" style="color: #868686;font-size:26rpx;text-decoration:line-through;margin-left:10rpx">￥{{filters.fnToFixed(sum)}}</text>
       </view>

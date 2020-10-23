@@ -1,6 +1,7 @@
 {
-	"navigationBarTitleText": "多师傅",
-	"navigationStyle": "custom",
+	"navigationBarTitleText": "",
+	"navigationBarBackgroundColor": "#ff5643", 
+	"navigationBarTextStyle": "white",
 	"usingComponents": {
 		"empower": "/components/empower/empower"
 	}
