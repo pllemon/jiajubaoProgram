@@ -31,6 +31,7 @@
           <view class="mes">申请时间：{{item.time}}</view>
           <view class="mes">提现账号：{{item.pay_name}}</view>
           <view class="mes">真实姓名：{{item.pay_username}}（{{item.pay_type == 2?'银行卡':'支付宝'}}）</view>
+          <view class="mes" wx:if="{{item.shouju_img}}">收据图片：<text style="color: #409EFF;" data-url="{{item.shouju_img}}" bindtap="viewImage">点击查看</text></view>
           <view class="mes" wx:if="{{item.shremark}}">审核备注：{{item.shremark}}</view>
           <view class="money">{{item.number == 1? '一期' : '二期'}} <text>￥{{item.money}}</text></view>
       </view>

@@ -43,5 +43,14 @@ Page({
     wx.navigateTo({
       url: '/pages/personal/wages/apply/apply?type=' + type
     })
+  },
+
+  viewImage(e) {
+    let url = e.currentTarget.dataset.url
+    let imgSrc = 'https://www.dsfjjwx.com/' + url
+    wx.previewImage({
+      current: imgSrc,
+      urls: [imgSrc]
+    })
   }
 })

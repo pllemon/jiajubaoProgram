@@ -41,7 +41,7 @@
             />
         </van-cell>
         <van-cell title="收据单" title-width="100px" required wx:if="{{pay_status_code == 'GETTOW'}}">
-            <van-uploader data-type="success_img" file-list="{{ success_img }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+            <van-uploader data-type="shouju_img" file-list="{{ shouju_img }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </van-cell>
     </van-cell-group>
     <button form-type="submit" class="main-btn">提交</button>

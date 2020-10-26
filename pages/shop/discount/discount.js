@@ -54,7 +54,7 @@ Page({
   getInfo() {
     let that = this;
     app.request({
-      url: '/businessinfo',
+      url: '/indexbusinessinfo',
       method: 'get',
       data: {
         business_id: that.data.business_id
@@ -93,8 +93,8 @@ Page({
     list.forEach(item => {
       sum += parseFloat(item.price) * parseFloat(item.number)
     })
-    let point1 = parseInt(sum / 100) * 5;
-    let point2 = parseInt(this.data.sumintegral / 5) * 5;
+    let point1 = parseInt(sum / 20) * 1;
+    let point2 = parseInt(this.data.sumintegral / 1) * 1;
     let maxintegral = Math.min(point1, point2);
     this.setData({
       sum,
@@ -104,53 +104,62 @@ Page({
 
   makeOrder() {
     let that = this
-    common.checkLogin(function() {
-      if (that.data.sum) {
-        wx.showModal({
-          title: '提示',
-          content: '确定下单？',
-          success (res) {
-            if (res.confirm) {
-              wx.requestSubscribeMessage({
-                tmplIds: [
-                  '_2qnHOlTzMu_nTiJmamzCqrnhvrfzjh5ijGntI64mEA', // 下单成功通知
-                  'PCshYOrhnVT6H3pDkcIXFocq7D9r-kfSAtuVW1pprDo', // 订单状态通知
-                ],
-                success (res) {
-                  let goodslist = that.data.list.filter(item => {
-                    return item.number > 0
-                  })
-                  goodslist = goodslist.map(item => {
-                    return {
-                      goods_id: item.goods_id,
-                      goods_number: item.number
-                    }
-                  })
-                  let obj = {
-                    integral: that.data.maxintegral,
-                    money: that.data.sum,
-                    business_id: that.data.business_id,
-                    goodslist: JSON.stringify(goodslist)
+    if ( !app.globalData.session ) {
+      wx.reLaunch({
+        url: '/pages/login/login?type=1'
+      })
+      return false;
+    }
+    if (that.data.sum) {
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '确定下单？',
+      //   success (res) {
+      //     if (res.confirm) {
+            wx.requestSubscribeMessage({
+              tmplIds: [
+                '_2qnHOlTzMu_nTiJmamzCqrnhvrfzjh5ijGntI64mEA', // 下单成功通知
+                'PCshYOrhnVT6H3pDkcIXFocq7D9r-kfSAtuVW1pprDo', // 订单状态通知
+              ],
+              success (res) {
+                let goodslist = that.data.list.filter(item => {
+                  return item.number > 0
+                })
+                goodslist = goodslist.map(item => {
+                  return {
+                    goods_id: item.goods_id,
+                    goods_number: item.number
                   }
-                  app.request({
-                    url: '/markbusinessorder',
-                    data: obj,
-                    loadText: '下单中',
-                    success: function(data) {
-                      app.successToast('提交成功', function(){
-                        wx.redirectTo({
-                          url: '/pages/offline/list/list?personType=0'
-                        })
-                      })
-                    }
-                  })
+                })
+                let obj = {
+                  integral: that.data.maxintegral,
+                  money: that.data.sum,
+                  business_id: that.data.business_id,
+                  goodslist: JSON.stringify(goodslist)
                 }
-              })
-            }
-          }
-        })
-      }
-    })
+                app.request({
+                  url: '/markbusinessorder',
+                  data: obj,
+                  loadText: '下单中',
+                  success: function(data) {
+                    app.successToast('提交成功', function(){
+                      wx.redirectTo({
+                        url: '/pages/offline/list/list?personType=0'
+                      })
+                    })
+                  }
+                })
+              },
+              fail(error) {
+                console.log(error)
+              }
+            })
+          // } else {
+          //   console.log(res)
+          // }
+        // }
+      // })
+    }
   },
 
   markDemand() {

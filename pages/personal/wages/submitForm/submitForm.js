@@ -7,10 +7,10 @@ Page({
             pay_name: '',
             pay_type: '',
             pay_username: '',
-            success_img: ''
+            shouju_img: ''
         },
         order_id: '',
-        success_img: [],
+        shouju_img: [],
         pay_status_code: '',
         personType: 0,
         radio: '2',
@@ -60,15 +60,29 @@ Page({
             app.showModal('请输入真实姓名');
             return false;
         }
-        if (this.data.pay_status_code == 'GETTOW' && !this.data.form.success_img) {
+        if (this.data.pay_status_code == 'GETTOW' && !this.data.shouju_img.length) {
             app.showModal('请上传收据单');
             return false;
         }
         if (personType == 1) {
-            this.masterApply()
+            if (this.data.pay_status_code == 'GETTOW') {
+                this.uploadShouju()
+            } else {
+                this.masterApply()
+            }
         } else {
             this.userApply()
         }
+    },
+
+    uploadShouju() {
+        let that = this;
+        common.uploadImg('/uploadordershouju', this.data['shouju_img'][0], function (res) {
+            that.setData({
+                'form.shouju_img': res.data
+            })
+            that.masterApply()
+        })
     },
 
     masterApply() {
