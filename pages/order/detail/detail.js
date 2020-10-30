@@ -53,11 +53,16 @@ Page({
     this.getInfo(1)
   },
 
-
-
   closePopup() {
     this.setData({ 
       isPopup: false 
+    })
+  },
+
+
+  checkMaster() {
+    wx.navigateTo({
+      url: '/pages/personal/master/identity/identity?readonly=1&&id=' + this.data.orderMes.craftsmaninfo.sn
     })
   },
 

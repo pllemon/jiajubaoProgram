@@ -25,11 +25,11 @@
           <gdImage src="{{orderMes.craftsmaninfo.cmheaderurl}}" class="personal-img" width="70rpx" height="70rpx"></gdImage>
           <view class="flex1">
             <view class="name">{{orderMes.craftsmaninfo.name}}（{{orderMes.craftsmaninfo.sn}}）</view>
-            <view>{{orderMes.craftsmaninfo.phone}}</view>
+            <!-- <view>{{orderMes.craftsmaninfo.phone}}</view> -->
           </view>
-          <view class="flex-center phone" wx:if="{{orderStatus.showMasterPhone}}" data-phone="{{orderMes.craftsmaninfo.phone}}" bindtap="makePhoneCall">
-            <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
-            <text>联系</text>
+          <view class="flex-center phone" wx:if="{{orderStatus.showMasterPhone}}" data-phone="{{orderMes.craftsmaninfo.phone}}" bindtap="checkMaster">
+            <!-- <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon> -->
+            <text>核对</text>
           </view>
         </view>
       </view>
@@ -92,7 +92,7 @@
           </view>
           <view wx:if="{{orderMes.info.networkusername}}">
             <text>审核人:</text>
-            <text>{{orderMes.info.networkusername}} {{orderMes.info.network_auth}}</text>
+            <text>{{orderMes.info.networkusername}} </text>
           </view>
           <view>
             <text>下单时间:</text>
