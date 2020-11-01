@@ -460,7 +460,7 @@ const personType = {
       {
         icon: 'icon-link1',
         text: '去朋友圈',
-        url: '/pages/personal/user/share/share'
+        action: 'getShareCode'
       },
       {
         icon: 'icon-remind1',

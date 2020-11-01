@@ -18,7 +18,7 @@ Page({
   onLoad(params) {
     let that = this
     that.setData({
-      business_id: params.id,
+      business_id: params.scene || params.id,
       requestUrl: '/businessallgoodslist?business_id=' + params.id
     })
     that.selectComponent("#list").getData(1);
@@ -40,6 +40,23 @@ Page({
       ['list['+idx+'].number'] : number
     })
     this.getSum()
+  },
+
+  
+  shareBusiness() {
+    app.request({
+      url: '/sharebusinessqrcode',
+      method: 'get',
+      data: {
+        discount_id: this.data.business_id
+      },
+      success: function(data) {
+        wx.previewImage({
+          current: data,
+          urls: [data]
+        })
+      }
+    })
   },
   
   changeList(e) {

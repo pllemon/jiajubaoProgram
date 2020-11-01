@@ -62,7 +62,7 @@ Page({
 
   checkMaster() {
     wx.navigateTo({
-      url: '/pages/personal/master/identity/identity?readonly=1&&id=' + this.data.orderMes.craftsmaninfo.sn
+      url: '/pages/personal/master/identity/identity?readonly=1&&isFromOrder=true&&id=' + this.data.orderMes.craftsmaninfo.craftsman_id
     })
   },
 

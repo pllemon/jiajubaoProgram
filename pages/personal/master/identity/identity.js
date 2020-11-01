@@ -24,13 +24,15 @@ Page({
     caridzimg: [],
     caridfimg: [],
     
-    readonly: 0
+    readonly: 0,
+    id: ''
   },
 
   onLoad (params) {
     let that = this;
     this.setData({
-      readonly: params.readonly || 0
+      readonly: params.readonly || 0,
+      id: params.id
     })
 
     
@@ -43,6 +45,11 @@ Page({
       wx.setNavigationBarTitle({
         title: '师傅申请'
       })
+    }
+
+    if (params.isFromOrder) {
+      that.getCraftsmanInfo()
+      return false
     }
 
     const craftsmannfo = app.globalData.loginInfo.craftsmannfo
@@ -75,6 +82,23 @@ Page({
         }]
       })
     }
+  },
+
+  getCraftsmanInfo() {
+    let that = this
+    app.request({
+      url: '/indexcraftsmaninfo',
+      data: {
+        craftsman_id: that.data.id
+      },
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          info: res,
+          form: res
+        })
+      }
+    })
   },
 
   onOpenSetting() {

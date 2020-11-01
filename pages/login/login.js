@@ -37,6 +37,10 @@ Page({
     let formType = params.type || 0;
     let invitation_code = params.invitation_code || '';
     let formData = this.data.formData;
+    let scene = params.scene;
+    if (scene) {
+      invitation_code = scene;
+    }
     formData.invitation_code = invitation_code;
     this.setData({
       formType,

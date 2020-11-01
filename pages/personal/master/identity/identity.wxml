@@ -1,7 +1,6 @@
 <view wx:if="{{readonly}}" class="master-header">
     <gdImage src="{{ info.headerurl }}" class="personal-img"></gdImage>
     <view class="name">{{info.name}}</view>
-    <view class="sn">{{info.sn}}</view>
 </view>
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
     <van-cell-group title="">
@@ -38,6 +37,15 @@
             type="number"
             readonly="{{readonly}}"
             bind:change="onChange"
+        />
+        <van-field
+            wx:if="{{readonly}}"
+            value="{{ info.sn }}"
+            required
+            label="师傅工号"
+            placeholder="请输入"
+            title-width="100px"
+            readonly="{{readonly}}"
         />
         <van-field
             value="{{ form.enter_time }}"

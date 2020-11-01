@@ -35,14 +35,29 @@ Component({
     bindAdvert(e) {
       let idx = e.currentTarget.dataset.idx
       let obj = this.data.bannerList[idx]
-      if (obj.type == 1) {
-        wx.navigateTo({
-          url: obj.url
+      let shareImage = '../../image/example/ewm.jpg'
+      if (obj.type == 0) {
+        wx.downloadFile({
+          url: shareImage,
+          success: function (res) {
+            console.log(res)
+          },
+          fail: error => {
+            console.log(error)
+          }
         })
+        wx.previewImage({
+          current: shareImage,
+          urls: [shareImage]
+        })
+      } else if (obj.type == 1) {
+        // wx.navigateTo({
+        //   url: obj.url
+        // })
       } else if (obj.type == 2){
-        wx.navigateTo({
-          url: '/pages/webView/webView'
-        })
+        // wx.navigateTo({
+        //   url: '/pages/webView/webView'
+        // })
       }
     }
   }
