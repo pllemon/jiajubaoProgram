@@ -17,9 +17,10 @@ Page({
   
   onLoad(params) {
     let that = this
+    let business_id = params.scene || params.id
     that.setData({
-      business_id: params.scene || params.id,
-      requestUrl: '/businessallgoodslist?business_id=' + params.id
+      business_id,
+      requestUrl: '/businessallgoodslist?business_id=' + business_id
     })
     that.selectComponent("#list").getData(1);
 

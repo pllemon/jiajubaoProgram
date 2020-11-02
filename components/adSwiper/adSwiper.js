@@ -35,7 +35,7 @@ Component({
     bindAdvert(e) {
       let idx = e.currentTarget.dataset.idx
       let obj = this.data.bannerList[idx]
-      let shareImage = '../../image/example/ewm.jpg'
+      let shareImage = 'https://www.dsfjjwx.com/uploads/wxqrcode/f37d2dd16581c0bf7b18d5246647fca.jpg'
       if (obj.type == 0) {
         wx.downloadFile({
           url: shareImage,

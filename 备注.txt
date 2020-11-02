@@ -502,3 +502,21 @@ admin/networkuserlist 创建时间格式错误
 /businessinfo 去除登录限制
 100用5积分改成20用1积分
 transactionlog 添加type 区分商家流水和维修流水
+
+
+
+
+
+
+
+
+
+
+金额修改：
+购买积分支付1元 ok
+平台费金额 6% ok
+添加商品价格 ok
+
+
+店长支付还是0.01
+用户支付还是0.01

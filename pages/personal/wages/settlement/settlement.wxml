@@ -2,8 +2,8 @@
 
 <view class="full-layout">
   <view class="blue-header flex-column-center">
-    <view>当前可提现收益</view>
-    <view class="total">￥{{filters.fnToFixed(canusemoney)}}</view>
+    <view>共有收益</view>
+    <view class="total">￥{{filters.fnToFixed(sumprofit)}}</view>
     <!-- <view>冻结收益 ￥{{filters.fnToFixed(sumprofit - canusemoney)}}</view> -->
   </view>
 
@@ -20,7 +20,7 @@
     <view class="record-list">
       <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
         <view>
-          <view>完成订单</view>
+          <view>朋友李同学完成订单634503923045903259</view>
           <view class="time">{{item.time}}</view>
         </view>
         <view class="points">{{'+' + item.money}}</view>
@@ -30,6 +30,6 @@
   
   <view class="page-action">
     <button bindtap="applyRecord" class="main-btn flex1 default" style="margin-left:0">提现记录</button>
-    <button bindtap="applyNow" class="main-btn flex1 {{canusemoney>20?'default':'disable'}}">立即提现</button>
+    <button bindtap="applyNow" style="width:65%;" class="main-btn {{canusemoney>20?'default':'disable'}}">￥{{filters.fnToFixed(canusemoney)}} 可提现</button>
   </view>
 </view>
