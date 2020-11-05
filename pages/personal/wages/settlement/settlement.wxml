@@ -20,7 +20,7 @@
     <view class="record-list">
       <view class="record-single flex-center-between" wx:for="{{ list }}" wx:key="index">
         <view>
-          <view>朋友李同学完成订单634503923045903259</view>
+          <view>朋友{{item.username}}完成订单{{item.order_sn}}</view>
           <view class="time">{{item.time}}</view>
         </view>
         <view class="points">{{'+' + item.money}}</view>
