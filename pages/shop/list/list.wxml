@@ -15,8 +15,8 @@
     <view class="common-list">
       <view wx:for="{{list}}" wx:key="id" class="shop-single">
         <view class="shop-img">
-          <gdImage src="{{ item.shopimg }}"  preview="true"/>
-          <gdImage src="{{ item.goodsimg }}"  preview="true"/>
+          <gdImage src="{{ item.shopimg }}" style="width:300rpx" preview="true"/>
+          <gdImage src="{{ item.goodsimg }}" style="flex: 1"  preview="true"/>
         </view>
         <view class="unit">
           <view class="flex-start-between">
@@ -26,17 +26,21 @@
           <view class="mes">
             <text class="content">{{item.address}}</text>
           </view>
-          <view class="mes">
+          <!-- <view class="mes">
             <text class="content">{{item.phone}}</text>
-          </view>
+          </view> -->
         </view>
         <view class="shop-action flex-center-end">
-          <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
+          <!-- <button size="mini" data-phone="{{item.phone}}" bindtap="makePhoneCall">
             <icon class="iconfont iconicon_phone"></icon>
             <text>联系</text>
+          </button> -->
+          <button size="mini" data-idx="{{index}}">
+            <icon class="iconfont2 icon-juli"></icon>
+            <text>{{item.distance}}</text>
           </button>
           <button size="mini" data-idx="{{index}}" bindtap="getRoutePlan">
-            <icon class="iconfont iconicon_GPS"></icon>
+            <icon class="iconfont2 icon-luxian"></icon>
             <text>路线</text>
           </button>
           <!-- <button size="mini" data-idx="{{index}}" open-type="share">

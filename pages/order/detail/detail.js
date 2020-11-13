@@ -435,7 +435,7 @@ Page({
   // 我要反馈
   feedback() {
     wx.navigateTo({
-      url: '/pages/personal/feedback/feedback'
+      url: '/pages/personal/feedback/feedback?id=' + this.data.order_id
     })
   },
 

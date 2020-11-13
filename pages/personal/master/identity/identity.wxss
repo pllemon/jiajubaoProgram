@@ -13,8 +13,9 @@
   margin-bottom: 30rpx;
 }
 .master-header .personal-img{
-  width: 150rpx;
-  height:150rpx;
+  width: 250rpx;
+  height:250rpx;
+  border-radius: 0;
 }
 .master-header .name{
   line-height: 1.8;

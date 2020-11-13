@@ -29,7 +29,6 @@
   display: flex;
 }
 .shop-img gdimage{
-  width: 50%;
   height: 240rpx;
 }
 

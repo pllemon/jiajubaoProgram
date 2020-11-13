@@ -19,8 +19,8 @@ Page({
     let regionInfo = app.globalData.regionInfo
     this.setData({
       query: {
-        // lng: addressInfo? addressInfo.lng : '',
-        // lat: addressInfo? addressInfo.lat : '',
+        lng: addressInfo? addressInfo.location.lng : '',
+        lat: addressInfo? addressInfo.location.lat : '',
         keyword: that.data.keyword,
         province: regionInfo.code[0] || '',
         city: regionInfo.code[1] || '',
@@ -32,8 +32,11 @@ Page({
   },
 
   updateNetwork(e) {
+    let addressInfo = app.globalData.addressInfo
     this.setData({
       query: {
+        lng: addressInfo? addressInfo.location.lng : '',
+        lat: addressInfo? addressInfo.location.lat : '',
         keyword: this.data.keyword,
         province: '',
         city: '',
@@ -75,13 +78,13 @@ Page({
 
   changeList(e) {
     let list = e.detail
-    // list.forEach(item => {
-    //   if (item.distance > 1000) {
-    //     item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
-    //   } else {
-    //     item.distance = item.distance + 'm'
-    //   }
-    // })
+    list.forEach(item => {
+      if (item.distance > 1000) {
+        item.distance = parseFloat(item.distance/1000).toFixed(1) + 'km'
+      } else {
+        item.distance = item.distance + 'm'
+      }
+    })
     this.setData({
       list
     })

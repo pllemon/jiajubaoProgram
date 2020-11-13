@@ -28,9 +28,9 @@
         </van-cell>
         <van-field
             value="{{ form.htremark }}"
-            label="审核备注"
+            label="审核人"
             type="textarea"
-            placeholder="请输入"
+            placeholder="请输入师傅名称和工号"
             title-width="100px"
             autosize
             border="{{ false }}"

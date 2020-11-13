@@ -24,10 +24,10 @@
             <gdImage src="{{orderMes.shopimg}}" class="personal-img" width="80rpx" height="80rpx"></gdImage>
             <view class="flex1">
               <view class="name">{{orderMes.business_name}}</view>
-              <view>{{orderMes.business_phone}}</view>
+              <view wx:if="{{orderMes.status == 7}}">{{orderMes.business_phone}}</view>
               <view>{{orderMes.business_address}}</view>
             </view>
-            <view class="flex-center phone" data-phone="{{orderMes.business_phone}}" bindtap="makePhoneCall">
+            <view class="flex-center phone" wx:if="{{orderMes.status == 7}}" data-phone="{{orderMes.business_phone}}" bindtap="makePhoneCall">
               <icon class="iconfont iconicon_phone" style="margin-right:10rpx"></icon>
               <text>联系</text>
             </view>

@@ -12,8 +12,8 @@
   >
     <view class="shop-single" wx:if="{{finish}}">
       <view class="shop-img">
-        <gdImage src="{{ info.shopimg }}"  preview="true"/>
-        <gdImage src="{{ info.goodsimg }}"  preview="true"/>
+        <gdImage src="{{ info.shopimg }}" style="width:300rpx" preview="true"/>
+        <gdImage src="{{ info.goodsimg }}" style="flex: 1" preview="true"/>
       </view>
       <view class="unit">
         <view class="flex-start-between">
@@ -26,9 +26,9 @@
         <view class="mes">
           <text class="content">{{info.address}}</text>
         </view>
-        <view class="mes">
+        <!-- <view class="mes">
           <text class="content">{{info.phone}}</text>
-        </view>
+        </view> -->
       </view>
       <!-- <view class="shop-action flex-center-end">
         <button size="mini" data-phone="{{info.phone}}" bindtap="makePhoneCall">
@@ -46,7 +46,7 @@
       </view> -->
     </view>
 
-    <view bindtap="markDemand" class="tips" wx:if="{{finish}}">便民手写下单，点击进入 ></view>
+    <view bindtap="markDemand" class="tips" wx:if="{{finish}}">需要其它产品，点击进入 ></view>
 
     <view wx:for="{{list}}" wx:key="index" class="goods-single">
       <gdImage src="{{ item.goods_image }}" class="goods-image"></gdImage>

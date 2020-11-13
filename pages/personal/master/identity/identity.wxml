@@ -1,15 +1,13 @@
 <view wx:if="{{readonly}}" class="master-header">
     <gdImage src="{{ info.headerurl }}" class="personal-img"></gdImage>
-    <view class="name">{{info.name}}</view>
 </view>
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
     <van-cell-group title="">
         <van-field
-            wx:if="{{!readonly}}"
             input-class="input-field"
             value="{{ form.name }}"
             required
-            label="真实姓名"
+            label="{{readonly?'师傅姓名':'真实姓名'}}"
             placeholder="请输入"
             title-width="100px"
             data-name="name"
@@ -58,7 +56,7 @@
             readonly="{{readonly}}"
             bind:change="onChange"
         />
-        <van-field
+        <!-- <van-field
             value="{{ form.address }}"
             required
             label="联系地址"
@@ -67,7 +65,7 @@
             type="textarea"
             autosize
             wx:if="{{readonly}}"
-        />
+        /> -->
         <van-cell title="联系地址" title-width="100px" required  wx:if="{{!readonly}}">
             <block wx:if="{{addressInfo}}">
                 <view class="flex" style="color:#323233;align-items:flex-start" bindtap="chooseAddress">

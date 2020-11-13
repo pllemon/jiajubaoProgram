@@ -2,7 +2,6 @@
   display: flex;
 }
 .shop-img gdimage{
-  width: 50%;
   height: 240rpx;
 }
 
@@ -34,7 +33,7 @@
   justify-content: center;
 }
 .shop-action button icon{
-  margin-right: 6rpx;
+  margin-right: 8rpx;
   position: relative;
   top: 1px;
 }

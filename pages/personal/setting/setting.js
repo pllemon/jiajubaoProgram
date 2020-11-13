@@ -8,11 +8,11 @@ Page({
         text: '使用说明',
         url: '/pages/personal/doc/doc?type=lxwm'
       },
-      {
-        img: 'iconfont2 icon-comments',
-        text: '意见反馈',
-        url: '/pages/personal/feedback/feedback'
-      },
+      // {
+      //   img: 'iconfont2 icon-comments',
+      //   text: '意见反馈',
+      //   url: '/pages/personal/feedback/feedback'
+      // },
       {
         img: 'iconicon_wechat',
         text: '企业文化',
@@ -23,11 +23,11 @@ Page({
         text: '用户须知',
         url: '/pages/personal/doc/doc?type=regulations'
       },
-      {
-        img: 'iconicon_invite',
-        text: '用户协议',
-        url: '/pages/personal/doc/doc?type=hhxy'
-      },
+      // {
+      //   img: 'iconicon_invite',
+      //   text: '用户协议',
+      //   url: '/pages/personal/doc/doc?type=hhxy'
+      // },
       // {
       //   img: 'iconicon_invite',
       //   text: '师傅协议',

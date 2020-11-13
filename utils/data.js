@@ -51,8 +51,8 @@ const personMessage = {
       },
       4: {
         status: 4,
-        label: '报名中',
-        desc: '师傅报名中',
+        label: '派单中',
+        desc: '订单派单中，请耐心等待',
         show: false,
         icon: 'icongongcheng-',
         showUser: true,
@@ -84,7 +84,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: false,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: true,
         color: 'cOrange'
       },
@@ -97,7 +97,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: false,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: true,
         color: 'cGreen'
       },
@@ -110,7 +110,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: false,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: true,
         color: 'cGreen'
       },
@@ -348,7 +348,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: true,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: false
       },
       7: {
@@ -360,7 +360,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: true,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: false
       },
       8: {
@@ -372,7 +372,7 @@ const personMessage = {
         showUser: true,
         showUserPhone: true,
         showMaster: true,
-        showMasterPhone: true,
+        showMasterPhone: false,
         showSignUp: false
       },
       10: {
@@ -469,7 +469,7 @@ const personType = {
       },
       {
         icon: 'icon-set1',
-        text: '我要设置',
+        text: '了解平台',
         url: '/pages/personal/setting/setting'
       }
     ]
@@ -490,7 +490,7 @@ const personType = {
       },
       {
         icon: 'icon-trade',
-        text: '订单佣金',
+        text: '申请酬劳',
         url: '/pages/personal/wages/applyRecord/applyRecord'
       },
       {
