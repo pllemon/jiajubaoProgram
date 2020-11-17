@@ -169,18 +169,6 @@ Page({
       app.showModal('请定位联系地址');
       return false;
     }
-    if (!this.data.caridimg.length) {
-      app.showModal('请上传手持证件照');
-      return false;
-    }
-    if (!this.data.caridzimg.length) {
-      app.showModal('请上传身份证正面');
-      return false;
-    }
-    if (!this.data.caridfimg.length) {
-      app.showModal('请上传身份证反面');
-      return false;
-    }
     if (this.data.agree.length == 0) {
       app.showModal('请认真阅读并勾选同意师傅入驻协议书');
       return false;
@@ -188,13 +176,7 @@ Page({
     
     form.address = this.data.addressInfo.address + e.detail.value.address;
 
-    uploadNum = 0;
-    wx.showLoading({
-      title: '上传中',
-    });
-    this.upload('caridimg');
-    this.upload('caridzimg');
-    this.upload('caridfimg');
+    this.submitFn();
   },
 
   afterRead(e) {
@@ -221,10 +203,10 @@ Page({
   },
 
   submitFn() {
-    console.log(this.data.form)
     app.request({
       url: '/applycraftsman',
       data: this.data.form,
+      loadText: '提交中',
       success: function(data) {
         app.successToast('提交成功', function(){
           wx.reLaunch({

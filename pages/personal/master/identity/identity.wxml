@@ -93,17 +93,6 @@
             bind:change="onChange"
         />
     </van-cell-group>
-    <van-cell-group title="身份证图片" class="upload-content" wx:if="{{!readonly}}">
-        <van-cell title="手持证件照" title-width="100px" required>
-            <van-uploader data-type="caridimg" file-list="{{ caridimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
-        </van-cell>
-        <van-cell title="身份证正面" title-width="100px" required>
-            <van-uploader data-type="caridzimg" file-list="{{ caridzimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
-        </van-cell>
-        <van-cell title="身份证反面" title-width="100px" required>
-            <van-uploader data-type="caridfimg" file-list="{{ caridfimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
-        </van-cell>
-    </van-cell-group>
 
     <checkbox-group class="agree flex-center-start"  bindchange="checkboxChange"  wx:if="{{!readonly}}">
         <checkbox value="1" checked="{{false}}" color="#ff5643"/>
