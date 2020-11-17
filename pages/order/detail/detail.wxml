@@ -90,9 +90,9 @@
             <text>订单编号:</text>
             <text>{{orderMes.info.order_sn}}</text>
           </view>
-          <view wx:if="{{orderMes.info.networkusername}}">
+          <view wx:if="{{orderMes.info.htremark}}">
             <text>审核人:</text>
-            <text>{{orderMes.info.networkusername}} </text>
+            <text>{{orderMes.info.htremark}} </text>
           </view>
           <view>
             <text>下单时间:</text>

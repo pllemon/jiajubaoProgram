@@ -29,6 +29,7 @@
         <van-field
             value="{{ form.htremark }}"
             label="审核人"
+            required
             type="textarea"
             placeholder="请输入师傅名称和工号"
             title-width="100px"

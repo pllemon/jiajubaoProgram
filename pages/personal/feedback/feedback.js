@@ -2,18 +2,18 @@ const app = getApp()
 
 Page({
   data: {
-    order_id: ''
+    order_sn: ''
   },
 
   onLoad(params) {
     this.setData({
-      order_id: params.id
+      order_sn: params.order_sn
     })
   },
 
   formSubmit(e) {  
     let formData = e.detail.value;
-    formData.order_id = this.data.order_id;
+    formData.order_sn = this.data.order_sn;
     app.request({
       url: '/feedback',
       data: formData,

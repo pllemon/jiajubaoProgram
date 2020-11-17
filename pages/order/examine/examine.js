@@ -81,6 +81,11 @@ Page({
         pass = false;
         return false;
       }
+      if (!form.htremark) {
+        app.showModal('请输入审核人');
+        pass = false;
+        return false;
+      }
       if (!this.data.imgArr.length) {
         app.showModal('请上传报价单');
         pass = false;
