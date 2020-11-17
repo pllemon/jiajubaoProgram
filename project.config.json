@@ -237,10 +237,10 @@
           "scene": null
         },
         {
-          "id": -1,
+          "id": 24,
           "name": "注册",
           "pathName": "pages/login/login",
-          "query": "type=1",
+          "query": "type=0",
           "scene": null
         }
       ]

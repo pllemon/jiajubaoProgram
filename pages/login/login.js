@@ -14,6 +14,7 @@ Page({
     password: '',
     countDown: 0,
     formData: {
+      sex: 1,
       username: '',
       phone: '',
       code: '',
@@ -133,10 +134,21 @@ Page({
     })
   },
 
+  changeSex() {
+    let sex = this.data.formData.sex
+    this.setData({
+      'formData.sex': sex == 1 ? 2 : 1
+    })
+  },
+
   // 重置表单
   formReset() {
+    let formData = {}
+    if (this.data.formType == 0) {
+      formData.sex = 1
+    }
     this.setData({
-      formData: {}
+      formData
     })
   },
 
@@ -151,6 +163,7 @@ Page({
     console.log(app.globalData.userInfo);
     let that = this;
     let formData = e.detail.value;
+    formData.sex = that.data.formData.sex;
     console.log(formData)
     if (this.data.formType == 0) {
       if (!formData.username) {

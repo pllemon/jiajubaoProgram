@@ -7,6 +7,7 @@
   <view class="section" wx:if="{{formType == 0}}">
     <icon class="iconfont iconicon_boss"></icon>
     <input placeholder="请输入用户名" name="username" value="{{formData.username}}"/>
+    <text bindtap="changeSex" style="border:1px solid #ddd;padding:6rpx 30rpx;border-radius:10rpx">{{formData.sex == 1 ? '男' : '女'}}</text>
     <!-- <button size="mini" open-type="getUserInfo" class="button-plain" bindgetuserinfo="onGotUserInfo">授权</button> -->
   </view>
   <view class="section">
