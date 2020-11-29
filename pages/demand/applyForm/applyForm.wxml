@@ -24,7 +24,7 @@
         </van-cell>
         <van-cell title="是否加急" title-width="100px">
             <van-switch checked="{{ checked }}" size="24px" active-color="#fd5240" bind:change="changeSwitch" />
-            <view wx:if="{{checked}}" style="font-size:14px">加急人员每位收150元</view>
+            <view wx:if="{{checked}}" style="font-size:14px">加急人员每位另收150元服务费</view>
         </van-cell>
         <van-field
             value="{{ form.remark }}"

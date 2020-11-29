@@ -23,9 +23,6 @@
             data-name="total_price"
             bind:change="onChange"
         />
-        <van-cell title="报价单" title-width="100px" required>
-            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
-        </van-cell>
         <van-field
             value="{{ form.htremark }}"
             label="审核人"
@@ -38,6 +35,9 @@
             data-name="htremark"
             bind:change="onChange"
         />
+        <van-cell title="报价单" title-width="100px" required>
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
     </van-cell-group>
 
     <button bindtap="formSubmit" class="main-btn">提交</button>
