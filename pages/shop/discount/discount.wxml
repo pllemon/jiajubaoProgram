@@ -64,7 +64,7 @@
             value="{{ item.number }}" 
             step="1" 
             min="0"
-            disable-input 
+            integer
             bind:change="onChange"
           />
         </view>

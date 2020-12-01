@@ -40,6 +40,7 @@
             </view>
           </view>
           <view class="flex-center-end" wx:if="{{item.money > 0}}"><text class="money">￥{{item.money}}</text></view>
+          <button bindtap="deleteOrder" class="main-btn default" data-idx="{{index}}"  wx:if="{{personType == 0 && (item.status == 2 || item.status == 6)}}">删除订单</button>
         </navigator>
       </block>
     </view>

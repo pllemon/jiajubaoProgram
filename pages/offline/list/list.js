@@ -25,5 +25,27 @@ Page({
     this.setData({
       list: e.detail
     })
+  },
+
+  deleteOrder(e) {
+    const that = this
+    let index = e.target.dataset.index
+    let list = that.data.list
+    app.request({
+      url: '/userhandleneedorder',
+      data: {
+        status: 3,
+        order_sn: list[index].order_sn
+      },
+      loadText: '提交中',
+      success: function(data) {
+        app.successToast(mes, function(){
+          list.splice(idx, 1)
+          that.setData({
+            list
+          })
+        })
+      }
+    })
   }
 })

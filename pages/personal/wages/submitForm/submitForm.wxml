@@ -35,7 +35,7 @@
                 step="10" 
                 min="20"
                 max="{{maxPoint}}"
-                disable-input 
+                integer
                 data-name="money"
                 bind:change="changeMoney"
             />
