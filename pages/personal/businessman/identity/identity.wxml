@@ -48,17 +48,17 @@
         </van-cell>
     </van-cell-group>
     <van-cell-group title="图片资料" class="upload-content">
-        <van-cell title="门面图片" title-width="100px" required>
+        <van-cell title="门面图片(150*120)" title-width="100px" required>
             <van-uploader wx:if="{{!readonly}}" data-type="shopimg" file-list="{{ shopimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
-            <gdImage wx:else src="{{ shopimg[0].url }}" needPad="{{false}}" preview class="mes-image" mode="scaleToFill"></gdImage>
+            <gdImage wx:else src="{{ shopimg[0].url }}" needPad="{{false}}" preview class="mes-image shopimg" mode="scaleToFill"></gdImage>
         </van-cell>
-        <van-cell title="宣传图片" title-width="100px" required>
+        <van-cell title="宣传图片(225*120)" title-width="100px" required>
             <van-uploader wx:if="{{!readonly}}" data-type="goodsimg" file-list="{{ goodsimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
-            <gdImage wx:else src="{{ goodsimg[0].url }}" needPad="{{false}}" preview class="mes-image" mode="scaleToFill"></gdImage>
+            <gdImage wx:else src="{{ goodsimg[0].url }}" needPad="{{false}}" preview class="mes-image goodsimg" mode="scaleToFill"></gdImage>
         </van-cell>
         <van-cell title="营业执照" title-width="100px" required>
             <van-uploader wx:if="{{!readonly}}" data-type="businessimg" file-list="{{ businessimg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />
-            <gdImage wx:else src="{{ businessimg[0].url }}" needPad="{{false}}" preview class="mes-image" mode="scaleToFill"></gdImage>
+            <gdImage wx:else src="{{ businessimg[0].url }}" needPad="{{false}}" preview class="mes-image businessimg" mode="scaleToFill"></gdImage>
         </van-cell>
         <!-- <van-cell title="分享图片" title-width="100px" required>
             <van-uploader data-type="sharewximg" file-list="{{ sharewximg }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" />

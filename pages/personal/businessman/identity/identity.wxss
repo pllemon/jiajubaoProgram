@@ -1,5 +1,13 @@
 .mes-image{
-    width: 180px;
-    height: 120px;
     display: block;
+}
+
+.shopimg{
+    width:150px !important;
+    height:120px !important;
+}
+
+.goodsimg, .businessimg{
+    width:225px !important;
+    height:120px !important;
 }

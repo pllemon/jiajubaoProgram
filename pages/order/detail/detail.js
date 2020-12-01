@@ -17,7 +17,11 @@ Page({
 
     craftsmannfo: {}, // 自身师傅信息
     isPopup: false,
-    cancelremark: ''
+    cancelremark: '',
+    sexOptions: {
+      1: '男',
+      2: '女'
+    }
   },
 
   onLoad(params) {

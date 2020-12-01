@@ -528,7 +528,7 @@ transactionlog 添加type 区分商家流水和维修流水
 
 11/13
 /feedback 添加字段 order_id   ok
-后台修改不了师傅头像
+后台修改不了师傅头像 ok
 积分: 邀请朋友送10分、注册10分  ok
 /businesslist 商家列表是不是按距离排序的 ok
 注册添加性别sex ok
@@ -536,8 +536,3 @@ transactionlog 添加type 区分商家流水和维修流水
 
 审核备注 -》 审核人，订单详情和后台
 卡：caridimg、caridzimg、caridfimg
-
-
-11/14
-/feedback 添加字段 order_id
-/orderinfo 返回用户性别
