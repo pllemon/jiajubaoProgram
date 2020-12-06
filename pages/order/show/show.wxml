@@ -31,7 +31,7 @@
         wx:if="{{number == 2}}"
         input-class="input-field"
         value="{{ form.add_money }}"
-        type="number"
+        type="digit"
         label="增项费用"
         placeholder="请输入"
         title-width="100px"

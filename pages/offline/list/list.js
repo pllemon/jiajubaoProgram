@@ -28,8 +28,9 @@ Page({
   },
 
   deleteOrder(e) {
+    console.log(e)
     const that = this
-    let index = e.target.dataset.index
+    let index = e.target.dataset.idx
     let list = that.data.list
     app.request({
       url: '/userhandleneedorder',
@@ -39,7 +40,7 @@ Page({
       },
       loadText: '提交中',
       success: function(data) {
-        app.successToast(mes, function(){
+        app.successToast(data.mes, function(){
           list.splice(idx, 1)
           that.setData({
             list

@@ -13,7 +13,7 @@
         </van-cell>
         <van-field
             wx:if="{{statusIdx == 0}}"
-            type="number"
+            type="digit"
             input-class="input-field"
             value="{{ form.total_price }}"
             required

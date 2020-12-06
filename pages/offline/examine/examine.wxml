@@ -1,7 +1,7 @@
 <form class="form" style="padding-bottom: 50rpx">
     <van-cell-group>
         <van-field
-            type="number"
+            type="digit"
             input-class="input-field"
             value="{{ form.total_price }}"
             required

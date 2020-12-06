@@ -18,7 +18,7 @@
             value="{{ form.price }}"
             required
             label="商品价格"
-            type="number"
+            type="digit"
             placeholder="请输入"
             title-width="100px"
             data-name="price"
