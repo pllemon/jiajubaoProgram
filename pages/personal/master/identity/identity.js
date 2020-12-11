@@ -20,6 +20,7 @@ Page({
       address: ''
     },
 
+    headerurl: [],
     caridimg: [],
     caridzimg: [],
     caridfimg: [],
@@ -65,6 +66,11 @@ Page({
       this.setData({
         info: craftsmannfo,
         form,
+        headerurl: [{
+          url: common.padUrl(craftsmannfo.headerurl),
+          success: true,
+          data: craftsmannfo.headerurl
+        }],
         caridimg: [{
           url: common.padUrl(craftsmannfo.caridimg),
           success: true,
@@ -147,8 +153,12 @@ Page({
   },
 
   formSubmit: function(e) {
+    let that = this;
     let form = this.data.form;
-    
+    if (!this.data.headerurl.length) {
+      app.showModal('请上传师傅头像');
+      return false;
+    }
     if (!form.name) {
       app.showModal('请输入姓名');
       return false;
@@ -165,18 +175,25 @@ Page({
       app.showModal('请输入入行年份');
       return false;
     }
-    if (!this.data.addressInfo) {
+    if (!that.data.addressInfo) {
       app.showModal('请定位联系地址');
       return false;
     }
-    if (this.data.agree.length == 0) {
+    if (that.data.agree.length == 0) {
       app.showModal('请认真阅读并勾选同意师傅入驻协议书');
       return false;
     }
     
-    form.address = this.data.addressInfo.address + e.detail.value.address;
+    form.address = that.data.addressInfo.address + e.detail.value.address;
+    wx.showLoading({
+      title: '上传中',
+    });
+    common.uploadImg('uploadcm', that.data.headerurl[0], function (res) {
+      form.headerurl = res.data;
+      wx.hideLoading();
+      that.submitFn(form);
+    })
 
-    this.submitFn();
   },
 
   afterRead(e) {
@@ -202,10 +219,10 @@ Page({
     })
   },
 
-  submitFn() {
+  submitFn(obj) {
     app.request({
       url: '/applycraftsman',
-      data: this.data.form,
+      data: obj,
       loadText: '提交中',
       success: function(data) {
         app.successToast('提交成功', function(){

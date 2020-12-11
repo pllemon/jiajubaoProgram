@@ -3,6 +3,9 @@
 </view>
 <form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
     <van-cell-group title="">
+        <van-cell title="师傅头像" title-width="100px" required wx:if="{{!readonly}}">
+            <van-uploader data-type="headerurl" file-list="{{ headerurl }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
         <van-field
             input-class="input-field"
             value="{{ form.name }}"
