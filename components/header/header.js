@@ -23,6 +23,10 @@ Component({
         network: {  
             type: Boolean,  
             value: false
+        },
+        isShop: {
+            type: Boolean,
+            value: false
         }
     }, 
     attached: function(){ 
@@ -135,10 +139,25 @@ Component({
                     district: that.data.regionInfo.code[2] || ''
                 },
                 success: function(data) {
-                    data.unshift({
-                        name: '全部网点',
-                        id: '',
-                    })
+                    if (that.properties.isShop) {
+                        data.unshift({
+                            name: '全部商家',
+                            id: '-2',
+                        })
+                        data.unshift({
+                            name: '全部便利店',
+                            id: '-1',
+                        })
+                        data.unshift({
+                            name: '请选择',
+                            id: '',
+                        })
+                    } else {
+                        data.unshift({
+                            name: '全部网点',
+                            id: '',
+                        })
+                    }
                     that.setData({
                         networkIdx: 0,
                         networkList: data

@@ -14,6 +14,7 @@ Page({
   },
 
   updateArea(e) {
+    console.log('执行updateArea')
     let that = this
     let addressInfo = app.globalData.addressInfo
     let regionInfo = app.globalData.regionInfo
@@ -25,23 +26,38 @@ Page({
         province: regionInfo.code[0] || '',
         city: regionInfo.code[1] || '',
         district: regionInfo.code[2] || '',
-        network_id: ''
+        network_id: '',
+        attribute: ''
       }
     })
     this.selectComponent("#list").getData(1);
   },
 
   updateNetwork(e) {
+    console.log('执行updateNetwork')
     let addressInfo = app.globalData.addressInfo
+    let regionInfo = app.globalData.regionInfo
+    let attribute = ''
+    let network_id = ''
+    let eId = e.detail.id
+    if (eId == '-1') {
+      attribute = 1
+    }else if (eId == '-2') {
+      attribute = 2
+    } else if (eId) {
+      attribute = 3
+      network_id = eId
+    }
     this.setData({
       query: {
         lng: addressInfo? addressInfo.location.lng : '',
         lat: addressInfo? addressInfo.location.lat : '',
         keyword: this.data.keyword,
-        province: '',
-        city: '',
-        district: '',
-        network_id: e.detail.id || ''
+        province: regionInfo.code[0] || '',
+        city: regionInfo.code[1] || '',
+        district: regionInfo.code[2] || '',
+        network_id,
+        attribute
       }
     })
     this.selectComponent("#list").getData(1);
