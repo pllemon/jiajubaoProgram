@@ -40,8 +40,8 @@ Page({
       },
       loadText: '提交中',
       success: function(data) {
-        app.successToast(data.mes, function(){
-          list.splice(idx, 1)
+        app.successToast('删除成功', function(){
+          list.splice(index, 1)
           that.setData({
             list
           })
