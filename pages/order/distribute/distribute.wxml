@@ -1,0 +1,44 @@
+<form class="form" style="padding-bottom: 50rpx">
+    <van-cell-group>
+        <van-cell title="沟通结果" title-width="100px" required>
+            <picker value="{{statusIdx}}" range="{{statusArr}}" range-key="name" data-label="statusIdx" bindchange="bindChange">
+                <view class="picker">
+                    <text>{{statusIdx ? statusArr[statusIdx].name : '请选择'}}</text>
+                    <icon class="address-icon iconfont iconicon_next_arrow"></icon>
+                </view>
+            </picker>
+        </van-cell>
+        <van-cell title="开工时间" title-width="100px" required wx:if="{{statusIdx == 0}}">
+            <date-time-picker data-key="form.appo_time" value="{{form.appo_time}}" bind:change="changeTime" />
+        </van-cell>
+        <van-field
+            wx:if="{{statusIdx == 0}}"
+            type="digit"
+            input-class="input-field"
+            value="{{ form.total_price }}"
+            required
+            label="订单总价"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="total_price"
+            bind:change="onChange"
+        />
+        <van-field
+            value="{{ form.htremark }}"
+            label="审核人"
+            required
+            type="textarea"
+            placeholder="请输入师傅名称和工号"
+            title-width="100px"
+            autosize
+            border="{{ false }}"
+            data-name="htremark"
+            bind:change="onChange"
+        />
+        <van-cell title="报价单" title-width="100px" required>
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
+    </van-cell-group>
+
+    <button bindtap="formSubmit" class="main-btn">提交</button>
+</form>

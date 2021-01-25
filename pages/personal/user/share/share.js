@@ -91,7 +91,7 @@ Page({
 
   // onShareAppMessage: function (res) {
   //   return {
-  //     title: '多师傅平台欢迎你',
+  //     title: '加入我们，分享提成！',
   //     path: '/pages/login/login?invitation_code=' + app.globalData.loginInfo.invitation_code
   //   }
   // }

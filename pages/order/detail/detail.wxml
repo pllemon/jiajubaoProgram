@@ -172,7 +172,7 @@
         </view>
       </view>
 
-      <view class="common-section" wx:if="{{orderMes.info.status >= 4 && orderMes.info.status <= 8 && orderMes.craftsmanlist && personType == 3}}">
+      <view class="common-section" wx:if="{{orderMes.info.status >= 4 && orderMes.info.status <= 8 && orderMes.craftsmanlist && (personType == 3 || personType == 4)}}">
         <view class="title">报名情况({{orderMes.craftsmanlist.length}})</view>
         <view class="sign-list" wx:if="{{orderMes.craftsmanlist.length>0}}">
           <block wx:for="{{orderMes.craftsmanlist}}" wx:key="index">
@@ -214,6 +214,13 @@
         <button wx:if="{{orderMes.info.status == 1}}" bindtap="examineOrder" class="main-btn plain">审核订单</button>
         <button wx:if="{{orderMes.info.status == 2}}" bindtap="networkpayment" class="main-btn plain">代支付</button>
         <button wx:if="{{orderMes.info.status == 7}}" bindtap="networkconfirmorder" class="main-btn plain">确认完成</button>
+      </view>
+
+      <view class="flex-center-end" wx:if="{{personType == 4}}">
+        <button wx:if="{{orderMes.info.status == 1 && !orderMes.info.network_id}}" bindtap="distributeOrder" class="main-btn plain">分配订单</button>
+        <button wx:if="{{orderMes.info.status == 4}}" bindtap="chooseMaster" class="main-btn plain">指派</button>
+        <button wx:if="{{orderMes.info.status == 3}}" bindtap="releaseOrder" class="main-btn plain">发布</button>
+        <button wx:if="{{orderMes.info.status == 3}}" bindtap="chooseMaster" class="main-btn plain">选择师傅</button>
       </view>
 
       <view class="flex-center-end" wx:if="{{personType == 1 && orderStatus.status != 3}}">

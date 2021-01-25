@@ -456,5 +456,43 @@ Page({
     wx.navigateTo({
       url: '/pages/order/examine/examine?id=' + this.data.order_id
     })
+  },
+
+  // 分配订单
+  distributeOrder() {
+    wx.navigateTo({
+      url: '/pages/order/distribute/distribute?id=' + this.data.order_id
+    })
+  }, 
+
+  // 发布订单
+  releaseOrder() {
+    let that = this
+    wx.showModal({
+      content: '确定发布该订单？发布后该订单将显示在抢单中心，师傅可以进行报名。',
+      success (res) {
+        if (res.confirm) {
+          app.request({
+            loadText: '提交中',
+            url: '/',
+            data: {
+              order_id: that.data.order_id
+            },
+            success: function(data) {
+              app.successToast('发布成功', function(){
+                that.getInfo();
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+
+  // 指派或选择师傅
+  chooseMaster() {
+    wx.navigateTo({
+      url: '/pages/order/chooseMaster/chooseMaster?id=' + this.data.order_id + '&statusv=' + this.data.orderMes.info.status
+    })
   }
 })

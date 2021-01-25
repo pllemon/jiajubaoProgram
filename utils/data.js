@@ -425,6 +425,162 @@ const personMessage = {
       }
     },
     action: []
+  },
+  4: {
+    text: '我是客服',
+    icon: '/image/icon/business.svg',
+    orderStatus: {
+      0: {
+        status: 0,
+        label: '全部状态',
+        show: true
+      },
+      1: {
+        status: 1,
+        label: '待审核',
+        desc: '请及时联系用户并处理订单',
+        show: true,
+        icon: 'iconshenhe',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      2: {
+        status: 2,
+        label: '待支付',
+        desc: '审核通过，等待支付',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      3: {
+        status: 3,
+        label: '待派单',
+        desc: '订单已支付，等待后台派单',
+        show: true,
+        icon: 'icondengdai',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      4: {
+        status: 4,
+        label: '报名中',
+        desc: '师傅报名中',
+        show: true,
+        icon: 'icongongcheng-',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      5: {
+        status: 5,
+        label: '施工中',
+        desc: '师傅施工中',
+        show: true,
+        icon: 'icongongcheng-1',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: true,
+        showSignUp: false,
+      },
+      6: {
+        status: 6,
+        label: '待客户验收',
+        desc: '师傅已完成施工，待客户验收',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      7: {
+        status: 7,
+        label: '待店长验收',
+        desc: '客户已验收，请检查验收',
+        show: true,
+        icon: 'iconqianbao',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      8: {
+        status: 8,
+        label: '已验收',
+        desc: '工程已验收',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0261',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: true,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      10: {
+        status: 10,
+        label: '审核不通过',
+        desc: '订单审核不通过',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      11: {
+        status: 11,
+        label: '已取消',
+        desc: '订单已取消',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      12: {
+        status: 12,
+        label: '超时未付款',
+        desc: '订单超时未付款，已关闭',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      },
+      14: {
+        status: 14,
+        label: '超时未审核',
+        desc: '订单超时未审核，已关闭',
+        show: true,
+        icon: 'iconiconfontzhizuobiaozhun0262',
+        showUser: true,
+        showUserPhone: true,
+        showMaster: false,
+        showMasterPhone: false,
+        showSignUp: false
+      }
+    },
+    action: []
   }
 }
 const personType = {
@@ -534,6 +690,22 @@ const personType = {
         icon: 'icon-form',
         text: '本店订单',
         url: '/pages/order/list/list?personType=3'
+      },
+    ]
+  },
+  4: {
+    text: '我是客服',
+    icon: '/image/icon/business.svg',
+    action: [
+      {
+        icon: 'icon-logistic',
+        text: '维修订单',
+        url: '/pages/order/list/list?personType=4'
+      },
+      {
+        icon: 'icon-form',
+        text: '用户反馈',
+        url: '/pages/personal/attendant/feedback/feedback'
       },
     ]
   }

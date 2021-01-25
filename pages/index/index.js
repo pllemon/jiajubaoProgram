@@ -46,9 +46,9 @@ Page({
   // 分享
   onShareAppMessage: function (res) {
     return {
-      title: '多师傅平台欢迎你',
+      title: '加入我们，分享提成！',
       path: '/pages/index/index',
-      imageUrl: '/image/example/cx.jpg'
+      imageUrl: '/image/example/share.jpg'
     }
   }
 })

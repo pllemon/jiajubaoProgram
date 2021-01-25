@@ -10,6 +10,10 @@ Page({
 
     userInfo: {},
 
+    bgImg: '/image/example/share.jpg',
+    shareImg: '',
+    ewmImg: '',
+
     showEwm: false,
     ewmURL: '',
     finish: false,
@@ -167,24 +171,76 @@ Page({
     this[action]();
   },
 
+  // 生成专属二维码
   getShareCode() {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    }) 
     app.request({
       url: '/userqrcode',
       success: function(data) {
-        wx.previewImage({
-          current: data,
-          urls: [data]
+        wx.downloadFile({
+          url: data,
+          success: function (res2) {
+            console.log(res2)
+            that.setData({
+              ewmImg: res2
+            })
+            setTimeout(function(){
+              that.drawImage()
+            },500)
+          },
+          complete: function(){
+            wx.hideLoading()
+          }
         })
       }
     })
   },
+  drawImage() {
+    const ctx = wx.createCanvasContext('sharePoster');
+    ctx.drawImage(this.data.bgImg, 0, 0, 750, 750);
+    ctx.drawImage(this.data.ewmImg, 250, 250, 250, 250);
+    this.canvasToImage()
+  },
+  canvasToImage() {
+    wx.showLoading({
+      title: '加载中',
+    })   
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: 750,
+      height: 750,
+      destWidth: 750,
+      destHeight: 750,
+      canvasId: 'sharePoster',
+      fileType: 'jpg',
+      success: function (res) {
+        console.log('生成图片路径为=' + res)
+        wx.previewImage({
+          current: res.tempFilePath,
+          urls: [res.tempFilePath]
+        })
+      },
+      fail: function (err) {
+          console.log('失败')
+          console.log(err)
+      },
+      complete: function(){
+        wx.hideLoading()
+      }
+    })
+  },
+
 
   // 分享
   onShareAppMessage: function (res) {
     return {
-      title: '多师傅平台欢迎你',
+      title: '加入我们，分享提成！',
       path: '/pages/login/login?invitation_code=' + app.globalData.loginInfo.invitation_code,
-      imageUrl: '/image/example/cx.jpg'
+      imageUrl: '/image/example/share.jpg'
     }
   }
 })

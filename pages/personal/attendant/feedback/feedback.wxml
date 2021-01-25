@@ -1,0 +1,21 @@
+<view  class="full-layout">
+  <common-scroll
+    id="list"
+    class="scroll-view"
+    request-url="/usernetworklist"
+    query="{{query}}"
+    isPaging="{{false}}"
+    bind:change = "changeList"
+  >
+    <view class="order-list">
+      <view wx:for="{{list}}" wx:key="index" class="order-single">
+          <view class="category">{{item.service_demand}}</view>
+          <view class="mes">反馈账号：{{item.order_sn}}</view>
+          <view class="mes">用户名：{{item.time}}</view>
+          <view class="mes">反馈内容：{{item.pay_name}}</view>
+          <view class="mes">相关订单：{{item.pay_username}}</view>
+          <view class="mes">反馈时间：{{item.pay_username}}</view>
+      </view>
+    </view>
+  </common-scroll>
+</view>
