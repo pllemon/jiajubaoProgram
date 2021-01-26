@@ -1,17 +1,16 @@
 <view class="full-layout">
-    <canvas style="width: 750px; height: 1334px;position:absolute;right:2000px" canvas-id="sharePoster"></canvas>
+    <canvas style="width: 750px; height: 750px;position:absolute;right:2000px" canvas-id="sharePoster"></canvas>
     <block wx:if="{{ shareImg }}">
-        <view class="share-view flex1">
-            <image mode="aspectFit" src="{{ shareImg }}"></image>
-        </view>
+        <image mode="aspectFit" src="{{ shareImg }}" class="shareImg"></image>
         <view class="btns">
             <view class="down-btn flex-center" bindtap="saveImg">
-                <image src="/image/icon/down2.png" />
+                <!-- <image src="/image/icon/down2.png" /> -->
+                <text>保存图片</text>
             </view>
-            <button class="share-btn flex-center" open-type="share">
+            <!-- <button class="share-btn flex-center" open-type="share">
                 <image src="/image/icon/share.png" />
                 <text style="margin-left: 10rpx">分享给朋友</text>
-            </button>
+            </button> -->
         </view>
     </block>
 </view>

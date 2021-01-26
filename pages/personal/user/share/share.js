@@ -40,12 +40,8 @@ Page({
 
   drawImage() {
     const ctx = wx.createCanvasContext('sharePoster');
-    ctx.drawImage(this.data.bgImg, 0, 0, 750, 1334);
-    ctx.drawImage(this.data.ewmImg, 260, 960, 250, 250);
-    ctx.font = 'normal bold 18px sans-serif';
-    ctx.setFontSize(52)
-    ctx.setFillStyle('#ff7652')
-    ctx.fillText(app.globalData.loginInfo.invitation_code, 380, 396)
+    ctx.drawImage(this.data.bgImg, 0, 0, 750, 750);
+    ctx.drawImage(this.data.ewmImg, 240, 240, 280, 280);
     ctx.draw()
   },
   
@@ -58,9 +54,9 @@ Page({
       x: 0,
       y: 0,
       width: 750,
-      height: 1334,
+      height: 750,
       destWidth: 750,
-      destHeight: 1334,
+      destHeight: 750,
       canvasId: 'sharePoster',
       fileType: 'jpg',
       success: function (res) {

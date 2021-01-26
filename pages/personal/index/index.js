@@ -60,6 +60,7 @@ Page({
       currType: type
     })
     this.getInfo();
+    this.showShareCode();
   },
 
   // 获取账号信息
@@ -173,9 +174,16 @@ Page({
 
   // 生成专属二维码
   getShareCode() {
+    wx.previewImage({
+      current: this.data.shareImg,
+      urls: [this.data.shareImg]
+    })
+  },
+  showShareCode() {
     let that = this;
     wx.showLoading({
       title: '加载中',
+      mask: true
     }) 
     app.request({
       url: '/userqrcode',
@@ -185,14 +193,21 @@ Page({
           success: function (res2) {
             console.log(res2)
             that.setData({
-              ewmImg: res2
+              ewmImg: res2.tempFilePath
             })
+            wx.showLoading({
+              title: '加载中',
+              mask: true
+            })   
             setTimeout(function(){
               that.drawImage()
-            },500)
+              setTimeout(function () {
+                that.canvasToImage()
+              }, 1000)
+            },1000)
           },
           complete: function(){
-            wx.hideLoading()
+            // wx.hideLoading()
           }
         })
       }
@@ -201,13 +216,11 @@ Page({
   drawImage() {
     const ctx = wx.createCanvasContext('sharePoster');
     ctx.drawImage(this.data.bgImg, 0, 0, 750, 750);
-    ctx.drawImage(this.data.ewmImg, 250, 250, 250, 250);
-    this.canvasToImage()
+    ctx.drawImage(this.data.ewmImg, 240, 240, 280, 280);
+    ctx.draw()
   },
   canvasToImage() {
-    wx.showLoading({
-      title: '加载中',
-    })   
+    let that = this
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
@@ -218,10 +231,9 @@ Page({
       canvasId: 'sharePoster',
       fileType: 'jpg',
       success: function (res) {
-        console.log('生成图片路径为=' + res)
-        wx.previewImage({
-          current: res.tempFilePath,
-          urls: [res.tempFilePath]
+        console.log(res.tempFilePath)
+        that.setData({
+          shareImg: res.tempFilePath
         })
       },
       fail: function (err) {

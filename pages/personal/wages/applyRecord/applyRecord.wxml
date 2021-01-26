@@ -38,7 +38,7 @@
     </view>
   </common-scroll>
   <view class="page-action">
-    <button bindtap="openPopup" class="main-btn flex1 default" data-type="1" bindtap="apply" style="margin-left: 0">申请一期</button>
+    <button bindtap="openPopup" class="main-btn flex1 default" data-type="1" bindtap="apply" style="margin-left: 0">确认一期</button>
     <button bindtap="openPopup" class="main-btn flex1 default" data-type="2" bindtap="apply">申请二期</button>
   </view>
 </view>

@@ -131,6 +131,7 @@
       <text>客服</text>
     </button>
   </movable-view>
-
   
 </movable-area>
+
+<canvas style="width: 750px; height: 750px;position:absolute;right:2000px" canvas-id="sharePoster"></canvas>
