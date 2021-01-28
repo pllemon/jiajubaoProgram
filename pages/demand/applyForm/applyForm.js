@@ -22,7 +22,11 @@ Page({
     addressInfo: null,
     checked: false,
 
-    address: ''
+    address: '',
+
+    showCategroy: true,
+    categroyIdx2: 0,
+    categroyImage: ''
   },
 
   onLoad(params) {
@@ -42,7 +46,9 @@ Page({
       data: {},
       success: function(data) {
         that.setData({
-          categroyArr: data
+          categroyArr: data,
+          categroyIdx2: 0,
+          categroyImage: data[0].cover
         })
       }
     })
@@ -188,6 +194,33 @@ Page({
     })
   },
 
+  closeCategroy() {
+    this.setData({
+      showCategroy: false
+    })
+  },
+
+  chooseCategroy(e) {
+    let value = e.detail.value
+    this.setData({
+      categroyIdx2: value,
+      categroyImage: this.data.categroyArr[value].cover
+    })
+  },
+  
+  cancelPopup() {
+    let value = this.data.categroyIdx
+    this.setData({
+      categroyIdx2: value,
+      categroyImage: this.data.categroyArr[value].cover
+    })
+  },
+  surePopup() {
+    let value = this.data.categroyIdx2
+    this.setData({
+      categroyIdx: value
+    })
+  },
 
 
   afterRead(e) {

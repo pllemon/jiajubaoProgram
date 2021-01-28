@@ -1,0 +1,25 @@
+
+.categroy-image{
+    width: 400rpx;
+    height: 400rpx;
+    margin-bottom: 20rpx;
+    background: #eee;
+}
+
+.popup-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.popup-btn view{
+    padding: 5px;
+}
+.popup-btn .cancel{
+    color: #888;
+}
+
+.popup-btn .sure{
+    color: #07c160;
+}
