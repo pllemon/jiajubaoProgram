@@ -60,16 +60,12 @@ Page({
             app.showModal('请输入真实姓名');
             return false;
         }
-        if (this.data.pay_status_code == 'GETTOW' && !this.data.shouju_img.length) {
+        if (!this.data.shouju_img.length) {
             app.showModal('请上传收据单');
             return false;
         }
         if (personType == 1) {
-            if (this.data.pay_status_code == 'GETTOW') {
-                this.uploadShouju()
-            } else {
-                this.masterApply()
-            }
+            this.uploadShouju()
         } else {
             this.userApply()
         }

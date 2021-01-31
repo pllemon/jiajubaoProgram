@@ -242,6 +242,12 @@
 					"pathName": "pages/login/login",
 					"query": "type=0",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维修下单",
+					"pathName": "pages/demand/applyForm/applyForm",
+					"scene": null
 				}
 			]
 		}

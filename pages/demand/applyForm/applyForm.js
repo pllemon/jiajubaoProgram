@@ -24,7 +24,7 @@ Page({
 
     address: '',
 
-    showCategroy: true,
+    showCategroy: false,
     categroyIdx2: 0,
     categroyImage: ''
   },
@@ -194,6 +194,11 @@ Page({
     })
   },
 
+  openCategroy() {
+    this.setData({
+      showCategroy: true
+    })
+  },
   closeCategroy() {
     this.setData({
       showCategroy: false
@@ -209,16 +214,18 @@ Page({
   },
   
   cancelPopup() {
-    let value = this.data.categroyIdx
+    let value = this.data.categroyIdx || 0
     this.setData({
       categroyIdx2: value,
-      categroyImage: this.data.categroyArr[value].cover
+      categroyImage: this.data.categroyArr[value].cover,
+      showCategroy: false
     })
   },
   surePopup() {
     let value = this.data.categroyIdx2
     this.setData({
-      categroyIdx: value
+      categroyIdx: value,
+      showCategroy: false
     })
   },
 

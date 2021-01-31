@@ -1,9 +1,9 @@
 
 .categroy-image{
-    width: 400rpx;
-    height: 400rpx;
-    margin-bottom: 20rpx;
+    width: 300rpx;
+    height: 300rpx;
     background: #eee;
+    margin: 20rpx auto; 
 }
 
 .popup-btn{
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 .popup-btn view{
-    padding: 5px;
+    padding: 6px 10px;
 }
 .popup-btn .cancel{
     color: #888;
