@@ -1,255 +1,255 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": false,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"packNpmManually": false,
-		"packNpmRelationList": [],
-		"useMultiFrameRuntime": false,
-		"useApiHook": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.2",
-	"appid": "wx24bb246d1af49225",
-	"projectname": "jiajubao",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 38,
-			"list": [
-				{
-					"id": -1,
-					"name": "优惠订单",
-					"pathName": "pages/offline/list/list",
-					"query": "personType=2",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "优惠下单1",
-					"pathName": "pages/shop/markDemand/markDemand",
-					"query": "business_id =1",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "优惠订单详情",
-					"pathName": "pages/offline/details/details",
-					"query": "id=40&personType=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商家下单",
-					"pathName": "pages/shop/discount/discount",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": 4,
-					"name": "个人中心",
-					"pathName": "pages/personal/index/index",
-					"query": "type=0",
-					"scene": 1047
-				},
-				{
-					"id": -1,
-					"name": "优惠下单",
-					"pathName": "pages/shop/discount/discount",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "我的订单",
-					"pathName": "pages/order/list/list",
-					"query": "personType=3&showNav=1",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "订单详情",
-					"pathName": "pages/order/detail/detail",
-					"query": "id=31&personType=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "下单",
-					"pathName": "pages/demand/applyForm/applyForm",
-					"query": "id=32&personType=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商家资料",
-					"pathName": "pages/personal/businessman/identity/identity",
-					"query": "readonly=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/offline/examine/examine",
-					"pathName": "pages/offline/examine/examine",
-					"query": "id=39&personType=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的收益",
-					"pathName": "pages/personal/wages/settlement/settlement",
-					"query": "id=34&personType=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/order/center/center",
-					"pathName": "抢单中心",
-					"query": "type=3",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "抢单中心",
-					"pathName": "pages/order/center/center",
-					"query": "type=3",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "抢单中心",
-					"pathName": "pages/order/center/center",
-					"query": "type=0",
-					"scene": null
-				},
-				{
-					"id": 15,
-					"name": "工程秀",
-					"pathName": "pages/order/show/show",
-					"query": "number=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "实体店",
-					"pathName": "pages/shop/list/list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/order/detail/detail",
-					"query": "id=24&personType=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "登录",
-					"pathName": "pages/login/login",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "添加商品",
-					"pathName": "pages/personal/businessman/goods/goods",
-					"query": "type=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "施工广场",
-					"pathName": "pages/engineering/list/list",
-					"query": "id=31&personType=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商家优惠",
-					"pathName": "id=1",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商家优惠",
-					"pathName": "pages/shop/discount/discount",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "222",
-					"pathName": "pages/shop/discount/discount",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": 24,
-					"name": "注册",
-					"pathName": "pages/login/login",
-					"query": "type=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "维修下单",
-					"pathName": "pages/demand/applyForm/applyForm",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.2",
+  "appid": "wx24bb246d1af49225",
+  "projectname": "jiajubao",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 38,
+      "list": [
+        {
+          "id": -1,
+          "name": "优惠订单",
+          "pathName": "pages/offline/list/list",
+          "query": "personType=2",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "优惠下单1",
+          "pathName": "pages/shop/markDemand/markDemand",
+          "query": "business_id =1",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "优惠订单详情",
+          "pathName": "pages/offline/details/details",
+          "query": "id=40&personType=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家下单",
+          "pathName": "pages/shop/discount/discount",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "个人中心",
+          "pathName": "pages/personal/index/index",
+          "query": "type=0",
+          "scene": 1047
+        },
+        {
+          "id": -1,
+          "name": "优惠下单",
+          "pathName": "pages/shop/discount/discount",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "我的订单",
+          "pathName": "pages/order/list/list",
+          "query": "personType=3&showNav=1",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "订单详情",
+          "pathName": "pages/order/detail/detail",
+          "query": "id=31&personType=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "下单",
+          "pathName": "pages/demand/applyForm/applyForm",
+          "query": "id=32&personType=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家资料",
+          "pathName": "pages/personal/businessman/identity/identity",
+          "query": "readonly=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/offline/examine/examine",
+          "pathName": "pages/offline/examine/examine",
+          "query": "id=39&personType=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的收益",
+          "pathName": "pages/personal/wages/settlement/settlement",
+          "query": "id=34&personType=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/order/center/center",
+          "pathName": "抢单中心",
+          "query": "type=3",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "抢单中心",
+          "pathName": "pages/order/center/center",
+          "query": "type=3",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "抢单中心",
+          "pathName": "pages/order/center/center",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "id": 15,
+          "name": "工程秀",
+          "pathName": "pages/order/show/show",
+          "query": "number=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "实体店",
+          "pathName": "pages/shop/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单详情",
+          "pathName": "pages/order/detail/detail",
+          "query": "id=24&personType=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "添加商品",
+          "pathName": "pages/personal/businessman/goods/goods",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "施工广场",
+          "pathName": "pages/engineering/list/list",
+          "query": "id=31&personType=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家优惠",
+          "pathName": "id=1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家优惠",
+          "pathName": "pages/shop/discount/discount",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "222",
+          "pathName": "pages/shop/discount/discount",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": 24,
+          "name": "注册",
+          "pathName": "pages/login/login",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "维修下单",
+          "pathName": "pages/demand/applyForm/applyForm",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

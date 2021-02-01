@@ -474,7 +474,7 @@ Page({
         if (res.confirm) {
           app.request({
             loadText: '提交中',
-            url: '/',
+            url: '/customerordersrelease',
             data: {
               order_id: that.data.order_id
             },

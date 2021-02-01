@@ -49,7 +49,7 @@ Page({
     form.network_id = this.data.networkArr[this.data.networkIdx].id;
     
     app.request({
-      url: '/networklist',
+      url: '/customerordertonetwork',
       method: 'POST',
       data: form,
       success: function(data) {

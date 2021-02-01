@@ -15,6 +15,10 @@ let personMes = {
   3: {
     url: '/networkorderlist',
     status: 'status'
+  },
+  4: {
+    url: '/customerorderlist',
+    status: 'status'
   }
 }
 
@@ -45,7 +49,8 @@ Page({
     let pageTitle = {
       0: '用户订单',
       1: '师傅订单',
-      3: '本店订单'
+      3: '本店订单',
+      4: '订单列表'
     }
     let personType = params.personType
     let url = personMes[personType].url;

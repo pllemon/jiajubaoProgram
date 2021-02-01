@@ -536,3 +536,19 @@ transactionlog 添加type 区分商家流水和维修流水
 
 审核备注 -》 审核人，订单详情和后台
 卡：caridimg、caridzimg、caridfimg
+
+
+//客服
+Route::rule('customerorderlist', 'api/Customer/orderlist'); //客服订单列表
+Route::rule('customerordersrelease', 'api/Customer/ordersrelease'); //客服发布订单
+Route::rule('customerchoosecraftsman', 'api/Customer/choosecraftsman'); //客服发布订单
+Route::rule('customerordertonetwork', 'api/Customer/ordertonetwork'); //客服指派订单到网店
+Route::rule('customercraftsmanlist', 'api/Customer/craftsmanlist'); //客服查询师傅列表
+Route::rule('customerfeedback', 'api/Customer/feedback'); //客服查询用户反馈
+
+
+//客服
+Route::rule('admin/customerlist', 'admin/Customer/customerlist'); //客服列表
+Route::rule('admin/addcustomer', 'admin/Customer/addcustomer'); //添加客服
+Route::rule('admin/customerinfo', 'admin/Customer/customerinfo'); //客服详情
+Route::rule('admin/savecustomer', 'admin/Customer/savecustomer'); //修改客服

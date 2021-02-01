@@ -35,7 +35,7 @@
     </van-tabs>
   </view>
 
-  <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1) || currType == 3}}">
+  <block wx:if="{{currType == 0 || (currType == 1 && userInfo.is_criaftsman == 1) || (currType == 2 && userInfo.is_business == 1) || currType == 3 || currType == 4}}">
     <!-- 操作列表 -->
     <view class="action-list">
       <!-- <view class="type-number">

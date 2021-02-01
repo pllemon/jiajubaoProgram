@@ -71,6 +71,9 @@ Page({
     if (!loginInfo.networkauth) {
       delete personType[3]
     }
+    if (!loginInfo.customerauth) {
+      delete personType[4]
+    }
     that.setData({
       personType: personType,
       userInfo: loginInfo

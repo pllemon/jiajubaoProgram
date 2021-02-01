@@ -2,19 +2,18 @@
   <common-scroll
     id="list"
     class="scroll-view"
-    request-url="/usernetworklist"
+    request-url="/customerfeedback"
     query="{{query}}"
-    isPaging="{{false}}"
+    isPaging="{{true}}"
     bind:change = "changeList"
   >
     <view class="order-list">
       <view wx:for="{{list}}" wx:key="index" class="order-single">
-          <view class="category">{{item.service_demand}}</view>
-          <view class="mes">反馈账号：{{item.order_sn}}</view>
-          <view class="mes">用户名：{{item.time}}</view>
-          <view class="mes">反馈内容：{{item.pay_name}}</view>
-          <view class="mes">相关订单：{{item.pay_username}}</view>
-          <view class="mes">反馈时间：{{item.pay_username}}</view>
+          <view class="category">{{item.feedback}}</view>
+          <view class="mes">反馈账号：{{item.phone}}</view>
+          <view class="mes">用户名：{{item.username}}</view>
+          <view class="mes">相关订单：<text style="color: #409EFF;" data-id="{{item.order_id}}" bindtap="goOrder">{{item.order_sn}}</text></view>
+          <view class="mes">反馈时间：{{item.time}}</view>
       </view>
     </view>
   </common-scroll>

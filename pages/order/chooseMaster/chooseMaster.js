@@ -39,7 +39,7 @@ Page({
     let that = this;
     if (keyword) {
       app.request({
-        url: '/orderinfo',
+        url: '/customercraftsmanlist',
         data: {
           keyword: that.data.keyword
         },
@@ -62,7 +62,7 @@ Page({
       success (res) {
         if (res.confirm) {
           app.request({
-            url: '/businessancelorder',
+            url: '/customerchoosecraftsman',
             data: {
               bo_id: that.data.order_id,
               order_sn: that.data.orderMes.order_sn
