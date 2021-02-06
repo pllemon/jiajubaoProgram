@@ -5,7 +5,9 @@ Page({
   data: {
     form: {
       network_id: '',
-      order_id: ''
+      order_id: '',
+      order_sn: '',
+      user_id: ''
     },
     networkArr: [],
     networkIdx: ''
@@ -13,7 +15,9 @@ Page({
 
   onLoad(params) {
     this.setData({
-      'form.order_id': params.id
+      'form.order_id': params.id,
+      'form.order_sn': params.sn,
+      'form.user_id': params.userId
     })
     this.getNetwork();
   },

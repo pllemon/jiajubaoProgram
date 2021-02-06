@@ -10,7 +10,7 @@
         </van-cell> -->
         <van-cell title="服务需求" title-width="100px" required>
             <view class="picker" bindtap="openCategroy">
-                <text>{{categroyIdx ? categroyArr[categroyIdx].type_name : '请选择'}}</text>
+                <text>{{(categroyIdx || categroyIdx === 0) ? categroyArr[categroyIdx].type_name : '请选择'}}</text>
                 <icon class="address-icon iconfont iconicon_next_arrow"></icon>
             </view>
         </van-cell>
@@ -62,7 +62,7 @@
         <view class="cancel" bindtap="cancelPopup">取消</view>
         <view class="sure" bindtap="surePopup">确定</view>
     </view>
-    <image src="{{categroyImage}}" class="categroy-image" />
+    <gdImage src="{{categroyImage}}" class="categroy-image"></gdImage>
     <picker-view indicator-style="height: 50px;" style="width: 100%; height: 250px;" value="{{categroyIdx2}}" bindchange="chooseCategroy">
         <picker-view-column>
             <view wx:for="{{categroyArr}}" wx:key="{{item.id}}" data-idx="{{item.idx}}" style="line-height: 50px; text-align: center;">

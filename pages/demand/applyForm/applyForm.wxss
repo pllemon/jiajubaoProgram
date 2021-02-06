@@ -4,6 +4,7 @@
     height: 300rpx;
     background: #eee;
     margin: 20rpx auto; 
+    display: block;
 }
 
 .popup-btn{

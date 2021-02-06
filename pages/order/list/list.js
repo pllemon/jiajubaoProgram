@@ -50,7 +50,7 @@ Page({
       0: '用户订单',
       1: '师傅订单',
       3: '本店订单',
-      4: '订单列表'
+      4: '客服订单'
     }
     let personType = params.personType
     let url = personMes[personType].url;

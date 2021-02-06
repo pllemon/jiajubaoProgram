@@ -8,7 +8,7 @@
     />
     <image 
         wx:else 
-        src="/image/example/user6.png" 
+        src="/image/example/plac.png" 
         mode="{{mode}}" 
         lazy-load="{{true}}"
         bindtap="preview"

@@ -2,27 +2,32 @@
 <van-search
     wx:if="{{orderMes.info.status == 3}}"
     value="{{ keyword }}"
+    use-action-slot
     input-align="center"
     placeholder="请输入师傅工号/手机号"
     bind:change="changeSearch"
 >
-  <view slot="action" bindtap="onSearch">搜索</view>
+  <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 
-<view class="sign-list" wx:if="{{craftsmanlist.length>0}}">
-    <block wx:for="{{craftsmanlist}}" wx:key="index">
-    <view class="sign-single flex-center-between">
-        <view class="flex-center-start">
-        <gdImage src="{{ item.cmheaderurl }}" class="personal-img" width="70rpx" height="70rpx"></gdImage>
-        <view>
-            <view style="color:#353535;font-size:14px">{{item.name}}（{{item.sn}}）</view>
-            <view style="font-size:13px">{{item.bmtime}}</view>
+    <view class="sign-list" wx:if="{{craftsmanlist.length>0}}">
+        <block wx:for="{{craftsmanlist}}" wx:key="index">
+        <view class="sign-single flex-center-between">
+            <view class="flex-center-start">
+                <gdImage src="{{ item.headerurl || item.cmheaderurl }}" class="personal-img" width="100rpx" height="100rpx"></gdImage>
+                <view style="margin-left:20rpx">
+                    <view style="color:#000;font-size:16px">{{item.name}}</view>
+                    <view style="font-size:16px">{{item.sn}}</view>
+                </view>
+            </view>
+            <button wx:if="{{orderMes.info.status == 3}}" size="mini" class="button-plain" data-id="{{item.id}}" bindtap="chooseMaster">选择</button>
+            <button wx:if="{{orderMes.info.status == 4}}" size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
         </view>
-        </view>
-        <button size="mini" class="button-plain" data-id="{{item.craftsman_id}}" bindtap="chooseMaster">选择</button>
+        </block>
     </view>
-    </block>
-</view>
-<view class="flex-center"  wx:if="{{orderMes.info.status == 4 && orderMes.craftsmanlist.length==0}}" style="height: 300rpx">
-    还没有师傅报名哦~
-</view>
+    <view class="flex-center"  wx:if="{{orderMes.info.status == 4 && orderMes.craftsmanlist.length==0}}" style="height: 300rpx">
+        还没有师傅报名
+    </view>
+<!-- <view class="flex-center"  wx:if="{{orderMes.info.status == 3 && keyword && craftsmanlist.length == 0}}" style="height: 300rpx">
+    无相关数据
+</view> -->

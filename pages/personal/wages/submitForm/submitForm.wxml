@@ -40,7 +40,7 @@
                 bind:change="changeMoney"
             />
         </van-cell>
-        <van-cell title="收据单" title-width="100px" required wx:if="{{pay_status_code == 'GETTOW'}}">
+        <van-cell title="收据单" title-width="100px" required wx:if="{{personType == 1}}">
             <van-uploader data-type="shouju_img" file-list="{{ shouju_img }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
         </van-cell>
     </van-cell-group>

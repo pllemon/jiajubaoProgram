@@ -21,7 +21,7 @@ Page({
       })
     } else {
       wx.setNavigationBarTitle({
-        title: '一期佣金申请'
+        title: '确认一期'
       })
     }
     this.selectComponent("#list").getData(1);

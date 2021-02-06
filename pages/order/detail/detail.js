@@ -114,6 +114,8 @@ Page({
           } 
         } else if (that.data.personType == 3) { // 店长
           orderStatus = personMessage[3].orderStatus[data.info.status];
+        } else if (that.data.personType == 4) { // 客服
+          orderStatus = personMessage[4].orderStatus[data.info.status];
         }
         that.setData({
           orderMes: data,
@@ -461,7 +463,7 @@ Page({
   // 分配订单
   distributeOrder() {
     wx.navigateTo({
-      url: '/pages/order/distribute/distribute?id=' + this.data.order_id
+      url: '/pages/order/distribute/distribute?id=' + this.data.order_id + '&sn=' + this.data.orderMes.info.order_sn + '&userId=' + this.data.orderMes.info.user_id
     })
   }, 
 

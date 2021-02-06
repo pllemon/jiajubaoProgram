@@ -48,7 +48,7 @@ Page({
         that.setData({
           categroyArr: data,
           categroyIdx2: 0,
-          categroyImage: data[0].cover
+          categroyImage: data[0].imgurl
         })
       }
     })
@@ -209,7 +209,7 @@ Page({
     let value = e.detail.value
     this.setData({
       categroyIdx2: value,
-      categroyImage: this.data.categroyArr[value].cover
+      categroyImage: this.data.categroyArr[value].imgurl
     })
   },
   
@@ -217,7 +217,7 @@ Page({
     let value = this.data.categroyIdx || 0
     this.setData({
       categroyIdx2: value,
-      categroyImage: this.data.categroyArr[value].cover,
+      categroyImage: this.data.categroyArr[value].imgurl,
       showCategroy: false
     })
   },

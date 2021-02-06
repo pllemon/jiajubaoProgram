@@ -6,6 +6,12 @@ Page({
     query: {}
   },
 
+  onLoad() {
+    wx.setNavigationBarTitle({
+      title: '用户反馈'
+    })
+  },
+
   changeList(e) {
     this.setData({
       list: e.detail

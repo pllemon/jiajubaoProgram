@@ -17,7 +17,7 @@
                 <view class="mes">施工报价：<text class="money">￥{{item.craftsman_price}}</text></view>
                 <view class="flex-center-end action">
                     <button class="main-btn default" data-id="{{item.order_id}}" bindtap="goDetail">订单详情</button>
-                    <button class="main-btn plain" data-id="{{item.order_id}}" bindtap="singleApply">点击申请</button>
+                    <button class="main-btn plain" data-id="{{item.order_id}}" bindtap="singleApply">{{query.pay_status_code == 'GETTOW' ? '点击申请' : '点击确认'}}</button>
                 </view>
             </view>
         </view>
