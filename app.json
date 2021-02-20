@@ -39,6 +39,8 @@
     "pages/personal/notice/notice",
     "pages/personal/doc/doc",
     "pages/personal/feedback/feedback",
+    "pages/personal/salesman/business/business",
+    "pages/personal/salesman/statistics/statistics",
 
     "pages/personal/wages/index/index",
     "pages/personal/wages/applyRecord/applyRecord",

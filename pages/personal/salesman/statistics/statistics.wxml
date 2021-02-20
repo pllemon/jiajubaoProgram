@@ -1,0 +1,39 @@
+<form bindsubmit="formSubmit" class="form" style="padding-bottom: 50rpx">
+    <van-cell-group>
+        <van-cell title="商品图" title-width="100px" required>
+            <van-uploader data-type="imgArr" file-list="{{ imgArr }}" max-count="1" bind:after-read="afterRead" bind:delete="deleteImage" /> 
+        </van-cell>
+        <van-field
+            input-class="input-field"
+            value="{{ form.goods_name }}"
+            required
+            label="商品名称"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="goods_name"
+            bind:change="onChange"
+        />
+        <van-field
+            input-class="input-field"
+            value="{{ form.price }}"
+            required
+            label="商品价格"
+            type="digit"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="price"
+            bind:change="onChange"
+        />
+        <!-- <van-field
+            input-class="input-field"
+            value="{{ form.desc }}"
+            label="商品描述"
+            placeholder="请输入"
+            title-width="100px"
+            data-name="desc"
+            bind:change="onChange"
+        /> -->
+    </van-cell-group>
+
+    <button form-type="submit" class="main-btn">提交</button>
+</form>

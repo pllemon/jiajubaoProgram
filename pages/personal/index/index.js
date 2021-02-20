@@ -74,6 +74,10 @@ Page({
     if (!loginInfo.customerauth) {
       delete personType[4]
     }
+    if (loginInfo.salesmanauth) {
+      delete personType[1]
+      delete personType[2]
+    }
     that.setData({
       personType: personType,
       userInfo: loginInfo

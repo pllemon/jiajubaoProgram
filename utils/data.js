@@ -708,6 +708,11 @@ const personType = {
         url: '/pages/personal/attendant/feedback/feedback'
       },
     ]
+  },
+  5: {
+    text: '我是业务',
+    icon: '/image/icon/business.svg',
+    action: []
   }
 }
 
