@@ -552,3 +552,16 @@ Route::rule('admin/customerlist', 'admin/Customer/customerlist'); //客服列表
 Route::rule('admin/addcustomer', 'admin/Customer/addcustomer'); //添加客服
 Route::rule('admin/customerinfo', 'admin/Customer/customerinfo'); //客服详情
 Route::rule('admin/savecustomer', 'admin/Customer/savecustomer'); //修改客服
+
+
+我的商家
+推荐码是我，是商家
+
+
+商家确认接单后生成业务流水
+
+
+小程序业务:
+1. 我的商家列表：推荐码是我、已经通过审核，返回商家名称和总收益（确认接单的总价格）
+2. 统计我的商家个数（按审核通过时间）： 本月、上月、前月
+
