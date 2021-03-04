@@ -111,7 +111,7 @@
         <view class="van-cell-text">前月商家：10家</view>
       </view>
     </van-cell>
-    <van-cell is-link link-type="navigateTo" url="pages/personal/salesman/statistics/statistics">
+    <van-cell is-link link-type="navigateTo" url="/pages/personal/salesman/statistics/statistics">
       <view slot="title" class="action-item">
         <icon class="iconfont2 icon-trade"></icon>
         <view class="van-cell-text">业绩统计</view>

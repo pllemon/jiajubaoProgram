@@ -1,3 +1,22 @@
 <view>
-
+    <!-- 筛选 -->
+    <van-dropdown-menu active-color="#ff5643">
+        <van-dropdown-item value="{{ areaValue }}" options="{{ areaOptions }}"  bind:change="changeArea"/>
+        <van-dropdown-item value="{{ networkValue }}" options="{{ networkOptions }}"  bind:change="changeNetwork"/>
+        <van-dropdown-item id="times" title="{{ timesTitle }}">
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 250px;" value="{{timeValue}}" bindchange="changeTimes">
+                <picker-view-column>
+                    <view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;">
+                        {{item}}年
+                    </view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;">
+                        {{item}}月
+                    </view>
+                </picker-view-column>
+            </picker-view>
+            <button bindtap="chooseTimes">点击</button>
+        </van-dropdown-item>
+    </van-dropdown-menu>
 </view>

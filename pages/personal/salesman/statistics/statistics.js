@@ -1,132 +1,115 @@
 const app = getApp();
-const common = require('../../../../utils/common.js');
+const date = new Date()
+const {areaJson} = require('../../../../utils/area.js');
 
 Page({
   data: {
-    form: {
-      goods_name: '',
-      price: '',
-      goods_image: ''
-    },
-    imgArr: [],
-    businessinfo: null
+    networkValue: '',
+    networkOptions: [],
+    areaValue: '',
+    areaOptions: [],
+    timesTitle: '时间',
+    year: date.getFullYear(),
+    month: '全部',
+    years: [],
+    months: [],
+    timeValue: [date.getFullYear(), '']
   },
 
   onLoad(params) {
-    let that = this;
-    let goods_id = params.id || ''
-    const businessinfo = app.globalData.loginInfo.businessinfo
-    that.setData({
-      businessinfo,
-      goods_id
-    })
-    if (goods_id) {
-      that.getDetails()
-    }
+    this.getTimes()
+    this.getArea()
+    this.getNetwork()
   },
 
-  getDetails() {
+  getTimes() {
+    let years = []
+    let months = ['全部']
+    for (let i = 2021; i<= 2121; i++) {
+      years.push(i)
+    }
+    for (let i = 1; i <= 12; i++) {
+      months.push(i)
+    }
+    this.setData({
+      years,
+      months
+    })
+  },
+
+  getArea() {
+    let salesmanauth = app.globalData.loginInfo.salesmanauth
+    let areaOptions = []
+    console.log(salesmanauth)
+    areaJson.forEach(item => {
+      if (item.value == salesmanauth.province) {
+        item.children.forEach(item2 => {
+          if (item2.value == salesmanauth.city) {
+            areaOptions.push({
+              text: item2.label,
+              value: item2.value
+            })
+            this.setData({
+              areaValue: item2.value
+            })
+            item2.children.forEach(item3 => {
+              areaOptions.push({
+                text: item3.label,
+                value: item3.value
+              })
+            })
+          }
+        })
+      }
+    })
+    this.setData({
+      areaOptions
+    })
+  },
+
+  getNetwork() {
+    let that = this;
     app.request({
-      url: '/businessgoodsinfo',
-      method: 'get',
-      data: {
-        goods_id: this.data.goods_id
-      },
+      url: '/networklist',
+      method: 'POST',
+      data: {},
       success: function(data) {
+        data.forEach(item => {
+          item.text = item.name,
+          item.value = item.id
+        })
+        data.unshift({
+          text: '全部网点',
+          value: ''
+        })
         console.log(data)
+        that.setData({
+          networkOptions: data
+        })
       }
     })
   },
 
-  formSubmit(e) {
-    let that = this;
-    let form = this.data.form;
-    form.business_id = that.data.businessinfo.id
-    
-    if (!form.goods_name) {
-      app.showModal('请输入商品名称');
-      return false;
-    }
-    if (!form.price) {
-      app.showModal('请输入商品价格');
-      return false;
-    }
-
-    console.log(form)
-
-    wx.showLoading({
-      title: '上传中',
+  chooseTimes() {
+    this.setData({
+      timesTitle: '3333'
     })
-    wx.uploadFile({
-      url: 'https://www.dsfjjwx.com/businessuploadgoods',
-      filePath: this.data.imgArr[0].url,
-      name: 'goods_image',
-      formData: form,
-      header: {
-        'content-type': 'multipart/form-data',
-        'cookie': app.globalData.session
-      },
-      success: function(data) {
-        let odata = JSON.parse(data.data)
-        console.log(odata)
-        if (odata.success) {
-          let payInfo = odata.data.payinfo
-          let goods_id = odata.data.goods_id
-          wx.requestPayment({
-            'nonceStr': payInfo.nonceStr,
-            'package': payInfo.package,
-            'signType': payInfo.signType,
-            'timeStamp': payInfo.timeStamp.toString(),
-            'paySign': payInfo.sign,
-            'success':function(res){
-              app.successToast('支付成功', function(){
-                let pages = getCurrentPages();
-                let beforePage = pages[pages.length - 2];
-                beforePage.selectComponent("#list").getData(1);
-                wx.navigateBack();    
-              })
-            },
-            'fail':function(res){
-              that.removeRecord(goods_id)
-              app.showModal('添加失败', function() {
-                wx.navigateBack(); 
-              })
-            }
-          })
-        } else {
-          app.showModal(odata.message);
-        }
-      },
-      fail: function(err) {
-        console.log(err)
-      },
-      complete: function() {
-        wx.hideLoading();
-      }
-    })
+    this.selectComponent('#times').toggle();
   },
 
-  removeRecord(id) {
-    app.request({
-      hideLoading: true,
-      url: '/businesssavegoodsstatus',
-      data: {
-        goods_id: id,
-        status: 3
-      },
-      success: function(data) {
-        
-      }
-    })
+  changeNetwork(res) {
+    console.log(res)
   },
 
-  afterRead(e) {
-    common.readImage(this, e)
-  },  
-  deleteImage(e) {
-    common.deleteImage(this, e)
+  changeArea(res) {
+    console.log(res)
   },
-  onChange(e) {
-    common.changeInput(this, e)
+
+  changeTimes(e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]]
+    })
   }
 })
